@@ -1,0 +1,6 @@
+[book]
+authors = ["Jing Ai"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Note"
