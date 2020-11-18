@@ -1,4 +1,4 @@
 # Summary
 
 - [Chapter 1](./chapter_1.md)
-- [Javascript note](./javascript.md)
+- [Vue3 note](./vue3.md)

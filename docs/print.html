@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="javascript.html"><strong aria-hidden="true">2.</strong> Javascript note</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -166,27 +166,37 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#chapter-1" id="chapter-1">Chapter 1</a></h1>
-<h1><a class="header" href="#javascript-note" id="javascript-note">Javascript note</a></h1>
-<p>This is my first note.</p>
-<pre><code class="language-javascript">console.log(&quot;Hello&quot;)
+<h4><a class="header" href="#a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa" id="a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links">This is a link for markdown syntax</a></a></h4>
+<h1><a class="header" href="#vue3-and-javascript" id="vue3-and-javascript">Vue3 and Javascript</a></h1>
+<h3><a class="header" href="#how-to-create-a-dynamic-router-on-a-page" id="how-to-create-a-dynamic-router-on-a-page">How to create a dynamic router on a page</a></h3>
+<p><a href="https://router.vuejs.org/guide/essentials/navigation.html">Vue-router Programmatic Navigation</a></p>
+<pre><code class="language-js">const userId = '123'
+router.push({ name: 'user', params: { userId } }) // -&gt; /user/123
+router.push({ path: `/user/${userId}` }) // -&gt; /user/123
+// This will NOT work
+router.push({ path: '/user', params: { userId } }) // -&gt; /user
 </code></pre>
-<p>hiuhoih</p>
-<hr />
-<p>ggihi</p>
-<ul>
-<li>Unordered list can use asterisks</li>
-</ul>
-<ul>
-<li>Or minuses</li>
-</ul>
-<ul>
-<li>Or pluses</li>
-</ul>
-<table><thead><tr><th>Tables</th><th align="center">Are</th><th align="right">Cool</th></tr></thead><tbody>
-<tr><td>col 3 is</td><td align="center">right-aligned</td><td align="right">$1600</td></tr>
-<tr><td>col 2 is</td><td align="center">centered</td><td align="right">$12</td></tr>
-<tr><td>zebra stripes</td><td align="center">are neat</td><td align="right">$1</td></tr>
-</tbody></table>
+<p>In my case,</p>
+<pre><code class="language-js">// In the component of Tombview
+methods: {
+    open: function (userId) {
+      router.push({name: 'userTomb', params: {userId}})
+    }
+</code></pre>
+<p><a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes">Dynamic Route Matching</a></p>
+<pre><code class="language-js">// in the &quot;router.js&quot; file
+const routes = [
+    {name: 'userTomb', path: '/userTomb', component: EditYourTomb} // TODO: use a new page
+]
+</code></pre>
+<pre><code class="language-js">// In the new router page
+const User = {
+  template: '&lt;div&gt;User {{ $route.params.id }}&lt;/div&gt;'
+}
+</code></pre>
+<p>In my case,</p>
+<pre><code class="language-js">{{ $route.params.userId }} // use this code to pass dynamic paramters.
+</code></pre>
 
                     </main>
 
