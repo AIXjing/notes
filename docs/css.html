@@ -3,9 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Note</title>
-        
-        <meta name="robots" content="noindex" />
+        <title>CSS - Note</title>
         
         
 
@@ -97,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="css.html"><strong aria-hidden="true">3.</strong> CSS</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="css.html" class="active"><strong aria-hidden="true">3.</strong> CSS</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,43 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#chapter-1" id="chapter-1">Chapter 1</a></h1>
-<h4><a class="header" href="#a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa" id="a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links">This is a link for markdown syntax</a></a></h4>
-<h1><a class="header" href="#vue3-and-javascript" id="vue3-and-javascript">Vue3 and Javascript</a></h1>
-<h3><a class="header" href="#how-to-create-a-dynamic-router-on-a-page" id="how-to-create-a-dynamic-router-on-a-page">How to create a dynamic router on a page</a></h3>
-<p><a href="https://router.vuejs.org/guide/essentials/navigation.html">Vue-router Programmatic Navigation</a></p>
-<pre><code class="language-js">const userId = '123'
-router.push({ name: 'user', params: { userId } }) // -&gt; /user/123
-router.push({ path: `/user/${userId}` }) // -&gt; /user/123
-// This will NOT work
-router.push({ path: '/user', params: { userId } }) // -&gt; /user
-</code></pre>
-<p>In my case,</p>
-<pre><code class="language-js">// In the component of Tombview
-methods: {
-    open: function (userId) {
-      router.push({name: 'userTomb', params: {userId}})
-    }
-</code></pre>
-<p><a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes">Dynamic Route Matching</a></p>
-<pre><code class="language-js">// in the &quot;router.js&quot; file
-const routes = [
-    {name: 'userTomb', path: '/userTomb/:userId', component: userTomb}
-]
-// : refers to params
-</code></pre>
-<pre><code class="language-js">// In the new router page
-const User = {
-  template: '&lt;div&gt;User {{ $route.params.id }}&lt;/div&gt;'
-}
-</code></pre>
-<p>In my case,</p>
-<pre><code class="language-js">{{ $route.params.userId }} // use this code to pass dynamic paramters.
-</code></pre>
-<p>When it is used in <script></script></p>
-<pre><code class="language-js">{{ this.$route.params.userId }} 
-</code></pre>
-<h1><a class="header" href="#css-notes" id="css-notes">CSS Notes</a></h1>
+                        <h1><a class="header" href="#css-notes" id="css-notes">CSS Notes</a></h1>
 <p><a href="http://www.csszengarden.com">Usefull link for CSS sstyle</a>
 Note that you could not change html but only style</p>
 <h2><a class="header" href="#1-css-rules" id="1-css-rules">1 CSS rules</a></h2>
@@ -449,6 +411,10 @@ body {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="vue3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
 
@@ -458,6 +424,10 @@ body {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="vue3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
 
                 
@@ -492,14 +462,6 @@ body {
         <!-- Custom JS scripts -->
         
 
-        
-        
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
-        
         
 
     </body>
