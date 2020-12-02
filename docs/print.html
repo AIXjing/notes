@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="css.html"><strong aria-hidden="true">3.</strong> CSS</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="css.html"><strong aria-hidden="true">3.</strong> CSS</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">4.</strong> Git</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -443,6 +443,284 @@ body {
 &lt;/div&gt; 
 &lt;/div&gt; 
 </code></pre>
+<h2><a class="header" href="#8-the-box-model" id="8-the-box-model">8 The Box Model</a></h2>
+<h3><a class="header" href="#81-box-sizing" id="81-box-sizing">8.1 box-sizing</a></h3>
+<p>The box composes of margin, border, and padding.
+<code>box-sizing: border-box;</code> The width refers to the whole box, which is hihgly recommended.
+or <code>box-sizing: content-box;</code> The width refers to the content only, the default setting.
+However, it should be noted that the <code>box-sizing</code> property does not inherit. To solve the problem, we can use <code>*</code> selector, which can apply the CSS style inside to all the elements.</p>
+<pre><code class="language-css">* {
+    box-sizing:border-box;
+}
+</code></pre>
+<h3><a class="header" href="#82-cumulative-margins" id="82-cumulative-margins">8.2 Cumulative Margins</a></h3>
+<ul>
+<li>Horizontal margins are cumulative.</li>
+<li>Vertical magins from two elements will collapse, and larger margin wins.</li>
+</ul>
+<h3><a class="header" href="#83-content-overflow" id="83-content-overflow">8.3 Content overflow</a></h3>
+<p><code>overflow: auto</code>
+<code>overflow: scroll</code>
+<code>overflow: hidden</code>
+<code>overflow: invisible</code></p>
+<h2><a class="header" href="#9-background-properties" id="9-background-properties">9 Background properties</a></h2>
+<pre><code class="language-html">&lt;body&gt;
+&lt;h1&gt;The background property&lt;/h1&gt;
+&lt;div id=&quot;bg&quot;&gt;Wolala&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="language-css">#bg {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    background-image: url('cat.png') // Use an image as a background.
+    background-repeat: no-repeat // repeat images or not.
+    background-position: top right // set image position
+    // or background: url('cat.png') no-repeat right center blue
+}
+</code></pre>
+<h2><a class="header" href="#10-position-elements" id="10-position-elements">10 Position Elements</a></h2>
+<h3><a class="header" href="#101-by-floating" id="101-by-floating">10.1 by Floating</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Two Column Design&lt;/title&gt;
+&lt;style&gt;
+
+* {
+  box-sizing: border-box;
+}
+
+div {
+  /*background-color: #00FFFF;*/
+}
+p {
+  width: 50%;
+  /*border: 1px solid black;*/
+  float: left;  // float to the left of the last element.
+  padding: 10px;
+}
+
+#p1 {
+  /*background-color: #A52A2A;*/
+}
+#p2 {
+  /*background-color: #DEB887;*/
+}
+
+section {
+  clear: left;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Two Column Design&lt;/h1&gt;
+
+&lt;div&gt;
+  &lt;p id=&quot;p1&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio aliquid cupiditate perferendis fuga, sit quasi alias vero sunt non, ratione earum dolores nihil! Consequuntur pariatur totam incidunt soluta expedita.&lt;/p&gt;
+  &lt;p id=&quot;p2&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta beatae voluptatibus veniam placeat iure unde assumenda porro neque voluptate esse sit magnam facilis labore odit, provident a ea! Nulla, minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius nemo vitae, cupiditate odio magnam reprehenderit esse eum reiciendis repellendus incidunt sequi! Autem, laudantium, accusamus. Doloribus tempora alias minima laborum, provident!&lt;/p&gt;
+  &lt;section&gt;This is regular content continuing after the the paragraph boxes.&lt;/section&gt;
+&lt;/div&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a class="header" href="#102-relative-and-absolute-element-positioning" id="102-relative-and-absolute-element-positioning">10.2 Relative and Absolute Element Positioning</a></h3>
+<ul>
+<li>
+<p>Static positioning
+Normal document flow. 
+Default for all, except html.</p>
+</li>
+<li>
+<p>Relative Positioning
+Element is positioned relative to its position in normal document flow.
+Positioning CSS(offset) properties are: top, bottom, left, right.
+Html positioning is defaulted by relative</p>
+</li>
+<li>
+<p>Absolute Positioning
+All offsets(top, bottom, left, right) are relative to the position of the nearst ancestor which has positioning set on it, other than static.</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Positioning Elements&lt;/title&gt;
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin-bottom: 15px;
+}
+
+div#container {
+  background-color: #00FFFF;
+  position: relative;
+  top: 60px; // equivalent to 'from top'
+}
+p {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  position: relative;
+  top: 65px;
+  left: 65px;
+}
+#p2 {
+  background-color: #DEB887;
+}
+#p3 {
+  background-color: #5F9EA0;
+  position: absolute; // the absolute positioning needs a relative or an absolute parent or an ancestor.
+  top: 0;
+  left: 0;
+}
+#p4 {
+  background-color: #FF7F50;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Positioning Elements&lt;/h1&gt;
+
+&lt;div id=&quot;container&quot;&gt;
+  &lt;p id=&quot;p1&quot;&gt;&lt;/p&gt;
+  &lt;p id=&quot;p2&quot;&gt;&lt;/p&gt;
+  &lt;p id=&quot;p3&quot;&gt;&lt;/p&gt;
+  &lt;p id=&quot;p4&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<h2><a class="header" href="#11-media-query-syntax" id="11-media-query-syntax">11 Media Query Syntax</a></h2>
+<pre><code class="language-css">@media (max-width: 767px){ // media feature (resolves to true or false)
+   p {
+     color: blue;
+   }
+</code></pre>
+<h3><a class="header" href="#media-query-common-features" id="media-query-common-features">Media Query Common Features</a></h3>
+<p><code>@media(max-width: 800px) {...}</code></p>
+<p><code>@media(max-width: 800px) {...}</code></p>
+<p><code>@media(orientation: portrait){...}</code></p>
+<p><code>@media screen{...}</code></p>
+<p><code>@media print{...}</code></p>
+<h3><a class="header" href="#media-query-common-logical-operators" id="media-query-common-logical-operators">Media Query Common Logical Operators</a></h3>
+<ul>
+<li>
+<p>Devices with width within a range
+<code>@media(min-width: 768px) and (max-width: 991px){...}</code></p>
+</li>
+<li>
+<p>Comma is equivalent to OR
+<code>@media(max-width: 768px), (min-width: 991px){...}</code></p>
+</li>
+</ul>
+<h3><a class="header" href="#media-query-common-approach" id="media-query-common-approach">Media Query Common Approach</a></h3>
+<pre><code class="language-css">p {color: blue;} // base styles
+@media(min-witdh: 1200px)
+@media(min-width:992px) and (max-width:1199px) 
+// Be sure that two sizes are not overlapped.
+</code></pre>
+<h3><a class="header" href="#an-example-for-how-to-use-media-queries" id="an-example-for-how-to-use-media-queries">An example for how to use media queries</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Media Queries&lt;/title&gt;
+&lt;style&gt;
+
+/********** Base styles **********/
+h1 {
+  margin-bottom: 15px;
+}
+
+p {
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  width: 300px;
+  height: 300px;
+}
+#p2 {
+  background-color: #DEB887;
+  width: 50px;
+  height: 50px;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px){
+    #p1 {
+        width: 80%; 
+    // p1 at width 1200 pixels or wider will take 80% of our screen
+    // when it is below 1200px, the p1 will go back to the original size.
+    }
+    #p2 {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px){
+    #p1{
+        width: 50%;
+    }
+    #p2 {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Media Queries&lt;/h1&gt;
+
+&lt;p id=&quot;p1&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;p2&quot;&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a class="header" href="#sumary" id="sumary">Sumary</a></h3>
+<ul>
+<li>Basic syntax of a media query
+** @media(media feature)
+** @media(media feature) logical operator (media feature)</li>
+<li>Remember not to overlap breakpoints</li>
+<li>Usually, you provide base styling. Then change or add to them in each media query.</li>
+</ul>
+<h1><a class="header" href="#how-to-share-local-codes-with-remote-codes-on-github" id="how-to-share-local-codes-with-remote-codes-on-github">How to share local codes with remote codes on github</a></h1>
+<h2><a class="header" href="#case-1" id="case-1">Case 1</a></h2>
+<p>A project has already been created in local folder</p>
+<ol>
+<li>Create a new repo on github</li>
+<li>Input command line in terminal:
+<code>git initial -b main</code>
+<code>git remote add origin url</code>
+<code>git fetch</code>
+<code>git checkout main</code>
+<code>git merge master</code>
+<code>git git push</code></li>
+</ol>
 
                     </main>
 

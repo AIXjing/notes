@@ -284,3 +284,277 @@ body {
 </div> 
 </div> 
 ```
+
+## 8 The Box Model
+### 8.1 box-sizing 
+The box composes of margin, border, and padding.
+`box-sizing: border-box;` The width refers to the whole box, which is hihgly recommended.
+or `box-sizing: content-box;` The width refers to the content only, the default setting.
+However, it should be noted that the `box-sizing` property does not inherit. To solve the problem, we can use `*` selector, which can apply the CSS style inside to all the elements.
+``` css
+* {
+    box-sizing:border-box;
+}
+``` 
+
+### 8.2 Cumulative Margins
+* Horizontal margins are cumulative.
+* Vertical magins from two elements will collapse, and larger margin wins.
+
+### 8.3 Content overflow
+`overflow: auto`
+`overflow: scroll`
+`overflow: hidden`
+`overflow: invisible`
+
+## 9 Background properties
+``` html
+<body>
+<h1>The background property</h1>
+<div id="bg">Wolala</div>
+</body>
+```
+``` css
+#bg {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    background-image: url('cat.png') // Use an image as a background.
+    background-repeat: no-repeat // repeat images or not.
+    background-position: top right // set image position
+    // or background: url('cat.png') no-repeat right center blue
+}
+```
+
+## 10 Position Elements 
+### 10.1 by Floating
+``` html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Two Column Design</title>
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+div {
+  /*background-color: #00FFFF;*/
+}
+p {
+  width: 50%;
+  /*border: 1px solid black;*/
+  float: left;  // float to the left of the last element.
+  padding: 10px;
+}
+
+#p1 {
+  /*background-color: #A52A2A;*/
+}
+#p2 {
+  /*background-color: #DEB887;*/
+}
+
+section {
+  clear: left;
+}
+
+</style>
+</head>
+<body>
+<h1>Two Column Design</h1>
+
+<div>
+  <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio aliquid cupiditate perferendis fuga, sit quasi alias vero sunt non, ratione earum dolores nihil! Consequuntur pariatur totam incidunt soluta expedita.</p>
+  <p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta beatae voluptatibus veniam placeat iure unde assumenda porro neque voluptate esse sit magnam facilis labore odit, provident a ea! Nulla, minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius nemo vitae, cupiditate odio magnam reprehenderit esse eum reiciendis repellendus incidunt sequi! Autem, laudantium, accusamus. Doloribus tempora alias minima laborum, provident!</p>
+  <section>This is regular content continuing after the the paragraph boxes.</section>
+</div>
+
+
+</body>
+</html>
+```
+
+### 10.2 Relative and Absolute Element Positioning
+* Static positioning
+Normal document flow. 
+Default for all, except html.
+
+* Relative Positioning
+Element is positioned relative to its position in normal document flow.
+Positioning CSS(offset) properties are: top, bottom, left, right.
+Html positioning is defaulted by relative
+
+* Absolute Positioning
+All offsets(top, bottom, left, right) are relative to the position of the nearst ancestor which has positioning set on it, other than static.
+
+``` html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Positioning Elements</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin-bottom: 15px;
+}
+
+div#container {
+  background-color: #00FFFF;
+  position: relative;
+  top: 60px; // equivalent to 'from top'
+}
+p {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  position: relative;
+  top: 65px;
+  left: 65px;
+}
+#p2 {
+  background-color: #DEB887;
+}
+#p3 {
+  background-color: #5F9EA0;
+  position: absolute; // the absolute positioning needs a relative or an absolute parent or an ancestor.
+  top: 0;
+  left: 0;
+}
+#p4 {
+  background-color: #FF7F50;
+}
+
+</style>
+</head>
+<body>
+<h1>Positioning Elements</h1>
+
+<div id="container">
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <p id="p3"></p>
+  <p id="p4"></p>
+</div>
+
+</body>
+</html>
+
+```
+
+## 11 Media Query Syntax
+``` css
+@media (max-width: 767px){ // media feature (resolves to true or false)
+   p {
+     color: blue;
+   }
+``` 
+### Media Query Common Features
+`@media(max-width: 800px) {...}`
+
+`@media(max-width: 800px) {...}`
+
+`@media(orientation: portrait){...}`
+
+`@media screen{...}`
+
+`@media print{...}`
+
+### Media Query Common Logical Operators
+* Devices with width within a range
+`@media(min-width: 768px) and (max-width: 991px){...}`
+
+* Comma is equivalent to OR
+`@media(max-width: 768px), (min-width: 991px){...}`
+
+### Media Query Common Approach
+``` css
+p {color: blue;} // base styles
+@media(min-witdh: 1200px)
+@media(min-width:992px) and (max-width:1199px) 
+// Be sure that two sizes are not overlapped.
+```
+
+### An example for how to use media queries
+``` html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Media Queries</title>
+<style>
+
+/********** Base styles **********/
+h1 {
+  margin-bottom: 15px;
+}
+
+p {
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  width: 300px;
+  height: 300px;
+}
+#p2 {
+  background-color: #DEB887;
+  width: 50px;
+  height: 50px;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px){
+    #p1 {
+        width: 80%; 
+    // p1 at width 1200 pixels or wider will take 80% of our screen
+    // when it is below 1200px, the p1 will go back to the original size.
+    }
+    #p2 {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px){
+    #p1{
+        width: 50%;
+    }
+    #p2 {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+</style>
+</head>
+<body>
+<h1>Media Queries</h1>
+
+<p id="p1"></p>
+<p id="p2"></p>
+
+</body>
+</html>
+```
+
+### Sumary
+* Basic syntax of a media query
+** @media(media feature)
+** @media(media feature) logical operator (media feature)
+* Remember not to overlap breakpoints
+* Usually, you provide base styling. Then change or add to them in each media query.
