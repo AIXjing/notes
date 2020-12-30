@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="css.html" class="active"><strong aria-hidden="true">3.</strong> CSS</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">4.</strong> Git</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="css.html" class="active"><strong aria-hidden="true">3.</strong> CSS</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">4.</strong> Git</a></li><li class="chapter-item expanded "><a href="tips.html"><strong aria-hidden="true">5.</strong> Visit with the Client &amp; Setup Overview</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -662,7 +662,7 @@ p {
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<h3><a class="header" href="#sumary" id="sumary">Sumary</a></h3>
+<h3><a class="header" href="#summary" id="summary">Summary</a></h3>
 <ul>
 <li>Basic syntax of a media query
 ** @media(media feature)
@@ -670,6 +670,41 @@ p {
 <li>Remember not to overlap breakpoints</li>
 <li>Usually, you provide base styling. Then change or add to them in each media query.</li>
 </ul>
+<h2><a class="header" href="#12-responsive-design" id="12-responsive-design">12 Responsive Design</a></h2>
+<p>what is a responsive website? 
+It is a site that's designed to adapt its layout to the viewing environment by using fluid, proportion-based grids, flexible images, and CSS3 media queries. 
+12 columns grid responsive layout
+<a href="https://github.com/jhu-ep-coursera/fullstack-course4/blob/master/examples/Lecture24/responsive-before.html">Checkout here for an example.</a></p>
+<h3><a class="header" href="#121-introduction-to-bootstrap" id="121-introduction-to-bootstrap">12.1 Introduction to Bootstrap</a></h3>
+<p>Bootstrap is the most popular HTML, CSS and JS framework for developing responsive, mobile first projects on the web.
+[https://getbootstrap.com/]
+bootstrap depends on jQuery
+S0 jQuery also needs to be download.</p>
+<h3><a class="header" href="#122-bootstrap-grid-system" id="122-bootstrap-grid-system">12.2 Bootstrap grid system</a></h3>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;  // your Bootstrap grid always has to be inside of a container wrapper or .container-fluid.
+    &lt;div class=&quot;row&quot;&gt; // The row class also creates a negative margin, to counteract the padding that the container class sets up.
+        &lt;div class=&quot;col-md-4&quot;&gt;Col 1&lt;/div&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4><a class="header" href="#1221-column-class-template" id="1221-column-class-template">12.2.1 Column class template</a></h4>
+<p><code>col-SIZE-SPAN</code></p>
+<ul>
+<li>SIZE 
+screen width range identifier
+columns will collapes (i.e., stack) below that width, unless another rule applies</li>
+<li>SPAN
+How many columns element should span
+values: 1 through 12</li>
+</ul>
+<pre><code class="language-html">&lt;header class=&quot;container&quot;&gt;  // your Bootstrap grid always has to be inside of a container wrapper.
+    &lt;nav class=&quot;row&quot;&gt; // The row class also creates a negative margin, to counteract the padding that the container class sets up.
+        &lt;div class=&quot;col-md-4&quot;&gt;Col 1&lt;/div&gt;
+        ...
+    &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
 
                     </main>
 
@@ -708,6 +743,21 @@ p {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

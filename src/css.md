@@ -552,9 +552,48 @@ p {
 </html>
 ```
 
-### Sumary
+### Summary
 * Basic syntax of a media query
 ** @media(media feature)
 ** @media(media feature) logical operator (media feature)
 * Remember not to overlap breakpoints
 * Usually, you provide base styling. Then change or add to them in each media query.
+
+
+## 12 Responsive Design
+ what is a responsive website? 
+It is a site that's designed to adapt its layout to the viewing environment by using fluid, proportion-based grids, flexible images, and CSS3 media queries. 
+12 columns grid responsive layout
+[Checkout here for an example.](https://github.com/jhu-ep-coursera/fullstack-course4/blob/master/examples/Lecture24/responsive-before.html)
+### 12.1 Introduction to Bootstrap
+Bootstrap is the most popular HTML, CSS and JS framework for developing responsive, mobile first projects on the web.
+[https://getbootstrap.com/]
+bootstrap depends on jQuery
+S0 jQuery also needs to be download.
+
+### 12.2 Bootstrap grid system
+``` html
+<div class="container">  // your Bootstrap grid always has to be inside of a container wrapper or .container-fluid.
+    <div class="row"> // The row class also creates a negative margin, to counteract the padding that the container class sets up.
+        <div class="col-md-4">Col 1</div>
+        ...
+    </div>
+</div>
+``` 
+#### 12.2.1 Column class template
+`col-SIZE-SPAN`
+* SIZE 
+screen width range identifier
+columns will collapes (i.e., stack) below that width, unless another rule applies
+* SPAN
+How many columns element should span
+values: 1 through 12
+``` html
+<header class="container">  // your Bootstrap grid always has to be inside of a container wrapper.
+    <nav class="row"> // The row class also creates a negative margin, to counteract the padding that the container class sets up.
+        <div class="col-md-4">Col 1</div>
+        ...
+    </nav>
+</header>
+``` 
+
