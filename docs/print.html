@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="vue3.html"><strong aria-hidden="true">2.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="css.html"><strong aria-hidden="true">3.</strong> CSS</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">4.</strong> Git</a></li><li class="chapter-item expanded "><a href="tips.html"><strong aria-hidden="true">5.</strong> Visit with the Client &amp; Setup Overview</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="sql/sql.html"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -167,6 +167,26 @@
                     <main>
                         <h1><a class="header" href="#chapter-1" id="chapter-1">Chapter 1</a></h1>
 <h4><a class="header" href="#a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa" id="a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links">This is a link for markdown syntax</a></a></h4>
+<h1><a class="header" href="#how-to-share-local-codes-with-remote-codes-on-github" id="how-to-share-local-codes-with-remote-codes-on-github">How to share local codes with remote codes on github</a></h1>
+<h2><a class="header" href="#case-1" id="case-1">Case 1</a></h2>
+<p>A project has already been created in local folder</p>
+<ol>
+<li>Create a new repo on github</li>
+<li>Input command line in terminal:
+<code>git initial -b main</code>
+<code>git remote add origin url</code>
+<code>git fetch</code>
+<code>git checkout main</code>
+<code>git merge master</code>
+<code>git git push</code></li>
+</ol>
+<h1><a class="header" href="#visit-with-the-client--setup-overview" id="visit-with-the-client--setup-overview">Visit with the Client &amp; Setup Overview</a></h1>
+<p><a href="https://balsamiq.com">layout design page</a>
+<a href="https://wwww.google.com/fonts">Google fonts</a></p>
+<p>browse-sync:
+'browser-syn start --server --director --files &quot;**/<em>&quot;'
+'browser-syn start --server --director --files &quot;</em>&quot;'</p>
+<h1><a class="header" href="#frontend" id="frontend">Frontend</a></h1>
 <h1><a class="header" href="#vue3-and-javascript" id="vue3-and-javascript">Vue3 and Javascript</a></h1>
 <h3><a class="header" href="#how-to-create-a-dynamic-router-on-a-page" id="how-to-create-a-dynamic-router-on-a-page">How to create a dynamic router on a page</a></h3>
 <p><a href="https://router.vuejs.org/guide/essentials/navigation.html">Vue-router Programmatic Navigation</a></p>
@@ -743,25 +763,10 @@ values: 1 through 12</li>
     &lt;/nav&gt;
 &lt;/header&gt;
 </code></pre>
-<h1><a class="header" href="#how-to-share-local-codes-with-remote-codes-on-github" id="how-to-share-local-codes-with-remote-codes-on-github">How to share local codes with remote codes on github</a></h1>
-<h2><a class="header" href="#case-1" id="case-1">Case 1</a></h2>
-<p>A project has already been created in local folder</p>
-<ol>
-<li>Create a new repo on github</li>
-<li>Input command line in terminal:
-<code>git initial -b main</code>
-<code>git remote add origin url</code>
-<code>git fetch</code>
-<code>git checkout main</code>
-<code>git merge master</code>
-<code>git git push</code></li>
-</ol>
-<h1><a class="header" href="#visit-with-the-client--setup-overview" id="visit-with-the-client--setup-overview">Visit with the Client &amp; Setup Overview</a></h1>
-<p><a href="https://balsamiq.com">layout design page</a>
-<a href="https://wwww.google.com/fonts">Google fonts</a></p>
-<p>browse-sync:
-'browser-syn start --server --director --files &quot;**/<em>&quot;'
-'browser-syn start --server --director --files &quot;</em>&quot;'</p>
+<h1><a class="header" href="#sql" id="sql">SQL</a></h1>
+<h1><a class="header" href="#duke-coursera" id="duke-coursera">Duke-coursera</a></h1>
+<pre><code class="language-sql">SELECT TOP 3 * FROM Customers;
+</code></pre>
 
                     </main>
 
@@ -784,21 +789,6 @@ values: 1 through 12</li>
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
