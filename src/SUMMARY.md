@@ -11,3 +11,7 @@
 
 - [SQL](./sql/sql.md)
     - [Duke-coursera](./sql/duke.md)
+    
+    
+- [Python](./python/python.md)
+    - [Python-coursera-Michigan](./python/Coursera-Michigan.md)
