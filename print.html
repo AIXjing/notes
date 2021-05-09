@@ -1,0 +1,1002 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Note</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="sql/sql.html"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li><li class="chapter-item expanded "><a href="python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan</a></li></ol></li><li class="chapter-item expanded "><a href="statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="statistics/MITx6.431x.html"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li></ol></li><li class="chapter-item expanded "><a href="dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Note</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#chapter-1" id="chapter-1">Chapter 1</a></h1>
+<h4><a class="header" href="#a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa" id="a-hrefhttpsgithubcomadam-pmarkdown-herewikimarkdown-cheatsheetlinksthis-is-a-link-for-markdown-syntaxa"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links">This is a link for markdown syntax</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpsrust-langgithubiomdbookformatmathjaxhtmlthis-is-a-link-for-mdbook---letax-equation-referencea" id="a-hrefhttpsrust-langgithubiomdbookformatmathjaxhtmlthis-is-a-link-for-mdbook---letax-equation-referencea"><a href="https://rust-lang.github.io/mdBook/format/mathjax.html">This is a link for mdbook - Letax equation reference</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpsenwikibooksorgwikilatexmathematicslist_of_mathematical_symbolslatexmathematics-wikibooksa" id="a-hrefhttpsenwikibooksorgwikilatexmathematicslist_of_mathematical_symbolslatexmathematics-wikibooksa"><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_mathematical_symbols">LaTeX/Mathematics Wikibooks</a></a></h4>
+<h1><a class="header" href="#how-to-share-local-codes-with-remote-codes-on-github" id="how-to-share-local-codes-with-remote-codes-on-github">How to share local codes with remote codes on github</a></h1>
+<h2><a class="header" href="#case-1" id="case-1">Case 1</a></h2>
+<p>A project has already been created in local folder</p>
+<ol>
+<li>Create a new repo on github</li>
+<li>Input command line in terminal:
+<code>git initial -b main</code>
+<code>git remote add origin url</code>
+<code>git fetch</code>
+<code>git checkout main</code>
+<code>git merge master</code>
+<code>git git push</code></li>
+</ol>
+<h1><a class="header" href="#visit-with-the-client--setup-overview" id="visit-with-the-client--setup-overview">Visit with the Client &amp; Setup Overview</a></h1>
+<p><a href="https://balsamiq.com">layout design page</a>
+<a href="https://wwww.google.com/fonts">Google fonts</a></p>
+<p>browse-sync:
+'browser-syn start --server --director --files &quot;**/<em>&quot;'
+'browser-syn start --server --director --files &quot;</em>&quot;'</p>
+<h1><a class="header" href="#frontend" id="frontend">Frontend</a></h1>
+<h1><a class="header" href="#vue3-and-javascript" id="vue3-and-javascript">Vue3 and Javascript</a></h1>
+<h3><a class="header" href="#how-to-create-a-dynamic-router-on-a-page" id="how-to-create-a-dynamic-router-on-a-page">How to create a dynamic router on a page</a></h3>
+<p><a href="https://router.vuejs.org/guide/essentials/navigation.html">Vue-router Programmatic Navigation</a></p>
+<pre><code class="language-js">const userId = '123'
+router.push({ name: 'user', params: { userId } }) // -&gt; /user/123
+router.push({ path: `/user/${userId}` }) // -&gt; /user/123
+// This will NOT work
+router.push({ path: '/user', params: { userId } }) // -&gt; /user
+</code></pre>
+<p>In my case,</p>
+<pre><code class="language-js">// In the component of Tombview
+methods: {
+    open: function (userId) {
+      router.push({name: 'userTomb', params: {userId}})
+    }
+</code></pre>
+<p><a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes">Dynamic Route Matching</a></p>
+<pre><code class="language-js">// in the &quot;router.js&quot; file
+const routes = [
+    {name: 'userTomb', path: '/userTomb/:userId', component: userTomb}
+]
+// : refers to params
+</code></pre>
+<pre><code class="language-js">// In the new router page
+const User = {
+  template: '&lt;div&gt;User {{ $route.params.id }}&lt;/div&gt;'
+}
+</code></pre>
+<p>In my case,</p>
+<pre><code class="language-js">{{ $route.params.userId }} // use this code to pass dynamic paramters.
+</code></pre>
+<p>When it is used in <script></script></p>
+<pre><code class="language-js">{{ this.$route.params.userId }} 
+</code></pre>
+<h1><a class="header" href="#css-notes" id="css-notes">CSS Notes</a></h1>
+<p><a href="http://www.csszengarden.com">Usefull link for CSS sstyle</a>
+Note that you could not change html but only style</p>
+<h2><a class="header" href="#1-css-rules" id="1-css-rules">1 CSS rules</a></h2>
+<p>what this about</p>
+<pre><code class="language-html">&lt;style&gt;
+p {
+    color: blue;
+    font-size: 20px;
+    width: 200px;
+}
+
+h1 {
+    color: green;
+    font-size: 36px;
+    width: center;
+}
+&lt;/style&gt;
+</code></pre>
+<p><code>p</code> is a selector;</p>
+<p>In the curly braces, there is a declaration, containing property ´´´color´´´and value ´´´blue´´´
+zero or more declarations are allowed.</p>
+<p>The collection of these CSS rules is what's called a stylesheet.</p>
+<h2><a class="header" href="#2-css-selectors-element-class-and-id-selectors" id="2-css-selectors-element-class-and-id-selectors">2 CSS selectors: Element, Class, and ID Selectors</a></h2>
+<h3><a class="header" href="#21-element-selector" id="21-element-selector">2.1 element selector</a></h3>
+<p><code>&lt;p&gt; ... &lt;/p&gt;</code></p>
+<h3><a class="header" href="#22-class-selector" id="22-class-selector">2.2 class selector</a></h3>
+<pre><code class="language-css">.blue {
+    color: blue;
+}
+</code></pre>
+<p>In html part:
+<code>&lt;p class=&quot;blue&quot;&gt;...&lt;/p&gt;</code></p>
+<h3><a class="header" href="#23-id-selector" id="23-id-selector">2.3 id selector</a></h3>
+<p>Can only be used once in the HTML document.</p>
+<pre><code class="language-css">#name {
+    color:blue;
+}
+</code></pre>
+<p><code>&lt;p id=&quot;name&quot;&gt;...&lt;/p&gt;</code></p>
+<h3><a class="header" href="#24-grouping-selectors" id="24-grouping-selectors">2.4 grouping selectors</a></h3>
+<pre><code class="language-css">div, .blue{
+    color: blue;
+}
+</code></pre>
+<h2><a class="header" href="#3-combining-selectors" id="3-combining-selectors">3 Combining Selectors</a></h2>
+<h3><a class="header" href="#31-element-with-class-selector" id="31-element-with-class-selector">3.1 Element with Class Selector</a></h3>
+<pre><code class="language-css">//Every p that has a class = &quot;big&quot;
+p.big{
+    font-size: 20 px
+}
+</code></pre>
+<p>An example:</p>
+<pre><code class="language-html">&lt;p class=&quot;big&quot;&gt; ... &lt;/p&gt; // font-size: 20px
+&lt;div class=&quot;big&quot;&gt; ... &lt;/div&gt;
+</code></pre>
+<h3><a class="header" href="#32-child-selector" id="32-child-selector">3.2 Child Selector</a></h3>
+<pre><code class="language-css">//every p that is a direct child of article
+article &gt; p {  
+    color: blue;
+}
+</code></pre>
+<pre><code class="language-html">&lt;article&gt;&lt;p&gt;...&lt;/p&gt;&lt;/article&gt; // only this content has blue text.
+...
+&lt;p&gt;...&lt;/p&gt;
+&lt;article&gt;&lt;div&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;&lt;/article&gt;
+</code></pre>
+<h3><a class="header" href="#33-descendant-selector" id="33-descendant-selector">3.3 Descendant Selector</a></h3>
+<pre><code class="language-css">//every p that is inside (at any level) of article
+article p {  
+    color: blue;
+}
+</code></pre>
+<pre><code class="language-html">&lt;article&gt;&lt;p&gt;...&lt;/p&gt;&lt;/article&gt; // Blue text
+...
+&lt;p&gt;...&lt;/p&gt; // Unaffected
+&lt;article&gt;&lt;div&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;&lt;/article&gt; // Blue text
+</code></pre>
+<h3><a class="header" href="#34-not-limited-to-element-selector" id="34-not-limited-to-element-selector">3.4 Not Limited to element Selector</a></h3>
+<pre><code class="language-css">//every p that is inside (at any level) of element with class = colored&quot;&quot;
+.colored p {  
+    color: blue;
+}
+//every element with class = &quot;colored&quot; that is a direct child of article element
+article &gt; .colored{  
+    color: blue;
+}
+</code></pre>
+<h3><a class="header" href="#35-summary" id="35-summary">3.5 Summary</a></h3>
+<p>combining selectors</p>
+<ul>
+<li>Element with class selector: selector.class</li>
+<li>Child(direct) selector: selector&gt;selector</li>
+<li>Descendent selector: selector selector</li>
+</ul>
+<h2><a class="header" href="#4-pseudo-class-selector" id="4-pseudo-class-selector">4 Pseudo-Class Selector</a></h2>
+<p><code>:link</code>
+<code>:visited</code>
+<code>:hover</code>
+<code>:active</code>
+<code>:nth-child</code></p>
+<p>Styling links is not exactly as straight forward as styling a regular element, and that's because links have states. And these states can be expressed using our pseudo-classes. 
+An example:</p>
+<pre><code class="language-css">header li {
+    list-style: none
+}
+// visited means that HTML allows that after you click a particular link that a different style can be applied to that link than an unclicked link
+// In our case, however, we don't want to differentiate between the two, so we'll style them both together.
+a:link, a:visited {  // &lt;a&gt; tag defines a hyperlink, which is used to link from one page to another.
+    text-decoration: none;
+    background-color: green;
+    border: 1px solid blue;
+    display: block;  // &lt;a&gt; tag is an inline element. Here we change it to a block-level element.
+    width: 200px;
+    text-align: center;
+    margin-bottom: 1px;
+}
+// An active is that state when the user actually clicks on the element but hasn't yet released his click. 
+a:hover, a:active {
+    background-color: red;
+    color: purple;
+}
+// the nth child pseudo-selector allows you to target a particular element within a list.
+header li:nth-child(3) {
+    font-size: 24px;
+}
+// Set every odd member has a gray backgroud.
+section div:nth-child(odd) {
+    background-color: gray
+}
+// When the cursor hovers on the 4th member, the 4th member change the color to green.
+section div:nth-child(4):hover {
+    background-color: green;
+    cursor: pointer;
+}
+</code></pre>
+<h2><a class="header" href="#5-style-placement" id="5-style-placement">5 Style placement</a></h2>
+<h3><a class="header" href="#51-head-style-stylestyle" id="51-head-style-stylestyle">5.1 Head style <code>&lt;style&gt;...&lt;/style&gt;</code></a></h3>
+<p>Head styles are usually there override external ones.</p>
+<h3><a class="header" href="#52-place-style-inline" id="52-place-style-inline">5.2 Place style inline</a></h3>
+<p>Great for quick testing.
+<code>&lt;p style=&quot;text-align: center;&quot;&gt;...&lt;/p&gt; // not recommended</code> </p>
+<h3><a class="header" href="#53-external-css-stylesheet" id="53-external-css-stylesheet">5.3 External CSS stylesheet</a></h3>
+<p>Mostly-used one in real sites.
+<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; </code></p>
+<h2><a class="header" href="#6-conflict-resolution" id="6-conflict-resolution">6 Conflict resolution</a></h2>
+<h3><a class="header" href="#61-origin-precedence" id="61-origin-precedence">6.1 Origin Precedence</a></h3>
+<ul>
+<li>when in conflict
+Simple rule: last declaration wins
+It is based on the principal that HTML is processed sequentially top to bottom.</li>
+<li>when no conflict
+Sample rule: declarations merge</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Cascade of CSS&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;external.css&quot;&gt; 
+&lt;style&gt;
+
+p {
+  color: maroon;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Origin Example&lt;/h1&gt;
+&lt;p&gt;The rule is simple: last declaration wins.&lt;/p&gt; // color: maroon
+&lt;p style=&quot;color: black;&quot;&gt;If there is no conflict, declarations merge into one rule.&lt;/p&gt; // color: black
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>In external css stylesheet:</p>
+<pre><code class="language-css">p {
+  font-size: 130%;
+  background-color: gray;
+  color: white;
+}
+</code></pre>
+<h3><a class="header" href="#62-inheritance" id="62-inheritance">6.2 Inheritance</a></h3>
+<p>If you specify some CSS property on some element, all the children and grandchildren and so on and so on of that element will also inherit that property without you having to specify the property for each and every element.</p>
+<h3><a class="header" href="#63-specificity" id="63-specificity">6.3 Specificity</a></h3>
+<p>Most specific selector combination wines, which can be evaluated by score:</p>
+<table><thead><tr><th>1</th><th align="center">1</th><th align="center">1</th><th align="right">1</th></tr></thead><tbody>
+<tr><td>style=&quot;...&quot;</td><td align="center">id</td><td align="center">class, pseudo-class, attribute</td><td align="right"># of element</td></tr>
+</tbody></table>
+<p>For example, 
+<code>div p {color: green;}</code> score = 0002
+<code>div #myparag {color: blue;}</code> score = 0101
+<code>div.big p {color: green;}</code> score = 0012</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Inheritance in CSS&lt;/title&gt;
+&lt;style&gt;
+header.navigation p { // score = 0012
+  color: blue;
+}
+p.blurb { // score = 0011 
+  color: red;
+}
+p {
+  color: green !important;  // !important will override over specificity.
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header class=&quot;navigation&quot;&gt;
+  &lt;p class=&quot;blurb&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero soluta enim aut! Nihil nam obcaecati, fugiat sint sit libero voluptate eos incidunt odio neque cum, dignissimos aperiam, magnam nisi debitis.&lt;/p&gt;
+&lt;/header&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2><a class="header" href="#7-styling-text" id="7-styling-text">7 Styling Text</a></h2>
+<pre><code class="language-css">.style {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0000ff; // first '00': red; middle '00': green: last '00': blue
+    font-style: italic;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: capitalize;
+    text-align: center;
+    
+}
+
+body {
+    font-size: 120%; // 120 % by default
+}
+</code></pre>
+<pre><code class="language-html">body {
+    font-size: 120%; // default font = 16px; current font = 19px;
+}
+&lt;div style=&quot;font-size: 2em;&quot;&gt; 2em text // font size is two times the currect font - 38px
+&lt;div style=&quot;font-size: 2em;&quot;&gt; 4em text // font size = 76px
+&lt;div style=&quot;font-size: .5em;&gt; 2em again! &lt;/div&gt; // font size = 76px
+&lt;/div&gt; 
+&lt;/div&gt; 
+</code></pre>
+<h2><a class="header" href="#8-the-box-model" id="8-the-box-model">8 The Box Model</a></h2>
+<h3><a class="header" href="#81-box-sizing" id="81-box-sizing">8.1 box-sizing</a></h3>
+<p>The box composes of margin, border, and padding.
+<code>box-sizing: border-box;</code> The width refers to the whole box, which is hihgly recommended.
+or <code>box-sizing: content-box;</code> The width refers to the content only, the default setting.
+However, it should be noted that the <code>box-sizing</code> property does not inherit. To solve the problem, we can use <code>*</code> selector, which can apply the CSS style inside to all the elements.</p>
+<pre><code class="language-css">* {
+    box-sizing:border-box;
+}
+</code></pre>
+<h3><a class="header" href="#82-cumulative-margins" id="82-cumulative-margins">8.2 Cumulative Margins</a></h3>
+<ul>
+<li>Horizontal margins are cumulative.</li>
+<li>Vertical magins from two elements will collapse, and larger margin wins.</li>
+</ul>
+<h3><a class="header" href="#83-content-overflow" id="83-content-overflow">8.3 Content overflow</a></h3>
+<p><code>overflow: auto</code>
+<code>overflow: scroll</code>
+<code>overflow: hidden</code>
+<code>overflow: invisible</code></p>
+<h2><a class="header" href="#9-background-properties" id="9-background-properties">9 Background properties</a></h2>
+<pre><code class="language-html">&lt;body&gt;
+&lt;h1&gt;The background property&lt;/h1&gt;
+&lt;div id=&quot;bg&quot;&gt;Wolala&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="language-css">#bg {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    background-image: url('cat.png') // Use an image as a background.
+    background-repeat: no-repeat // repeat images or not.
+    background-position: top right // set image position
+    // or background: url('cat.png') no-repeat right center blue
+}
+</code></pre>
+<h2><a class="header" href="#10-position-elements" id="10-position-elements">10 Position Elements</a></h2>
+<h3><a class="header" href="#101-by-floating" id="101-by-floating">10.1 by Floating</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Two Column Design&lt;/title&gt;
+&lt;style&gt;
+
+* {
+  box-sizing: border-box;
+}
+
+div {
+  /*background-color: #00FFFF;*/
+}
+p {
+  width: 50%;
+  /*border: 1px solid black;*/
+  float: left;  // float to the left of the last element.
+  padding: 10px;
+}
+
+#p1 {
+  /*background-color: #A52A2A;*/
+}
+#p2 {
+  /*background-color: #DEB887;*/
+}
+
+section {
+  clear: left;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Two Column Design&lt;/h1&gt;
+
+&lt;div&gt;
+  &lt;p id=&quot;p1&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio aliquid cupiditate perferendis fuga, sit quasi alias vero sunt non, ratione earum dolores nihil! Consequuntur pariatur totam incidunt soluta expedita.&lt;/p&gt;
+  &lt;p id=&quot;p2&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta beatae voluptatibus veniam placeat iure unde assumenda porro neque voluptate esse sit magnam facilis labore odit, provident a ea! Nulla, minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius nemo vitae, cupiditate odio magnam reprehenderit esse eum reiciendis repellendus incidunt sequi! Autem, laudantium, accusamus. Doloribus tempora alias minima laborum, provident!&lt;/p&gt;
+  &lt;section&gt;This is regular content continuing after the the paragraph boxes.&lt;/section&gt;
+&lt;/div&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a class="header" href="#102-relative-and-absolute-element-positioning" id="102-relative-and-absolute-element-positioning">10.2 Relative and Absolute Element Positioning</a></h3>
+<ul>
+<li>
+<p>Static positioning
+Normal document flow. 
+Default for all, except html.</p>
+</li>
+<li>
+<p>Relative Positioning
+Element is positioned relative to its position in normal document flow.
+Positioning CSS(offset) properties are: top, bottom, left, right.
+Html positioning is defaulted by relative</p>
+</li>
+<li>
+<p>Absolute Positioning
+All offsets(top, bottom, left, right) are relative to the position of the nearst ancestor which has positioning set on it, other than static.</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Positioning Elements&lt;/title&gt;
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin-bottom: 15px;
+}
+
+div#container {
+  background-color: #00FFFF;
+  position: relative;
+  top: 60px; // equivalent to 'from top'
+}
+p {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  position: relative;
+  top: 65px;
+  left: 65px;
+}
+#p2 {
+  background-color: #DEB887;
+}
+#p3 {
+  background-color: #5F9EA0;
+  position: absolute; // the absolute positioning needs a relative or an absolute parent or an ancestor.
+  top: 0;
+  left: 0;
+}
+#p4 {
+  background-color: #FF7F50;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Positioning Elements&lt;/h1&gt;
+
+&lt;div id=&quot;container&quot;&gt;
+  &lt;p id=&quot;p1&quot;&gt;&lt;/p&gt;
+  &lt;p id=&quot;p2&quot;&gt;&lt;/p&gt;
+  &lt;p id=&quot;p3&quot;&gt;&lt;/p&gt;
+  &lt;p id=&quot;p4&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<h2><a class="header" href="#11-media-query-syntax" id="11-media-query-syntax">11 Media Query Syntax</a></h2>
+<pre><code class="language-css">@media (max-width: 767px){ // media feature (resolves to true or false)
+   p {
+     color: blue;
+   }
+</code></pre>
+<h3><a class="header" href="#media-query-common-features" id="media-query-common-features">Media Query Common Features</a></h3>
+<p><code>@media(max-width: 800px) {...}</code></p>
+<p><code>@media(max-width: 800px) {...}</code></p>
+<p><code>@media(orientation: portrait){...}</code></p>
+<p><code>@media screen{...}</code></p>
+<p><code>@media print{...}</code></p>
+<h3><a class="header" href="#media-query-common-logical-operators" id="media-query-common-logical-operators">Media Query Common Logical Operators</a></h3>
+<ul>
+<li>
+<p>Devices with width within a range
+<code>@media(min-width: 768px) and (max-width: 991px){...}</code></p>
+</li>
+<li>
+<p>Comma is equivalent to OR
+<code>@media(max-width: 768px), (min-width: 991px){...}</code></p>
+</li>
+</ul>
+<h3><a class="header" href="#media-query-common-approach" id="media-query-common-approach">Media Query Common Approach</a></h3>
+<pre><code class="language-css">p {color: blue;} // base styles
+@media(min-witdh: 1200px)
+@media(min-width:992px) and (max-width:1199px) 
+// Be sure that two sizes are not overlapped.
+</code></pre>
+<h3><a class="header" href="#an-example-for-how-to-use-media-queries" id="an-example-for-how-to-use-media-queries">An example for how to use media queries</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Media Queries&lt;/title&gt;
+&lt;style&gt;
+
+/********** Base styles **********/
+h1 {
+  margin-bottom: 15px;
+}
+
+p {
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  width: 300px;
+  height: 300px;
+}
+#p2 {
+  background-color: #DEB887;
+  width: 50px;
+  height: 50px;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px){
+    #p1 {
+        width: 80%; 
+    // p1 at width 1200 pixels or wider will take 80% of our screen
+    // when it is below 1200px, the p1 will go back to the original size.
+    }
+    #p2 {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px){
+    #p1{
+        width: 50%;
+    }
+    #p2 {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Media Queries&lt;/h1&gt;
+
+&lt;p id=&quot;p1&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;p2&quot;&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a class="header" href="#summary" id="summary">Summary</a></h3>
+<ul>
+<li>Basic syntax of a media query
+** @media(media feature)
+** @media(media feature) logical operator (media feature)</li>
+<li>Remember not to overlap breakpoints</li>
+<li>Usually, you provide base styling. Then change or add to them in each media query.</li>
+</ul>
+<h2><a class="header" href="#12-responsive-design" id="12-responsive-design">12 Responsive Design</a></h2>
+<p>what is a responsive website? 
+It is a site that's designed to adapt its layout to the viewing environment by using fluid, proportion-based grids, flexible images, and CSS3 media queries. 
+12 columns grid responsive layout
+<a href="https://github.com/jhu-ep-coursera/fullstack-course4/blob/master/examples/Lecture24/responsive-before.html">Checkout here for an example.</a></p>
+<h3><a class="header" href="#121-introduction-to-bootstrap" id="121-introduction-to-bootstrap">12.1 Introduction to Bootstrap</a></h3>
+<p>Bootstrap is the most popular HTML, CSS and JS framework for developing responsive, mobile first projects on the web.
+[https://getbootstrap.com/]
+bootstrap depends on jQuery
+S0 jQuery also needs to be download.</p>
+<h3><a class="header" href="#122-bootstrap-grid-system" id="122-bootstrap-grid-system">12.2 Bootstrap grid system</a></h3>
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;  // your Bootstrap grid always has to be inside of a container wrapper or .container-fluid.
+    &lt;div class=&quot;row&quot;&gt; // The row class also creates a negative margin, to counteract the padding that the container class sets up.
+        &lt;div class=&quot;col-md-4&quot;&gt;Col 1&lt;/div&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4><a class="header" href="#1221-column-class-template" id="1221-column-class-template">12.2.1 Column class template</a></h4>
+<p><code>col-SIZE-SPAN</code></p>
+<ul>
+<li>SIZE 
+screen width range identifier
+columns will collapes (i.e., stack) below that width, unless another rule applies</li>
+<li>SPAN
+How many columns element should span
+values: 1 through 12</li>
+</ul>
+<pre><code class="language-html">&lt;header class=&quot;container&quot;&gt;  // your Bootstrap grid always has to be inside of a container wrapper.
+    &lt;nav class=&quot;row&quot;&gt; // The row class also creates a negative margin, to counteract the padding that the container class sets up.
+        &lt;div class=&quot;col-md-4&quot;&gt;Col 1&lt;/div&gt;
+        ...
+    &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+<h1><a class="header" href="#sql" id="sql">SQL</a></h1>
+<h1><a class="header" href="#duke-coursera" id="duke-coursera">Duke-coursera</a></h1>
+<pre><code class="language-sql">SELECT TOP 3 * FROM Customers;
+</code></pre>
+<p>Next is about <strong>JOIN</strong>.</p>
+<h1><a class="header" href="#python" id="python">Python</a></h1>
+<h1><a class="header" href="#python-course-university-of-michigan" id="python-course-university-of-michigan">Python Course (University of Michigan)</a></h1>
+<p>https://www.coursera.org/learn/python/home/welcome</p>
+<blockquote>
+<p>I took the course in Feb. 2018 without any coding experience before. However, I do not feel I really get Python because of lack of practice/exercise.<br>
+My interests start moving to data analysis recently, and I realized Python is a powerful tool in the world of data analytics. Therefore, I tried to pick up the course again and hopefully I could know it better this time (after I finished CS50 last year) </p>
+<div style="text-align: right"> — April 2021 </div>
+</blockquote>
+<br>
+<p>Tips for writing Python (or any other code) 
+Good names for variables
+Comments - documentation</p>
+<h2><a class="header" href="#converting-user-input" id="converting-user-input">Converting User Input</a></h2>
+<pre><code class="language-python"># convert floor number from Europe system to US system
+inp=input('Europe floor?')
+usf=int(inp) + 1
+print('US floor', usf)
+
+def abc():
+</code></pre>
+<p>\( \int x dx = \frac{x^2}{2} + C \)</p>
+<p>\[ 
+\mu = \frac{1}{N} \sum_{i=0} x_i \\
+\int_0^\infty \mathrm{e}^{-x},\mathrm{d}x
+\]
+https://en.wikibooks.org/wiki/LaTeX/Mathematics</p>
+<h1><a class="header" href="#statistics-rewind" id="statistics-rewind">Statistics rewind</a></h1>
+<h1><a class="header" href="#probability---the-science-of-uncertainty-and-data-2021" id="probability---the-science-of-uncertainty-and-data-2021">Probability - The Science of Uncertainty and Data (2021)</a></h1>
+<p>Use the course to re-build my statistics knowledge.</p>
+<p><a href="https://www.edx.org/course/probability-the-science-of-uncertainty-and-data">The course link</a></p>
+<p><a href="https://ece307.cankaya.edu.tr/uploads/files/introduction%20to%20probability%20(bertsekas,%202nd,%202008).pdf">The Book</a></p>
+<h2><a class="header" href="#unit-1-sample-space-and-probability" id="unit-1-sample-space-and-probability">Unit 1 Sample Space and Probability</a></h2>
+<h3><a class="header" href="#1-fundamental-laws" id="1-fundamental-laws">1 Fundamental laws</a></h3>
+<p><strong>Sample space</strong> - A set of outcomes</p>
+<h4><a class="header" href="#11-probabilistic-models" id="11-probabilistic-models">1.1 Probabilistic models</a></h4>
+<p><strong>Probability Law</strong></p>
+<ul>
+<li>
+<p>Nonnegativity
+\(P(A) \geq 0 \)</p>
+</li>
+<li>
+<p>Additivity: A and B are disjoint, then the probability of their unions satisfies \(P(A \cup B) = P(A) + P(B)\)</p>
+</li>
+<li>
+<p>Normalization
+\( P( \Omega ) = 1 \), \(\Omega \) is the entire sample space.</p>
+</li>
+</ul>
+<p><strong>Discrete Probability Law</strong></p>
+<p>If the sampe sapce consist of a finite number of possible outcomes,
+\[ 
+P({s_1, s_2, ...., s_n}) = P(s_1) + P(s_2) + ...... P(s_n)
+\]</p>
+<p><strong>Discrete Uniform Probability Law</strong></p>
+<p>If the sample space consists of n possible outcomes which are equally likely (i.e., all single-element events have the same probability),
+\[ 
+P(A) = \frac{number of elements of A}{n}
+\]</p>
+<p><em>Some properties of Probabily Laws</em></p>
+<ol>
+<li>If \( A \subset B \), then P(A) \( \leq \) P(B)</li>
+<li>\( P(A \cup B ) = P(A) + P(B) - P(A \cap B) \)</li>
+<li>\( P(A \cup B ) \leq P(A) + P(B) \)</li>
+<li>\( P(A \cup B \cup C) = P(A) + P(A^c \cap B) + P(A^c \cap B^c \cap C) \)</li>
+</ol>
+<br> 
+<p><strong>Uniform Probability Law</strong></p>
+<p>Probability = area</p>
+<p><strong>Countable aditivity axiom</strong> for Discrete but infinite sample space
+\[
+P(A_1 \cup A_2 ...... \cup A_i) = P(A_1) + P(A_2) + ...... + P(A_i)
+\]</p>
+<br>
+<br>
+<h4><a class="header" href="#12-sets" id="12-sets">1.2 Sets</a></h4>
+<p>A collection of distinc elements </p>
+<ul>
+<li>
+<p>finite: e.g. {a, b, c, d}</p>
+</li>
+<li>
+<p>infinite: the reals (R)</p>
+</li>
+<li>
+<p>\( \Omega \) - the universal set</p>
+</li>
+<li>
+<p>Ø - empty set</p>
+</li>
+</ul>
+<p><em>What are reals?</em></p>
+<p><em>The reals include rational numbers (terminating decimals and non-terminating recurring decimals and irrational numbers (non-terminating non-reccuring decimals</em></p>
+<br>
+<p><strong>Countable and uncountable infinite sets</strong></p>
+<ul>
+<li>
+<p>Countable</p>
+<ul>
+<li>
+<p>integers, pairs of positive integers, etc.</p>
+</li>
+<li>
+<p>rational numbers q. with 0 &lt; q &lt; 1</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Uncountable - <em>continuous numbers</em></p>
+<ul>
+<li>
+<p>the interval [0, 1]</p>
+</li>
+<li>
+<p>the reals, the plane, etc.</p>
+</li>
+</ul>
+<p><em>How to prove the reals are uncountable - &quot;Control's diagonalization argument&quot;</em></p>
+</li>
+</ul>
+<br>
+<p><strong>De Morgans' Law</strong></p>
+<ul>
+<li>
+<p>\( (S \cap T)^c = S^c \cup T^c \) and \( (S \cup T)^c = S^c \cap T^c \)</p>
+</li>
+<li>
+<p>\( (S^c \cap T^c)^c = S \cup T \)</p>
+</li>
+</ul>
+<br>
+<br>
+<h2><a class="header" href="#unit-2-conditioning-and-independence" id="unit-2-conditioning-and-independence">Unit 2 Conditioning and independence</a></h2>
+<p>Refer to Section 1.3 - 1.5 in the textbook</p>
+<h3><a class="header" href="#21-conditional-and-bayes-rules" id="21-conditional-and-bayes-rules">2.1 Conditional and Bayes' Rules</a></h3>
+<h4><a class="header" href="#211-conditional-probability" id="211-conditional-probability">2.1.1 Conditional probability</a></h4>
+<p><strong>The definition of conditional probability</strong></p>
+<p>P(A|B) = &quot;probability of A, given that B occurred&quot;</p>
+<p>\[
+P(A|B) = \frac{P(A \cap B )}{P(B)}
+\]</p>
+<p>defined only when P(B) &gt; 0</p>
+<p>Conditional probabilities obey the same axioms.</p>
+<p><strong>Models base on conditional probabilities</strong></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/117574884-993c6600-b0df-11eb-9125-c5501b77d001.png" alt="image" /></p>
+<p><strong>The multiplication rule</strong></p>
+<p>\(P(A \cap B) = P(B)P(A|B) = P(A)P(B|A)\)</p>
+<p>\(P(A^c \cap B \cap C^c) = P(A^c \cap B) P(C^c|A^c \cap B) = P(A^c) P(B|A^c) P(C^c|A^c \cap B)\)</p>
+<p>\(P(A_1 \cap A_2...\cap A_n) = P(A_1) \sqcap_{i=2}^n P(A_i|A_1 \cap A_2...\cap A_i)\)</p>
+<h1><a class="header" href="#data-viz" id="data-viz">Data Viz</a></h1>
+<h1><a class="header" href="#a-list-of-all-the-projects-i-have-done-in-the-courses" id="a-list-of-all-the-projects-i-have-done-in-the-courses">A list of all the projects I have done in the courses</a></h1>
+<br>
+<ol>
+<li>Data Visualization and Communication with Tableau
+by Duke University. <strong><a href="https://public.tableau.com/profile/jing.ai#!/vizhome/TableauFinalproject_16017395213490/Presentation">The link</a></strong></li>
+</ol>
+<br>
+<ol start="2">
+<li>Increasing Real Estate Management Profits: Harnessing Data Analytics by Duke University <strong><a href="https://public.tableau.com/profile/jing.ai#!/vizhome/DukeCapstoneDashboard_16177196005810/Dashboard1">This link</a></strong></li>
+</ol>
+<br>
+<ol start="3">
+<li>Google Data Analytics Certificate <strong><a href="https://public.tableau.com/profile/jing.ai#!/vizhome/shared_bike_202105/Dashboard1">This link</a></strong></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
