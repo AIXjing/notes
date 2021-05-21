@@ -1163,7 +1163,7 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 <p>For sampling distribution, </p>
 <ul>
 <li>
-<p>mean(\(\bar{x}) \approx \mu \) </p>
+<p><strong>mean</strong>(\(\bar{x}) \approx \mu \) </p>
 </li>
 <li>
 <p><strong>standard error:</strong>  SD(\(\bar{x}) \)) &lt; \(\sigma \)</p>
@@ -1172,12 +1172,67 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 <p><a href="https://gallery.shinyapps.io/CLT_mean/">The link to check up the shape of population distribution</a></p>
 <p><strong>Central Limit Theorem (CLT):</strong> The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard deviation equal to the population standard deviation divided by square root of the sample size.</p>
 <p>\[
-\bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}) 
+\bar{x} \sim N(\mu, \frac{\sigma}{\sqrt{n}}) 
 \]</p>
 <p>N refers to the shape of distribution, meaning normal distribution.</p>
 <p>\(\sigma\) is usually unknown, so s is used to replace \(\sigma\)</p>
-<p>sample size increases -&gt; SE decreases</p>
+<ul>
+<li>
+<p><strong>standard deviation (\(\sigma\)) vs. standard error (SE)</strong></p>
+<ul>
+<li>
+<p>\(\sigma\) measures the variability in the data</p>
+</li>
+<li>
+<p>SE measures the variability in the sample mean (point estimates)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>sample size increases -&gt; SE decreases <em>(either from conceptual or mathematically \(SE = \frac{\sigma}{\sqrt{n}}\) point of view)</em></p>
+</li>
+<li>
 <p>To reduce skewness, either increase sample size (observations) or number of samples</p>
+</li>
+<li>
+<p><strong>Sampling distribution will be nearly normal only if</strong></p>
+<ul>
+<li>
+<p>the sample size is sufficiently large (n ≥ 30 or larger if the data are considerably skewed) or the population is known to have a normal distribution</p>
+</li>
+<li>
+<p>the observations in the sample are independent: random sample/assignment and n &lt; 10% of population if sampling without replacement</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#12-confidential-intervals" id="12-confidential-intervals">1.2 Confidential Intervals</a></h3>
+<h4><a class="header" href="#121-confidential-intervals" id="121-confidential-intervals">1.2.1 Confidential Intervals</a></h4>
+<p><strong>confidence interval</strong> is defined as the plausible range of values for a population parameter. </p>
+<p><strong>confidence level</strong> is defined as the percentage of random samples which  yield confidence intervals that capture the true population parameter.</p>
+<p><strong>confidence interval for a population mean:</strong></p>
+<p>\[
+\bar{x} \pm z*\frac{s}{\sqrt{n}}<br />
+\] </p>
+<p><strong>margin of error</strong> (ME) = \(z*\frac{s}{\sqrt{n}} \)</p>
+<ul>
+<li>for 95% CI: \(\bar{x} \pm 2SE\) i.e., ME = 2SE</li>
+</ul>
+<p><em>conditions for this confidence interval is the same as conditions for CLT (independent and sample size)</em></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/119108985-0fff2a80-ba21-11eb-85e6-edf4997e6839.png" alt="image" /></p>
+<h4><a class="header" href="#122-accuracy-vs-precision" id="122-accuracy-vs-precision">1.2.2 Accuracy vs. Precision</a></h4>
+<ul>
+<li>
+<p><strong>Accuracy</strong>: whether or not the CI contains the true population paramter.</p>
+</li>
+<li>
+<p><strong>Precision</strong>: the width of a confidence intervals.</p>
+</li>
+</ul>
+<p>Increasing CL, accuracy increases but precision decreases.</p>
+<ul>
+<li>To get a higher precision and high accuracy - increase sample size</li>
+</ul>
 <h1><a class="header" href="#data-viz" id="data-viz">Data Viz</a></h1>
 <h1><a class="header" href="#a-list-of-all-the-projects-i-have-done-in-the-courses" id="a-list-of-all-the-projects-i-have-done-in-the-courses">A list of all the projects I have done in the courses</a></h1>
 <br>
