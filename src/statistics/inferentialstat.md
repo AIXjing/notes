@@ -24,7 +24,7 @@ population mean (\\(\mu \\)) and population standard deviation (\\(\sigma \\))
 
  For sampling distribution, 
 
- * mean(\\(\bar{x}) \approx \mu \\) 
+ * **mean**(\\(\bar{x}) \approx \mu \\) 
 
  * **standard error:**  SD(\\(\bar{x}) \\)) < \\(\sigma \\)
 
@@ -34,13 +34,60 @@ population mean (\\(\mu \\)) and population standard deviation (\\(\sigma \\))
 **Central Limit Theorem (CLT):** The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard deviation equal to the population standard deviation divided by square root of the sample size.
 
 \\[
-    \bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}) 
+    \bar{x} \sim N(\mu, \frac{\sigma}{\sqrt{n}}) 
 \\]
 
 N refers to the shape of distribution, meaning normal distribution.
 
 \\(\sigma\\) is usually unknown, so s is used to replace \\(\sigma\\)
 
-sample size increases -> SE decreases
 
-To reduce skewness, either increase sample size (observations) or number of samples
+* **standard deviation (\\(\sigma\\)) vs. standard error (SE)**
+
+    - \\(\sigma\\) measures the variability in the data
+
+    - SE measures the variability in the sample mean (point estimates)
+
+
+* sample size increases -> SE decreases *(either from conceptual or mathematically \\(SE = \frac{\sigma}{\sqrt{n}}\\) point of view)*
+
+* To reduce skewness, either increase sample size (observations) or number of samples
+
+* **Sampling distribution will be nearly normal only if**
+
+    - the sample size is sufficiently large (n ≥ 30 or larger if the data are considerably skewed) or the population is known to have a normal distribution
+
+    - the observations in the sample are independent: random sample/assignment and n < 10% of population if sampling without replacement
+
+### 1.2 Confidential Intervals
+
+#### 1.2.1 Confidential Intervals
+
+**confidence interval** is defined as the plausible range of values for a population parameter. 
+
+**confidence level** is defined as the percentage of random samples which  yield confidence intervals that capture the true population parameter.
+
+**confidence interval for a population mean:**
+
+\\[
+    \bar{x} \pm z*\frac{s}{\sqrt{n}}        
+\\] 
+    
+**margin of error** (ME) = \\(z*\frac{s}{\sqrt{n}} \\)
+
+- for 95% CI: \\(\bar{x} \pm 2SE\\) i.e., ME = 2SE
+
+*conditions for this confidence interval is the same as conditions for CLT (independent and sample size)*
+
+![image](https://user-images.githubusercontent.com/41487483/119108985-0fff2a80-ba21-11eb-85e6-edf4997e6839.png)
+
+
+#### 1.2.2 Accuracy vs. Precision
+
+* **Accuracy**: whether or not the CI contains the true population paramter.
+
+* **Precision**: the width of a confidence intervals.
+
+Increasing CL, accuracy increases but precision decreases.
+
+* To get a higher precision and high accuracy - increase sample size
