@@ -270,3 +270,91 @@ vs. 3-way indenpendence
 
 #### 2.2.3 Reliability
 ![image](https://user-images.githubusercontent.com/41487483/118398123-7bc74900-b657-11eb-8f00-9313ffc249f6.png)
+
+
+## Unit 3 Couting
+
+### 3.1 Basic counting principle
+
+r stages and \\(n_i\\) choices at stage i give the total number of possible choices \\( n_1 * n_2 * ....n_r \\)
+
+### 3.2 Permutation
+
+* **Permutation** - number of ways of ordering n elements (repetition is prohibited)
+
+\\[n * (n-1) * (n-2) * ... * 2 * 1 = n!\\]
+
+* Number of subsets of {1, 2, ...n} = \\(2^n\\)
+
+### 3.3 Combinations 
+
+* **combinations** \\(\binom{n}{k}\\)- number of *k*-element subsets of a given *n*-element set
+
+    *How is combination equation derived?*
+
+    Two ways of constructing an **ordered** sequence of *k* **distinct** items:
+
+    - choose the *k* items one at a time: 
+
+        \\[
+            n * (n-1) * ... * (n-k+1) = \frac{n!}{k!(n-k)!}
+        \\]
+
+    - choose *k* items, then order them:
+
+        \\[
+            \left(
+            \begin{array}{c}
+            n \\\\
+            k
+            \end{array}
+            \right)k!
+        \\]
+
+    There we have 
+        \\[
+            \left(
+            \begin{array}{c}
+            n \\\\
+            k
+            \end{array}
+            \right) = \frac{n!}{k!(n-k)!}
+        \\]
+    
+
+### 3.3 Binominal coeffficient 
+
+* **Binominal coeffficient** \\(\binom{n}{k}\\) - Binomial probabilities
+
+    Toss coins n times and each toss is given independent, P(Head) = p
+
+    \\[
+        P(\text{k heads}) = \binom{n}{k}p^k (1-p)^{n-k}
+    \\]
+
+    If asking P(k heads without ordered), then 
+
+     \\[
+        P(\text{k heads}) = p^k (1-p)^{n-k}
+    \\]
+
+    Therefore, \\(\binom{n}{k}\\) is the number of *k*-head sequence
+
+
+### 3.4 Partitions
+
+![image](https://user-images.githubusercontent.com/41487483/119098744-73d02600-ba16-11eb-8406-20acdf555e25.png)
+
+* **multinomial coeffecient** (number of partitions) =
+
+    \\[
+        \frac{n!}{n_1! n_2! ... n_r!}
+    \\]
+
+If r = 2, then \\(n_1 = k\\) and \\(n_2 = n - k\\). There is \\(\frac{n!}{n! (n-k)!}\\) which is \\(\binom{n}{k}\\)
+
+* A simple example
+
+![image](https://user-images.githubusercontent.com/41487483/119102618-83516e00-ba1a-11eb-86e6-b87e6ecf3467.png)
+
+![image](https://user-images.githubusercontent.com/41487483/119102964-e8a55f00-ba1a-11eb-9693-d29eb512ac3f.png)

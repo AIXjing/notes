@@ -19,6 +19,8 @@
 
 - [Statistics rewind](./statistics/statistics.md)
     - [Probability - The Science of Uncertainty and Data](./statistics/MITx6.431x.md)
+    - [Improve your statistical inferences](./statistics/statinfer.md)
+    - [Inferential Statistics](./statistics/inferentialstat.md)
 
 
 - [Data Viz](./dataviztools/dataviztools.md)
