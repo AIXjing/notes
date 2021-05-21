@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>SQL - Note</title>
+        <title>Inferential Statistics - Note</title>
         
         
 
@@ -98,7 +98,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="../git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="../tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="../frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="../frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="../sql/sql.html" class="active"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li><li class="chapter-item expanded "><a href="../python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan</a></li></ol></li><li class="chapter-item expanded "><a href="../statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../statistics/MITx6.431x.html"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li><li class="chapter-item expanded "><a href="../statistics/statinfer.html"><strong aria-hidden="true">7.2.</strong> Improve your statistical inferences</a></li><li class="chapter-item expanded "><a href="../statistics/inferentialstat.html"><strong aria-hidden="true">7.3.</strong> Inferential Statistics</a></li></ol></li><li class="chapter-item expanded "><a href="../dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="../git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="../tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="../frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="../frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="../sql/sql.html"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li><li class="chapter-item expanded "><a href="../python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan</a></li></ol></li><li class="chapter-item expanded "><a href="../statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../statistics/MITx6.431x.html"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li><li class="chapter-item expanded "><a href="../statistics/statinfer.html"><strong aria-hidden="true">7.2.</strong> Improve your statistical inferences</a></li><li class="chapter-item expanded "><a href="../statistics/inferentialstat.html" class="active"><strong aria-hidden="true">7.3.</strong> Inferential Statistics</a></li></ol></li><li class="chapter-item expanded "><a href="../dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -166,20 +166,50 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#sql" id="sql">SQL</a></h1>
+                        <h1><a class="header" href="#inferential-statistics" id="inferential-statistics">Inferential Statistics</a></h1>
+<p><a href="https://www.coursera.org/learn/inferential-statistics-intro/home/welcome">Here is the course link!</a></p>
+<h2><a class="header" href="#1-clt-and-sampling" id="1-clt-and-sampling">1 CLT and Sampling</a></h2>
+<h3><a class="header" href="#11-sampling-variability-and-clt" id="11-sampling-variability-and-clt">1.1 Sampling Variability and CLT</a></h3>
+<p>Sample distribution</p>
+<p>Sampling distribution</p>
+<p>population mean (\(\mu \)) and population standard deviation (\(\sigma \))</p>
+<p>\[
+\mu = \frac{x_1 + x_2 + ... + x_N}{N}
+\]</p>
+<p>\[
+\sigma = \sqrt{\frac{\sum\limits_{i=1}^{N}(x_i - \bar{x})^2}{N}}
+\]</p>
+<p>For sampling distribution, </p>
+<ul>
+<li>
+<p>mean(\(\bar{x}) \approx \mu \) </p>
+</li>
+<li>
+<p><strong>standard error:</strong>  SD(\(\bar{x}) \)) &lt; \(\sigma \)</p>
+</li>
+</ul>
+<p><a href="https://gallery.shinyapps.io/CLT_mean/">The link to check up the shape of population distribution</a></p>
+<p><strong>Central Limit Theorem (CLT):</strong> The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard deviation equal to the population standard deviation divided by square root of the sample size.</p>
+<p>\[
+\bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}) 
+\]</p>
+<p>N refers to the shape of distribution, meaning normal distribution.</p>
+<p>\(\sigma\) is usually unknown, so s is used to replace \(\sigma\)</p>
+<p>sample size increases -&gt; SE decreases</p>
+<p>To reduce skewness, either increase sample size (observations) or number of samples</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../frontend/css.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../statistics/statinfer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../sql/duke.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../dataviztools/dataviztools.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -191,13 +221,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../frontend/css.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../statistics/statinfer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../sql/duke.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../dataviztools/dataviztools.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

@@ -98,7 +98,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="../git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="../tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="../frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="../frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="../sql/sql.html"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li><li class="chapter-item expanded "><a href="../python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan</a></li></ol></li><li class="chapter-item expanded "><a href="../statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../statistics/MITx6.431x.html" class="active"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li></ol></li><li class="chapter-item expanded "><a href="../dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="../git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="../tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="../frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="../frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="../sql/sql.html"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li><li class="chapter-item expanded "><a href="../python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan</a></li></ol></li><li class="chapter-item expanded "><a href="../statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../statistics/MITx6.431x.html" class="active"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li><li class="chapter-item expanded "><a href="../statistics/statinfer.html"><strong aria-hidden="true">7.2.</strong> Improve your statistical inferences</a></li><li class="chapter-item expanded "><a href="../statistics/inferentialstat.html"><strong aria-hidden="true">7.3.</strong> Inferential Statistics</a></li></ol></li><li class="chapter-item expanded "><a href="../dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -170,52 +170,80 @@
 <p>Use the course to re-build my statistics knowledge.</p>
 <p><a href="https://www.edx.org/course/probability-the-science-of-uncertainty-and-data">The course link</a></p>
 <p><a href="https://ece307.cankaya.edu.tr/uploads/files/introduction%20to%20probability%20(bertsekas,%202nd,%202008).pdf">The Book</a></p>
-<h2><a class="header" href="#unit-1-sample-space-and-probability" id="unit-1-sample-space-and-probability">Unit 1 Sample Space and Probability</a></h2>
-<h3><a class="header" href="#1-fundamental-laws" id="1-fundamental-laws">1 Fundamental laws</a></h3>
-<p><strong>Sample space</strong> - A set of outcomes</p>
-<h4><a class="header" href="#11-probabilistic-models" id="11-probabilistic-models">1.1 Probabilistic models</a></h4>
-<p><strong>Probability Law</strong></p>
+<h2><a class="header" href="#1-sample-space-and-probability" id="1-sample-space-and-probability">1 Sample Space and Probability</a></h2>
+<h3><a class="header" href="#11-sample-space---a-set-of-outcomes" id="11-sample-space---a-set-of-outcomes">1.1 Sample space - A set of outcomes</a></h3>
+<ul>
+<li>
+<p>discrete/finite example</p>
+</li>
+<li>
+<p>continuous example</p>
+</li>
+</ul>
+<h3><a class="header" href="#12-probability-axioms" id="12-probability-axioms">1.2 Probability Axioms</a></h3>
 <ul>
 <li>
 <p>Nonnegativity
 \(P(A) \geq 0 \)</p>
 </li>
 <li>
-<p>Additivity: A and B are disjoint, then the probability of their unions satisfies \(P(A \cup B) = P(A) + P(B)\)</p>
-</li>
-<li>
 <p>Normalization
 \( P( \Omega ) = 1 \), \(\Omega \) is the entire sample space.</p>
 </li>
+<li>
+<p>(finite) Additivity: A and B are disjoint, then the probability of their unions satisfies \(P(A \cup B) = P(A) + P(B)\) (to be strengthened later)</p>
+</li>
 </ul>
-<p><strong>Discrete Probability Law</strong></p>
-<p>If the sampe sapce consist of a finite number of possible outcomes,
+<h4><a class="header" href="#121-simple-consequences-of-the-axioms" id="121-simple-consequences-of-the-axioms">1.2.1 Simple consequences of the axioms</a></h4>
+<ol>
+<li>
+<p>For a sampe space consist of a finite number of disjointed events,
 \[ 
 P({s_1, s_2, ...., s_n}) = P(s_1) + P(s_2) + ...... P(s_n)
 \]</p>
-<p><strong>Discrete Uniform Probability Law</strong></p>
+</li>
+<li>
+<p>\(A \subset B\), then \(P(A) \leq P(B)\)</p>
+</li>
+<li>
+<p>\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</p>
+</li>
+<li>
+<p>\(P(A \cup B) \leq P(A) + P(B))\)</p>
+</li>
+</ol>
+<h3><a class="header" href="#13-probability-calculations" id="13-probability-calculations">1.3 Probability calculations</a></h3>
+<h4><a class="header" href="#131-uniform-probability-law" id="131-uniform-probability-law">1.3.1 Uniform Probability Law</a></h4>
+<ul>
+<li>
+<p>Discrete example</p>
 <p>If the sample space consists of n possible outcomes which are equally likely (i.e., all single-element events have the same probability),
 \[ 
-P(A) = \frac{number of elements of A}{n}
+P(A) = \frac{\text{number of elements of A}}{n}
 \]</p>
-<p><em>Some properties of Probabily Laws</em></p>
-<ol>
-<li>If \( A \subset B \), then P(A) \( \leq \) P(B)</li>
-<li>\( P(A \cup B ) = P(A) + P(B) - P(A \cap B) \)</li>
-<li>\( P(A \cup B ) \leq P(A) + P(B) \)</li>
-<li>\( P(A \cup B \cup C) = P(A) + P(A^c \cap B) + P(A^c \cap B^c \cap C) \)</li>
-</ol>
-<br> 
-<p><strong>Uniform Probability Law</strong></p>
-<p>Probability = area</p>
-<p><strong>Countable aditivity axiom</strong> for Discrete but infinite sample space
-\[
-P(A_1 \cup A_2 ...... \cup A_i) = P(A_1) + P(A_2) + ...... + P(A_i)
+</li>
+<li>
+<p>continuous example</p>
+<p>probability = area</p>
+</li>
+</ul>
+<h4><a class="header" href="#132-discrete-but-infinite-sample-space" id="132-discrete-but-infinite-sample-space">1.3.2 Discrete but infinite sample space</a></h4>
+<ul>
+<li>
+<p>Sample space: {1, 2, 3 ....}</p>
+<p>Given \(P(n) = \frac{1}{2^n}\), n = 1, 2, 3....</p>
+<p>As \( P(\Omega) = 1 \): \(\frac{1}{2} + \frac{1}{4} + ....=  \sum\limits_{n=1}^\infty \frac{1}{2^n} = \frac{1}{2}\sum\limits_{n=0}^\infty \frac{1}{2^n} = \frac{1}{2}\frac{1}{1-1/2} = 1\) </p>
+</li>
+</ul>
+<h4><a class="header" href="#133-countable-aditivity-axiom" id="133-countable-aditivity-axiom">1.3.3 Countable aditivity axiom</a></h4>
+<p><em>Additivity holds only for &quot;<strong>countable</strong>&quot; sequences of events</em></p>
+<p>If \(A_1, A_2, A_3 ...\) is an \(\underline{\text{infinite sequence of disjoined events}}\),</p>
+<p>\[
+P(A_1 \cup A_2 ......) = P(A_1) + P(A_2) + ......
 \]</p>
 <br>
-<br>
-<h4><a class="header" href="#12-sets" id="12-sets">1.2 Sets</a></h4>
-<p>A collection of distinc elements </p>
+<h3><a class="header" href="#14-mathematical-background" id="14-mathematical-background">1.4 Mathematical background</a></h3>
+<h4><a class="header" href="#141-sets---a-collection-of-distinc-elements" id="141-sets---a-collection-of-distinc-elements">1.4.1 Sets - A collection of distinc elements</a></h4>
 <ul>
 <li>
 <p>finite: e.g. {a, b, c, d}</p>
@@ -232,8 +260,64 @@ P(A_1 \cup A_2 ...... \cup A_i) = P(A_1) + P(A_2) + ...... + P(A_i)
 </ul>
 <p><em>What are reals?</em></p>
 <p><em>The reals include rational numbers (terminating decimals and non-terminating recurring decimals and irrational numbers (non-terminating non-reccuring decimals</em></p>
-<br>
-<p><strong>Countable and uncountable infinite sets</strong></p>
+<h4><a class="header" href="#142-unions-and-intersection" id="142-unions-and-intersection">1.4.2 Unions and intersection</a></h4>
+<h4><a class="header" href="#143-de-morgans-law" id="143-de-morgans-law">1.4.3 De Morgans' Law</a></h4>
+<ul>
+<li>
+<p>\( (S \cap T)^c = S^c \cup T^c \) and \( (S \cup T)^c = S^c \cap T^c \)</p>
+</li>
+<li>
+<p>\( (S^c \cap T^c)^c = S \cup T \)</p>
+</li>
+</ul>
+<h4><a class="header" href="#144-other-important-mathematical-backgrounds" id="144-other-important-mathematical-backgrounds">1.4.4 Other important mathematical backgrounds</a></h4>
+<ul>
+<li>
+<p>Sequences and their limits </p>
+<p><em>squence: an enumerated collection of objects</em></p>
+</li>
+<li>
+<p>When does a sequence converge</p>
+<ul>
+<li>
+<p>if \(a_i \leq a_{i+1}\)</p>
+<ul>
+<li>
+<p>the sequence &quot;converge to \(\infty\)&quot;</p>
+</li>
+<li>
+<p>the sequence converge to some real number a </p>
+</li>
+</ul>
+</li>
+<li>
+<p>if \(|a_i - a| \leq b\), for \(b_i \to 0\), then \(a_i \to a\)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Infinite series</p>
+<p><em>series(infinte sums) vs. summation(finite sums)</em></p>
+<p>\(\sum\limits_{n=1}^\infty a_i = \lim\limits_{n\to\infty}\sum\limits_{i=1}^n a_i\) </p>
+<ul>
+<li>
+<p>\(a_i \leq 0\): limit exists</p>
+</li>
+<li>
+<p>if term \(a_i\) do not all have the same sign:</p>
+<p>a. limit does not exist</p>
+<p>b. limit may exist but be different if we sum in a different order</p>
+<p>c. <strong>Fact</strong>: limit exists and independent of order of summation if  \(\sum\limits_{n=1}^\infty |a_i| \leq \infty\) </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Geometric series (等比数列、等比级数)</p>
+<p>\(\sum\limits_{i=0}^\infty a^i = 1 + a + a^2 + ...... = \frac{1}{1-a} \text{           |a| &lt; 1} \)</p>
+</li>
+</ul>
+<h3><a class="header" href="#14-sets" id="14-sets">1.4 Sets</a></h3>
+<h4><a class="header" href="#141-countable-and-uncountable-infinite-sets" id="141-countable-and-uncountable-infinite-sets">1.4.1 Countable and uncountable infinite sets</a></h4>
 <ul>
 <li>
 <p>Countable</p>
@@ -242,7 +326,7 @@ P(A_1 \cup A_2 ...... \cup A_i) = P(A_1) + P(A_2) + ...... + P(A_i)
 <p>integers, pairs of positive integers, etc.</p>
 </li>
 <li>
-<p>rational numbers q. with 0 &lt; q &lt; 1</p>
+<p>rational numbers q (有理数), with 0 &lt; q &lt; 1</p>
 </li>
 </ul>
 </li>
@@ -260,34 +344,163 @@ P(A_1 \cup A_2 ...... \cup A_i) = P(A_1) + P(A_2) + ...... + P(A_i)
 </li>
 </ul>
 <br>
-<p><strong>De Morgans' Law</strong></p>
-<ul>
-<li>
-<p>\( (S \cap T)^c = S^c \cup T^c \) and \( (S \cup T)^c = S^c \cap T^c \)</p>
-</li>
-<li>
-<p>\( (S^c \cap T^c)^c = S \cup T \)</p>
-</li>
-</ul>
-<br>
-<br>
 <h2><a class="header" href="#unit-2-conditioning-and-independence" id="unit-2-conditioning-and-independence">Unit 2 Conditioning and independence</a></h2>
 <p>Refer to Section 1.3 - 1.5 in the textbook</p>
 <h3><a class="header" href="#21-conditional-and-bayes-rules" id="21-conditional-and-bayes-rules">2.1 Conditional and Bayes' Rules</a></h3>
-<h4><a class="header" href="#211-conditional-probability" id="211-conditional-probability">2.1.1 Conditional probability</a></h4>
-<p><strong>The definition of conditional probability</strong></p>
+<h4><a class="header" href="#211-the-definition-of-conditional-probability" id="211-the-definition-of-conditional-probability">2.1.1 The definition of conditional probability</a></h4>
 <p>P(A|B) = &quot;probability of A, given that B occurred&quot;</p>
 <p>\[
 P(A|B) = \frac{P(A \cap B )}{P(B)}
 \]</p>
 <p>defined only when P(B) &gt; 0</p>
-<p>Conditional probabilities obey the same axioms.</p>
-<p><strong>Models base on conditional probabilities</strong></p>
+<h4><a class="header" href="#212-conditional-probabilities-share-properties-of-ordinary-probabilities" id="212-conditional-probabilities-share-properties-of-ordinary-probabilities">2.1.2 Conditional probabilities share properties of ordinary probabilities</a></h4>
+<ul>
+<li>
+<p>\(P(A|B) \geq 0\)</p>
+</li>
+<li>
+<p>\(P(\Omega|B) = 1\)</p>
+</li>
+<li>
+<p>\(P(B|B) &lt; 0\)</p>
+</li>
+<li>
+<p>If \(A \cap C = Ø\), then \(P(A \cup C|B) = P(A|B) + P(C|B)\) also only applies to countable and finite sequence (countable additivity axioms).</p>
+</li>
+</ul>
+<h4><a class="header" href="#213-models-base-on-conditional-probabilities" id="213-models-base-on-conditional-probabilities">2.1.3 Models base on conditional probabilities</a></h4>
 <p><img src="https://user-images.githubusercontent.com/41487483/117574884-993c6600-b0df-11eb-9125-c5501b77d001.png" alt="image" /></p>
-<p><strong>The multiplication rule</strong></p>
-<p>\(P(A \cap B) = P(B)P(A|B) = P(A)P(B|A)\)</p>
-<p>\(P(A^c \cap B \cap C^c) = P(A^c \cap B) P(C^c|A^c \cap B) = P(A^c) P(B|A^c) P(C^c|A^c \cap B)\)</p>
-<p>\(P(A_1 \cap A_2...\cap A_n) = P(A_1) \sqcap_{i=2}^n P(A_i|A_1 \cap A_2...\cap A_i)\)</p>
+<p><strong>1. The multiplication rule</strong></p>
+<pre><code>\\(P(A \cap B) = P(B)P(A|B) = P(A)P(B|A)\\)
+
+\\(P(A^c \cap B \cap C^c) = P(A^c \cap B) P(C^c|A^c \cap B) = P(A^c) P(B|A^c) P(C^c|A^c \cap B)\\)
+
+\\(P(A_1 \cap A_2...\cap A_n) = P(A_1) \prod\limits_{i=2}^n P(A_i|A_1 \cap A_2...\cap A_i)\\)
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/41487483/118396328-55051480-b64f-11eb-9c9e-9703528df69e.png" alt="image" /></p>
+<p><strong>2. Total probability theorem</strong></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/118396377-9e556400-b64f-11eb-8e1a-f5530bb63fd3.png" alt="image" /></p>
+<p><strong>3. Bayes' rules</strong></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/118396464-eeccc180-b64f-11eb-9080-e7e86ad223bf.png" alt="image" /></p>
+<h3><a class="header" href="#22-independence" id="22-independence">2.2 Independence</a></h3>
+<h4><a class="header" href="#221-conditional-independence" id="221-conditional-independence">2.2.1 Conditional independence</a></h4>
+<p>Independent of two events</p>
+<ul>
+<li>
+<p>Intuitive &quot;definition&quot;: P(B|A) = P(B) </p>
+<ul>
+<li>Occurence of A provides no new information about B</li>
+</ul>
+</li>
+</ul>
+<p>Definition of independence:</p>
+<p>\(P(A \cap B) = P(A) \times P(B)\)</p>
+<p><em>whether two events disjoined or joined is not associated with independence</em></p>
+<p><strong>Independent of events complements</strong></p>
+<p>If A and B are independent, then A and \(B^c\) are independent. </p>
+<p><strong>Independent of events complements</strong></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/118397139-df9b4300-b652-11eb-9e1c-e8b293e070fc.png" alt="image" /></p>
+<p><strong>Conditioning may affect independence</strong></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/118397436-35241f80-b654-11eb-89cf-d6eacefd924e.png" alt="image" /></p>
+<h4><a class="header" href="#222-independence-of-a-collection-of-events" id="222-independence-of-a-collection-of-events">2.2.2 Independence of a collection of events</a></h4>
+<ul>
+<li>
+<p>Intuitive &quot;definition&quot;: Information on some of the events does not change probabilities related to the remaining events</p>
+</li>
+<li>
+<p>Definition: Events \(A_1, A_2,....., A_n\) are called independent if: </p>
+<p>\(P(A_i \cap A_j \cap .... \cap A_m) = P(A_i)P(A_j)...P(A_m)\)</p>
+</li>
+</ul>
+<p><strong>Pairwise independence</strong></p>
+<p>n = 3:</p>
+<p>\(P(A_1 \cap A_2) = P(A_1)P(A_2)\)</p>
+<p>\(P(A_1 \cap A_3) = P(A_1)P(A_3)\)</p>
+<p>\(P(A_2 \cap A_3) = P(A_2)P(A_3)\)</p>
+<p>vs. 3-way indenpendence</p>
+<p>\(P(A_1 \cap A_2 \cap A_3) = P(A_1)P(A_2)P(A_3)\)</p>
+<p><strong>Independence vs. pairwise independence</strong></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/118398068-4d496e00-b657-11eb-91d3-ade5aa82f245.png" alt="image" /></p>
+<h4><a class="header" href="#223-reliability" id="223-reliability">2.2.3 Reliability</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/118398123-7bc74900-b657-11eb-8f00-9313ffc249f6.png" alt="image" /></p>
+<h2><a class="header" href="#unit-3-couting" id="unit-3-couting">Unit 3 Couting</a></h2>
+<h3><a class="header" href="#31-basic-counting-principle" id="31-basic-counting-principle">3.1 Basic counting principle</a></h3>
+<p>r stages and \(n_i\) choices at stage i give the total number of possible choices \( n_1 * n_2 * ....n_r \)</p>
+<h3><a class="header" href="#32-permutation" id="32-permutation">3.2 Permutation</a></h3>
+<ul>
+<li><strong>Permutation</strong> - number of ways of ordering n elements (repetition is prohibited)</li>
+</ul>
+<p>\[n * (n-1) * (n-2) * ... * 2 * 1 = n!\]</p>
+<ul>
+<li>Number of subsets of {1, 2, ...n} = \(2^n\)</li>
+</ul>
+<h3><a class="header" href="#33-combinations" id="33-combinations">3.3 Combinations</a></h3>
+<ul>
+<li>
+<p><strong>combinations</strong> \(\binom{n}{k}\)- number of <em>k</em>-element subsets of a given <em>n</em>-element set</p>
+<p><em>How is combination equation derived?</em></p>
+<p>Two ways of constructing an <strong>ordered</strong> sequence of <em>k</em> <strong>distinct</strong> items:</p>
+<ul>
+<li>
+<p>choose the <em>k</em> items one at a time: </p>
+<p>\[
+n * (n-1) * ... * (n-k+1) = \frac{n!}{k!(n-k)!}
+\]</p>
+</li>
+<li>
+<p>choose <em>k</em> items, then order them:</p>
+<p>\[
+\left(
+\begin{array}{c}
+n \\
+k
+\end{array}
+\right)k!
+\]</p>
+</li>
+</ul>
+<p>There we have 
+\[
+\left(
+\begin{array}{c}
+n \\
+k
+\end{array}
+\right) = \frac{n!}{k!(n-k)!}
+\]</p>
+</li>
+</ul>
+<h3><a class="header" href="#33-binominal-coeffficient" id="33-binominal-coeffficient">3.3 Binominal coeffficient</a></h3>
+<ul>
+<li>
+<p><strong>Binominal coeffficient</strong> \(\binom{n}{k}\) - Binomial probabilities</p>
+<p>Toss coins n times and each toss is given independent, P(Head) = p</p>
+<p>\[
+P(\text{k heads}) = \binom{n}{k}p^k (1-p)^{n-k}
+\]</p>
+<p>If asking P(k heads without ordered), then </p>
+<p>\[
+P(\text{k heads}) = p^k (1-p)^{n-k}
+\]</p>
+<p>Therefore, \(\binom{n}{k}\) is the number of <em>k</em>-head sequence</p>
+</li>
+</ul>
+<h3><a class="header" href="#34-partitions" id="34-partitions">3.4 Partitions</a></h3>
+<p><img src="https://user-images.githubusercontent.com/41487483/119098744-73d02600-ba16-11eb-8406-20acdf555e25.png" alt="image" /></p>
+<ul>
+<li>
+<p><strong>multinomial coeffecient</strong> (number of partitions) =</p>
+<p>\[
+\frac{n!}{n_1! n_2! ... n_r!}
+\]</p>
+</li>
+</ul>
+<p>If r = 2, then \(n_1 = k\) and \(n_2 = n - k\). There is \(\frac{n!}{n! (n-k)!}\) which is \(\binom{n}{k}\)</p>
+<ul>
+<li>A simple example</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/119102618-83516e00-ba1a-11eb-86e6-b87e6ecf3467.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/119102964-e8a55f00-ba1a-11eb-9693-d29eb512ac3f.png" alt="image" /></p>
 
                     </main>
 
@@ -300,7 +513,7 @@ P(A|B) = \frac{P(A \cap B )}{P(B)}
                         
 
                         
-                            <a rel="next" href="../dataviztools/dataviztools.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../statistics/statinfer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -318,7 +531,7 @@ P(A|B) = \frac{P(A \cap B )}{P(B)}
                 
 
                 
-                    <a rel="next" href="../dataviztools/dataviztools.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../statistics/statinfer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
