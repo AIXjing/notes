@@ -1391,6 +1391,193 @@ for j in range(50):
 print()
 print(counts)
 </code></pre>
+<h2><a class="header" href="#2-elements-sets-and-membership" id="2-elements-sets-and-membership">2 Elements, sets and membership</a></h2>
+<h2><a class="header" href="#21-basic-concepts" id="21-basic-concepts">2.1 Basic concepts</a></h2>
+<p><strong>Common sets</strong></p>
+<ul>
+<li>
+<p>Intergers {..., -2, -1, 0, 1, 2, ...} \(Z\)</p>
+</li>
+<li>
+<p>Naturals {..., 0, 1, 2, 3, ...} \(N\)</p>
+</li>
+<li>
+<p>Positives {1, 2, 3, ...} \(P\)</p>
+</li>
+<li>
+<p>Rationals {interger ratios m/n, \(n \neq 0\)} \(Q\)</p>
+</li>
+<li>
+<p>Reals {...Google...} \(R\)</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>The <strong>order</strong> and <strong>repetition</strong> do no matter: </p>
+<ul>
+<li>
+<p>{0,1} = {1,0}</p>
+</li>
+<li>
+<p>{0,1,1,1} = {0,1}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Special sets</strong></p>
+<ul>
+<li>
+<p>Empty set: \(x \notin \varnothing\)</p>
+</li>
+<li>
+<p>Universal set: \(\forall x \in \Omega\)</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Define a set in python</p>
+<ul>
+<li>
+<p>Define a set: <code>set1={1,2}</code> or <code>set2=set({2,3})</code></p>
+</li>
+<li>
+<p>Define an empty set: <code>set()</code> or <code>set({})</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Membership - <code>in</code> and <code>not in</code></p>
+</li>
+<li>
+<p>Test empty - <code>not</code></p>
+</li>
+</ul>
+<pre><code class="language-py">S = set()
+not S
+#Output: True
+</code></pre>
+<ul>
+<li>Set size - <code>len()</code></li>
+</ul>
+<h2><a class="header" href="#22-basic-sets" id="22-basic-sets">2.2 Basic sets</a></h2>
+<h3><a class="header" href="#221-sets-within-sets" id="221-sets-within-sets">2.2.1 Sets within Sets</a></h3>
+<p>{\(x \in A | .... \)} = {elements in A such that}</p>
+<ul>
+<li>
+<p>Integer Intervals</p>
+<p>\(N = \{ x \in Z | x \geq 0 \}\), \(P = \{ x \in Z | x &gt; 0 \} \)</p>
+</li>
+<li>
+<p>Real intervals</p>
+<p>\([a,b] = \{ x \in R | a \leq x \leq b \}\)</p>
+<p>\((a,b) = \{ x \in R | a &lt; x &lt; b \}\)</p>
+</li>
+<li>
+<p>Divisibility</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/119231729-a49d8180-bb22-11eb-9a44-901751904204.png" alt="image" /></p>
+<p><strong>Sets of Multiples</strong> </p>
+<p>\(m \in Z\), \(_m Z = \{ i \in Z : m| i \}\)</p>
+<p><em>Even numbers</em>: \(_2 Z = \{ ..., -4, -2, 0, 2, 4, ... \} = E\) </p>
+</li>
+</ul>
+<p><strong>Python syntax</strong></p>
+<ul>
+<li>
+<p>{0,...,n-1}: <code>range(n)</code></p>
+</li>
+<li>
+<p>{m,...,n-1}: <code>range(m,n)</code></p>
+</li>
+<li>
+<p>{m, m+d, m+2d, ...} &lt; n-1: <code>range(m, n, d)</code></p>
+</li>
+</ul>
+<pre><code class="language-py">print(set(range(3)))
+#Output: {0, 1, 2}
+
+print(set(range(2,5)))
+#Output: {2, 3, 4}
+
+print(set(range(2,12,3)))
+#Output: {2, 5, 8, 11}
+#Return type range, but conver to set if print
+</code></pre>
+<h3><a class="header" href="#222-visualization" id="222-visualization">2.2.2 Visualization</a></h3>
+<ul>
+<li>Venn Diagram</li>
+</ul>
+<pre><code class="language-py">import matplotlib.pyplot as plt
+import matplotlib_venn as venn
+S = {1, 2, 3}
+T = {0, 2, -1, 5}
+venn.venn2([S, T], set_labels=('S','T'))
+plt.show()
+
+#for 3 sets: venn.venn3([S,T,U], set_labels=(’S’,’T’,'U'))
+</code></pre>
+<h2><a class="header" href="#23-relations" id="23-relations">2.3 Relations</a></h2>
+<h3><a class="header" href="#231-number-relations" id="231-number-relations">2.3.1 Number relations</a></h3>
+<ul>
+<li>
+<p>Equality</p>
+<p>\(=\), \(\neq \)</p>
+</li>
+<li>
+<p>Intersection - two sets share at least one common element</p>
+<p>Disjoint - no shared elements</p>
+</li>
+<li>
+<p>Subsets - \(A \subseteq B\) </p>
+<p>superset - \(B \supseteq A\) </p>
+<p>\[
+P \subseteq N \subseteq Z \subseteq Q \subseteq R
+\]</p>
+<p>strict subset - if \(A \subseteq B\) and \(A \neq B\), A is a strict subset of B, denote \(A \subset B\); conversely, A is a strict superset of B, \(B \supset A\)</p>
+</li>
+</ul>
+<p><strong>Belongs to (\( \in \)) vs. Subsets of (\(\subseteq \))</strong></p>
+<ul>
+<li>
+<p>\( x \in A \): element x belongsto set A</p>
+<p>\( 0 \in {0,1} \)</p>
+</li>
+<li>
+<p>(\( A \subseteq B \)): A is a subset of B</p>
+<p>\( \{ 0 \} \subseteq {0,1} \)</p>
+</li>
+</ul>
+<p><em>Python to check equality and disjoint</em></p>
+<p><code>==</code>, <code>!=</code>, <code>.isjointed()</code></p>
+<pre><code class="language-py">S1={0,1}; S2=set({0,1}); S3={1,0,1}; T={0,2}
+
+# Equality
+S1 == T
+#Output: False
+S1 == S2
+S1 == S3
+#Output: True
+
+# Inequality
+S1 != S2
+
+# Disjoint 
+S1.isdisjoint(T)
+S1.isdisjoint({2})
+
+</code></pre>
+<p><em>Python to check subsets and supersets</em></p>
+<p><code>&lt;=</code> or <code>issubset</code> for \(\subseteq \) and <code>&lt;</code> for \(\subset \) </p>
+<p><code>&gt;=</code> or <code>issuperset</code> for (\supseteq \) </p>
+<pre><code class="language-py">zero = {0}; zplus = {0,1}; zminus = {0, -1}
+
+ziminus &lt;= zplu
+#Output: False
+ziminus &gt;= zplu
+#Output: True
+
+zero.issubset(zminus)
+
+</code></pre>
 <h1><a class="header" href="#data-viz" id="data-viz">Data Viz</a></h1>
 <h1><a class="header" href="#a-list-of-all-the-projects-i-have-done-in-the-courses" id="a-list-of-all-the-projects-i-have-done-in-the-courses">A list of all the projects I have done in the courses</a></h1>
 <br>
