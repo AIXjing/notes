@@ -100,7 +100,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="sql/sql.html"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li><li class="chapter-item expanded "><a href="python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan</a></li></ol></li><li class="chapter-item expanded "><a href="statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="statistics/MITx6.431x.html"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li><li class="chapter-item expanded "><a href="statistics/statinfer.html"><strong aria-hidden="true">7.2.</strong> Improve your statistical inferences</a></li><li class="chapter-item expanded "><a href="statistics/inferentialstat.html"><strong aria-hidden="true">7.3.</strong> Inferential Statistics</a></li></ol></li><li class="chapter-item expanded "><a href="dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="tips.html"><strong aria-hidden="true">3.</strong> Visit with the Client &amp; Setup Overview</a></li><li class="chapter-item expanded "><a href="frontend/frontend.html"><strong aria-hidden="true">4.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="frontend/vue3.html"><strong aria-hidden="true">4.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="frontend/css.html"><strong aria-hidden="true">4.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="sql/sql.html"><strong aria-hidden="true">5.</strong> SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sql/duke.html"><strong aria-hidden="true">5.1.</strong> Duke-coursera</a></li></ol></li><li class="chapter-item expanded "><a href="python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan</a></li><li class="chapter-item expanded "><a href="python/leanningfrommis.html"><strong aria-hidden="true">6.2.</strong> Learning in a hard way</a></li></ol></li><li class="chapter-item expanded "><a href="statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="statistics/MITx6.431x.html"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li><li class="chapter-item expanded "><a href="statistics/statinfer.html"><strong aria-hidden="true">7.2.</strong> Improve your statistical inferences</a></li><li class="chapter-item expanded "><a href="statistics/inferentialstat.html"><strong aria-hidden="true">7.3.</strong> Inferential Statistics</a></li><li class="chapter-item expanded "><a href="statistics/python.html"><strong aria-hidden="true">7.4.</strong> Statistics with Python</a></li></ol></li><li class="chapter-item expanded "><a href="dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li><li class="chapter-item expanded "><a href="english/english.html"><strong aria-hidden="true">9.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="english/speaking.html"><strong aria-hidden="true">9.1.</strong> Speaking English</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -799,6 +799,43 @@ def abc():
 \int_0^\infty \mathrm{e}^{-x},\mathrm{d}x
 \]
 https://en.wikibooks.org/wiki/LaTeX/Mathematics</p>
+<h1><a class="header" href="#learning-in-a-hard-way" id="learning-in-a-hard-way">Learning in a hard way</a></h1>
+<h2><a class="header" href="#numpyarray" id="numpyarray">numpy.array</a></h2>
+<p>When creates a numpy.array <code>a = numpy.array([1,2,3])</code>. It is 1-dimensional if not specified. The shape of a can be checked out by <code>a.shape</code>, and it will output <code>(3,)</code>.</p>
+<p>The number of dimensions will be transformed from 1 to 2 by exploting </p>
+<ul>
+<li>
+<p><code>a1 = a.reshape(1,3)</code>, giving an output <code>array([[1,2,3]])</code></p>
+</li>
+<li>
+<p><code>a2 = a.reshape(3,1)</code>, giving an output </p>
+</li>
+</ul>
+<pre><code class="language-py">array([[1],
+       [2],
+       [3]])
+</code></pre>
+<p><strong>array.sum</strong></p>
+<ul>
+<li>array.sum(axis=0): sum up along the column</li>
+</ul>
+<pre><code class="language-py">a1.sum(axis=0)
+#output: array([1, 2, 3])
+
+a2.sum(axis=0)
+#output: array([6])
+</code></pre>
+<ul>
+<li>array.sum(axis=1): sum up along the row</li>
+</ul>
+<pre><code class="language-py">a1.sum(axis=1)
+#output: array([6])
+
+a2.sum(axis=1)
+#output: array([1, 2, 3]) -&gt; 1D array?
+</code></pre>
+<p><code>a.sum(axis=1)</code> and <code>a.sum(axis=0)</code> give the same output <code>array([6])</code> because of only one dimension.</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/119228773-d0b20600-bb14-11eb-9fa9-93e697500f1c.png" alt="image" /></p>
 <h1><a class="header" href="#statistics-rewind" id="statistics-rewind">Statistics rewind</a></h1>
 <h1><a class="header" href="#probability---the-science-of-uncertainty-and-data-2021" id="probability---the-science-of-uncertainty-and-data-2021">Probability - The Science of Uncertainty and Data (2021)</a></h1>
 <p>Use the course to re-build my statistics knowledge.</p>
@@ -1172,7 +1209,7 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 <p><a href="https://gallery.shinyapps.io/CLT_mean/">The link to check up the shape of population distribution</a></p>
 <p><strong>Central Limit Theorem (CLT):</strong> The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard deviation equal to the population standard deviation divided by square root of the sample size.</p>
 <p>\[
-\bar{x} \sim N(\mu, \frac{\sigma}{\sqrt{n}}) 
+\bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}) 
 \]</p>
 <p>N refers to the shape of distribution, meaning normal distribution.</p>
 <p>\(\sigma\) is usually unknown, so s is used to replace \(\sigma\)</p>
@@ -1195,7 +1232,7 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 <p>To reduce skewness, either increase sample size (observations) or number of samples</p>
 </li>
 <li>
-<p><strong>Sampling distribution will be nearly normal only if</strong></p>
+<p><strong>Sampling distribution will be nearly normal only (the condition of CLT)if</strong></p>
 <ul>
 <li>
 <p>the sample size is sufficiently large (n ≥ 30 or larger if the data are considerably skewed) or the population is known to have a normal distribution</p>
@@ -1212,15 +1249,47 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 <p><strong>confidence level</strong> is defined as the percentage of random samples which  yield confidence intervals that capture the true population parameter.</p>
 <p><strong>confidence interval for a population mean:</strong></p>
 <p>\[
-\bar{x} \pm z*\frac{s}{\sqrt{n}}<br />
+\bar{x} \pm z\frac{s}{\sqrt{n}}<br />
 \] </p>
-<p><strong>margin of error</strong> (ME) = \(z*\frac{s}{\sqrt{n}} \)</p>
+<p><strong>margin of error</strong> (ME) = \(z\frac{s}{\sqrt{n}} \)</p>
 <ul>
-<li>for 95% CI: \(\bar{x} \pm 2SE\) i.e., ME = 2SE</li>
+<li>for 95% CI: \(\bar{x} \pm 2SE\) i.e., \(ME = 2SE\)</li>
 </ul>
 <p><em>conditions for this confidence interval is the same as conditions for CLT (independent and sample size)</em></p>
 <p><img src="https://user-images.githubusercontent.com/41487483/119108985-0fff2a80-ba21-11eb-85e6-edf4997e6839.png" alt="image" /></p>
-<h4><a class="header" href="#122-accuracy-vs-precision" id="122-accuracy-vs-precision">1.2.2 Accuracy vs. Precision</a></h4>
+<p><a href="http://www.z-table.com/">z-table</a></p>
+<h4><a class="header" href="#122-z-score-not-covered-in-the-course" id="122-z-score-not-covered-in-the-course">1.2.2 z-score (not covered in the course)</a></h4>
+<ul>
+<li>
+<p><a href="https://www.usablestats.com/lessons/zarea">z-score for a single value</a> </p>
+<p>Given we know the population parameters (\(\mu\) and \(\sigma\)), calculate z-score for any individual in the population:</p>
+<p>\[
+z = \frac{(x - \mu)}{\sigma}<br />
+\]</p>
+<p>Using z-table, the probability can be calculated.</p>
+</li>
+<li>
+<p><a href="https://www.usablestats.com/lessons/1samplez">z-score for a sample mean</a></p>
+<p>\[
+z = \frac{(\bar{x} - \mu)}{\frac{\sigma}{\sqrt{n}}}<br />
+\]</p>
+</li>
+<li>
+<p><strong>Empirical rule</strong></p>
+<ul>
+<li>
+<p>68% of values fall within 1 SE of the mean</p>
+</li>
+<li>
+<p>95% fall within 2 SE of the mean</p>
+</li>
+<li>
+<p>99% fall within 3 SE of the mean</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#123-accuracy-vs-precision" id="123-accuracy-vs-precision">1.2.3 Accuracy vs. Precision</a></h4>
 <ul>
 <li>
 <p><strong>Accuracy</strong>: whether or not the CI contains the true population paramter.</p>
@@ -1233,6 +1302,95 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 <ul>
 <li>To get a higher precision and high accuracy - increase sample size</li>
 </ul>
+<h3><a class="header" href="#123-required-sample-size-for-me" id="123-required-sample-size-for-me">1.2.3 Required sample size for ME</a></h3>
+<p>\[
+ME = z \frac{s}{\sqrt{n}}    \rightarrow n = \Bigg(\frac{z s}{ME}\Bigg)^2
+\]</p>
+<h1><a class="header" href="#statistics-with-python" id="statistics-with-python">Statistics with Python</a></h1>
+<h2><a class="header" href="#1-introduction-to-probability-and-statistics" id="1-introduction-to-probability-and-statistics">1 Introduction to Probability and Statistics</a></h2>
+<h3><a class="header" href="#11-probability-theory" id="11-probability-theory">1.1 Probability Theory</a></h3>
+<p>Use Python to simulate coin tossing problem,</p>
+<pre><code class="language-py"># Generate the sum of k coin flips, repeat that n times
+def generate_counts(k=1000, n=100):
+  X=2*(np.random.rand(k,n)&gt;0.5)-1 # generate a kXn matrix of +-rando
+  S=np.sum(X, axis=0)
+  return S
+coins_flip = generate_counts()
+
+# plot a histogram
+plt.style.use('ggplot')
+plt.hist(coins_flip, 10, range = [-400, 400])
+plt.show
+</code></pre>
+<p><code>np.random.rand(k,n)&gt;0.5</code> generate a True/False (k,n) matrix, but it transforms to an integer matrix with <code>2*</code></p>
+<ul>
+<li>
+<p>In most cases, we can <strong>approximate</strong> probabilities using simulations (Monte-Carlo simulations)</p>
+</li>
+<li>
+<p>However, calculating the probabilities is better because it provides a precise answer and is much faster than Monte-Carlo simulations.</p>
+</li>
+</ul>
+<h3><a class="header" href="#12-what-is-statistics" id="12-what-is-statistics">1.2 What is statistics?</a></h3>
+<p><strong>Statistics is about analyzing real-world data and drawing conclusions.</strong></p>
+<p><strong>The logical of Statistic inference</strong></p>
+<p>To answer the question &quot;whether the coin is biased given 570 heads after tossing 1000 times&quot;,</p>
+<ol>
+<li>
+<p>Suppose that the coin is fair</p>
+</li>
+<li>
+<p>Use <strong>probability theory</strong> to compute the probability of getting at least 570 (or 507) heads</p>
+</li>
+<li>
+<p>If this probability is very small, then we can reject with confidence the hypothesis that the coin is fair.</p>
+<p><em>Given \(x_i = -1\) for tails and \(x_i = +1\), we looked at the sum \(S_k = \sum_{i=1}^{k} x_i\)</em></p>
+<p><em>If number of heads = 570, then \(S_{1000} = 140\)</em></p>
+<p><em>It is known that it is unlikely that \(|S_k| &gt; 4 \sqrt{k}\), that is \(|S_{1000}| &gt; 4 sqrt{1000} \approx 126.5\)</em></p>
+<pre><code class="language-py">from math import sqrt
+4*sqrt(1000)
+</code></pre>
+<p><em>Therefore, it is very unlikely that the coin is unbiased. -&gt; the coin is probably biased.</em></p>
+</li>
+</ol>
+<h3><a class="header" href="#13-three-card-puzzle" id="13-three-card-puzzle">1.3 Three card puzzle</a></h3>
+<p><strong>Three cards in a hat</strong></p>
+<p>Suppose we have three cards in a hat:</p>
+<ul>
+<li>
+<p>'R''B' - one card is painted blue on one side and red on the other</p>
+</li>
+<li>
+<p>'R''R' - one card is painted blue on both sides</p>
+</li>
+<li>
+<p>'B''B' - one card is painted red on both sides</p>
+</li>
+</ul>
+<p>I pick one of the three cards at random, flip it to a random side, and place it on the table. If the other side of the card has a different color I pay you $1; if not you pay me $1.</p>
+<p><strong>Monte Carlo simulation</strong></p>
+<pre><code class="language-py">
+red_bck=&quot;\x1b[41m%s\x1b[0m&quot; 
+blue_bck=&quot;\x1b[44m%s\x1b[0m&quot;
+red=red_bck%'R'
+blue=blue_bck%'B'
+Cards=[(red,blue),(red,red),(blue,blue)]
+counts={'same':0,'different':0}
+
+for j in range(50):
+    i=int(np.random.rand()*3.) # Generate a random integer in an array [0,1,2] indicating three cards
+    side=int(np.random.rand()*2.) # Generate either 0 or 1 indicating the color
+    C=Cards[i]
+    if(side==1): # select which side to be &quot;up&quot; ('red' is &quot;up&quot;)
+        C=(C[0],C[1]) # two sides of the selected cards
+    same = 'same' if C[0]==C[1] else 'different' # count the number of times the two sides are the same or different.
+    counts[same]+=1
+    print(''.join(C)+' %-9s'%same, end='')
+    if (j+1)%5==0:
+    print()
+print()
+print(counts)
+</code></pre>
 <h1><a class="header" href="#data-viz" id="data-viz">Data Viz</a></h1>
 <h1><a class="header" href="#a-list-of-all-the-projects-i-have-done-in-the-courses" id="a-list-of-all-the-projects-i-have-done-in-the-courses">A list of all the projects I have done in the courses</a></h1>
 <br>
@@ -1247,6 +1405,67 @@ by Duke University. <strong><a href="https://public.tableau.com/profile/jing.ai#
 <br>
 <ol start="3">
 <li>Google Data Analytics Certificate <strong><a href="https://public.tableau.com/profile/jing.ai#!/vizhome/shared_bike_202105/Dashboard1">This link</a></strong></li>
+</ol>
+<h1><a class="header" href="#english" id="english">English</a></h1>
+<h1><a class="header" href="#speaking-english" id="speaking-english">Speaking English</a></h1>
+<h1><a class="header" href="#50-important-phrasal-verbs" id="50-important-phrasal-verbs">50 Important Phrasal Verbs</a></h1>
+<p><a href="https://www.youtube.com/watch?v=nIlnxm8m2ec">From Speak English with Vanessa</a></p>
+<ol>
+<li>
+<p><strong>to add up</strong></p>
+<p><em>something that makes sense; usually negative</em></p>
+<p>Her story didn't <strong>add up</strong>. I think she's lying. </p>
+</li>
+<li>
+<p><strong>to back (sb) up</strong></p>
+<p><em>to support someone</em></p>
+<p>My parents <strong>backed me up</strong> when I decided to apply for graduate school.</p>
+<p>I've got your back. (I will support you) </p>
+</li>
+<li>
+<p><strong>to blow up</strong></p>
+<p><em>to become suddenly angry</em></p>
+<p>When I told her I couldn't come to her party, she <strong>blew up</strong>.</p>
+</li>
+<li>
+<p><strong>to bring it on</strong></p>
+<p><em>to accept a challenge with confidence</em></p>
+<p>Fifty new phrasal vers? Yeah, <strong>bring it on</strong>!</p>
+</li>
+<li>
+<p><strong>to bring up</strong></p>
+<p><em>to mention in conversation</em></p>
+<p>You should'nt <strong>bring up</strong> politics in this house unless you're ready for a long discussion.</p>
+</li>
+<li>
+<p><strong>to call off</strong></p>
+<p><em>to cancel something that has been planned</em></p>
+<p>Instead of <strong>calling off</strong> the wedding, the couple decided to elope.</p>
+</li>
+<li>
+<p><strong>to catch up (on)</strong></p>
+<p><em>to meet with someone you haven't seen in a while</em></p>
+<p>I met my friend for lunch to <strong>catch up</strong> because we haven't seen each other for a long time.</p>
+<p>Wanna meet for coffee and <strong>catch up</strong>?</p>
+<p>I want to <strong>catch up on</strong> what's happening, so tell me all about it.</p>
+</li>
+<li>
+<p><strong>to check in</strong></p>
+<p><em>a register a hotel stay</em></p>
+<p>I went to the hotel to <strong>check in</strong> while my husband parked the car.</p>
+</li>
+<li>
+<p><strong>to check out</strong></p>
+<p><em>to try sth or to ask something look at sth with surprise</em></p>
+<p>I'm excited to <strong>check out</strong> the new park in the city.</p>
+<p>Check it out! (Look at this!)</p>
+</li>
+<li>
+<p><strong>to chip in</strong> </p>
+<p><em>to help or contribute money or energy</em></p>
+<p>I couldn't go to the party, but I still wanted to <strong>chip in</strong> for a gift.</p>
+<p>My son likes to <strong>chip in</strong> and help me with the garden.</p>
+</li>
 </ol>
 
                     </main>
