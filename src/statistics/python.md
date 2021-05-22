@@ -95,3 +95,185 @@ print()
 print(counts)
 ```
 
+## 2 Elements, sets and membership
+
+## 2.1 Basic concepts
+
+**Common sets**
+
+- Intergers {..., -2, -1, 0, 1, 2, ...} \\(Z\\)
+
+- Naturals {..., 0, 1, 2, 3, ...} \\(N\\)
+
+- Positives {1, 2, 3, ...} \\(P\\)
+
+- Rationals {interger ratios m/n, \\(n \neq 0\\)} \\(Q\\)
+
+- Reals {...Google...} \\(R\\)
+
+* The **order** and **repetition** do no matter: 
+
+  - {0,1} = {1,0}
+
+  - {0,1,1,1} = {0,1}
+
+
+**Special sets**
+
+  - Empty set: \\(x \notin \varnothing\\)
+
+  - Universal set: \\(\forall x \in \Omega\\)
+
+
+* Define a set in python
+  
+  - Define a set: `set1={1,2}` or `set2=set({2,3})`
+
+  - Define an empty set: `set()` or `set({})`
+
+* Membership - `in` and `not in`
+
+* Test empty - `not`
+
+```py
+S = set()
+not S
+#Output: True
+```
+
+* Set size - `len()`
+
+## 2.2 Basic sets
+
+### 2.2.1 Sets within Sets
+
+{\\(x \in A | .... \\)} = {elements in A such that}
+
+* Integer Intervals
+
+  \\(N = \\\{ x \in Z | x \geq 0 \\\}\\), \\(P = \\\{ x \in Z | x > 0 \\\} \\)
+
+* Real intervals
+
+  \\([a,b] = \\\{ x \in R | a \leq x \leq b \\\}\\)
+
+  \\((a,b) = \\\{ x \in R | a < x < b \\\}\\)
+
+
+* Divisibility
+
+  ![image](https://user-images.githubusercontent.com/41487483/119231729-a49d8180-bb22-11eb-9a44-901751904204.png)
+
+  **Sets of Multiples** 
+  
+  \\(m \in Z\\), \\(_m Z = \\\{ i \in Z : m| i \\\}\\)
+
+  *Even numbers*: \\(_2 Z = \\\{ ..., -4, -2, 0, 2, 4, ... \\\} = E\\) 
+
+**Python syntax**
+
+  - {0,...,n-1}: `range(n)`
+
+  - {m,...,n-1}: `range(m,n)`
+
+  - {m, m+d, m+2d, ...} < n-1: `range(m, n, d)`
+
+  ```py
+  print(set(range(3)))
+  #Output: {0, 1, 2}
+
+  print(set(range(2,5)))
+  #Output: {2, 3, 4}
+
+  print(set(range(2,12,3)))
+  #Output: {2, 5, 8, 11}
+  #Return type range, but conver to set if print
+  ```
+
+### 2.2.2 Visualization
+
+* Venn Diagram
+
+```py
+import matplotlib.pyplot as plt
+import matplotlib_venn as venn
+S = {1, 2, 3}
+T = {0, 2, -1, 5}
+venn.venn2([S, T], set_labels=('S','T'))
+plt.show()
+
+#for 3 sets: venn.venn3([S,T,U], set_labels=(’S’,’T’,'U'))
+```
+
+## 2.3 Relations
+
+### 2.3.1 Number relations
+
+* Equality
+
+  \\(=\\), \\(\neq \\)
+
+* Intersection - two sets share at least one common element
+
+  Disjoint - no shared elements
+
+* Subsets - \\(A \subseteq B\\) 
+
+  superset - \\(B \supseteq A\\) 
+
+  \\[
+    P \subseteq N \subseteq Z \subseteq Q \subseteq R
+  \\]
+
+  strict subset - if \\(A \subseteq B\\) and \\(A \neq B\\), A is a strict subset of B, denote \\(A \subset B\\); conversely, A is a strict superset of B, \\(B \supset A\\)
+
+**Belongs to (\\( \in \\)) vs. Subsets of (\\(\subseteq \\))**
+
+- \\( x \in A \\): element x belongsto set A
+
+  \\( 0 \in {0,1} \\)
+
+- (\\( A \subseteq B \\)): A is a subset of B
+
+   \\( \\\{ 0 \\\} \subseteq {0,1} \\)
+
+*Python to check equality and disjoint*
+
+`==`, `!=`, `.isjointed()`
+
+```py
+S1={0,1}; S2=set({0,1}); S3={1,0,1}; T={0,2}
+
+# Equality
+S1 == T
+#Output: False
+S1 == S2
+S1 == S3
+#Output: True
+
+# Inequality
+S1 != S2
+
+# Disjoint 
+S1.isdisjoint(T)
+S1.isdisjoint({2})
+
+```
+
+*Python to check subsets and supersets*
+
+`<=` or `issubset` for \\(\subseteq \\) and `<` for \\(\subset \\) 
+
+`>=` or `issuperset` for \(\supseteq \\) 
+
+```py
+zero = {0}; zplus = {0,1}; zminus = {0, -1}
+
+ziminus <= zplu
+#Output: False
+ziminus >= zplu
+#Output: True
+
+zero.issubset(zminus)
+
+```
