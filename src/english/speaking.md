@@ -29,13 +29,13 @@
 
     *to accept a challenge with confidence*
 
-    Fifty new phrasal vers? Yeah, **bring it on**!
+    Fifty new phrasal verbs? Yeah, **bring it on**!
 
 5. **to bring up**
 
     *to mention in conversation*
 
-    You should'nt **bring up** politics in this house unless you're ready for a long discussion.
+    You shouldn't **bring up** politics in this house unless you're ready for a long discussion.
 
 6. **to call off**
 
@@ -61,7 +61,7 @@
 
 9. **to check out**
 
-    *to try sth or to ask something look at sth with surprise*
+    *to try sth or to ask sb look at sth with surprise*
 
     I'm excited to **check out** the new park in the city.
 
@@ -74,3 +74,78 @@
     I couldn't go to the party, but I still wanted to **chip in** for a gift.
 
     My son likes to **chip in** and help me with the garden.
+
+11. **to come down with**
+
+    *to become sick but not serious*
+
+    I'm not feeling so well. I think I'm coming down with something.
+
+    Sorry, I think I'm coming down with a cold.
+
+
+12. **to come up with**
+
+    *to find an idea for something*
+
+    I need to come up with a great present for my mom's birthday.
+
+    I couldn't come up with anything special, so I just baked a cake.
+
+13. **to cut back on**
+
+    *to consume less of something*
+
+    I'm trying to cut back on fried food, but it's so tasty.
+
+    I'm trying to cut back.
+
+
+14. **to cut off**
+
+    *to end abruptly, usually driving or speaking*
+
+    The driver in the red car cut me off and almost caused a wreck.
+
+15. **to drop by/in**
+
+    *to stop by for a visit*
+
+    Hey, are you home? I'm in the neighborhood and I wanted to drop by.
+
+    Drop by/in at any time.
+
+16. **to end up**
+
+    *to eventually decide or reach something*
+
+    We ended up just ordering pizza and not going to the fancy restaurant.
+
+    He doesn't want to end up like his father.
+
+17. **to fill in**
+
+    *to provide information usually spoken*
+
+    I missed the meeting. Can someone fill me in?
+
+18. **to fill out**
+
+    *to write information on a form*
+
+    Could you please fill out these forms?
+
+19. **to get around (to it)**
+
+    *to delay doing something*
+
+    I'll get around to that later.
+
+    I finally got around to cleaning the garage.
+
+20. **to get back at**
+
+    *get revenge on someone*
+
+    My sister took my shoes to get back at me for taking her sweater.
+    

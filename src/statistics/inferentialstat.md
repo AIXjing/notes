@@ -129,3 +129,119 @@ Increasing CL, accuracy increases but precision decreases.
 \\[
     ME = z \frac{s}{\sqrt{n}}    \rightarrow n = \Bigg(\frac{z s}{ME}\Bigg)^2
 \\]
+
+
+## 1.3 R vs. sampling distribution
+
+1. Load the package and dataset(ames)
+
+```r
+    library(statsr)
+    library(dplyr)
+    library(shiny)
+    library(ggplot2)
+
+    data(ames)
+```
+
+2. Distribution of areas of homes and summary statistics
+
+```r
+ames %>%
+    summarise(mu = mean(area), pop_med = median(area), 
+        sigma = sd(area), pop_iqr = IQR(area),
+        pop_min = min(area), pop_max = max(area),
+        pop_q1 = quantile(area, 0.25),  # first quartile, 25th percentile
+        pop_q3 = quantile(area, 0.75))  # third quartile, 75th percenti
+```
+
+3. Sample randome 50 houses and calculate the average area
+
+```r
+samp1 <- ames %>%
+    sample_n(size=50)
+
+samp1 %>%
+    summarise(x_bar = mean(area))
+
+# or combine above two code chunks into one
+samp1 <- ames %>%
+    sample_n(size=50) %>%
+        summarise(x_bar = mean(area))
+```
+
+4. Estimate population mean by using sampling distribution
+
+Take 15,000 samples of size 50 from the population (`rep_sample_n`), calculate the mean of each sample, and store each result in a vector called 'sample_means50'.
+
+```r
+sample_means50 <- ames %>%
+  rep_sample_n(size = 50, reps = 15000, replace = TRUE) %>%
+    summarise(x_bar = mean(area))
+
+ggplot(data = sample_means50, aes(x = x_bar)) +
+  geom_histogram(binwidth = 20)
+```
+
+To get the summary statistics of 15,000 sample means, analyze the statistics from the 'sample_means50', which is actually a dataset containing 15,000 observations(x_bar).
+
+```r
+sample_means50 %>%
+    summarise(sampling_x_bar = mean(x_bar))
+```
+
+## 1.4 Python vs. sampling distribution
+
+1. Load packages and import dataset
+
+```py
+import pandas as pd
+import numpy as np
+import random as random
+import math
+import matplotlib.pyplot as plt
+
+ames = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/ames.csv")
+#ames.head
+#ames.columns
+```
+
+2. Distribution of population
+
+```py
+mu = np.average(ames["Lot.Area"])
+sigma = np.std(ames["Lot.Area"])
+
+plt.hist(ames["Lot.Area"],30, range=[0, mu+5*sigma])
+plt.show()
+#right skewed distribution
+```
+
+3. Randomly take 10 samples
+
+```py
+samp1 = ames.sample(n=10,replace=True)
+```
+
+4. Take 1000 samples with size 200
+
+```py
+size = 200
+num_samp = 1000
+samp_mean = []
+
+for m in range(num_samp):
+  samp = ames.sample(n=size,replace=True)
+  x_bar_samp = np.average(samp["Lot.Area"])
+  samp_mean.append(x_bar_samp)
+  m += 1
+
+x_bar_samp_mean = np.average(samp_mean)
+x_bar_samp_se = np.std(samp_mean)/(math.sqrt(size))
+
+print(x_bar_samp_mean)
+print(x_bar_samp_se)
+
+plt.hist(samp_mean, 20, range=[5000,15000])
+plt.show()
+```
