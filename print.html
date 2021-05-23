@@ -1306,6 +1306,107 @@ z = \frac{(\bar{x} - \mu)}{\frac{\sigma}{\sqrt{n}}}<br />
 <p>\[
 ME = z \frac{s}{\sqrt{n}}    \rightarrow n = \Bigg(\frac{z s}{ME}\Bigg)^2
 \]</p>
+<h2><a class="header" href="#13-r-vs-sampling-distribution" id="13-r-vs-sampling-distribution">1.3 R vs. sampling distribution</a></h2>
+<ol>
+<li>Load the package and dataset(ames)</li>
+</ol>
+<pre><code class="language-r">    library(statsr)
+    library(dplyr)
+    library(shiny)
+    library(ggplot2)
+
+    data(ames)
+</code></pre>
+<ol start="2">
+<li>Distribution of areas of homes and summary statistics</li>
+</ol>
+<pre><code class="language-r">ames %&gt;%
+    summarise(mu = mean(area), pop_med = median(area), 
+        sigma = sd(area), pop_iqr = IQR(area),
+        pop_min = min(area), pop_max = max(area),
+        pop_q1 = quantile(area, 0.25),  # first quartile, 25th percentile
+        pop_q3 = quantile(area, 0.75))  # third quartile, 75th percenti
+</code></pre>
+<ol start="3">
+<li>Sample randome 50 houses and calculate the average area</li>
+</ol>
+<pre><code class="language-r">samp1 &lt;- ames %&gt;%
+    sample_n(size=50)
+
+samp1 %&gt;%
+    summarise(x_bar = mean(area))
+
+# or combine above two code chunks into one
+samp1 &lt;- ames %&gt;%
+    sample_n(size=50) %&gt;%
+        summarise(x_bar = mean(area))
+</code></pre>
+<ol start="4">
+<li>Estimate population mean by using sampling distribution</li>
+</ol>
+<p>Take 15,000 samples of size 50 from the population (<code>rep_sample_n</code>), calculate the mean of each sample, and store each result in a vector called 'sample_means50'.</p>
+<pre><code class="language-r">sample_means50 &lt;- ames %&gt;%
+  rep_sample_n(size = 50, reps = 15000, replace = TRUE) %&gt;%
+    summarise(x_bar = mean(area))
+
+ggplot(data = sample_means50, aes(x = x_bar)) +
+  geom_histogram(binwidth = 20)
+</code></pre>
+<p>To get the summary statistics of 15,000 sample means, analyze the statistics from the 'sample_means50', which is actually a dataset containing 15,000 observations(x_bar).</p>
+<pre><code class="language-r">sample_means50 %&gt;%
+    summarise(sampling_x_bar = mean(x_bar))
+</code></pre>
+<h2><a class="header" href="#14-python-vs-sampling-distribution" id="14-python-vs-sampling-distribution">1.4 Python vs. sampling distribution</a></h2>
+<ol>
+<li>Load packages and import dataset</li>
+</ol>
+<pre><code class="language-py">import pandas as pd
+import numpy as np
+import random as random
+import math
+import matplotlib.pyplot as plt
+
+ames = pd.read_csv(&quot;/content/drive/MyDrive/Colab Notebooks/ames.csv&quot;)
+#ames.head
+#ames.columns
+</code></pre>
+<ol start="2">
+<li>Distribution of population</li>
+</ol>
+<pre><code class="language-py">mu = np.average(ames[&quot;Lot.Area&quot;])
+sigma = np.std(ames[&quot;Lot.Area&quot;])
+
+plt.hist(ames[&quot;Lot.Area&quot;],30, range=[0, mu+5*sigma])
+plt.show()
+#right skewed distribution
+</code></pre>
+<ol start="3">
+<li>Randomly take 10 samples</li>
+</ol>
+<pre><code class="language-py">samp1 = ames.sample(n=10,replace=True)
+</code></pre>
+<ol start="4">
+<li>Take 1000 samples with size 200</li>
+</ol>
+<pre><code class="language-py">size = 200
+num_samp = 1000
+samp_mean = []
+
+for m in range(num_samp):
+  samp = ames.sample(n=size,replace=True)
+  x_bar_samp = np.average(samp[&quot;Lot.Area&quot;])
+  samp_mean.append(x_bar_samp)
+  m += 1
+
+x_bar_samp_mean = np.average(samp_mean)
+x_bar_samp_se = np.std(samp_mean)/(math.sqrt(size))
+
+print(x_bar_samp_mean)
+print(x_bar_samp_se)
+
+plt.hist(samp_mean, 20, range=[5000,15000])
+plt.show()
+</code></pre>
 <h1><a class="header" href="#statistics-with-python" id="statistics-with-python">Statistics with Python</a></h1>
 <h2><a class="header" href="#1-introduction-to-probability-and-statistics" id="1-introduction-to-probability-and-statistics">1 Introduction to Probability and Statistics</a></h2>
 <h3><a class="header" href="#11-probability-theory" id="11-probability-theory">1.1 Probability Theory</a></h3>
@@ -1617,12 +1718,12 @@ by Duke University. <strong><a href="https://public.tableau.com/profile/jing.ai#
 <li>
 <p><strong>to bring it on</strong></p>
 <p><em>to accept a challenge with confidence</em></p>
-<p>Fifty new phrasal vers? Yeah, <strong>bring it on</strong>!</p>
+<p>Fifty new phrasal verbs? Yeah, <strong>bring it on</strong>!</p>
 </li>
 <li>
 <p><strong>to bring up</strong></p>
 <p><em>to mention in conversation</em></p>
-<p>You should'nt <strong>bring up</strong> politics in this house unless you're ready for a long discussion.</p>
+<p>You shouldn't <strong>bring up</strong> politics in this house unless you're ready for a long discussion.</p>
 </li>
 <li>
 <p><strong>to call off</strong></p>
@@ -1643,7 +1744,7 @@ by Duke University. <strong><a href="https://public.tableau.com/profile/jing.ai#
 </li>
 <li>
 <p><strong>to check out</strong></p>
-<p><em>to try sth or to ask something look at sth with surprise</em></p>
+<p><em>to try sth or to ask sb look at sth with surprise</em></p>
 <p>I'm excited to <strong>check out</strong> the new park in the city.</p>
 <p>Check it out! (Look at this!)</p>
 </li>
@@ -1652,6 +1753,62 @@ by Duke University. <strong><a href="https://public.tableau.com/profile/jing.ai#
 <p><em>to help or contribute money or energy</em></p>
 <p>I couldn't go to the party, but I still wanted to <strong>chip in</strong> for a gift.</p>
 <p>My son likes to <strong>chip in</strong> and help me with the garden.</p>
+</li>
+<li>
+<p><strong>to come down with</strong></p>
+<p><em>to become sick but not serious</em></p>
+<p>I'm not feeling so well. I think I'm coming down with something.</p>
+<p>Sorry, I think I'm coming down with a cold.</p>
+</li>
+<li>
+<p><strong>to come up with</strong></p>
+<p><em>to find an idea for something</em></p>
+<p>I need to come up with a great present for my mom's birthday.</p>
+<p>I couldn't come up with anything special, so I just baked a cake.</p>
+</li>
+<li>
+<p><strong>to cut back on</strong></p>
+<p><em>to consume less of something</em></p>
+<p>I'm trying to cut back on fried food, but it's so tasty.</p>
+<p>I'm trying to cut back.</p>
+</li>
+<li>
+<p><strong>to cut off</strong></p>
+<p><em>to end abruptly, usually driving or speaking</em></p>
+<p>The driver in the red car cut me off and almost caused a wreck.</p>
+</li>
+<li>
+<p><strong>to drop by/in</strong></p>
+<p><em>to stop by for a visit</em></p>
+<p>Hey, are you home? I'm in the neighborhood and I wanted to drop by.</p>
+<p>Drop by/in at any time.</p>
+</li>
+<li>
+<p><strong>to end up</strong></p>
+<p><em>to eventually decide or reach something</em></p>
+<p>We ended up just ordering pizza and not going to the fancy restaurant.</p>
+<p>He doesn't want to end up like his father.</p>
+</li>
+<li>
+<p><strong>to fill in</strong></p>
+<p><em>to provide information usually spoken</em></p>
+<p>I missed the meeting. Can someone fill me in?</p>
+</li>
+<li>
+<p><strong>to fill out</strong></p>
+<p><em>to write information on a form</em></p>
+<p>Could you please fill out these forms?</p>
+</li>
+<li>
+<p><strong>to get around (to it)</strong></p>
+<p><em>to delay doing something</em></p>
+<p>I'll get around to that later.</p>
+<p>I finally got around to cleaning the garage.</p>
+</li>
+<li>
+<p><strong>to get back at</strong></p>
+<p><em>get revenge on someone</em></p>
+<p>My sister took my shoes to get back at me for taking her sweater.</p>
 </li>
 </ol>
 
