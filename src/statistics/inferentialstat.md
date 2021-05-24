@@ -245,3 +245,42 @@ print(x_bar_samp_se)
 plt.hist(samp_mean, 20, range=[5000,15000])
 plt.show()
 ```
+
+## 2 Another introduction to Inderence
+
+### 2.1 Hypothesis testing (for a mean)
+
+- null hypothesis - \\(H_0\\) 
+
+- alternative hypothesis - \\(H_A\\)
+
+![image](https://user-images.githubusercontent.com/41487483/119312937-3e744400-bc73-11eb-9396-704d391112eb.png)
+
+*The hypothesis is always about pop.parameters, never about sample statistics (because the sample statistics is certain).*
+
+* **p-value** - P(observed or more extreme outcome | \\(H_0\\) true)
+
+    In above case, \\(P(\bar{x} > 3.2 | H_0 : \mu = 3) \\)
+
+    \\(n = 50, \bar{x} = 3.2, s = 1.74, SE = 0.246\\)
+
+    Since we believe that null hypothesis is true, \\(\bar{x} \sim N(\mu = 3, SE = 0.246)\\) based on the CLT.
+
+    *test statistics*: z-score = (3.2-3)/0.246 = 0.81, which is used to calculate the p-value (the probability of observing data at least favorable to the alternative hypothesis as our current data set, if the null hypothesis was true)
+    
+    p-value = P(z > 0.81) = 0.209
+
+**Decision based on the p-value**
+
+    - p-value < the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \\(H_0\\)
+
+    - p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true. - Do no reject \\(H_0\\)
+
+
+**two-sided(tailed) tests**
+
+In the same case, \\(P(\bar{x} > 3.2 \text{  or  } \bar{x} > 2.8| H_0 : \mu = 3) \\)
+
+p-value = P(z > 0.81) + P(z < -0.81) = 0.418 - fail to reject \\(H_0\\).
+
+![image](https://user-images.githubusercontent.com/41487483/119316226-ff47f200-bc76-11eb-944a-1c63ee237ebd.png)
