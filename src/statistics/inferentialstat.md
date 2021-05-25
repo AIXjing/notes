@@ -284,3 +284,5 @@ In the same case, \\(P(\bar{x} > 3.2 \text{  or  } \bar{x} > 2.8| H_0 : \mu = 3)
 p-value = P(z > 0.81) + P(z < -0.81) = 0.418 - fail to reject \\(H_0\\).
 
 ![image](https://user-images.githubusercontent.com/41487483/119316226-ff47f200-bc76-11eb-944a-1c63ee237ebd.png)
+
+others
