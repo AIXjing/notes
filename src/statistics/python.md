@@ -227,15 +227,15 @@ plt.show()
 
   strict subset - if \\(A \subseteq B\\) and \\(A \neq B\\), A is a strict subset of B, denote \\(A \subset B\\); conversely, A is a strict superset of B, \\(B \supset A\\)
 
-**Belongs to (\\( \in \\)) vs. Subsets of (\\(\subseteq \\))**
+### 2.3.2 Belongs to (\\( \in \\)) vs. Subsets of (\\(\subseteq \\))
 
 - \\( x \in A \\): element x belongsto set A
 
-  \\( 0 \in {0,1} \\)
+  \\( 0 \in \\\{0,1\\\} \\)
 
 - (\\( A \subseteq B \\)): A is a subset of B
 
-   \\( \\\{ 0 \\\} \subseteq {0,1} \\)
+   \\( \\\{ 0 \\\} \subseteq \\\{0,1\\\} \\)
 
 *Python to check equality and disjoint*
 
@@ -277,3 +277,29 @@ ziminus >= zplu
 zero.issubset(zminus)
 
 ```
+
+## 2.4 Operations
+
+### 2.4.1 Intersection and complement
+
+* Commutative: \\(A \cap B = B \cap A\\), \\(A \cup B = B \cap A\\)
+
+* Associative: \\((A \cap B) \cap C = A \cap (B \cap C)\\), \\((A \cup B) \cup C = A \cup (B \cup C)\\)  
+
+* Distributive: \\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\\), \\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\\) 
+
+* De Morgan \\((A \cap B)^c = A^c \cup B^c\\), \\((A \cup B)^c = A^c \cap B^c\\)
+
+![image](https://user-images.githubusercontent.com/41487483/120278375-7d2e7d80-c2b5-11eb-8206-7da3043f30d1.png)
+
+### 2.4.2 Set Difference A-B
+
+  * \\(A-B = \\\{ x: x \in A \wedge x \notin B \\\} = A \cap B^c\\) 
+
+  ![image](https://user-images.githubusercontent.com/41487483/120279116-5ae92f80-c2b6-11eb-8c10-01913e85e304.png)
+
+  * Symmetric Difference
+
+    The symmetric differene of two sets is the set of elements in exactly one set. 
+
+    \\(A bigtriangleup B = \\\{x: x \in A \wedge x \notin B  \vee x \in B \wedge x \notin A \\\} \\)
