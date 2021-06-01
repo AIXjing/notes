@@ -1668,15 +1668,15 @@ P \subseteq N \subseteq Z \subseteq Q \subseteq R
 <p>strict subset - if \(A \subseteq B\) and \(A \neq B\), A is a strict subset of B, denote \(A \subset B\); conversely, A is a strict superset of B, \(B \supset A\)</p>
 </li>
 </ul>
-<p><strong>Belongs to (\( \in \)) vs. Subsets of (\(\subseteq \))</strong></p>
+<h3><a class="header" href="#232-belongs-to--in--vs-subsets-of-subseteq-" id="232-belongs-to--in--vs-subsets-of-subseteq-">2.3.2 Belongs to (\( \in \)) vs. Subsets of (\(\subseteq \))</a></h3>
 <ul>
 <li>
 <p>\( x \in A \): element x belongsto set A</p>
-<p>\( 0 \in {0,1} \)</p>
+<p>\( 0 \in \{0,1\} \)</p>
 </li>
 <li>
 <p>(\( A \subseteq B \)): A is a subset of B</p>
-<p>\( \{ 0 \} \subseteq {0,1} \)</p>
+<p>\( \{ 0 \} \subseteq \{0,1\} \)</p>
 </li>
 </ul>
 <p><em>Python to check equality and disjoint</em></p>
@@ -1711,6 +1711,35 @@ ziminus &gt;= zplu
 zero.issubset(zminus)
 
 </code></pre>
+<h2><a class="header" href="#24-operations" id="24-operations">2.4 Operations</a></h2>
+<h3><a class="header" href="#241-intersection-and-complement" id="241-intersection-and-complement">2.4.1 Intersection and complement</a></h3>
+<ul>
+<li>
+<p>Commutative: \(A \cap B = B \cap A\), \(A \cup B = B \cap A\)</p>
+</li>
+<li>
+<p>Associative: \((A \cap B) \cap C = A \cap (B \cap C)\), \((A \cup B) \cup C = A \cup (B \cup C)\)</p>
+</li>
+<li>
+<p>Distributive: \(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\), \(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\) </p>
+</li>
+<li>
+<p>De Morgan \((A \cap B)^c = A^c \cup B^c\), \((A \cup B)^c = A^c \cap B^c\)</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/120278375-7d2e7d80-c2b5-11eb-8206-7da3043f30d1.png" alt="image" /></p>
+<h3><a class="header" href="#242-set-difference-a-b" id="242-set-difference-a-b">2.4.2 Set Difference A-B</a></h3>
+<ul>
+<li>\(A-B = \{ x: x \in A \wedge x \notin B \} = A \cap B^c\) </li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/120279116-5ae92f80-c2b6-11eb-8c10-01913e85e304.png" alt="image" /></p>
+<ul>
+<li>
+<p>Symmetric Difference</p>
+<p>The symmetric differene of two sets is the set of elements in exactly one set. </p>
+<p>\(A bigtriangleup B = \{x: x \in A \wedge x \notin B  \vee x \in B \wedge x \notin A \} \)</p>
+</li>
+</ul>
 <h1><a class="header" href="#data-viz" id="data-viz">Data Viz</a></h1>
 <h1><a class="header" href="#a-list-of-all-the-projects-i-have-done-in-the-courses" id="a-list-of-all-the-projects-i-have-done-in-the-courses">A list of all the projects I have done in the courses</a></h1>
 <br>
