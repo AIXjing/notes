@@ -97,7 +97,7 @@ print(counts)
 
 ## 2 Elements, sets and membership
 
-## 2.1 Basic concepts
+### 2.1 Basic concepts
 
 **Common sets**
 
@@ -143,9 +143,9 @@ not S
 
 * Set size - `len()`
 
-## 2.2 Basic sets
+### 2.2 Basic sets
 
-### 2.2.1 Sets within Sets
+#### 2.2.1 Sets within Sets
 
 {\\(x \in A | .... \\)} = {elements in A such that}
 
@@ -190,9 +190,7 @@ not S
   #Return type range, but conver to set if print
   ```
 
-### 2.2.2 Visualization
-
-* Venn Diagram
+#### 2.2.2 Visualization - Venn Diagram
 
 ```py
 import matplotlib.pyplot as plt
@@ -205,13 +203,11 @@ plt.show()
 #for 3 sets: venn.venn3([S,T,U], set_labels=(’S’,’T’,'U'))
 ```
 
-## 2.3 Relations
+### 2.3 Relations
 
-### 2.3.1 Number relations
+#### 2.3.1 Number relations
 
-* Equality
-
-  \\(=\\), \\(\neq \\)
+* Equality - = or ≠
 
 * Intersection - two sets share at least one common element
 
@@ -227,7 +223,7 @@ plt.show()
 
   strict subset - if \\(A \subseteq B\\) and \\(A \neq B\\), A is a strict subset of B, denote \\(A \subset B\\); conversely, A is a strict superset of B, \\(B \supset A\\)
 
-### 2.3.2 Belongs to (\\( \in \\)) vs. Subsets of (\\(\subseteq \\))
+#### 2.3.2 Belongs to (\\( \in \\)) vs. Subsets of (\\(\subseteq \\))
 
 - \\( x \in A \\): element x belongsto set A
 
@@ -237,50 +233,52 @@ plt.show()
 
    \\( \\\{ 0 \\\} \subseteq \\\{0,1\\\} \\)
 
-*Python to check equality and disjoint*
+#### 2.3.3 Python syntaxt
 
-`==`, `!=`, `.isjointed()`
+- Check equality and disjoint
 
-```py
-S1={0,1}; S2=set({0,1}); S3={1,0,1}; T={0,2}
+  `==`, `!=`, `.isjointed()`
 
-# Equality
-S1 == T
-#Output: False
-S1 == S2
-S1 == S3
-#Output: True
+  ```py
+  S1={0,1}; S2=set({0,1}); S3={1,0,1}; T={0,2}
 
-# Inequality
-S1 != S2
+  # Equality
+  S1 == T
+  #Output: False
+  S1 == S2
+  S1 == S3
+  #Output: True
 
-# Disjoint 
-S1.isdisjoint(T)
-S1.isdisjoint({2})
+  # Inequality
+  S1 != S2
 
-```
+  # Disjoint 
+  S1.isdisjoint(T)
+  S1.isdisjoint({2})
 
-*Python to check subsets and supersets*
+  ```
 
-`<=` or `issubset` for \\(\subseteq \\) and `<` for \\(\subset \\) 
+- Check subsets and supersets
 
-`>=` or `issuperset` for \(\supseteq \\) 
+  `<=` or `issubset` for \\(\subseteq \\) and `<` for \\(\subset \\) 
 
-```py
-zero = {0}; zplus = {0,1}; zminus = {0, -1}
+  `>=` or `issuperset` for \\(\supseteq \\) 
 
-ziminus <= zplu
-#Output: False
-ziminus >= zplu
-#Output: True
+  ```py
+  zero = {0}; zplus = {0,1}; zminus = {0, -1}
 
-zero.issubset(zminus)
+  print(zminus <= zplus)
+  #Output: False
+  print(zminus >= zplus)
+  #Output: False
 
-```
+  zero.issubset(zminus)
+  #Output: True
+  ```
 
-## 2.4 Operations
+### 2.4 Operations
 
-### 2.4.1 Intersection and complement
+#### 2.4.1 Intersection and complement
 
 * Commutative: \\(A \cap B = B \cap A\\), \\(A \cup B = B \cap A\\)
 
@@ -292,7 +290,7 @@ zero.issubset(zminus)
 
 ![image](https://user-images.githubusercontent.com/41487483/120278375-7d2e7d80-c2b5-11eb-8206-7da3043f30d1.png)
 
-### 2.4.2 Set Difference A-B
+#### 2.4.2 Set Difference A-B
 
   * \\(A-B = \\\{ x: x \in A \wedge x \notin B \\\} = A \cap B^c\\) 
 
@@ -303,3 +301,208 @@ zero.issubset(zminus)
     The symmetric differene of two sets is the set of elements in exactly one set. 
 
     \\(A bigtriangleup B = \\\{x: x \in A \wedge x \notin B  \vee x \in B \wedge x \notin A \\\} \\)
+
+    ![image](https://user-images.githubusercontent.com/41487483/120279841-3772b480-c2b7-11eb-851c-a33544dd75f7.png)
+
+#### 2.4.3 Python Syntax 
+
+**Union and Intersection**
+
+  * Union \\(\cup\\): `|` or `union`
+
+  ```py
+  A = {1,2}
+  B = {2,3}
+
+  print(A|B)
+
+  C = A.union(B)
+  print(C)
+  ```
+
+  * Intersection \\(\cap\\): `&` or `intersection`
+
+  ```py
+  print(A&B)
+
+  C = A.intersection(B)
+  print(C)
+  ```
+
+**Set- and Symmetric-Difference**
+
+* Set difference: `-` or `difference`
+
+  ```py
+  A = {1,2}
+  B = {2,3}
+
+  A - B
+
+  C = B.difference(A)
+  print(C)
+  ```
+
+* Symmetric difference: `^` or `symmetric_difference`
+
+  ```py
+  A^B
+
+  C = B.symmetric_difference(A)
+  print(C)
+  ```
+
+#### 2.4.4 Caetesian products
+
+  * **Set**: Order and repetition do not matter {a,b,c} = {b,a,c}
+
+  * **Tuple**: Both order and reperition matter (a,b,c) ≠ (b,a,c) and (a,a,a) ≠ (a)
+
+    - **n-tuple**: Tuple with n elements
+
+    - **2-tuple**: Ordered pair (a,b)
+
+##### **Cartesian products**
+
+The cartesian product of A and B is the set AxB of ordered pairs (a,b) where a \\(\in A\\) and b \\(\in B\\)
+
+\\[
+  A \times B = \\\{(a,b): a \in A, b \in B \\\}  
+\\]
+
+- \\(A \times A\\) denotes \\(A^2\\)
+
+- \\(R^2 = \\\{(x,y): x,y \in R\\\} \\) - **Cartesian Plane**
+
+- \\(A, B \\subseteq R \\) then \\(A \times B \\subseteq R^2 \\) - **Rectangle**
+
+- \\(A \times B = \\{(x,y): x \in [0,2], y \in [1,4] \\}\\), where A = [0,2] and B = [1,4]
+
+  ![image](https://user-images.githubusercontent.com/41487483/120438263-6fdec500-c381-11eb-9064-8bdb146ea448.png)
+
+1. **Discrete sets**
+
+  ![image](https://user-images.githubusercontent.com/41487483/120438592-dcf25a80-c381-11eb-9f05-c377799e2def.png)
+
+
+2. **Tables**
+
+  *Tables are Cartesian products*
+
+  ![image](https://user-images.githubusercontent.com/41487483/120439120-73bf1700-c382-11eb-9e5f-e3c4ced0d0a9.png)
+
+3. **Cartesian product of 3 sets** 
+  
+  A x B - 2D
+  
+  A x B x C - 3D
+
+4. **Sequence** 
+  
+    Sequence is tuples just without '()' and some times without ','
+
+##### **Cartesian products with Python**
+
+  ```py
+  from itertools import product
+
+  Faces = set({'J', 'Q', 'K'})
+  Suits = {'♢','♡'}
+  for i in product(Faces, Suits):
+  print(i)
+  ```
+
+#### 2.4.5 Russell's Paradox
+
+![image](https://user-images.githubusercontent.com/41487483/120651186-ca118000-c47e-11eb-9f1f-d1e85e4d090b.png)
+
+
+## 3. Counting
+
+### 3.1 Set Size
+
+#### 3.1.1 Basic concepts
+
+The number of elements in a set S is called its **size**, or **cardinality**, denoted |B| or # S.
+
+in Python 
+
+- Size: `len`, i.e., `len({-1, 1})`
+
+- Sum: `sum`, i.e., `sum({-1, 1})`
+
+- minimum: `min`, i.e., `min({-1, 1})`
+
+- maximum: `max`, i.e., `max({-1, 1})`
+
+
+#### 3.1.2 Disjoint
+
+- Additional rule: 
+
+  \\(A \cap B = \varnothing\\): \\(|A| + |B| = |A \cup B\\)|
+
+- Subtraction rule:
+
+  \\(A \subseteq B \implies B = A \cup (B - A) \implies |B| = |A| + |B - A|\\) 
+
+#### 3.1.3 General Unions
+
+**Principle of Inclusion-Exclusion (PIE)**
+
+- Two sets
+
+\\[
+  |A \cup B| = |A| + |B| - |A \cap B |
+\\] 
+
+- Three sets
+ \\[
+   |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B |- |A \cap C| - |B \cap C| + |A \cap B \cap C| 
+  \\]
+
+- n sets
+
+#### 3.1.4 Cartesian Products
+
+**Product Rule** - the size of a Cartesian Product is the product of the set sizes. 
+
+\\[
+  |A \times B| = |A| \times |B|
+\\]
+
+#### 3.1.5 Cartesian Powers
+
+Applications: 
+
+- Binary strings: \\(\\\{0,1\\\}^n = |\\\{0,1\\\}|^n = 2^n\\)
+
+- Subsets
+
+  The *power set* of S, \\(P(S)\\), is the collection of all subsets of S.
+
+  \\[
+      P(\\\{ a, b \\\}) = \\\{ \\\{ \\\}, \\\{ a \\\}, \\\{ b \\\}, \\\{a, b \\\} \\\}  
+  \\]
+
+  The size of the power set is the power of the set size.
+
+  \\[
+    |P(S)| = |\\\{0,1\\\}|^{|S|} = 2^{|S|} 
+  \\]
+
+- Functions
+
+  *Exponential Growth*
+
+  - \\(A^k\\): `itertools.product(A, repeat = k)`
+
+  - \\(n^k\\): `n**k`
+
+  ```py
+  import itertools 
+  set(itertools.product({1,2, 3}, repeat = 2))
+
+  #Exponent
+  print(3**2)
+  ```
