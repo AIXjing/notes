@@ -583,7 +583,7 @@ print(i)
 <h2><a class="header" href="#3-counting" id="3-counting">3. Counting</a></h2>
 <h3><a class="header" href="#31-set-size" id="31-set-size">3.1 Set Size</a></h3>
 <h4><a class="header" href="#311-basic-concepts" id="311-basic-concepts">3.1.1 Basic concepts</a></h4>
-<p>The number of elements in a set S is called its <strong>size</strong>, or <strong>cardinality</strong>, denoted |B| or # S.</p>
+<p>The number of elements in a set S is called its <strong>size</strong>, or <strong>cardinality</strong> (基数), denoted |B| or # S.</p>
 <p>in Python </p>
 <ul>
 <li>
@@ -602,11 +602,11 @@ print(i)
 <h4><a class="header" href="#312-disjoint" id="312-disjoint">3.1.2 Disjoint</a></h4>
 <ul>
 <li>
-<p>Additional rule: </p>
+<p>Additional rule (for disjoint): </p>
 <p>\(A \cap B = \varnothing\): \(|A| + |B| = |A \cup B\)|</p>
 </li>
 <li>
-<p>Subtraction rule:</p>
+<p>Subtraction rule (for complement):</p>
 <p>\(A \subseteq B \implies B = A \cup (B - A) \implies |B| = |A| + |B - A|\) </p>
 </li>
 </ul>
@@ -630,7 +630,7 @@ print(i)
 </li>
 </ul>
 <h4><a class="header" href="#314-cartesian-products" id="314-cartesian-products">3.1.4 Cartesian Products</a></h4>
-<p><strong>Product Rule</strong> - the size of a Cartesian Product is the product of the set sizes. </p>
+<p><strong>Product Rule</strong> - the size of a Cartesian Product is the product of the set sizes. (multiplication)</p>
 <p>\[
 |A \times B| = |A| \times |B|
 \]</p>
@@ -650,9 +650,21 @@ P(\{ a, b \}) = \{ \{ \}, \{ a \}, \{ b \}, \{a, b \} \}<br />
 <p>\[
 |P(S)| = |\{0,1\}|^{|S|} = 2^{|S|} 
 \]</p>
+<p>\(P(P(S))\) - set of subsets of P(S)</p>
+<p>\[
+|P(P(S))| = 2^{|P(S)|} = 2^{2^{|S|}}
+\]</p>
 </li>
 <li>
 <p>Functions</p>
+<p>Functions from A to B: \(B^A\), # = \(|B|^{|A|}\)</p>
+<ul>
+<li>
+<p>Binary functions</p>
+<p>Binary functions of n binary variables: Functions from \(\{0 ,1 \}^n \) to \( \{0 ,1 \} \). That is \( \{0,1 \}^{{ \{0,1\} }^{n}} \)</p>
+<p>#= \(2^{2^n}\) <strong>Double exponntial</strong></p>
+</li>
+</ul>
 <p><em>Exponential Growth</em></p>
 <ul>
 <li>
@@ -670,6 +682,9 @@ print(3**2)
 </code></pre>
 </li>
 </ul>
+<h3><a class="header" href="#32-variations" id="32-variations">3.2 Variations</a></h3>
+<p>Variable length </p>
+<p>Take an example of PIN: #3-5 digit PINs</p>
 
                     </main>
 
