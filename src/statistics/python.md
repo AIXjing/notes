@@ -423,7 +423,7 @@ The cartesian product of A and B is the set AxB of ordered pairs (a,b) where a \
 
 #### 3.1.1 Basic concepts
 
-The number of elements in a set S is called its **size**, or **cardinality**, denoted |B| or # S.
+The number of elements in a set S is called its **size**, or **cardinality** (基数), denoted |B| or # S.
 
 in Python 
 
@@ -438,11 +438,11 @@ in Python
 
 #### 3.1.2 Disjoint
 
-- Additional rule: 
+- Additional rule (for disjoint): 
 
   \\(A \cap B = \varnothing\\): \\(|A| + |B| = |A \cup B\\)|
 
-- Subtraction rule:
+- Subtraction rule (for complement):
 
   \\(A \subseteq B \implies B = A \cup (B - A) \implies |B| = |A| + |B - A|\\) 
 
@@ -465,7 +465,7 @@ in Python
 
 #### 3.1.4 Cartesian Products
 
-**Product Rule** - the size of a Cartesian Product is the product of the set sizes. 
+**Product Rule** - the size of a Cartesian Product is the product of the set sizes. (multiplication)
 
 \\[
   |A \times B| = |A| \times |B|
@@ -491,7 +491,21 @@ Applications:
     |P(S)| = |\\\{0,1\\\}|^{|S|} = 2^{|S|} 
   \\]
 
+  \\(P(P(S))\\) - set of subsets of P(S)
+
+  \\[
+    |P(P(S))| = 2^{|P(S)|} = 2^{2^{|S|}}
+  \\]
+
 - Functions
+
+  Functions from A to B: \\(B^A\\), # = \\(|B|^{|A|}\\)
+
+  - Binary functions
+
+    Binary functions of n binary variables: Functions from \\(\\\{0 ,1 \\\}^n \\) to \\( \\\{0 ,1 \\\} \\). That is \\( \\\{0,1 \\\}^{{ \\\{0,1\\\} }^{n}} \\)
+
+    #= \\(2^{2^n}\\) **Double exponntial**
 
   *Exponential Growth*
 
@@ -506,3 +520,9 @@ Applications:
   #Exponent
   print(3**2)
   ```
+
+### 3.2 Variations
+
+Variable length 
+
+Take an example of PIN: #3-5 digit PINs
