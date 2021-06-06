@@ -359,9 +359,177 @@ If r = 2, then \\(n_1 = k\\) and \\(n_2 = n - k\\). There is \\(\frac{n!}{n! (n-
 
 ![image](https://user-images.githubusercontent.com/41487483/119102964-e8a55f00-ba1a-11eb-9693-d29eb512ac3f.png)
 
+## 4 Discrete random variables
+
+### 4.1 Probability mass function (PMF)
+
+**Random variable**(r.v.): a function from the sample space to the real numbers, notated as X.
+
+**PMF**: probability distribution of X 
+
+\\[
+    p_X(x) = P(X = x) = P({w \in \Omega, s.t. X(\omega) = x})
+\\]
+
+### 4.2 Discrete Random variable examples
+
+#### 4.2.1 Bernoulli random variables 
+
+with parameter \\(p \in [0,1]\\)
+
+\\[
+    p_X(x) = \begin{cases} 1, p(x) = p \\\ 0, p(x) = 1 - p \end{cases} 
+\\]
+
+- Models a trial that results in either success/failure, Heads/Tails, etc.
+
+- **Indicator random variables** of an event A, \\(I_A\\) iff A occurs
+
+#### 4.2.2 Uniform random variables 
+
+with paramters a,b
+
+- Experiment: pick one of a, a+1 .... b at a random; all equally likely
+
+- Sample space; {a, a + 1, .... b}
+
+- Random variables X: \\(X(\omega) = \omega\\)
+
+
+#### 4.2.3 Binomial random variables 
+
+with parameters: pasitive integer \\(n; p \in [0,1]\\)
+
+- Experiment: n independent toses of a coin with P(Heads) = p
+
+- Sample space: set of sequences of H and T of length n
+
+- Random variables X: number of Heads observed
+
+- Model of: number of successes in a given number of independent trials 
+
+\\[
+    p_X(k) = \left(\begin{array}{c} n \\\\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n
+\\]
+
+#### 4.2.4 Geometric random variables 
+
+with parameter p: 0 < p ≤ 1
+
+- Experiment: infinitely many independent tosses of a coin: P(Heads) = p
+
+- Random variable X: number of tosses until the first Heads
+
+- Model of waiting times; number of tirals until a success
+
+\\[
+    p_X(k) = P(X = k) = P(T...TH) =(1-p)^{k-1}p, k = 1,2,3...    
+\\]
+
+### 4.3 Expectation/mean of a random variable
+
+- **Definition**: 
+
+    \\[
+        E[X] = \sum\limits_{x} xp_X(x)
+    \\]
+
+- Interpretation: average in large number of independet repetitions of the experiment
+
+- Elementary properties
+
+    * If X ≥ 0, then E(X) ≥ 0
+
+    * If a ≤ X ≤ b, then a ≤ E[X] ≤ b
+
+    * If c is a constant, E[c] = c
+
+    * The expected value rule: 
+
+        \\[
+            E[Y] = \sum\limits_y yp_Y(y) = E[g(X)] = \sum\limits_x g(x)p_X(x)    
+        \\]
+
+    * Linearity of expectation: \\(E[aX+b] = aE[X] + b\\)
+
+### 4.4 Variance - a measure of the spread of a PMF
+
+#### 4.4.1 Definition of variance: 
+
+\\[
+    var(X) = E[(X - \mu)^2] = \sum\limits_x (x - \mu)^2 p_X(x)
+\\]
+
+standard deviation: \\(\sigma_X = \sqrt{var(X)}\\)
+
+#### 4.4.2 Properties of the variance 
+
+- Notation: \\(\mu = E[X] \\)
+
+- \\(var(aX + b) = a^2var(X)\\)
+
+- A useful formula:
+
+    \\[
+        var(X) = E(X^2) - (E[X])^2    
+    \\]
+
+**Summary of Expectation and Variance of Discrete Random Variables**
+
+| Random Variables | Formula       | E(X)  |  var(X) |
+| -----------------|:-------------:| -----:|--------:|
+|      Bernoulli (p)  | \\(p_X(x) = \begin{cases} 1, p(x) = p \\\ 0, p(x) = 1 - p \end{cases} \\) | \\(p\\)|\\(p(1-p)\\)|
+|      Uniform (a,b)   | \\(p_X(x) = \frac{1}{b-a}, a ≤ x ≤ b\\) | \\(\frac{a+b}{2}\\)|\\(\frac{1}{12}(b-a)(b-a-2)\\)|
+|Binomial \\(p \in [0,1]\\) | \\(p_X(k) = \left(\begin{array}{c} n \\\\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n\\) | \\( np \\)| \\(np(1-p)\\)|
+| Geometric  \\(0 < p ≤ 1\\)  | \\(p_X(k) = (1-p)^{k-1}p, k = 1,2,3.... \\) | \\(\frac{1}{p}\\)|\\(\\)|
+
+### 4.5 Conditional PMF and expectation, given an event
+
+#### 4.5.1 Conditional PMFs
+
+\\(p_{X|A}(x|A) = P(X = x|A)\\), given A = {Y = y}
+
+\\[
+    p_{X|Y}(x|y) = \frac{p_{X,Y}(x,y)}{p_Y(y)}    
+\\]
+
+#### 4.5.2 Conditional PMFs involing more than two random variables
+
+- \\(p_{X|Y,Z}(x|y,z) = P(X = x|Y = y, Z = z) = \frac{P(X=x,Y=y,Z=z)}{P(Y=y, Z=z)} = \frac{P_{X,Y,Z}(x,y,z)}{P_{Y,Z}(y,z)} \\)
+
+- Multiplication rules: \\(p_{X,Y,Z}(x,y,z) = p_X(x)p_{Y|X}(y|x)p_{Z|X,Y}(z|x,y) \\)
+
+
+
+### 4.6 Multiple random variables and joint PMFs
+
+#### 4.6.1 Joint PMF
+
+\\[
+    p_{X,Y}(x,y) = P(X = x, Y =y)
+\\]
+
+- \\(\sum\limits_x \sum\limits_y p_{X,Y}(x,y) = 1\\)
+
+- Marginal PMFs: \\(p_X(x) = \sum\limits_y p_{X,Y}(x,y)\\)
+
+    \\(p_Y(y) = \sum\limits_x p_{X,Y}(x,y)\\)
+
+#### 4.6.2 Functions of multiple random variables
+
+\\(Z = g(X,Y)\\)
+
+- PMF: \\(p_Z(z) = P(Z=z) =P(g(X,Y) = z) \\)
+
+- Expected value rules: \\(E[g(X,Y)] = \sum\limits_x \sum\limits_y g(x,y) p_{X,Y}(x,y)\\)
+
+- Linearity of expectations
+
+    * \\(E[aX + b] = aE[X] + b\\)
+
+    * \\(E[X + Y] = E[X] + E[Y]\\)
 
 ## 5 Continuous random variables
-
 
 ### 5.1 Probability density function (PDFs)
 
@@ -421,16 +589,6 @@ According to the definition of variance: \\(var(X) = E[(X - \mu)^2] \\)
 | Exponential \\( \lambda > 0 \\) | \\(f(x) = \begin{cases} \lambda e^{-\lambda x}, x ≥ 0 \\\ 0, x < 0 \end{cases}\\) | \\(\frac{1}{\lambda}\\)|\\(\frac{1}{\lambda^2}\\)|
 
 
-**Summary of Expectation and Variance of Discrete Random Variables**
-
-| Random Variables | Formula       | E(X)  |  var(X) |
-| -----------------|:-------------:| -----:|--------:|
-|      Bernoulli (p)  | \\(p_X(x) = \begin{cases} 1, p(x) = p \\\ 0, p(x) = 1 - p \end{cases} \\) | \\(p\\)|\\(p (1-p)\\)|
-|      Uniform (a,b)   | \\(p_X(x) = \frac{1}{b-a}, a ≤ x ≤ b\\) | \\(\frac{a+b}{2}\\)|\\(\frac{1}{12}(b-a)(b-a-2)\\)|
-|Binomial \\(p \in [0,1]\\) | \\(p_X(k) = \left(\begin{array}{c} n \\\\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n\\) | \\( np \\)| \\(np(1-p)\\)|
-| Geometric  \\(0 < p ≤ 1\\)  | \\(p_X(k) = (1-p)^{k-1}p, k = 1,2,3.... \\) | \\(\frac{1}{p}\\)|\\(\\)|
-
-
 #### 5.1.2 Cumulative distribution functions (CDF)
 
 CDF defination: \\(F_X(x) = P(X ≤ x )\\)
@@ -475,7 +633,7 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
 
 1. **Standard normal tables** 
 
-\\(\Phi(y) = F_Y(y) = P(Y \leq y)\\) which can be find in the table, where y ≥ 0.
+    \\(\Phi(y) = F_Y(y) = P(Y \leq y)\\) which can be find in the table, where y ≥ 0.
 
 2. Standardizing a random variable
 
