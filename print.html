@@ -1115,7 +1115,7 @@ P(A|B) = \frac{P(A \cap B )}{P(B)}
 <li>
 <p>choose the <em>k</em> items one at a time: </p>
 <p>\[
-n * (n-1) * ... * (n-k+1) = \frac{n!}{k!(n-k)!}
+n (n-1) ... (n-k+1) = \frac{n!}{k!(n-k)!}
 \]</p>
 </li>
 <li>
@@ -1172,6 +1172,139 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 </ul>
 <p><img src="https://user-images.githubusercontent.com/41487483/119102618-83516e00-ba1a-11eb-86e6-b87e6ecf3467.png" alt="image" /></p>
 <p><img src="https://user-images.githubusercontent.com/41487483/119102964-e8a55f00-ba1a-11eb-9693-d29eb512ac3f.png" alt="image" /></p>
+<h2><a class="header" href="#5-continuous-random-variables" id="5-continuous-random-variables">5 Continuous random variables</a></h2>
+<h3><a class="header" href="#51-probability-density-function-pdfs" id="51-probability-density-function-pdfs">5.1 Probability density function (PDFs)</a></h3>
+<h4><a class="header" href="#511-definition" id="511-definition">5.1.1 Definition</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/120918805-91f48200-c6b6-11eb-9319-23713295480c.png" alt="image" /></p>
+<p><em>PDFs are not probabilities. Their units are probability per unit length.</em></p>
+<p><strong>Contiunous random variables</strong>: a random variable is continuous <strong>if it can be described by a PDF</strong>.</p>
+<ul>
+<li>
+<p>\(P(X = a) = 0\)</p>
+</li>
+<li>
+<p>\(f_X(x) \geq 0\)</p>
+</li>
+<li>
+<p>\(\int_{-\infty}^{+\infty}f(x)dx = 1\)</p>
+</li>
+</ul>
+<p><strong>Expectation/Mean</strong></p>
+<p>Expection/mean of a continuous random variable: <em>average in large number of independent repetitions of the experiment</em></p>
+<p>\[
+E[X] = \int_{-\infty}^{+\infty}xf_X(x)dx
+\]</p>
+<p><strong>Properties of expectations</strong></p>
+<ul>
+<li>
+<p>if X ≥ 0, then \(E[X] ≥ 0\)</p>
+</li>
+<li>
+<p>if a ≤ X ≤ b, then \(a ≤ E[X] ≤ b\)</p>
+</li>
+<li>
+<p>Expected value rule: \(E[g(X)] = \sum\limits_{x} g(x) f_X(x) dx \)</p>
+</li>
+<li>
+<p>Linearity: \(E[aX + b] = aE(X) + b\)</p>
+</li>
+</ul>
+<p><strong>Variance</strong></p>
+<p>According to the definition of variance: \(var(X) = E[(X - \mu)^2] \)</p>
+<p>\[
+var(X) = \int_{-\infty}^{+\infty} (x - \mu)^2 f_X(x) dx
+\] </p>
+<ul>
+<li>
+<p>Standard deviation = \(\sigma_X = \sqrt{var(X)} \)</p>
+</li>
+<li>
+<p>\(var(aX + b) = a^2 var(X)\)</p>
+</li>
+<li>
+<p>\(var(X) = E[X^2] - (E[X])^2\)</p>
+</li>
+</ul>
+<p><strong>Summary of Expectation and Variance of continuous random variables</strong></p>
+<table><thead><tr><th>Random Variables</th><th align="center">Formula</th><th align="right">E(X)</th><th align="right">var(X)</th></tr></thead><tbody>
+<tr><td>Uniform</td><td align="center">\(f(x) = \frac{1}{b-a}, a ≤ x ≤ b\)</td><td align="right">\(\frac{a+b}{2}\)</td><td align="right">\(\frac{(b-a)^2}{12}\)</td></tr>
+<tr><td>Exponential \( \lambda &gt; 0 \)</td><td align="center">\(f(x) = \begin{cases} \lambda e^{-\lambda x}, x ≥ 0 \\ 0, x &lt; 0 \end{cases}\)</td><td align="right">\(\frac{1}{\lambda}\)</td><td align="right">\(\frac{1}{\lambda^2}\)</td></tr>
+</tbody></table>
+<p><strong>Summary of Expectation and Variance of Discrete Random Variables</strong></p>
+<table><thead><tr><th>Random Variables</th><th align="center">Formula</th><th align="right">E(X)</th><th align="right">var(X)</th></tr></thead><tbody>
+<tr><td>Bernoulli (p)</td><td align="center">\(p_X(x) = \begin{cases} 1, p(x) = p \\ 0, p(x) = 1 - p \end{cases} \)</td><td align="right">\(p\)</td><td align="right">\(p (1-p)\)</td></tr>
+<tr><td>Uniform (a,b)</td><td align="center">\(p_X(x) = \frac{1}{b-a}, a ≤ x ≤ b\)</td><td align="right">\(\frac{a+b}{2}\)</td><td align="right">\(\frac{1}{12}(b-a)(b-a-2)\)</td></tr>
+<tr><td>Binomial \(p \in [0,1]\)</td><td align="center">\(p_X(k) = \left(\begin{array}{c} n \\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n\)</td><td align="right">\( np \)</td><td align="right">\(np(1-p)\)</td></tr>
+<tr><td>Geometric  \(0 &lt; p ≤ 1\)</td><td align="center">\(p_X(k) = (1-p)^{k-1}p, k = 1,2,3.... \)</td><td align="right">\(\frac{1}{p}\)</td><td align="right">\(\)</td></tr>
+</tbody></table>
+<h4><a class="header" href="#512-cumulative-distribution-functions-cdf" id="512-cumulative-distribution-functions-cdf">5.1.2 Cumulative distribution functions (CDF)</a></h4>
+<p>CDF defination: \(F_X(x) = P(X ≤ x )\)</p>
+<ul>
+<li>
+<p>Non-decreasing</p>
+</li>
+<li>
+<p>\(F_X(x)\) tends to 1, as \(x \to \infty\)</p>
+</li>
+<li>
+<p>\(F_X(x)\) tends to 0, as \(x \to - \infty\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#513-normalgaussian-random-variables" id="513-normalgaussian-random-variables">5.1.3 Normal(Gaussian) random variables</a></h4>
+<ol>
+<li>
+<p>Standard normal(Gaussian) random variables</p>
+<p>Stardard  normal \(N(0,1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \)</p>
+<ul>
+<li>
+<p>E[X] = 0</p>
+</li>
+<li>
+<p>var(X) = 1</p>
+</li>
+</ul>
+</li>
+<li>
+<p>General normal(Gaussian) random variables</p>
+<p>General  normal \(N(\mu,\sigma^2): f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/2\sigma^2}, \sigma &gt; 0 \)</p>
+<ul>
+<li>
+<p>E[X] = \( \mu \)</p>
+</li>
+<li>
+<p>var(X) = \( \sigma^2 \):\( \sigma^2 \to small\), the shape of normal distribution becomes more narrow.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Linear functions of a normal random variable</p>
+<ul>
+<li>
+<p>Let \(Y = aX + b, X \sim N(\mu, \sigma^2)\)</p>
+<p>\(E[Y] = a\mu + b\)</p>
+<p>\(Var(Y) = a^2 \sigma^2 \)</p>
+</li>
+<li>
+<p>Fact: \(Y \sim N(a\mu + b, a^2 \sigma^2)\)</p>
+</li>
+<li>
+<p>Special case: a = 0. There is Y = b, \(N(b, 0)\)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4><a class="header" href="#514-calculation-of-normal-probabilities" id="514-calculation-of-normal-probabilities">5.1.4 Calculation of normal probabilities</a></h4>
+<ol>
+<li><strong>Standard normal tables</strong> </li>
+</ol>
+<p>\(\Phi(y) = F_Y(y) = P(Y \leq y)\) which can be find in the table, where y ≥ 0.</p>
+<ol start="2">
+<li>
+<p>Standardizing a random variable</p>
+<p>\(X \sim N(\mu, \sigma^2), \sigma^2 &gt; 0 \)</p>
+<p>\(Y = \frac{X - \mu}{\sigma}\)</p>
+</li>
+</ol>
 <h1><a class="header" href="#improve-your-statistical-inferences" id="improve-your-statistical-inferences">Improve your statistical inferences</a></h1>
 <h2><a class="header" href="#week-1" id="week-1">Week 1</a></h2>
 <h3><a class="header" href="#11-frequentism-likelihoods-bayesian-statistics" id="11-frequentism-likelihoods-bayesian-statistics">1.1 Frequentism, Likelihoods, Bayesian statistics</a></h3>
