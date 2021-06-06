@@ -1172,6 +1172,188 @@ P(\text{k heads}) = p^k (1-p)^{n-k}
 </ul>
 <p><img src="https://user-images.githubusercontent.com/41487483/119102618-83516e00-ba1a-11eb-86e6-b87e6ecf3467.png" alt="image" /></p>
 <p><img src="https://user-images.githubusercontent.com/41487483/119102964-e8a55f00-ba1a-11eb-9693-d29eb512ac3f.png" alt="image" /></p>
+<h2><a class="header" href="#4-discrete-random-variables" id="4-discrete-random-variables">4 Discrete random variables</a></h2>
+<h3><a class="header" href="#41-probability-mass-function-pmf" id="41-probability-mass-function-pmf">4.1 Probability mass function (PMF)</a></h3>
+<p><strong>Random variable</strong>(r.v.): a function from the sample space to the real numbers, notated as X.</p>
+<p><strong>PMF</strong>: probability distribution of X </p>
+<p>\[
+p_X(x) = P(X = x) = P({w \in \Omega, s.t. X(\omega) = x})
+\]</p>
+<h3><a class="header" href="#42-discrete-random-variable-examples" id="42-discrete-random-variable-examples">4.2 Discrete Random variable examples</a></h3>
+<h4><a class="header" href="#421-bernoulli-random-variables" id="421-bernoulli-random-variables">4.2.1 Bernoulli random variables</a></h4>
+<p>with parameter \(p \in [0,1]\)</p>
+<p>\[
+p_X(x) = \begin{cases} 1, p(x) = p \\ 0, p(x) = 1 - p \end{cases} 
+\]</p>
+<ul>
+<li>
+<p>Models a trial that results in either success/failure, Heads/Tails, etc.</p>
+</li>
+<li>
+<p><strong>Indicator random variables</strong> of an event A, \(I_A\) iff A occurs</p>
+</li>
+</ul>
+<h4><a class="header" href="#422-uniform-random-variables" id="422-uniform-random-variables">4.2.2 Uniform random variables</a></h4>
+<p>with paramters a,b</p>
+<ul>
+<li>
+<p>Experiment: pick one of a, a+1 .... b at a random; all equally likely</p>
+</li>
+<li>
+<p>Sample space; {a, a + 1, .... b}</p>
+</li>
+<li>
+<p>Random variables X: \(X(\omega) = \omega\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#423-binomial-random-variables" id="423-binomial-random-variables">4.2.3 Binomial random variables</a></h4>
+<p>with parameters: pasitive integer \(n; p \in [0,1]\)</p>
+<ul>
+<li>
+<p>Experiment: n independent toses of a coin with P(Heads) = p</p>
+</li>
+<li>
+<p>Sample space: set of sequences of H and T of length n</p>
+</li>
+<li>
+<p>Random variables X: number of Heads observed</p>
+</li>
+<li>
+<p>Model of: number of successes in a given number of independent trials </p>
+</li>
+</ul>
+<p>\[
+p_X(k) = \left(\begin{array}{c} n \\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n
+\]</p>
+<h4><a class="header" href="#424-geometric-random-variables" id="424-geometric-random-variables">4.2.4 Geometric random variables</a></h4>
+<p>with parameter p: 0 &lt; p ≤ 1</p>
+<ul>
+<li>
+<p>Experiment: infinitely many independent tosses of a coin: P(Heads) = p</p>
+</li>
+<li>
+<p>Random variable X: number of tosses until the first Heads</p>
+</li>
+<li>
+<p>Model of waiting times; number of tirals until a success</p>
+</li>
+</ul>
+<p>\[
+p_X(k) = P(X = k) = P(T...TH) =(1-p)^{k-1}p, k = 1,2,3...<br />
+\]</p>
+<h3><a class="header" href="#43-expectationmean-of-a-random-variable" id="43-expectationmean-of-a-random-variable">4.3 Expectation/mean of a random variable</a></h3>
+<ul>
+<li>
+<p><strong>Definition</strong>: </p>
+<p>\[
+E[X] = \sum\limits_{x} xp_X(x)
+\]</p>
+</li>
+<li>
+<p>Interpretation: average in large number of independet repetitions of the experiment</p>
+</li>
+<li>
+<p>Elementary properties</p>
+<ul>
+<li>
+<p>If X ≥ 0, then E(X) ≥ 0</p>
+</li>
+<li>
+<p>If a ≤ X ≤ b, then a ≤ E[X] ≤ b</p>
+</li>
+<li>
+<p>If c is a constant, E[c] = c</p>
+</li>
+<li>
+<p>The expected value rule: </p>
+<p>\[
+E[Y] = \sum\limits_y yp_Y(y) = E[g(X)] = \sum\limits_x g(x)p_X(x)<br />
+\]</p>
+</li>
+<li>
+<p>Linearity of expectation: \(E[aX+b] = aE[X] + b\)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#44-variance---a-measure-of-the-spread-of-a-pmf" id="44-variance---a-measure-of-the-spread-of-a-pmf">4.4 Variance - a measure of the spread of a PMF</a></h3>
+<h4><a class="header" href="#441-definition-of-variance" id="441-definition-of-variance">4.4.1 Definition of variance:</a></h4>
+<p>\[
+var(X) = E[(X - \mu)^2] = \sum\limits_x (x - \mu)^2 p_X(x)
+\]</p>
+<p>standard deviation: \(\sigma_X = \sqrt{var(X)}\)</p>
+<h4><a class="header" href="#442-properties-of-the-variance" id="442-properties-of-the-variance">4.4.2 Properties of the variance</a></h4>
+<ul>
+<li>
+<p>Notation: \(\mu = E[X] \)</p>
+</li>
+<li>
+<p>\(var(aX + b) = a^2var(X)\)</p>
+</li>
+<li>
+<p>A useful formula:</p>
+<p>\[
+var(X) = E(X^2) - (E[X])^2<br />
+\]</p>
+</li>
+</ul>
+<p><strong>Summary of Expectation and Variance of Discrete Random Variables</strong></p>
+<table><thead><tr><th>Random Variables</th><th align="center">Formula</th><th align="right">E(X)</th><th align="right">var(X)</th></tr></thead><tbody>
+<tr><td>Bernoulli (p)</td><td align="center">\(p_X(x) = \begin{cases} 1, p(x) = p \\ 0, p(x) = 1 - p \end{cases} \)</td><td align="right">\(p\)</td><td align="right">\(p(1-p)\)</td></tr>
+<tr><td>Uniform (a,b)</td><td align="center">\(p_X(x) = \frac{1}{b-a}, a ≤ x ≤ b\)</td><td align="right">\(\frac{a+b}{2}\)</td><td align="right">\(\frac{1}{12}(b-a)(b-a-2)\)</td></tr>
+<tr><td>Binomial \(p \in [0,1]\)</td><td align="center">\(p_X(k) = \left(\begin{array}{c} n \\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n\)</td><td align="right">\( np \)</td><td align="right">\(np(1-p)\)</td></tr>
+<tr><td>Geometric  \(0 &lt; p ≤ 1\)</td><td align="center">\(p_X(k) = (1-p)^{k-1}p, k = 1,2,3.... \)</td><td align="right">\(\frac{1}{p}\)</td><td align="right">\(\)</td></tr>
+</tbody></table>
+<h3><a class="header" href="#45-conditional-pmf-and-expectation-given-an-event" id="45-conditional-pmf-and-expectation-given-an-event">4.5 Conditional PMF and expectation, given an event</a></h3>
+<h4><a class="header" href="#451-conditional-pmfs" id="451-conditional-pmfs">4.5.1 Conditional PMFs</a></h4>
+<p>\(p_{X|A}(x|A) = P(X = x|A)\), given A = {Y = y}</p>
+<p>\[
+p_{X|Y}(x|y) = \frac{p_{X,Y}(x,y)}{p_Y(y)}<br />
+\]</p>
+<h4><a class="header" href="#452-conditional-pmfs-involing-more-than-two-random-variables" id="452-conditional-pmfs-involing-more-than-two-random-variables">4.5.2 Conditional PMFs involing more than two random variables</a></h4>
+<ul>
+<li>
+<p>\(p_{X|Y,Z}(x|y,z) = P(X = x|Y = y, Z = z) = \frac{P(X=x,Y=y,Z=z)}{P(Y=y, Z=z)} = \frac{P_{X,Y,Z}(x,y,z)}{P_{Y,Z}(y,z)} \)</p>
+</li>
+<li>
+<p>Multiplication rules: \(p_{X,Y,Z}(x,y,z) = p_X(x)p_{Y|X}(y|x)p_{Z|X,Y}(z|x,y) \)</p>
+</li>
+</ul>
+<h3><a class="header" href="#46-multiple-random-variables-and-joint-pmfs" id="46-multiple-random-variables-and-joint-pmfs">4.6 Multiple random variables and joint PMFs</a></h3>
+<h4><a class="header" href="#461-joint-pmf" id="461-joint-pmf">4.6.1 Joint PMF</a></h4>
+<p>\[
+p_{X,Y}(x,y) = P(X = x, Y =y)
+\]</p>
+<ul>
+<li>
+<p>\(\sum\limits_x \sum\limits_y p_{X,Y}(x,y) = 1\)</p>
+</li>
+<li>
+<p>Marginal PMFs: \(p_X(x) = \sum\limits_y p_{X,Y}(x,y)\)</p>
+<p>\(p_Y(y) = \sum\limits_x p_{X,Y}(x,y)\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#462-functions-of-multiple-random-variables" id="462-functions-of-multiple-random-variables">4.6.2 Functions of multiple random variables</a></h4>
+<p>\(Z = g(X,Y)\)</p>
+<ul>
+<li>
+<p>PMF: \(p_Z(z) = P(Z=z) =P(g(X,Y) = z) \)</p>
+</li>
+<li>
+<p>Expected value rules: \(E[g(X,Y)] = \sum\limits_x \sum\limits_y g(x,y) p_{X,Y}(x,y)\)</p>
+</li>
+<li>
+<p>Linearity of expectations</p>
+<ul>
+<li>
+<p>\(E[aX + b] = aE[X] + b\)</p>
+</li>
+<li>
+<p>\(E[X + Y] = E[X] + E[Y]\)</p>
+</li>
+</ul>
+</li>
+</ul>
 <h2><a class="header" href="#5-continuous-random-variables" id="5-continuous-random-variables">5 Continuous random variables</a></h2>
 <h3><a class="header" href="#51-probability-density-function-pdfs" id="51-probability-density-function-pdfs">5.1 Probability density function (PDFs)</a></h3>
 <h4><a class="header" href="#511-definition" id="511-definition">5.1.1 Definition</a></h4>
@@ -1229,13 +1411,6 @@ var(X) = \int_{-\infty}^{+\infty} (x - \mu)^2 f_X(x) dx
 <table><thead><tr><th>Random Variables</th><th align="center">Formula</th><th align="right">E(X)</th><th align="right">var(X)</th></tr></thead><tbody>
 <tr><td>Uniform</td><td align="center">\(f(x) = \frac{1}{b-a}, a ≤ x ≤ b\)</td><td align="right">\(\frac{a+b}{2}\)</td><td align="right">\(\frac{(b-a)^2}{12}\)</td></tr>
 <tr><td>Exponential \( \lambda &gt; 0 \)</td><td align="center">\(f(x) = \begin{cases} \lambda e^{-\lambda x}, x ≥ 0 \\ 0, x &lt; 0 \end{cases}\)</td><td align="right">\(\frac{1}{\lambda}\)</td><td align="right">\(\frac{1}{\lambda^2}\)</td></tr>
-</tbody></table>
-<p><strong>Summary of Expectation and Variance of Discrete Random Variables</strong></p>
-<table><thead><tr><th>Random Variables</th><th align="center">Formula</th><th align="right">E(X)</th><th align="right">var(X)</th></tr></thead><tbody>
-<tr><td>Bernoulli (p)</td><td align="center">\(p_X(x) = \begin{cases} 1, p(x) = p \\ 0, p(x) = 1 - p \end{cases} \)</td><td align="right">\(p\)</td><td align="right">\(p (1-p)\)</td></tr>
-<tr><td>Uniform (a,b)</td><td align="center">\(p_X(x) = \frac{1}{b-a}, a ≤ x ≤ b\)</td><td align="right">\(\frac{a+b}{2}\)</td><td align="right">\(\frac{1}{12}(b-a)(b-a-2)\)</td></tr>
-<tr><td>Binomial \(p \in [0,1]\)</td><td align="center">\(p_X(k) = \left(\begin{array}{c} n \\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n\)</td><td align="right">\( np \)</td><td align="right">\(np(1-p)\)</td></tr>
-<tr><td>Geometric  \(0 &lt; p ≤ 1\)</td><td align="center">\(p_X(k) = (1-p)^{k-1}p, k = 1,2,3.... \)</td><td align="right">\(\frac{1}{p}\)</td><td align="right">\(\)</td></tr>
 </tbody></table>
 <h4><a class="header" href="#512-cumulative-distribution-functions-cdf" id="512-cumulative-distribution-functions-cdf">5.1.2 Cumulative distribution functions (CDF)</a></h4>
 <p>CDF defination: \(F_X(x) = P(X ≤ x )\)</p>
@@ -1295,10 +1470,10 @@ var(X) = \int_{-\infty}^{+\infty} (x - \mu)^2 f_X(x) dx
 </ol>
 <h4><a class="header" href="#514-calculation-of-normal-probabilities" id="514-calculation-of-normal-probabilities">5.1.4 Calculation of normal probabilities</a></h4>
 <ol>
-<li><strong>Standard normal tables</strong> </li>
-</ol>
+<li>
+<p><strong>Standard normal tables</strong> </p>
 <p>\(\Phi(y) = F_Y(y) = P(Y \leq y)\) which can be find in the table, where y ≥ 0.</p>
-<ol start="2">
+</li>
 <li>
 <p>Standardizing a random variable</p>
 <p>\(X \sim N(\mu, \sigma^2), \sigma^2 &gt; 0 \)</p>
