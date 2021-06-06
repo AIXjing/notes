@@ -526,3 +526,18 @@ Applications:
 Variable length 
 
 Take an example of PIN: #3-5 digit PINs
+
+### 3.3 Counting trees
+
+-  Cartesian products as Trees
+
+![image](https://user-images.githubusercontent.com/41487483/120917627-800fe080-c6b0-11eb-8fe2-8edc7186f27c.png)
+
+- Trees are more general products
+
+For example, in a university, there are 3 departments, and each department has 2 different courses. Therefore there are 6 courses in total. 
+
+**Path from Sources to Destination**
+
+![image](https://user-images.githubusercontent.com/41487483/120917920-0da00000-c6b2-11eb-9016-1182865eb950.png)
+
