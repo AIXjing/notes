@@ -297,7 +297,7 @@ r stages and \\(n_i\\) choices at stage i give the total number of possible choi
     - choose the *k* items one at a time: 
 
         \\[
-            n * (n-1) * ... * (n-k+1) = \frac{n!}{k!(n-k)!}
+            n (n-1) ... (n-k+1) = \frac{n!}{k!(n-k)!}
         \\]
 
     - choose *k* items, then order them:
@@ -358,3 +358,127 @@ If r = 2, then \\(n_1 = k\\) and \\(n_2 = n - k\\). There is \\(\frac{n!}{n! (n-
 ![image](https://user-images.githubusercontent.com/41487483/119102618-83516e00-ba1a-11eb-86e6-b87e6ecf3467.png)
 
 ![image](https://user-images.githubusercontent.com/41487483/119102964-e8a55f00-ba1a-11eb-9693-d29eb512ac3f.png)
+
+
+## 5 Continuous random variables
+
+
+### 5.1 Probability density function (PDFs)
+
+#### 5.1.1 Definition
+
+![image](https://user-images.githubusercontent.com/41487483/120918805-91f48200-c6b6-11eb-9319-23713295480c.png)
+
+*PDFs are not probabilities. Their units are probability per unit length.*
+
+**Contiunous random variables**: a random variable is continuous **if it can be described by a PDF**.
+
+- \\(P(X = a) = 0\\)
+
+- \\(f_X(x) \geq 0\\)
+
+- \\(\int\_{-\infty}^{+\infty}f(x)dx = 1\\)
+
+**Expectation/Mean**
+
+Expection/mean of a continuous random variable: *average in large number of independent repetitions of the experiment*
+
+\\[
+    E[X] = \int\_{-\infty}^{+\infty}xf_X(x)dx
+\\]
+
+**Properties of expectations**
+
+- if X ≥ 0, then \\(E[X] ≥ 0\\)
+
+- if a ≤ X ≤ b, then \\(a ≤ E[X] ≤ b\\)
+
+- Expected value rule: \\(E[g(X)] = \sum\limits_{x} g(x) f_X(x) dx \\)
+
+- Linearity: \\(E[aX + b] = aE(X) + b\\)
+
+
+**Variance**
+
+According to the definition of variance: \\(var(X) = E[(X - \mu)^2] \\)
+
+\\[
+    var(X) = \int\_{-\infty}^{+\infty} (x - \mu)^2 f_X(x) dx
+\\] 
+
+- Standard deviation = \\(\sigma_X = \sqrt{var(X)} \\)
+
+- \\(var(aX + b) = a^2 var(X)\\)
+
+- \\(var(X) = E[X^2] - (E[X])^2\\)
+
+
+**Summary of Expectation and Variance of continuous random variables**
+
+| Random Variables | Formula       | E(X)  |  var(X) |
+| -----------------|:-------------:| -----:|--------:|
+|      Uniform     | \\(f(x) = \frac{1}{b-a}, a ≤ x ≤ b\\) | \\(\frac{a+b}{2}\\)|\\(\frac{(b-a)^2}{12}\\)|
+| Exponential \\( \lambda > 0 \\) | \\(f(x) = \begin{cases} \lambda e^{-\lambda x}, x ≥ 0 \\\ 0, x < 0 \end{cases}\\) | \\(\frac{1}{\lambda}\\)|\\(\frac{1}{\lambda^2}\\)|
+
+
+**Summary of Expectation and Variance of Discrete Random Variables**
+
+| Random Variables | Formula       | E(X)  |  var(X) |
+| -----------------|:-------------:| -----:|--------:|
+|      Bernoulli (p)  | \\(p_X(x) = \begin{cases} 1, p(x) = p \\\ 0, p(x) = 1 - p \end{cases} \\) | \\(p\\)|\\(p (1-p)\\)|
+|      Uniform (a,b)   | \\(p_X(x) = \frac{1}{b-a}, a ≤ x ≤ b\\) | \\(\frac{a+b}{2}\\)|\\(\frac{1}{12}(b-a)(b-a-2)\\)|
+|Binomial \\(p \in [0,1]\\) | \\(p_X(k) = \left(\begin{array}{c} n \\\\ k \end{array}  \right)p^k(1-p)^{n-k}, k = 0, 1 ..., n\\) | \\( np \\)| \\(np(1-p)\\)|
+| Geometric  \\(0 < p ≤ 1\\)  | \\(p_X(k) = (1-p)^{k-1}p, k = 1,2,3.... \\) | \\(\frac{1}{p}\\)|\\(\\)|
+
+
+#### 5.1.2 Cumulative distribution functions (CDF)
+
+CDF defination: \\(F_X(x) = P(X ≤ x )\\)
+
+- Non-decreasing
+
+- \\(F_X(x)\\) tends to 1, as \\(x \to \infty\\)
+
+- \\(F_X(x)\\) tends to 0, as \\(x \to - \infty\\)
+
+#### 5.1.3 Normal(Gaussian) random variables
+
+1. Standard normal(Gaussian) random variables
+
+    Stardard  normal \\(N(0,1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \\)
+
+    - E[X] = 0
+
+    - var(X) = 1
+
+2. General normal(Gaussian) random variables
+
+    General  normal \\(N(\mu,\sigma^2): f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/2\sigma^2}, \sigma > 0 \\)
+
+    - E[X] = \\( \mu \\)
+
+    - var(X) = \\( \sigma^2 \\):\\( \sigma^2 \to small\\), the shape of normal distribution becomes more narrow.
+
+3. Linear functions of a normal random variable
+
+    - Let \\(Y = aX + b, X \sim N(\mu, \sigma^2)\\)
+
+        \\(E[Y] = a\mu + b\\)
+
+        \\(Var(Y) = a^2 \sigma^2 \\)
+
+    - Fact: \\(Y \sim N(a\mu + b, a^2 \sigma^2)\\)
+
+    - Special case: a = 0. There is Y = b, \\(N(b, 0)\\)
+
+#### 5.1.4 Calculation of normal probabilities
+
+1. **Standard normal tables** 
+
+\\(\Phi(y) = F_Y(y) = P(Y \leq y)\\) which can be find in the table, where y ≥ 0.
+
+2. Standardizing a random variable
+
+    \\(X \sim N(\mu, \sigma^2), \sigma^2 > 0 \\)
+
+    \\(Y = \frac{X - \mu}{\sigma}\\)
