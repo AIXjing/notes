@@ -1472,10 +1472,10 @@ var(X) = \int_{-\infty}^{+\infty} (x - \mu)^2 f_X(x) dx
 <p>Stardard  normal \(N(0,1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \)</p>
 <ul>
 <li>
-<p>E[X] = 0</p>
+<p>\(E[X] = 0\)</p>
 </li>
 <li>
-<p>var(X) = 1</p>
+<p>\(var(X) = 1\)</p>
 </li>
 </ul>
 </li>
@@ -1484,12 +1484,14 @@ var(X) = \int_{-\infty}^{+\infty} (x - \mu)^2 f_X(x) dx
 <p>General  normal \(N(\mu,\sigma^2): f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/2\sigma^2}, \sigma &gt; 0 \)</p>
 <ul>
 <li>
-<p>E[X] = \( \mu \)</p>
+<p>\(E[X] = \mu \)</p>
 </li>
 <li>
-<p>var(X) = \( \sigma^2 \):\( \sigma^2 \to small\), the shape of normal distribution becomes more narrow.</p>
+<p>\( var(X) = \sigma^2 \)</p>
 </li>
 </ul>
+<pre><code> \\( \sigma^2 \to small\\), the shape of normal distribution becomes more narrow.
+</code></pre>
 </li>
 <li>
 <p>Linear functions of a normal random variable</p>
@@ -1520,6 +1522,75 @@ var(X) = \int_{-\infty}^{+\infty} (x - \mu)^2 f_X(x) dx
 <p>\(Y = \frac{X - \mu}{\sigma}\)</p>
 </li>
 </ol>
+<h3><a class="header" href="#52-conditioning-on-an-event-multiple-continuous-rvs" id="52-conditioning-on-an-event-multiple-continuous-rvs">5.2 Conditioning on an event: multiple continuous r.v.'s</a></h3>
+<p>\[
+P( X \in B|A) =  \int_B f_{X|A}(x)dx
+\]</p>
+<h4><a class="header" href="#521-conditional-pdf-of-x-given-that-x-in-a-" id="521-conditional-pdf-of-x-given-that-x-in-a-">5.2.1 Conditional PDf of X, given that \(X \in A \)</a></h4>
+<p>\[
+f_{X|X \in A}(x) = \begin{cases} 0, if x \notin A \\ \frac{f_X(x)}{P(A)}, if x \in A \end{cases}
+\]</p>
+<h4><a class="header" href="#522-conditional-expectation-of-x-given-an-event" id="522-conditional-expectation-of-x-given-an-event">5.2.2 Conditional expectation of X, given an event</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/121066009-b5f4b800-c7c9-11eb-9e82-cca4ded3a17f.png" alt="image" /></p>
+<h4><a class="header" href="#523-memorylessness-of-the-exponential-pdf" id="523-memorylessness-of-the-exponential-pdf">5.2.3 Memorylessness of the exponential PDF</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/121071392-2a325a00-c7d0-11eb-8e77-c14ded14fe0c.png" alt="image" /></p>
+<h4><a class="header" href="#524-total-probability-and-expectation-theorems" id="524-total-probability-and-expectation-theorems">5.2.4 Total probability and expectation theorems</a></h4>
+<ul>
+<li>Probability theorem: </li>
+</ul>
+<p>\[
+P(B) = P(A_1)P(B|A_1) + \dotsb + P(A_n)P(B|A_n)
+\]</p>
+<ul>
+<li>For the discrete random variable: </li>
+</ul>
+<p>\[
+p_X(x) = P(A_1)p_{X|A_1}(x) + \dotsb + P(A_n)p_{X|A_n}(x)
+\]</p>
+<ul>
+<li>For CDF: </li>
+</ul>
+<p>\[
+F_X(x) = P(X \leq x) = P(A_1)P(X \leq x | A_1) + \dotsb + P(A_n)P(X \leq x | A_n) 
+\\= P(A_1)F_{X|A_1}(x) + \dotsb + P(A_n)F_{X|A_n}(x)
+\]</p>
+<ul>
+<li>For PDF, the derivative of CDF:</li>
+</ul>
+<p>\[
+f_X(x) = P(X \leq x) = P(A_1)f_{X|A_1}(x) + \dotsb + P(A_n)f_{X|A_n}(x)
+\]</p>
+<ul>
+<li>Integral above equation, we will obtain the expectation equation:</li>
+</ul>
+<p>\[
+\int xf_X(x)dx = P(A_1) \int xf_{X|A_1}(x)dx + \dotsb + P(A_n) \int xf_{X|A_n}(x)dx
+\]</p>
+<p>\[
+E[X] = P(A_1)E[X|A_1] + \dotsb + P(A_n)E[X|A_n]<br />
+\]</p>
+<h3><a class="header" href="#53-mixed-random-varibles" id="53-mixed-random-varibles">5.3 Mixed random varibles</a></h3>
+<ul>
+<li>
+<p><strong>Mixed distirbutions</strong></p>
+<p>\[
+X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}<br />
+\]</p>
+<ul>
+<li>
+<p>do not have PDF or PMF but can be defined with CDF and expectation</p>
+<p>\[
+F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
+\\
+=pF_Y(x) + (1-p)F_Z(x)
+\\
+= E[X] = p E[Y] + (1-p) E[Z]
+\]</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png" alt="image" /></p>
+</li>
+</ul>
 <h1><a class="header" href="#improve-your-statistical-inferences" id="improve-your-statistical-inferences">Improve your statistical inferences</a></h1>
 <h2><a class="header" href="#week-1" id="week-1">Week 1</a></h2>
 <h3><a class="header" href="#11-frequentism-likelihoods-bayesian-statistics" id="11-frequentism-likelihoods-bayesian-statistics">1.1 Frequentism, Likelihoods, Bayesian statistics</a></h3>
