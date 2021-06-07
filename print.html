@@ -1318,6 +1318,11 @@ p_{X|Y}(x|y) = \frac{p_{X,Y}(x,y)}{p_Y(y)}<br />
 <li>
 <p>Multiplication rules: \(p_{X,Y,Z}(x,y,z) = p_X(x)p_{Y|X}(y|x)p_{Z|X,Y}(z|x,y) \)</p>
 </li>
+<li>
+<p>Total probability and expectation theorems</p>
+<p>\(p_X(x) = P(A_1)p_{X|A_1}(x) + ... + P(A_n)p_{X|A_n}(x) \implies p_X(x) = \sum\limits_y p_Y(y)p_{X|Y}(x|y)\)</p>
+<p>\(E[X] = P(A_1)E[X|A_1] + ... + P(A_n)E[X|A_n] \implies E[X] = \sum\limits_y p_Y(y) E[X|Y = y]\)</p>
+</li>
 </ul>
 <h3><a class="header" href="#46-multiple-random-variables-and-joint-pmfs" id="46-multiple-random-variables-and-joint-pmfs">4.6 Multiple random variables and joint PMFs</a></h3>
 <h4><a class="header" href="#461-joint-pmf" id="461-joint-pmf">4.6.1 Joint PMF</a></h4>
@@ -1350,6 +1355,41 @@ p_{X,Y}(x,y) = P(X = x, Y =y)
 </li>
 <li>
 <p>\(E[X + Y] = E[X] + E[Y]\)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#463-independence-of-multiple-random-variables" id="463-independence-of-multiple-random-variables">4.6.3 Independence of multiple random variables</a></h4>
+<ul>
+<li>
+<p>\(P(X = x and Y = y) = P(X = x) \times P(Y = y), for all x, y \)</p>
+</li>
+<li>
+<p>\(P_{X|Y}(x|y) = P_X(x)\) and \(P_{Y|X}(y|x) = P_Y(y)\)</p>
+</li>
+<li>
+<p><strong>Independence and expectations</strong></p>
+<ul>
+<li>
+<p>In general, \(E[g(X,Y)] \neq g(E[X], E[Y])\)</p>
+</li>
+<li>
+<p>If X, Y are independent: \(E[XY] = E[X]E[Y]\)</p>
+<p>g(X) and h(Y) are also independent: \(E[g(X)h(Y)] = E[g(X)]E[h(Y)]\)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Independence and variances</strong></p>
+<ul>
+<li>
+<p>Always true: \(var(aX) = a^2var(X)\) and \(var(X+a) = var(X)\)</p>
+</li>
+<li>
+<p>In general: \(var(X+Y) \neq var(X) + var(Y)\)</p>
+</li>
+<li>
+<p>If X, Y are independent, \(var(X,Y) = var(X) + var(Y)\)</p>
 </li>
 </ul>
 </li>
