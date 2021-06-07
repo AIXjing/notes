@@ -632,17 +632,19 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
 
     Stardard  normal \\(N(0,1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \\)
 
-    - E[X] = 0
+    - \\(E[X] = 0\\)
 
-    - var(X) = 1
+    - \\(var(X) = 1\\)
 
 2. General normal(Gaussian) random variables
 
     General  normal \\(N(\mu,\sigma^2): f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/2\sigma^2}, \sigma > 0 \\)
 
-    - E[X] = \\( \mu \\)
+    - \\(E[X] = \mu \\)
 
-    - var(X) = \\( \sigma^2 \\):\\( \sigma^2 \to small\\), the shape of normal distribution becomes more narrow.
+    - \\( var(X) = \sigma^2 \\)
+    
+        \\( \sigma^2 \to small\\), the shape of normal distribution becomes more narrow.
 
 3. Linear functions of a normal random variable
 
@@ -667,3 +669,80 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
     \\(X \sim N(\mu, \sigma^2), \sigma^2 > 0 \\)
 
     \\(Y = \frac{X - \mu}{\sigma}\\)
+
+### 5.2 Conditioning on an event: multiple continuous r.v.'s
+
+\\[
+    P( X \in B|A) =  \int_B f_{X|A}(x)dx
+\\]
+
+#### 5.2.1 Conditional PDf of X, given that \\(X \in A \\)
+
+\\[
+    f_{X|X \in A}(x) = \begin{cases} 0, if x \notin A \\\\ \frac{f_X(x)}{P(A)}, if x \in A \end{cases}
+\\]
+
+#### 5.2.2 Conditional expectation of X, given an event
+
+![image](https://user-images.githubusercontent.com/41487483/121066009-b5f4b800-c7c9-11eb-9e82-cca4ded3a17f.png)
+
+#### 5.2.3 Memorylessness of the exponential PDF
+
+![image](https://user-images.githubusercontent.com/41487483/121071392-2a325a00-c7d0-11eb-8e77-c14ded14fe0c.png)
+
+#### 5.2.4 Total probability and expectation theorems
+
+- Probability theorem: 
+
+\\[
+    P(B) = P(A_1)P(B|A_1) + \dotsb + P(A_n)P(B|A_n)
+\\]
+
+- For the discrete random variable: 
+
+\\[
+    p_X(x) = P(A_1)p_{X|A_1}(x) + \dotsb + P(A_n)p_{X|A_n}(x)
+\\]
+
+- For CDF: 
+
+\\[
+    F_X(x) = P(X \leq x) = P(A_1)P(X \leq x | A_1) + \dotsb + P(A_n)P(X \leq x | A_n) 
+    \\\\= P(A_1)F_{X|A_1}(x) + \dotsb + P(A_n)F_{X|A_n}(x)
+\\]
+
+- For PDF, the derivative of CDF:
+
+\\[
+    f_X(x) = P(X \leq x) = P(A_1)f_{X|A_1}(x) + \dotsb + P(A_n)f_{X|A_n}(x)
+\\]
+
+- Integral above equation, we will obtain the expectation equation:
+
+\\[
+    \int xf_X(x)dx = P(A_1) \int xf_{X|A_1}(x)dx + \dotsb + P(A_n) \int xf_{X|A_n}(x)dx
+\\]
+
+\\[
+    E[X] = P(A_1)E[X|A_1] + \dotsb + P(A_n)E[X|A_n]    
+\\]
+
+### 5.3 Mixed random varibles
+
+- **Mixed distirbutions**
+
+    \\[
+        X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}   
+    \\]
+
+    * do not have PDF or PMF but can be defined with CDF and expectation
+
+        \\[
+            F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
+            \\\\
+            =pF_Y(x) + (1-p)F_Z(x)
+            \\\\
+            = E[X] = p E[Y] + (1-p) E[Z]
+        \\]
+
+    ![image](https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png)
