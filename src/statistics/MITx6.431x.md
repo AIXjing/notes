@@ -499,7 +499,11 @@ standard deviation: \\(\sigma_X = \sqrt{var(X)}\\)
 
 - Multiplication rules: \\(p_{X,Y,Z}(x,y,z) = p_X(x)p_{Y|X}(y|x)p_{Z|X,Y}(z|x,y) \\)
 
+- Total probability and expectation theorems
 
+    \\(p_X(x) = P(A_1)p_{X|A_1}(x) + ... + P(A_n)p_{X|A_n}(x) \implies p_X(x) = \sum\limits_y p_Y(y)p_{X|Y}(x|y)\\)
+
+    \\(E[X] = P(A_1)E[X|A_1] + ... + P(A_n)E[X|A_n] \implies E[X] = \sum\limits_y p_Y(y) E[X|Y = y]\\)
 
 ### 4.6 Multiple random variables and joint PMFs
 
@@ -528,6 +532,29 @@ standard deviation: \\(\sigma_X = \sqrt{var(X)}\\)
     * \\(E[aX + b] = aE[X] + b\\)
 
     * \\(E[X + Y] = E[X] + E[Y]\\)
+
+
+#### 4.6.3 Independence of multiple random variables
+
+- \\(P(X = x and Y = y) = P(X = x) \times P(Y = y), for all x, y \\)
+
+- \\(P_{X|Y}(x|y) = P_X(x)\\) and \\(P_{Y|X}(y|x) = P_Y(y)\\)
+
+- **Independence and expectations**
+
+    * In general, \\(E[g(X,Y)] \neq g(E[X], E[Y])\\)
+
+    * If X, Y are independent: \\(E[XY] = E[X]E[Y]\\)
+
+        g(X) and h(Y) are also independent: \\(E[g(X)h(Y)] = E[g(X)]E[h(Y)]\\)
+
+- **Independence and variances**
+
+    * Always true: \\(var(aX) = a^2var(X)\\) and \\(var(X+a) = var(X)\\)
+
+    * In general: \\(var(X+Y) \neq var(X) + var(Y)\\)
+
+    * If X, Y are independent, \\(var(X,Y) = var(X) + var(Y)\\)
 
 ## 5 Continuous random variables
 
