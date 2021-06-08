@@ -541,3 +541,57 @@ For example, in a university, there are 3 departments, and each department has 2
 
 ![image](https://user-images.githubusercontent.com/41487483/120917920-0da00000-c6b2-11eb-9016-1182865eb950.png)
 
+
+## 4 Permutations and combinations
+
+### 4.1 Permutations
+
+#### 4.1.1 Basic concept and application
+
+- **n factorial = n!**
+
+- 0! = 1
+
+- **Stirling's approximation**
+
+  \\[
+    n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n 
+  \\]
+
+#### 4.1.2 Partial Permutations
+
+* permutations of k out of n objects: k-permutaitons of n
+
+  \\(n \cdot (n-1) \cdot (n-2) \cdot \dotsb \cdot(n-k+1) = \frac{n!}{(n-k)!} \newcommand*{\defeq}{\stackrel{\text{def}}{=}} (n)^{\underline{k}}\\)
+
+  kth falling power of n, also denoted \\(P(n,k)\\)
+
+
+### 4.2 Combinations
+
+* Sequences with k 1's
+
+  \\(\binom{[n]}{k} \\) - collection of k-subsets of [n] = {1,2,...,n}
+
+  corresponds to n-bit sequences with k 1's
+
+  two interpretations
+
+![image](https://user-images.githubusercontent.com/41487483/121245332-3554bb00-c8a0-11eb-82e7-5af3f606d8a9.png)
+
+* Number of n-bit sequences with k 1's: \\(\binom{n}{k}\\) **Binomial coefficients**
+
+  \\[
+    \binom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!(n-k)!}
+  \\] 
+
+  - \\(\binom{n}{k} = \binom{n}n-k{}\\)
+
+  - recursive: \\(\binom{n}{k} = \frac{n}{k} \cdot \binom{n-1}{k-1}\\)
+
+    \\[
+      \binom{n}{k} \cdot k = n \cdot \binom{n-1}{k-1}  
+    \\]
+
+  - \\(\sum\limits_{i=0}^{n} \binom{n}{i} = 2^n\\)
+

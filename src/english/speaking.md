@@ -149,3 +149,127 @@
 
     My sister took my shoes to get back at me for taking her sweater.
     
+21. **to keep on**
+
+    *to continue doing something*
+
+    If you keep on practicing, you will get better!
+
+    Keep on keeping on.
+
+22. **to look out**
+
+    *to watch out for something*
+
+    When you hike, look out for snakes.
+
+    You need to keep an eye out for snakes,
+
+23. **to look uo**
+
+    *to research*
+
+    I looked it up in the dictionary.
+
+24. **to pull over**
+
+    *to steer the vehicle to the side of the road and stop*
+
+    It was raining so hard that I had to pull over and wait for the rain to stop.
+
+    The police officer pulled me over. 
+
+    I got pulled over on my way to the party.
+
+25. **to put off**
+
+    *to postpone something*
+
+    I can't put it off for any longer.
+
+26. **to put up with**
+
+    *to tolerate something or someone*
+
+    My husband puts up with my terrible singing.
+
+    I don't know how he puts up with her! (a little bit harsh)
+
+27. **to run away**
+
+    *to leave or escape*
+
+    My dog is too lazy to run away.
+
+    Did you ever try to run away from home as a kid?
+
+28. **to run into**
+
+    *to meet unexpectedly*
+
+    I don't want to run into a bear while I'm hiking!
+
+    I ran into my high school teacher last week at the grocery store.
+
+29. **to run out (of)**
+
+    *to have nothing left*
+
+    We ran out of milk yesterday.
+
+30. **to stick with**
+
+    *to continue doing something*
+
+    I decided to stick with the drums.
+
+    Good friends stick with each other even through hard times.
+
+31. **to think over**
+
+    *to consider it seriously*
+
+    Think it over before you buy a car.
+
+32. **to turn down**
+
+    *to refuse something or someone*
+
+    I was so full from dinner that I had to turn down dessert.
+
+    She turned me down!
+
+33. **to turn off**
+
+    *to stop the flow of something*
+
+    Some people have trouble turning off their brain before bed.
+
+34. **to turn up**
+
+    *to appear suddenly*
+
+    My cat was gone for two days. Then he just turned up out of nowhere!
+
+35. **to warm up to**
+
+    *to start liking someone or something*
+
+    It took my cat a while to warm up to me.
+
+    I didn't like the idea at the begining, but I started to warm up to it. 
+
+36. **to wear off**
+
+    *to fade away*
+
+    The energy from my morning tea starts to wear off around noon.
+
+    the marker is starting to wear off.
+
+37. **to work (something) out**
+
+    *to come up with a solution or compromise*
+
+    You guys need to work something out yourself.
+
