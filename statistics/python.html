@@ -696,6 +696,63 @@ print(3**2)
 <p>For example, in a university, there are 3 departments, and each department has 2 different courses. Therefore there are 6 courses in total. </p>
 <p><strong>Path from Sources to Destination</strong></p>
 <p><img src="https://user-images.githubusercontent.com/41487483/120917920-0da00000-c6b2-11eb-9016-1182865eb950.png" alt="image" /></p>
+<h2><a class="header" href="#4-permutations-and-combinations" id="4-permutations-and-combinations">4 Permutations and combinations</a></h2>
+<h3><a class="header" href="#41-permutations" id="41-permutations">4.1 Permutations</a></h3>
+<h4><a class="header" href="#411-basic-concept-and-application" id="411-basic-concept-and-application">4.1.1 Basic concept and application</a></h4>
+<ul>
+<li>
+<p><strong>n factorial = n!</strong></p>
+</li>
+<li>
+<p>0! = 1</p>
+</li>
+<li>
+<p><strong>Stirling's approximation</strong></p>
+<p>\[
+n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n 
+\]</p>
+</li>
+</ul>
+<h4><a class="header" href="#412-partial-permutations" id="412-partial-permutations">4.1.2 Partial Permutations</a></h4>
+<ul>
+<li>
+<p>permutations of k out of n objects: k-permutaitons of n</p>
+<p>\(n \cdot (n-1) \cdot (n-2) \cdot \dotsb \cdot(n-k+1) = \frac{n!}{(n-k)!} \newcommand*{\defeq}{\stackrel{\text{def}}{=}} (n)^{\underline{k}}\)</p>
+<p>kth falling power of n, also denoted \(P(n,k)\)</p>
+</li>
+</ul>
+<h3><a class="header" href="#42-combinations" id="42-combinations">4.2 Combinations</a></h3>
+<ul>
+<li>
+<p>Sequences with k 1's</p>
+<p>\(\binom{[n]}{k} \) - collection of k-subsets of [n] = {1,2,...,n}</p>
+<p>corresponds to n-bit sequences with k 1's</p>
+<p>two interpretations</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/121245332-3554bb00-c8a0-11eb-82e7-5af3f606d8a9.png" alt="image" /></p>
+<ul>
+<li>
+<p>Number of n-bit sequences with k 1's: \(\binom{n}{k}\) <strong>Binomial coefficients</strong></p>
+<p>\[
+\binom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!(n-k)!}
+\] </p>
+<ul>
+<li>
+<p>\(\binom{n}{k} = \binom{n}n-k{}\)</p>
+</li>
+<li>
+<p>recursive: \(\binom{n}{k} = \frac{n}{k} \cdot \binom{n-1}{k-1}\)</p>
+<p>\[
+\binom{n}{k} \cdot k = n \cdot \binom{n-1}{k-1}<br />
+\]</p>
+</li>
+<li>
+<p>\(\sum\limits_{i=0}^{n} \binom{n}{i} = 2^n\)</p>
+</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
