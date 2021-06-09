@@ -732,14 +732,15 @@ n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n
 </ul>
 <p><img src="https://user-images.githubusercontent.com/41487483/121245332-3554bb00-c8a0-11eb-82e7-5af3f606d8a9.png" alt="image" /></p>
 <ul>
-<li>
-<p>Number of n-bit sequences with k 1's: \(\binom{n}{k}\) <strong>Binomial coefficients</strong></p>
+<li>Number of n-bit sequences with k 1's: \(\binom{n}{k}\) </li>
+</ul>
+<h4><a class="header" href="#421-binomial-coefficients" id="421-binomial-coefficients">4.2.1 Binomial coefficients</a></h4>
 <p>\[
 \binom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!(n-k)!}
 \] </p>
 <ul>
 <li>
-<p>\(\binom{n}{k} = \binom{n}n-k{}\)</p>
+<p>\(\binom{n}{k} = \binom{n}{n-k}\)</p>
 </li>
 <li>
 <p>recursive: \(\binom{n}{k} = \frac{n}{k} \cdot \binom{n-1}{k-1}\)</p>
@@ -751,6 +752,101 @@ n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n
 <p>\(\sum\limits_{i=0}^{n} \binom{n}{i} = 2^n\)</p>
 </li>
 </ul>
+<h4><a class="header" href="#422-binomial-theorem" id="422-binomial-theorem">4.2.2 Binomial Theorem</a></h4>
+<ul>
+<li>Pascal's identity</li>
+</ul>
+<p>\[
+\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}<br />
+\]</p>
+<ul>
+<li>
+<p>Pascal's triangle</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/121404277-187dbd80-c95c-11eb-9214-7cdbdbe4dfc1.png" alt="image" /></p>
+</li>
+<li>
+<p><strong>Binomial Theorem</strong></p>
+<p>\[
+(a+b)^n = \sum\limits_{i=0}{n} \binom{n}{i}a^{n-i}b^i
+\]</p>
+<p>For example, \((a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4\)</p>
+<p>Think of select # b from n set of {a,b}: </p>
+<p>\[
+(a+b)^n = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b + \dots + \binom{n}{n}b^n = \sum\limits_{i=0}^{n}\binom{n}{i}a^{n-i}b^i<br />
+\]</p>
+<ul>
+<li>
+<p>Polynomial coefficient</p>
+<p>\[
+(1+x)^n = \sum\limits_{i=0}^{n}\binom{n}{i}x^i<br />
+\]</p>
+</li>
+<li>
+<p>Taylor expansion</p>
+<p>\[
+e^x = \sum\limits_{i=0}^{\infty} \frac{x^i}{i!}
+\]</p>
+<p>derived from \((1 + \frac{x}{n})^n = \sum\limits_{i=0}{n} \binom{n}{i} \left(\frac{x}{n}\right)^i\)</p>
+</li>
+<li>
+<p>Binomial distribution</p>
+<p>\[
+\sum\limits_{i=0}^{n} \binom{n}{i} p^{n-1}(1-p)^i = (p + (1 - p))^n = 1^n = 1<br />
+\]</p>
+</li>
+</ul>
+<h4><a class="header" href="#423-multinomial-coefficients" id="423-multinomial-coefficients">4.2.3 Multinomial coefficients</a></h4>
+<p>\[
+\frac{n!}{k_1! \cdot k_2! \cdot k_3!} \triangleq \binom{n}{k_1, k_2, k_3}, (k_1 + k_2 + k_3 = n)
+\]</p>
+<ul>
+<li>Multinomial theorem</li>
+</ul>
+<p>\[
+(a_1 + a_2 + \dots + a_m)^n = \sum\limits_{k_1 + k_2 + \dots + k_m = n \\ k_1, k_2, \dots, k_m \geq 0} \binom{n}{k_1,k_2,\dots, k_m}  \prod\limits_{t=1}^{m} a_t^{k_t}
+\]</p>
+<ul>
+<li>Sum of Multinomialas</li>
+</ul>
+<p>\[
+m^n = (1 + 1 + \dots + 1)^n = \sum\limits_{k_1 + k_2 + \dots + k_m = n \\ k_1, k_2, \dots, k_m \geq 0} \binom{n}{k_1,k_2,\dots, k_m}
+\]</p>
+</li>
+</ul>
+<h3><a class="header" href="#43-stars-and-bars" id="43-stars-and-bars">4.3 Stars and bars</a></h3>
+<h4><a class="header" href="#431-basic-applications" id="431-basic-applications">4.3.1 Basic applications</a></h4>
+<ul>
+<li>
+<p>k terms adding to n</p>
+<p>#ways to write n as a sum of k positive integers, when order matters: \(\binom{n-1}{k-1}\)</p>
+</li>
+<li>
+<p>Any Sum to n</p>
+<p>#ways to write n as a sum of (any # of) positive integers: \(2^{n-1} = \sum\limits_{i=0}^{n-1}\binom{n-1}{i}\)</p>
+</li>
+<li>
+<p>Nonnegative terms</p>
+<p>#ways to write n as a sum of k nonnegative integers: \(\binom{n+k-1}{k-1}\)</p>
+</li>
+<li>
+<p>Simple example</p>
+<p>4-letter words (order doesn't matter): #a + #b + ... + #z = 4 \(\implies \binom{4+26-1}{26-1} = \binom{29}{25} = \binom{29}{4}\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#432-more-applications" id="432-more-applications">4.3.2 More applications</a></h4>
+<ul>
+<li>
+<p>#k positive adding to n = #k nonnegative adding to n-k</p>
+<p>\[
+\binom{n-1}{k-1} = \binom{n-k+(k-1)}{k-1}<br />
+\]</p>
+</li>
+<li>
+<p>#k nonnegative adding to ≤ n = #k+1 nonnegative adding to n</p>
+<p>\[
+\binom{n+k}{k} = \binom{n+(k+1)-1}{(k+1)-1}
+\]</p>
+<p><em>need to use Pascal's triangle?</em></p>
 </li>
 </ul>
 
