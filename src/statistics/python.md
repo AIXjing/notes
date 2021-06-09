@@ -579,13 +579,15 @@ For example, in a university, there are 3 departments, and each department has 2
 
 ![image](https://user-images.githubusercontent.com/41487483/121245332-3554bb00-c8a0-11eb-82e7-5af3f606d8a9.png)
 
-* Number of n-bit sequences with k 1's: \\(\binom{n}{k}\\) **Binomial coefficients**
+* Number of n-bit sequences with k 1's: \\(\binom{n}{k}\\) 
 
-  \\[
-    \binom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!(n-k)!}
-  \\] 
+#### 4.2.1 Binomial coefficients
 
-  - \\(\binom{n}{k} = \binom{n}n-k{}\\)
+\\[
+  \binom{n}{k} = \frac{n^{\underline{k}}}{k!} = \frac{n!}{k!(n-k)!}
+\\] 
+
+  - \\(\binom{n}{k} = \binom{n}{n-k}\\)
 
   - recursive: \\(\binom{n}{k} = \frac{n}{k} \cdot \binom{n-1}{k-1}\\)
 
@@ -595,3 +597,103 @@ For example, in a university, there are 3 departments, and each department has 2
 
   - \\(\sum\limits_{i=0}^{n} \binom{n}{i} = 2^n\\)
 
+#### 4.2.2 Binomial Theorem
+
+* Pascal's identity
+
+\\[
+  \binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}  
+\\]
+
+* Pascal's triangle
+
+  ![image](https://user-images.githubusercontent.com/41487483/121404277-187dbd80-c95c-11eb-9214-7cdbdbe4dfc1.png)
+
+
+* **Binomial Theorem**
+
+  \\[
+    (a+b)^n = \sum\limits_{i=0}{n} \binom{n}{i}a^{n-i}b^i
+  \\]
+
+  For example, \\((a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4\\)
+
+  Think of select # b from n set of {a,b}: 
+
+  \\[
+    (a+b)^n = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b + \dots + \binom{n}{n}b^n = \sum\limits_{i=0}^{n}\binom{n}{i}a^{n-i}b^i   
+  \\]
+
+  - Polynomial coefficient
+
+    \\[
+      (1+x)^n = \sum\limits_{i=0}^{n}\binom{n}{i}x^i  
+    \\]
+
+  - Taylor expansion
+
+    \\[
+      e^x = \sum\limits_{i=0}^{\infty} \frac{x^i}{i!}
+    \\]
+
+    derived from \\((1 + \frac{x}{n})^n = \sum\limits_{i=0}{n} \binom{n}{i} \left(\frac{x}{n}\right)^i\\)
+
+  - Binomial distribution
+
+    \\[
+      \sum\limits_{i=0}^{n} \binom{n}{i} p^{n-1}(1-p)^i = (p + (1 - p))^n = 1^n = 1  
+    \\]
+  
+  #### 4.2.3 Multinomial coefficients
+
+  \\[
+    \frac{n!}{k_1! \cdot k_2! \cdot k_3!} \triangleq \binom{n}{k_1, k_2, k_3}, (k_1 + k_2 + k_3 = n)
+  \\]
+
+  * Multinomial theorem
+
+  \\[
+    (a_1 + a_2 + \dots + a_m)^n = \sum\limits_{k_1 + k_2 + \dots + k_m = n \\\\ k_1, k_2, \dots, k_m \geq 0} \binom{n}{k_1,k_2,\dots, k_m}  \prod\limits_{t=1}^{m} a_t^{k_t}
+  \\]
+
+  * Sum of Multinomialas
+
+  \\[
+    m^n = (1 + 1 + \dots + 1)^n = \sum\limits_{k_1 + k_2 + \dots + k_m = n \\\\ k_1, k_2, \dots, k_m \geq 0} \binom{n}{k_1,k_2,\dots, k_m}
+  \\]
+
+### 4.3 Stars and bars
+
+#### 4.3.1 Basic applications
+
+* k terms adding to n
+
+  #ways to write n as a sum of k positive integers, when order matters: \\(\binom{n-1}{k-1}\\)
+
+* Any Sum to n
+
+  #ways to write n as a sum of (any # of) positive integers: \\(2^{n-1} = \sum\limits_{i=0}^{n-1}\binom{n-1}{i}\\)
+
+* Nonnegative terms
+
+  #ways to write n as a sum of k nonnegative integers: \\(\binom{n+k-1}{k-1}\\)
+
+* Simple example
+
+  4-letter words (order doesn't matter): #a + #b + ... + #z = 4 \\(\implies \binom{4+26-1}{26-1} = \binom{29}{25} = \binom{29}{4}\\)
+
+#### 4.3.2 More applications
+
+* #k positive adding to n = #k nonnegative adding to n-k
+
+  \\[
+    \binom{n-1}{k-1} = \binom{n-k+(k-1)}{k-1}  
+  \\]
+
+* #k nonnegative adding to ≤ n = #k+1 nonnegative adding to n
+
+  \\[
+    \binom{n+k}{k} = \binom{n+(k+1)-1}{(k+1)-1}
+  \\]
+
+  *need to use Pascal's triangle?*
