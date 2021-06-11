@@ -899,25 +899,59 @@ f_X(x) = P(X \leq x) = P(A_1)f_{X|A_1}(x) + \dotsb + P(A_n)f_{X|A_n}(x)
 E[X] = P(A_1)E[X|A_1] + \dotsb + P(A_n)E[X|A_n]<br />
 \]</p>
 <h3><a class="header" href="#53-mixed-random-varibles" id="53-mixed-random-varibles">5.3 Mixed random varibles</a></h3>
+<h4><a class="header" href="#531-mixed-distirbutions" id="531-mixed-distirbutions">5.3.1 Mixed distirbutions</a></h4>
+<pre><code>\\[
+    X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}   
+\\]
+
+* do not have PDF or PMF but can be defined with CDF and expectation
+
+    \\[
+        F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
+        \\\\
+        =pF_Y(x) + (1-p)F_Z(x)
+        \\\\
+        = E[X] = p E[Y] + (1-p) E[Z]
+    \\]
+
+![image](https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png)
+</code></pre>
+<h4><a class="header" href="#532-joint-pdfs" id="532-joint-pdfs">5.3.2 Joint PDFs</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/121728365-75f54400-caed-11eb-9935-66e24af94023.png" alt="image" /></p>
 <ul>
 <li>
-<p><strong>Mixed distirbutions</strong></p>
+<p>Joint PDFs are denoted as \(f_{X,Y}(x,y)\): probaility per unit area</p>
+<p>When X = Y, equal to a line, meaning X and Y are not joint PDFs.</p>
+</li>
+</ul>
+<h4><a class="header" href="#533-from-the-joint-to-the-marginal" id="533-from-the-joint-to-the-marginal">5.3.3 From the joint to the marginal</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/121731040-b73b2300-caf0-11eb-8a17-90bb4190224e.png" alt="image" /></p>
+<h4><a class="header" href="#534-joint-cdf" id="534-joint-cdf">5.3.4 Joint CDF</a></h4>
 <p>\[
-X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}<br />
+F_{X,Y}(x,y) = P(X \leq x, Y \leq y) = \int\limits_{-\infty}^{y} \int\limits_{-\infty}^{x} f_{x,y}(s,t)dsdt 
 \]</p>
+<h3><a class="header" href="#54-conditioning-on-a-random-variable-and-bayers-rule" id="54-conditioning-on-a-random-variable-and-bayers-rule">5.4 Conditioning on a random variable and Bayers rule</a></h3>
+<h4><a class="header" href="#541-conditional-pdfs-given-another-rv" id="541-conditional-pdfs-given-another-rv">5.4.1 Conditional PDFs, given another r.v.</a></h4>
 <ul>
 <li>
-<p>do not have PDF or PMF but can be defined with CDF and expectation</p>
+<p>\(f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}\), if \(f_y(y) &gt; 0\)</p>
+<ul>
+<li>
+<p>\(f_{X|Y}(x|y) \geq 0\)</p>
+</li>
+<li>
+<p>Think of value of Y as fixed at some y shape of \(f_{X|Y}(\cdot|y)\): slice of the joint</p>
+</li>
+<li>
+<p>multiplication rule: </p>
 <p>\[
-F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
-\\
-=pF_Y(x) + (1-p)F_Z(x)
-\\
-= E[X] = p E[Y] + (1-p) E[Z]
+f_{X|Y}(x,y) = f_Y(y) \cdot f_{X|Y}(x|y)<br />
 \]</p>
 </li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png" alt="image" /></p>
+</li>
+<li>
+<p>\(P(X \in A | Y = y) = \int_A f_{X|Y}(x/y)dx\)</p>
 </li>
 </ul>
 
