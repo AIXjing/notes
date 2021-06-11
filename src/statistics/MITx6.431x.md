@@ -729,7 +729,7 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
 
 ### 5.3 Mixed random varibles
 
-- **Mixed distirbutions**
+#### 5.3.1 Mixed distirbutions
 
     \\[
         X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}   
@@ -746,3 +746,41 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
         \\]
 
     ![image](https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png)
+
+#### 5.3.2 Joint PDFs
+
+![image](https://user-images.githubusercontent.com/41487483/121728365-75f54400-caed-11eb-9935-66e24af94023.png)
+
+* Joint PDFs are denoted as \\(f_{X,Y}(x,y)\\): probaility per unit area
+
+    When X = Y, equal to a line, meaning X and Y are not joint PDFs.
+
+
+#### 5.3.3 From the joint to the marginal
+
+![image](https://user-images.githubusercontent.com/41487483/121731040-b73b2300-caf0-11eb-8a17-90bb4190224e.png)    
+
+#### 5.3.4 Joint CDF
+
+\\[
+    F_{X,Y}(x,y) = P(X \leq x, Y \leq y) = \int\limits_{-\infty}^{y} \int\limits_{-\infty}^{x} f_{x,y}(s,t)dsdt 
+\\]
+
+### 5.4 Conditioning on a random variable and Bayers rule
+
+#### 5.4.1 Conditional PDFs, given another r.v.
+
+* \\(f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}\\), if \\(f_y(y) > 0\\)
+
+    - \\(f_{X|Y}(x|y) \geq 0\\)
+
+    - Think of value of Y as fixed at some y shape of \\(f_{X|Y}(\cdot|y)\\): slice of the joint
+
+    - multiplication rule: 
+
+        \\[
+            f_{X|Y}(x,y) = f_Y(y) \cdot f_{X|Y}(x|y)    
+        \\]
+
+* \\(P(X \in A | Y = y) = \int_A f_{X|Y}(x/y)dx\\)
+
