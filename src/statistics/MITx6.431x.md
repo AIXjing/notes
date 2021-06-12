@@ -731,19 +731,19 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
 
 #### 5.3.1 Mixed distirbutions
 
+\\[
+     X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}   
+\\]
+
+* do not have PDF or PMF but can be defined with CDF and expectation
+
     \\[
-        X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}   
+        F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
+        \\\\
+        =pF_Y(x) + (1-p)F_Z(x)
+        \\\\
+        = E[X] = p E[Y] + (1-p) E[Z]
     \\]
-
-    * do not have PDF or PMF but can be defined with CDF and expectation
-
-        \\[
-            F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
-            \\\\
-            =pF_Y(x) + (1-p)F_Z(x)
-            \\\\
-            = E[X] = p E[Y] + (1-p) E[Z]
-        \\]
 
     ![image](https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png)
 
@@ -784,3 +784,70 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
 
 * \\(P(X \in A | Y = y) = \int_A f_{X|Y}(x/y)dx\\)
 
+#### 5.4.2 Total probability and expectation theorems
+
+* Anolog to the PMFs of discrete randome varable \\(p_X(x) = \sum\limits_y p_Y(y)p_{X|Y}(x|y)\\)
+
+    For continuous r.v., there is 
+
+    \\[
+        f_X(x) = \sum_{-\infty}^{\infty} f_Y(y)f_{X|Y}(x|y)dy    
+    \\]
+
+* Anolog to the Expectation of discrete randome varable \\(E[X|Y=y] = \sum\limits_x x p_{X|Y}(x|y)\\)
+
+    For continuous r.v., there is 
+
+    \\[
+        E[X|Y=y] = \int_{-\infty}^{\infty} xf_{X|Y}(x|y)dx    
+    \\]
+
+* Anolog to the discrete randome varable \\(E[X] = \sum\limits_y p_Y(y) E[X|Y=y]\\)
+
+    For continuous r.v., there is 
+
+    \\[     
+        E[X] = \int_{-\infty}^{\infty} f_Y(y)E[X|Y=y]dy  
+        \\\\ = \int_{-\infty}^{\infty} xf_X(x)dx             
+    \\]
+
+* Expected value rule
+
+    \\[
+        E[g(X)|Y=y] = \int_{-\infty}^{\infty} g(x)f_{X|Y}(x|y)dx    
+    \\]
+
+#### 5.4.3 Independence
+
+\\[
+    f_{X,Y}(x,y) = f_X(x)f_Y(y), for all x and y    
+\\]
+
+* \\(f_{X,Y}(x,y) = f_X(x)\\), for all y with \\(f_Y(y) > 0\\) and all x
+
+* If X, Y are **independent**:
+
+    \\[
+        E[XY] = E[X]E[Y] \\\\
+        var(X + Y) = var(X) + var(Y)
+    \\]
+
+    g(X) and h(Y) are also independent: \\(E[g(X)h(Y)] = E[g(X)] \cdot E[h(Y)]\\)
+
+#### 5.4.4 The Bayes rule --- a theme with variations
+
+* For discrete r.v., 
+
+    - \\(p_{X|Y}(x|y) = \frac{p_X(x) p_{Y|X}(y|x)}{p_Y(y)}\\)
+
+    - \\(p_Y(y) = \sum\limits_{x'} p_X(x')p_{Y|X}(y|x')\\)
+
+* For continuous r.v., 
+
+    - \\(f_{X|Y}(x|y) = \frac{f_X(x) f_{Y|X}(y|x)}{_Y(y)}\\)
+
+    - \\(p_Y(y) = \int\limits f_X(x')f_{Y|X}(y|x')\\)
+
+* One discrete and one continuous r.v.
+
+    ![image](https://user-images.githubusercontent.com/41487483/121778872-456ae400-cb99-11eb-8fc6-d1cb9ea4f3f2.png)
