@@ -900,22 +900,22 @@ E[X] = P(A_1)E[X|A_1] + \dotsb + P(A_n)E[X|A_n]<br />
 \]</p>
 <h3><a class="header" href="#53-mixed-random-varibles" id="53-mixed-random-varibles">5.3 Mixed random varibles</a></h3>
 <h4><a class="header" href="#531-mixed-distirbutions" id="531-mixed-distirbutions">5.3.1 Mixed distirbutions</a></h4>
-<pre><code>\\[
-    X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}   
-\\]
-
-* do not have PDF or PMF but can be defined with CDF and expectation
-
-    \\[
-        F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
-        \\\\
-        =pF_Y(x) + (1-p)F_Z(x)
-        \\\\
-        = E[X] = p E[Y] + (1-p) E[Z]
-    \\]
-
-![image](https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png)
-</code></pre>
+<p>\[
+X = \begin{cases} Y, \text{with probability } p \text{ (Y discrete)}\\ Z, \text{with probability } 1-p \text{ (Z continuous)} \end{cases}<br />
+\]</p>
+<ul>
+<li>
+<p>do not have PDF or PMF but can be defined with CDF and expectation</p>
+<p>\[
+F_X(x) = p P(Y \leq x) + (1-p) P(Z \leq x)
+\\
+=pF_Y(x) + (1-p)F_Z(x)
+\\
+= E[X] = p E[Y] + (1-p) E[Z]
+\]</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/121077061-6fa65580-c7d7-11eb-84f5-a7c1d5c36df3.png" alt="image" /></p>
+</li>
+</ul>
 <h4><a class="header" href="#532-joint-pdfs" id="532-joint-pdfs">5.3.2 Joint PDFs</a></h4>
 <p><img src="https://user-images.githubusercontent.com/41487483/121728365-75f54400-caed-11eb-9935-66e24af94023.png" alt="image" /></p>
 <ul>
@@ -952,6 +952,83 @@ f_{X|Y}(x,y) = f_Y(y) \cdot f_{X|Y}(x|y)<br />
 </li>
 <li>
 <p>\(P(X \in A | Y = y) = \int_A f_{X|Y}(x/y)dx\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#542-total-probability-and-expectation-theorems" id="542-total-probability-and-expectation-theorems">5.4.2 Total probability and expectation theorems</a></h4>
+<ul>
+<li>
+<p>Anolog to the PMFs of discrete randome varable \(p_X(x) = \sum\limits_y p_Y(y)p_{X|Y}(x|y)\)</p>
+<p>For continuous r.v., there is </p>
+<p>\[
+f_X(x) = \sum_{-\infty}^{\infty} f_Y(y)f_{X|Y}(x|y)dy<br />
+\]</p>
+</li>
+<li>
+<p>Anolog to the Expectation of discrete randome varable \(E[X|Y=y] = \sum\limits_x x p_{X|Y}(x|y)\)</p>
+<p>For continuous r.v., there is </p>
+<p>\[
+E[X|Y=y] = \int_{-\infty}^{\infty} xf_{X|Y}(x|y)dx<br />
+\]</p>
+</li>
+<li>
+<p>Anolog to the discrete randome varable \(E[X] = \sum\limits_y p_Y(y) E[X|Y=y]\)</p>
+<p>For continuous r.v., there is </p>
+<p>\[<br />
+E[X] = \int_{-\infty}^{\infty} f_Y(y)E[X|Y=y]dy<br />
+\\ = \int_{-\infty}^{\infty} xf_X(x)dx<br />
+\]</p>
+</li>
+<li>
+<p>Expected value rule</p>
+<p>\[
+E[g(X)|Y=y] = \int_{-\infty}^{\infty} g(x)f_{X|Y}(x|y)dx<br />
+\]</p>
+</li>
+</ul>
+<h4><a class="header" href="#543-independence" id="543-independence">5.4.3 Independence</a></h4>
+<p>\[
+f_{X,Y}(x,y) = f_X(x)f_Y(y), for all x and y<br />
+\]</p>
+<ul>
+<li>
+<p>\(f_{X,Y}(x,y) = f_X(x)\), for all y with \(f_Y(y) &gt; 0\) and all x</p>
+</li>
+<li>
+<p>If X, Y are <strong>independent</strong>:</p>
+<p>\[
+E[XY] = E[X]E[Y] \\
+var(X + Y) = var(X) + var(Y)
+\]</p>
+<p>g(X) and h(Y) are also independent: \(E[g(X)h(Y)] = E[g(X)] \cdot E[h(Y)]\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#544-the-bayes-rule-----a-theme-with-variations" id="544-the-bayes-rule-----a-theme-with-variations">5.4.4 The Bayes rule --- a theme with variations</a></h4>
+<ul>
+<li>
+<p>For discrete r.v., </p>
+<ul>
+<li>
+<p>\(p_{X|Y}(x|y) = \frac{p_X(x) p_{Y|X}(y|x)}{p_Y(y)}\)</p>
+</li>
+<li>
+<p>\(p_Y(y) = \sum\limits_{x'} p_X(x')p_{Y|X}(y|x')\)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For continuous r.v., </p>
+<ul>
+<li>
+<p>\(f_{X|Y}(x|y) = \frac{f_X(x) f_{Y|X}(y|x)}{_Y(y)}\)</p>
+</li>
+<li>
+<p>\(p_Y(y) = \int\limits f_X(x')f_{Y|X}(y|x')\)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>One discrete and one continuous r.v.</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/121778872-456ae400-cb99-11eb-8fc6-d1cb9ea4f3f2.png" alt="image" /></p>
 </li>
 </ul>
 
