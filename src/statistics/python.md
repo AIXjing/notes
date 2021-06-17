@@ -697,3 +697,68 @@ For example, in a university, there are 3 departments, and each department has 2
   \\]
 
   *need to use Pascal's triangle?*
+
+
+### 4.4 [**Python Notebook**](https://colab.research.google.com/drive/14mdAzPq1NeftFVUBRFmxl-bs9bEa52wp)
+
+* Permutation: `itertools.permutations(A)`
+
+* Partial permutation: `itertools.permutations(A, k)`
+
+* Factorial: `factorial(len(A))` using the factorial function in math `from math import factorial`
+
+* Combinations: `itertools.combinations(A,k)`
+
+* Week exercise
+
+  *Use Python to generate a k-composition of an integer n, i.e., a k-tuple of positive integers that sum to n*
+
+  - The simpler way: `int(binom(n-1,k-1))`
+
+  - To obtain all the tuples in the composition by define a function:
+
+  ```py
+  import sys
+  import numpy as np
+  # not clear what the following packages used for
+  import scipy as sp
+  from scipy.special import *
+
+  def compositions(k, n):
+    if k == 1:
+        return {(n,)} # (n,) means a tuple containg a single value
+
+    comp = set()
+    # comp = [] will generate a list instead of a set.
+
+    for i in range(1, n):  # 1,2,....,n
+        for t in compositions(k - 1, n - i): #recursively
+            comp.add((i,) + t)
+
+    return comp
+  ```
+
+
+## 5 Topic 5 Probability Introduction
+
+### 5.1 Basic concept
+
+Random value of outcome, denoted by X.
+
+Probability of random outcome x denoted by P(x) or P(X=x)
+
+**Probability distribution function (PDF)**
+
+* uniform probability space
+
+  Toss an unbiased coin or die...
+
+* non-uniform probability space
+
+### 5.2 Three Axioms
+
+- **Non-negativity** \\(P(A) \geq 0\\)
+
+- **Unitarity** \\(P(\Omega) = 1\\)
+
+- **Addition rule**: A,B disjoint \\(P(A \cup B)= P(A) + P(B)\\)

@@ -851,3 +851,52 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
 * One discrete and one continuous r.v.
 
     ![image](https://user-images.githubusercontent.com/41487483/121778872-456ae400-cb99-11eb-8fc6-d1cb9ea4f3f2.png)
+
+
+## Unit 6 Further topics on random variables
+
+### 6.1 Derived distributions 
+
+#### 6.1.1 A linear function \\(Y =  aX + b\\)
+
+* Discrete r.v. 
+
+     \\(
+        p_Y(y) = p_X(\frac{y-b}{a})
+    \\)
+
+* Continuous r.v.
+
+    \\(
+        f_Y(y) = \frac{1}{|a|}f_X(\frac{y-b}{a})
+    \\)
+
+    - A linear function of normal r.v. is normal
+
+        If \\(X \sim N(\mu, \sigma^2)\\), then \\(aX + b \sim N(a\mu + b, a^2\sigma^2)\\)
+
+#### 6.1.2 A general function \\(g(X)\\) of a continuous r.v.
+
+**Two-step procedure:**
+
+- Find the CDF of Y: \\(F_Y(y) = P(Y \leq y) = P(g(x) \leq y)\\) and the valid range of y
+
+- Differentiate: \\(f_Y(y) = \frac{dF_Y(y)}{dy}\\)
+
+1. A general formula for the PDF of \\(Y = g(X)\\) when *g* is monotomic
+
+    \\[
+        f_Y(y) = f_X(h(y))\left|\frac{dh(y)}{dy}\right|    
+    \\]
+
+    \\(x = h(y)\\) is the inverse function of \\(y = g(x)\\)
+
+2. A nonmonotonic example \\(Y = X^2\\)
+
+    - the discrete case: \\(p_Y(y) = p_X(\sqrt{y}) + p_X(-\sqrt{y})\\)
+
+    - the continuous case: \\(f_Y(y) = f_X(\sqrt{y})\frac{1}{2\sqrt{y}} + p_X(-\sqrt{y})\frac{1}{2\sqrt{y}}\\)
+
+3. A function of multiple r.v.'s: \\(Z = g(X,Y)\\)
+
+    ![image](https://user-images.githubusercontent.com/41487483/122451427-69b72e00-cfa8-11eb-9aa5-b1c0855886d0.png)

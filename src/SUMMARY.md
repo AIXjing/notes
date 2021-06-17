@@ -23,6 +23,7 @@
     - [Improve your statistical inferences](./statistics/statinfer.md)
     - [Inferential Statistics](./statistics/inferentialstat.md)
     - [Statistics with Python](./statistics/python.md)
+    - [Common problems](./statistics/problems.md)
 
 
 - [Data Viz](./dataviztools/dataviztools.md)
