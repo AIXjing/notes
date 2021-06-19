@@ -1088,6 +1088,134 @@ f_Y(y) = f_X(h(y))\left|\frac{dh(y)}{dy}\right|<br />
 <p><img src="https://user-images.githubusercontent.com/41487483/122451427-69b72e00-cfa8-11eb-9aa5-b1c0855886d0.png" alt="image" /></p>
 </li>
 </ol>
+<h3><a class="header" href="#62-sums-of-independent-vadom-variables" id="62-sums-of-independent-vadom-variables">6.2 Sums of independent vadom variables</a></h3>
+<h4><a class="header" href="#621-the-distribution-of-x--y-the-discrete-case" id="621-the-distribution-of-x--y-the-discrete-case">6.2.1 The distribution of \(X + Y\): the discrete case</a></h4>
+<p>Z = X + Y; X,Y independent, discrete known PMFs</p>
+<p>\[
+p_Z(z) = \sum\limits_x p_X(x)p_Y(z-x)<br />
+\]</p>
+<p><strong>Dsicrete convoltion mechanics</strong></p>
+<ol>
+<li>
+<p>Flip the PMF of Y and put it underneath the PMF of X</p>
+</li>
+<li>
+<p>Shift the flipped PMF by z </p>
+</li>
+<li>
+<p>Cross-multiply and add</p>
+</li>
+</ol>
+<h4><a class="header" href="#622-the-distribution-of-x--y-the-continous-case" id="622-the-distribution-of-x--y-the-continous-case">6.2.2 The distribution of \(X + Y\): the continous case</a></h4>
+<p>Z = X + Y; X,Y independent, continuous known PDFs</p>
+<p>\[
+f_Z(z) = \int\limits_x f_X(x)f_Y(z-x)dx<br />
+\]</p>
+<ul>
+<li>
+<p>conditional on \(X = x\): </p>
+<p>\[
+f_{Z|x}(z|x) = f_Y(z-x)<br />
+\]</p>
+<p>which can then be used to calculate Joint PDF of Z and X and marginal PDF of Z.</p>
+</li>
+<li>
+<p>Same mechanics as in discrete case</p>
+</li>
+</ul>
+<h4><a class="header" href="#623-the-sum-of-independent-normal-rvs" id="623-the-sum-of-independent-normal-rvs">6.2.3 The sum of independent normal r.v.'s</a></h4>
+<ul>
+<li>
+<p>\(X \sim N(\mu_x, \sigma_x^2), Y \sim N(\mu_y, \sigma_y^2\) <strong>Independent</strong></p>
+<p>\(Z = X + Y: \sim N(N(\mu_x + \mu_y,  \sigma_x^2 + \sigma_y^2))\)</p>
+<p><strong>The sum of finitely many independent normals is normal</strong></p>
+</li>
+</ul>
+<h3><a class="header" href="#63-covariance-协方差" id="63-covariance-协方差">6.3 Covariance (协方差)</a></h3>
+<h4><a class="header" href="#631-definition" id="631-definition">6.3.1 Definition</a></h4>
+<p>\[
+cov(X,Y) = E[(X - E[X]) \cdot (Y - E(Y))]<br />
+\]</p>
+<ul>
+<li>If \(X,Y\) <strong>independent: \(cov(X,Y) = 0 \)</strong> </li>
+</ul>
+<p><em>convers is not true!</em></p>
+<h4><a class="header" href="#632-covariance-properties" id="632-covariance-properties">6.3.2 Covariance properties</a></h4>
+<ol>
+<li>
+<p>\(cov(X,X) = var(X) = E[X^2] - (E[X])^2\)</p>
+</li>
+<li>
+<p>\(cov(aX+b,Y) = a \cdot cov(X,Y)\)</p>
+</li>
+<li>
+<p>\(cov(X,Y+Z) = cov(X,Y) + cov(X,Z)\)</p>
+</li>
+</ol>
+<p><strong>Practical covariance formula:</strong> </p>
+<p>\[
+cov(X,Y) = E[XY] - E[X]E[Y]
+\]</p>
+<h4><a class="header" href="#633-the-variance-of-a-sum-of-random-variables" id="633-the-variance-of-a-sum-of-random-variables">6.3.3 The variance of a sum of random variables</a></h4>
+<ul>
+<li>
+<p>two r.v.s</p>
+<p>\[
+var(X_1 + X_2) = var(X_1) + var(X_2) + 2cov(X_1,X_2)<br />
+\]</p>
+<p><em>X,Y indepedent, then \(var(X_1 + X_2) = var(X_1) + var(X_2)\)</em></p>
+</li>
+<li>
+<p>multiple r.v.s</p>
+<p>\[
+var(X_1 + \dots + X_n) = \sum\limits_{i=1}^nvar(X_i) + \sum\limits_{(i,j):i \neq j}^n cov(X_i,X_j)<br />
+\]</p>
+<p><em>\(\sum\limits_{(i,j):i \neq j}^n \) contains \((n^2 - n)\) terms</em></p>
+</li>
+</ul>
+<h3><a class="header" href="#64-the-correlation-coefficient" id="64-the-correlation-coefficient">6.4 The correlation coefficient</a></h3>
+<p>\[
+\rho(X,Y) = E\left[\frac{(X - E[X])}{\sigma_X} \cdot \frac{(Y - E[Y])}{\sigma_Y}\right] = \frac{cov(X,Y)}{\sigma_X \sigma_Y}
+\]</p>
+<h4><a class="header" href="#641-interpretation-of-correlation-coeffecient" id="641-interpretation-of-correlation-coeffecient">6.4.1 Interpretation of correlation coeffecient</a></h4>
+<ul>
+<li>
+<p>Dimensionless version of covariance </p>
+</li>
+<li>
+<p>Measure of the defree of &quot;association&quot; between X and Y</p>
+</li>
+<li>
+<p>Association does not imply causation or influence</p>
+</li>
+<li>
+<p>Correlation often refleces underlying, common, hidden factor</p>
+</li>
+</ul>
+<h4><a class="header" href="#642-key-properties-of-the-correlation-coeffecient" id="642-key-properties-of-the-correlation-coeffecient">6.4.2 Key properties of the correlation coeffecient</a></h4>
+<ul>
+<li>
+<p>\(-1 \leq \rho \leq 1\)</p>
+</li>
+<li>
+<p><strong>Independent</strong> \(\implies \rho = 0\) &quot;uncorrelated&quot; (converse is not true)</p>
+</li>
+<li>
+<p>\(|\rho| = 1 \Leftrightarrow\) linearly related</p>
+</li>
+<li>
+<p>\(cov(aX+b, Y) = a \cdot cov(X,Y) \implies \rho(aX+b,Y) = sigma(a)\rho(X,Y)\)</p>
+</li>
+</ul>
+<h3><a class="header" href="#65-conditional-expectation-as-a-random-variable" id="65-conditional-expectation-as-a-random-variable">6.5 Conditional expectation as a random variable</a></h3>
+<p><strong>Definition</strong>: \(g(Y)\) is the <em>random variable</em> that takes the value \(E[X|Y=y]\), if \(Y\) happens to take the value \(y\).</p>
+<p>\[
+E[X|Y] = g(Y)<br />
+\]</p>
+<h4><a class="header" href="#651-expectation-of-exy---law-of-iterated-expectations" id="651-expectation-of-exy---law-of-iterated-expectations">6.5.1 Expectation of \(E[X|Y]\) - Law of iterated expectations</a></h4>
+<p>\[
+E[E[X|Y]] = E[g(Y)] = E[X]<br />
+\]</p>
 
                     </main>
 
