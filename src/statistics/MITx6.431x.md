@@ -900,3 +900,135 @@ CDF defination: \\(F_X(x) = P(X ≤ x )\\)
 3. A function of multiple r.v.'s: \\(Z = g(X,Y)\\)
 
     ![image](https://user-images.githubusercontent.com/41487483/122451427-69b72e00-cfa8-11eb-9aa5-b1c0855886d0.png)
+
+### 6.2 Sums of independent vadom variables
+
+#### 6.2.1 The distribution of \\(X + Y\\): the discrete case
+
+Z = X + Y; X,Y independent, discrete known PMFs
+
+\\[
+    p_Z(z) = \sum\limits_x p_X(x)p_Y(z-x)    
+\\]
+
+**Dsicrete convoltion mechanics**
+
+1. Flip the PMF of Y and put it underneath the PMF of X
+
+2. Shift the flipped PMF by z 
+
+3. Cross-multiply and add
+
+#### 6.2.2 The distribution of \\(X + Y\\): the continous case
+
+Z = X + Y; X,Y independent, continuous known PDFs
+
+\\[
+    f_Z(z) = \int\limits_x f_X(x)f_Y(z-x)dx    
+\\]
+
+- conditional on \\(X = x\\): 
+
+    \\[
+        f_{Z|x}(z|x) = f_Y(z-x)     
+    \\]
+
+    which can then be used to calculate Joint PDF of Z and X and marginal PDF of Z.
+
+- Same mechanics as in discrete case
+
+#### 6.2.3 The sum of independent normal r.v.'s
+
+- \\(X \sim N(\mu_x, \sigma_x^2), Y \sim N(\mu_y, \sigma_y^2\\) **Independent**
+
+    \\(Z = X + Y: \sim N(N(\mu_x + \mu_y,  \sigma_x^2 + \sigma_y^2))\\)
+
+    **The sum of finitely many independent normals is normal**
+
+
+### 6.3 Covariance (协方差)
+
+#### 6.3.1 Definition
+
+\\[
+    cov(X,Y) = E[(X - E[X]) \cdot (Y - E(Y))]    
+\\]
+
+* If \\(X,Y\\) **independent: \\(cov(X,Y) = 0 \\)** 
+
+*convers is not true!*
+
+
+#### 6.3.2 Covariance properties
+
+1. \\(cov(X,X) = var(X) = E[X^2] - (E[X])^2\\)
+
+2. \\(cov(aX+b,Y) = a \cdot cov(X,Y)\\)
+
+3. \\(cov(X,Y+Z) = cov(X,Y) + cov(X,Z)\\)
+
+**Practical covariance formula:** 
+
+\\[
+    cov(X,Y) = E[XY] - E[X]E[Y]
+\\]
+
+#### 6.3.3 The variance of a sum of random variables
+
+- two r.v.s
+
+    \\[
+        var(X_1 + X_2) = var(X_1) + var(X_2) + 2cov(X_1,X_2)    
+    \\]
+
+    *X,Y indepedent, then \\(var(X_1 + X_2) = var(X_1) + var(X_2)\\)*
+
+- multiple r.v.s
+
+    \\[
+        var(X_1 + \dots + X_n) = \sum\limits_{i=1}^nvar(X_i) + \sum\limits_{(i,j):i \neq j}^n cov(X_i,X_j)  
+    \\]
+
+    *\\(\sum\limits_{(i,j):i \neq j}^n \\) contains \\((n^2 - n)\\) terms*
+
+### 6.4 The correlation coefficient
+
+\\[
+    \rho(X,Y) = E\left[\frac{(X - E[X])}{\sigma_X} \cdot \frac{(Y - E[Y])}{\sigma_Y}\right] = \frac{cov(X,Y)}{\sigma_X \sigma_Y}
+\\]
+
+#### 6.4.1 Interpretation of correlation coeffecient
+
+- Dimensionless version of covariance 
+
+- Measure of the defree of "association" between X and Y
+
+- Association does not imply causation or influence
+
+- Correlation often refleces underlying, common, hidden factor
+
+
+#### 6.4.2 Key properties of the correlation coeffecient
+
+- \\(-1 \leq \rho \leq 1\\)
+
+- **Independent** \\(\implies \rho = 0\\) "uncorrelated" (converse is not true)
+
+- \\(|\rho| = 1 \Leftrightarrow\\) linearly related
+
+- \\(cov(aX+b, Y) = a \cdot cov(X,Y) \implies \rho(aX+b,Y) = sigma(a)\rho(X,Y)\\)
+
+
+### 6.5 Conditional expectation as a random variable
+
+**Definition**: \\(g(Y)\\) is the *random variable* that takes the value \\(E[X|Y=y]\\), if \\(Y\\) happens to take the value \\(y\\).
+
+\\[
+    E[X|Y] = g(Y)    
+\\]
+
+#### 6.5.1 Expectation of \\(E[X|Y]\\) - Law of iterated expectations
+
+\\[
+    E[E[X|Y]] = E[g(Y)] = E[X]    
+\\]
