@@ -1019,16 +1019,68 @@ Z = X + Y; X,Y independent, continuous known PDFs
 - \\(cov(aX+b, Y) = a \cdot cov(X,Y) \implies \rho(aX+b,Y) = sigma(a)\rho(X,Y)\\)
 
 
-### 6.5 Conditional expectation as a random variable
+### 6.5 Conditional expectation and variance as a random variable
 
-**Definition**: \\(g(Y)\\) is the *random variable* that takes the value \\(E[X|Y=y]\\), if \\(Y\\) happens to take the value \\(y\\).
+
+#### 6.5.1 Conditional expecation
+
+* **Definition**: \\(g(Y)\\) is the *random variable* that takes the value \\(E[X|Y=y]\\), if \\(Y\\) happens to take the value \\(y\\).
 
 \\[
     E[X|Y] = g(Y)    
 \\]
 
-#### 6.5.1 Expectation of \\(E[X|Y]\\) - Law of iterated expectations
+* **Law of iterated expectations**
 
 \\[
     E[E[X|Y]] = E[g(Y)] = E[X]    
+\\]
+
+#### 6.5.2 Conditional variance
+
+* Variance fundamentals
+
+    \\[
+        var(X) = E[(X - E[X])^2] \\\\
+        var(X|Y=y) = E[(X - E[X|Y=y])^2|Y=y]
+    \\]  
+
+**var(X|Y) is the r.v. that takes the value var(X|Y=y), when Y=y**
+
+* **Law of total variance**
+
+    \\[
+        var(X) = E[var(X|Y)] + var(E[X|Y])    
+    \\]
+
+    *var(X) = (average variability within sections) + (variability between sections)*
+
+### 6.6 Sum a random number of indepedent r.v.'s
+
+*Example of shopping*
+
+- N: number of stores visited (N is a nonnegative integer r.v.)
+
+- \\(\X_i\): money spent in store i 
+
+    - \\(\X_i\) independent, identically distributed
+
+    - independent of N
+
+- Let \\(Y = X_1 + \dots + X_N\\)
+
+#### 6.6.1 Expecatation of the sum
+
+Based on the Law of iterated expectations:
+
+\\[
+    E[Y] = E[E[Y|N]] = E[N \cdot E[X]] = \cdot E[X]E[N]   
+\\]
+
+#### 6.6.2 Variance of the sum
+
+Based on the Law of total variance: \\(var(Y) = E[var(Y|N)] + var(E[Y|N])\\):
+
+\\[
+    var(Y) = E[N]var(X) + (E[X])^2var(N) 
 \\]
