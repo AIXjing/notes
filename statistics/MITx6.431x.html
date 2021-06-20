@@ -1207,14 +1207,70 @@ var(X_1 + \dots + X_n) = \sum\limits_{i=1}^nvar(X_i) + \sum\limits_{(i,j):i \neq
 <p>\(cov(aX+b, Y) = a \cdot cov(X,Y) \implies \rho(aX+b,Y) = sigma(a)\rho(X,Y)\)</p>
 </li>
 </ul>
-<h3><a class="header" href="#65-conditional-expectation-as-a-random-variable" id="65-conditional-expectation-as-a-random-variable">6.5 Conditional expectation as a random variable</a></h3>
-<p><strong>Definition</strong>: \(g(Y)\) is the <em>random variable</em> that takes the value \(E[X|Y=y]\), if \(Y\) happens to take the value \(y\).</p>
+<h3><a class="header" href="#65-conditional-expectation-and-variance-as-a-random-variable" id="65-conditional-expectation-and-variance-as-a-random-variable">6.5 Conditional expectation and variance as a random variable</a></h3>
+<h4><a class="header" href="#651-conditional-expecation" id="651-conditional-expecation">6.5.1 Conditional expecation</a></h4>
+<ul>
+<li><strong>Definition</strong>: \(g(Y)\) is the <em>random variable</em> that takes the value \(E[X|Y=y]\), if \(Y\) happens to take the value \(y\).</li>
+</ul>
 <p>\[
 E[X|Y] = g(Y)<br />
 \]</p>
-<h4><a class="header" href="#651-expectation-of-exy---law-of-iterated-expectations" id="651-expectation-of-exy---law-of-iterated-expectations">6.5.1 Expectation of \(E[X|Y]\) - Law of iterated expectations</a></h4>
+<ul>
+<li><strong>Law of iterated expectations</strong></li>
+</ul>
 <p>\[
 E[E[X|Y]] = E[g(Y)] = E[X]<br />
+\]</p>
+<h4><a class="header" href="#652-conditional-variance" id="652-conditional-variance">6.5.2 Conditional variance</a></h4>
+<ul>
+<li>
+<p>Variance fundamentals</p>
+<p>\[
+var(X) = E[(X - E[X])^2] \\
+var(X|Y=y) = E[(X - E[X|Y=y])^2|Y=y]
+\]</p>
+</li>
+</ul>
+<p><strong>var(X|Y) is the r.v. that takes the value var(X|Y=y), when Y=y</strong></p>
+<ul>
+<li>
+<p><strong>Law of total variance</strong></p>
+<p>\[
+var(X) = E[var(X|Y)] + var(E[X|Y])<br />
+\]</p>
+<p><em>var(X) = (average variability within sections) + (variability between sections)</em></p>
+</li>
+</ul>
+<h3><a class="header" href="#66-sum-a-random-number-of-indepedent-rvs" id="66-sum-a-random-number-of-indepedent-rvs">6.6 Sum a random number of indepedent r.v.'s</a></h3>
+<p><em>Example of shopping</em></p>
+<ul>
+<li>
+<p>N: number of stores visited (N is a nonnegative integer r.v.)</p>
+</li>
+<li>
+<p>\(\X_i): money spent in store i </p>
+<ul>
+<li>
+<p>\(\X_i) independent, identically distributed</p>
+</li>
+<li>
+<p>independent of N</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Let \(Y = X_1 + \dots + X_N\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#661-expecatation-of-the-sum" id="661-expecatation-of-the-sum">6.6.1 Expecatation of the sum</a></h4>
+<p>Based on the Law of iterated expectations:</p>
+<p>\[
+E[Y] = E[E[Y|N]] = E[N \cdot E[X]] = \cdot E[X]E[N]<br />
+\]</p>
+<h4><a class="header" href="#662-variance-of-the-sum" id="662-variance-of-the-sum">6.6.2 Variance of the sum</a></h4>
+<p>Based on the Law of total variance: \(var(Y) = E[var(Y|N)] + var(E[Y|N])\):</p>
+<p>\[
+var(Y) = E[N]var(X) + (E[X])^2var(N) 
 \]</p>
 
                     </main>
