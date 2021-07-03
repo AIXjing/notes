@@ -836,6 +836,10 @@ a2.sum(axis=1)
 </code></pre>
 <p><code>a.sum(axis=1)</code> and <code>a.sum(axis=0)</code> give the same output <code>array([6])</code> because of only one dimension.</p>
 <p><img src="https://user-images.githubusercontent.com/41487483/119228773-d0b20600-bb14-11eb-9fa9-93e697500f1c.png" alt="image" /></p>
+<h2><a class="header" href="#easy-coding" id="easy-coding">Easy coding</a></h2>
+<ol>
+<li>´x = x + 1´ is qual to ´x += 1´</li>
+</ol>
 <h1><a class="header" href="#statistics-rewind" id="statistics-rewind">Statistics rewind</a></h1>
 <h1><a class="header" href="#probability---the-science-of-uncertainty-and-data-2021" id="probability---the-science-of-uncertainty-and-data-2021">Probability - The Science of Uncertainty and Data (2021)</a></h1>
 <p>Use the course to re-build my statistics knowledge.</p>
@@ -1919,10 +1923,10 @@ var(X) = E[var(X|Y)] + var(E[X|Y])<br />
 <p>N: number of stores visited (N is a nonnegative integer r.v.)</p>
 </li>
 <li>
-<p>\(\X_i): money spent in store i </p>
+<p>\(X_i\): money spent in store i </p>
 <ul>
 <li>
-<p>\(\X_i) independent, identically distributed</p>
+<p>\(X_i\) independent, identically distributed</p>
 </li>
 <li>
 <p>independent of N</p>
@@ -1943,6 +1947,28 @@ E[Y] = E[E[Y|N]] = E[N \cdot E[X]] = \cdot E[X]E[N]<br />
 <p>\[
 var(Y) = E[N]var(X) + (E[X])^2var(N) 
 \]</p>
+<h2><a class="header" href="#unit-7-bayesian-inferences" id="unit-7-bayesian-inferences">Unit 7 Bayesian inferences</a></h2>
+<h3><a class="header" href="#71-introduction-to-bayesian-inference" id="71-introduction-to-bayesian-inference">7.1 Introduction to Bayesian inference</a></h3>
+<h3><a class="header" href="#72-linear-models-with-normal-noise" id="72-linear-models-with-normal-noise">7.2 Linear models with normal noise</a></h3>
+<h3><a class="header" href="#73-least-mean-squares-lms-estimation" id="73-least-mean-squares-lms-estimation">7.3 Least mean squares (LMS) estimation</a></h3>
+<h3><a class="header" href="#74-linear-least-mean-squares-llms-estimation" id="74-linear-least-mean-squares-llms-estimation">7.4 Linear least mean squares (LLMS) estimation</a></h3>
+<h4><a class="header" href="#741-llms-formulation" id="741-llms-formulation">7.4.1 LLMS formulation</a></h4>
+<p>\(\hat{\Theta} = aX + b\), minimize \(E[(\hat{\Theta} - \Theta)^2]\)</p>
+<h4><a class="header" href="#742-llms-solution" id="742-llms-solution">7.4.2 LLMS solution</a></h4>
+<p>Minimize \(E[(\hat{\Theta} - \Theta)^2]\), that is \(E[(\Theta - aX - b)^2]\)</p>
+<p>\[
+\hat{\Theta_L} = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])<br />
+\]</p>
+<p>\(\rho\) corelation coefficiency</p>
+<ul>
+<li>Only means, variances, covariances matter (we do not need to know everything)</li>
+</ul>
+<p>\[
+E[(\hat{\Theta_L} - \Theta)^2] = (1 - \rho^2)var(\Theta)
+\]</p>
+<ul>
+<li>LLMS with multiple observations</li>
+</ul>
 <h1><a class="header" href="#improve-your-statistical-inferences" id="improve-your-statistical-inferences">Improve your statistical inferences</a></h1>
 <h2><a class="header" href="#week-1" id="week-1">Week 1</a></h2>
 <h3><a class="header" href="#11-frequentism-likelihoods-bayesian-statistics" id="11-frequentism-likelihoods-bayesian-statistics">1.1 Frequentism, Likelihoods, Bayesian statistics</a></h3>

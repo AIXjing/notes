@@ -1248,10 +1248,10 @@ var(X) = E[var(X|Y)] + var(E[X|Y])<br />
 <p>N: number of stores visited (N is a nonnegative integer r.v.)</p>
 </li>
 <li>
-<p>\(\X_i): money spent in store i </p>
+<p>\(X_i\): money spent in store i </p>
 <ul>
 <li>
-<p>\(\X_i) independent, identically distributed</p>
+<p>\(X_i\) independent, identically distributed</p>
 </li>
 <li>
 <p>independent of N</p>
@@ -1272,6 +1272,28 @@ E[Y] = E[E[Y|N]] = E[N \cdot E[X]] = \cdot E[X]E[N]<br />
 <p>\[
 var(Y) = E[N]var(X) + (E[X])^2var(N) 
 \]</p>
+<h2><a class="header" href="#unit-7-bayesian-inferences" id="unit-7-bayesian-inferences">Unit 7 Bayesian inferences</a></h2>
+<h3><a class="header" href="#71-introduction-to-bayesian-inference" id="71-introduction-to-bayesian-inference">7.1 Introduction to Bayesian inference</a></h3>
+<h3><a class="header" href="#72-linear-models-with-normal-noise" id="72-linear-models-with-normal-noise">7.2 Linear models with normal noise</a></h3>
+<h3><a class="header" href="#73-least-mean-squares-lms-estimation" id="73-least-mean-squares-lms-estimation">7.3 Least mean squares (LMS) estimation</a></h3>
+<h3><a class="header" href="#74-linear-least-mean-squares-llms-estimation" id="74-linear-least-mean-squares-llms-estimation">7.4 Linear least mean squares (LLMS) estimation</a></h3>
+<h4><a class="header" href="#741-llms-formulation" id="741-llms-formulation">7.4.1 LLMS formulation</a></h4>
+<p>\(\hat{\Theta} = aX + b\), minimize \(E[(\hat{\Theta} - \Theta)^2]\)</p>
+<h4><a class="header" href="#742-llms-solution" id="742-llms-solution">7.4.2 LLMS solution</a></h4>
+<p>Minimize \(E[(\hat{\Theta} - \Theta)^2]\), that is \(E[(\Theta - aX - b)^2]\)</p>
+<p>\[
+\hat{\Theta_L} = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])<br />
+\]</p>
+<p>\(\rho\) corelation coefficiency</p>
+<ul>
+<li>Only means, variances, covariances matter (we do not need to know everything)</li>
+</ul>
+<p>\[
+E[(\hat{\Theta_L} - \Theta)^2] = (1 - \rho^2)var(\Theta)
+\]</p>
+<ul>
+<li>LLMS with multiple observations</li>
+</ul>
 
                     </main>
 
