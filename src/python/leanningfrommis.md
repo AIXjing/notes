@@ -41,3 +41,8 @@ a2.sum(axis=1)
 `a.sum(axis=1)` and `a.sum(axis=0)` give the same output `array([6])` because of only one dimension.
 
 ![image](https://user-images.githubusercontent.com/41487483/119228773-d0b20600-bb14-11eb-9fa9-93e697500f1c.png)
+
+
+## Easy coding
+
+1. ´x = x + 1´ is qual to ´x += 1´

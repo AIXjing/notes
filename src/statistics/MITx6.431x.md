@@ -1061,9 +1061,9 @@ Z = X + Y; X,Y independent, continuous known PDFs
 
 - N: number of stores visited (N is a nonnegative integer r.v.)
 
-- \\(\X_i\): money spent in store i 
+- \\(X_i\\): money spent in store i 
 
-    - \\(\X_i\) independent, identically distributed
+    - \\(X_i\\) independent, identically distributed
 
     - independent of N
 
@@ -1084,3 +1084,36 @@ Based on the Law of total variance: \\(var(Y) = E[var(Y|N)] + var(E[Y|N])\\):
 \\[
     var(Y) = E[N]var(X) + (E[X])^2var(N) 
 \\]
+
+
+## Unit 7 Bayesian inferences
+
+### 7.1 Introduction to Bayesian inference
+
+### 7.2 Linear models with normal noise
+
+### 7.3 Least mean squares (LMS) estimation
+
+### 7.4 Linear least mean squares (LLMS) estimation
+
+#### 7.4.1 LLMS formulation
+
+\\(\hat{\Theta} = aX + b\\), minimize \\(E[(\hat{\Theta} - \Theta)^2]\\)
+
+#### 7.4.2 LLMS solution
+
+Minimize \\(E[(\hat{\Theta} - \Theta)^2]\\), that is \\(E[(\Theta - aX - b)^2]\\)
+
+\\[
+    \hat{\Theta_L} = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])   
+\\]
+
+\\(\rho\\) corelation coefficiency
+
+- Only means, variances, covariances matter (we do not need to know everything)
+
+\\[
+    E[(\hat{\Theta_L} - \Theta)^2] = (1 - \rho^2)var(\Theta)
+\\]
+
+- LLMS with multiple observations
