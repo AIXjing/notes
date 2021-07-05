@@ -170,15 +170,87 @@
 <h2><a class="header" href="#case-1" id="case-1">Case 1</a></h2>
 <p>A project has already been created in local folder</p>
 <ol>
-<li>Create a new repo on github</li>
-<li>Input command line in terminal:
-<code>git initial -b main</code>
+<li>
+<p>Create a new repo on github</p>
+</li>
+<li>
+<p>Input command line in terminal:</p>
+<p><code>git initial -b main</code>
 <code>git remote add origin url</code>
 <code>git fetch</code>
 <code>git checkout main</code>
 <code>git merge master</code>
-<code>git git push</code></li>
+<code>git git push</code></p>
+</li>
 </ol>
+<h2><a class="header" href="#case-2---start-from-the-begining" id="case-2---start-from-the-begining">Case 2 - start from the begining</a></h2>
+<p><a href="https://www.youtube.com/watch?v=TwVuFwyztEE">Advanced Git Tutorial | Google IT Automation with Python</a></p>
+<p><strong>Git is a visual control system (VCS), which can save code, configrations, histories, etc.</strong></p>
+<ol>
+<li>
+<p>After installing git, the first thing to do is to tell Git who you are by execute command line <code>git config --global &quot;me@email.com&quot;</code></p>
+</li>
+<li>
+<p>Add new project and repo</p>
+<p><code>mkdir project</code></p>
+<p><code>cd project</code></p>
+<p><code>git init</code> /create a new repo</p>
+</li>
+<li>
+<p>Stage changes and commit</p>
+<p><code>git status</code></p>
+<p><code>git add</code></p>
+<p><code>git commit -m &quot;comments&quot;</code></p>
+<p><code>git commit -a -m&quot;message&quot;</code> // A shortcut to stage any changes to tracked files and commit them in one step, only for small changes</p>
+</li>
+<li>
+<p>Show changes in commit</p>
+<p><code>git log</code> - only show logs, change author and dates</p>
+<p><code>git log -p</code> or <code>git diff -u</code> - show changes with details</p>
+<p><code>git show gitlog_id</code></p>
+<p><code>git log --stat</code></p>
+<p><code>git add -p</code> - review changes before staging them</p>
+<p><code>git diff</code> - shows only unstaged changes by default</p>
+<p><code>git diff --staged</code> - to show the changes that are staged but not commited</p>
+</li>
+<li>
+<p>Remove or rename the file in the repo</p>
+<p><code>git rm filename.py</code> - remove files from repo, stop the file from being tracked by git</p>
+<p><code>ls -l</code> - check out the files in the repo</p>
+<p><code>ls -la</code> - check out all files including hidden files</p>
+<p><code>git mv new_file_name old_file_name</code> - rename the file </p>
+<p>.gitigore - inside this file, we can specify rules to tell git which files to skip for the current repo. For example, <code>echo .DS_STORE &gt; .gitignore</code></p>
+</li>
+<li>
+<p>Undo changes before committing</p>
+<p><code>git checkout filename</code> - change the file back to previous state has not been staged</p>
+<p><code>git reset HAD filename</code> - change the file has been staged but not commited, counterpart to <code>git add</code></p>
+</li>
+<li>
+<p>Amend commit</p>
+<p><code>git commit --amend</code> -overwrite previous commit. only for local commit, not for public commit</p>
+<p><code>tough filename</code> - create files</p>
+</li>
+<li>
+<p>Rollbacks</p>
+<p><code>git revert HEAD</code> - HEAD is regarded as a point to a snapshot</p>
+<p><code>git revert commit_id</code></p>
+<p><code>git log -p -2</code></p>
+<p>Identify a commit by <strong>Commit ID</strong></p>
+</li>
+</ol>
+<h3><a class="header" href="#branch---a-point-to-a-particular-commit" id="branch---a-point-to-a-particular-commit">Branch - a point to a particular commit</a></h3>
+<p><em>default branch - master</em></p>
+<p><code>git branch</code> - check up the current branch</p>
+<p><code>git branch new_branch</code> - create a new branch</p>
+<p><code>git checkout new_branch</code>- <strong>check out the latest snapshot for both files and for branches</strong></p>
+<p><code>git checkout -b another_branch</code> - create a new branch and swtich to it</p>
+<p>When branch was changed, the working directory also changed.</p>
+<p><code>git branch -d new_branch</code> - delete the branch</p>
+<p><code>git merge new_branch</code> - merge a branch to another</p>
+<p><strong>merge conflict</strong></p>
+<p><code>git log --graph --oneline</code></p>
+<p><code>git merge -abort</code> - stop merging and back to previous status</p>
 
                     </main>
 
