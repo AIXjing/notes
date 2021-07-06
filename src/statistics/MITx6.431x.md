@@ -1231,7 +1231,93 @@ Useful equation:
 
 ### 7.2 Linear models with normal noise
 
+#### 7.2.1 Recognizing normal PDFs
+
+* Normal distribution: \\(X \sim N(\mu, \sigma^2)\\) 
+
+    \\(f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/2\sigma^2}\\)
+
+* \\(f_X(x) = c e^{-(\alpha x^2 + \beta x + \gamma)}\\), \\(\alpha > 0\\) Normal with mean \\(-\beta/2\alpha\\) and variance \\(-1/2\alpha\\)
+
+#### 7.2.2 Estimating a normal random variable in the presence of additive normal noise
+
+\\(X = \Theta + W\\), \\(\Theta, W,N :(0,1), independent\\)
+
+- \\( \hat{\theta} _{MAP} = \hat{\theta} _{LMS} = E[\Theta|X = x] = x/2\\)
+
+- even with general means and variances:
+
+    * posterior is normal
+
+    * LMS and MAP estimators conincide
+
+    * these estimators are "linear" of the form \\(\hat{\Theta} = aX + b\\)
+
+#### 7.2.3 The case of multiple observations
+
+\\(X_i = \Theta + W_1\\), \\(\Theta \sim N(x_0, \sigma_0^2)\\), \\(W_i \sim N(x_i, \sigma_i^2), \Theta, W_i\\) indepedent
+
+* \\(\hat{\theta} _{MAP} = \hat{\theta} _{LMS} = E[\Theta|X = x] = \frac{\sum\limits _{i=0}^n\frac{x_i}{\sigma_i^2}}{\sum\limits _{i=0}^n\frac{1}{\sigma_i^2}}\\)
+
+* Key conclusions
+
+    - posterior is normal
+
+    - LMS and  MAP estimates coincide
+
+    - these estimates are "linear" of the form \\(\hat{\theta} = a_0 + a_1x_1 + \dots + a_nx_n\\)
+
+* Interpretations
+
+    - estimate \\(\hat{\theta}\\): weighted average of \\(x_0\\) (prior mean) and \\(x_i\\) (observations)
+
+    - weights determined by variances
+
+#### 7.2.4 The mean square error
+
+* Performance measures
+
+    - \\(E[(\Theta - \hat{\Theta})^2|X = x] = E[(\Theta - \hat{\theta})^2|X = x] = var(\Theta|X = x) = \frac{1}{\sum\limits _{i=0}^n \frac{1}{\sigma_i^2}}\\)
+
+    - \\(E[(\Theta - \hat{\Theta})^2] = \int E[(\Theta - \hat{\Theta})^2|X = x] f_X(x) dx = \frac{1}{\sum\limits _{i=0}^n \frac{1}{\sigma_i^2}}\\)
+
+
 ### 7.3 Least mean squares (LMS) estimation
+
+#### 7.3.1 In the absence of observations
+
+* Least Mean Square formulation: minimize **Mean Squared Error (MSE)** \\(E[(\Theta - \hat{\theta})^2]: \hat{\theta} = E[\Theta]\\)
+
+* \\(E[(\Theta - E[\Theta])^2]:var(\Theta)\\)
+
+#### 7.3.2 LMS estimation of \\(\Theta\\) based on X
+
+* Minimize **conditional mean square error**: \\(E[(\Theta - \hat{\theta})^2|X = x]: \hat{\theta} = E[\Theta|X = x]\\)
+
+#### 7.3.3 LMS performance evaluation
+
+* LMS estimate: \\(\hat{\theta} = E[\Theta|X=x]\\)
+
+* Estimator: \\(\hat{\Theta} = E[\Theta|X]\\)
+
+* Expected performance, once we have a measurement: 
+
+    \\(MSE = E[(\Theta - E[\Theta|X=x])^2|X=x] = var(\Theta|X=x)\\)
+
+* Expected perfornamce of the design:
+
+    \\(MSE = E[(\Theta - E[\Theta|X])^2] = E[var(\Theta|X)] = \int var(\Theta|X=x) \cdot f_X(x) dx\\) *Average of conditional variance*
+
+#### 7.3.4 Properties of the estimation error in LMS estimation
+
+Given Estimator: \\(\hat{\Theta} = E[\Theta|X]\\) and Error: \\(\tilde{\Theta} = \hat{\Theta} - \Theta\\)
+
+* \\(E[\tilde{\Theta|X=x}] = 0\\)
+
+* \\(cov(\tilde{\Theta},\hat{\Theta}) = 0\\)
+
+* \\(var(\Theta) = var(\hat{\Theta}) + var({\tilde{\Theta}})\\)
+
 
 ### 7.4 Linear least mean squares (LLMS) estimation
 
@@ -1239,12 +1325,13 @@ Useful equation:
 
 \\(\hat{\Theta} = aX + b\\), minimize \\(E[(\hat{\Theta} - \Theta)^2]\\)
 
+
 #### 7.4.2 LLMS solution
 
 Minimize \\(E[(\hat{\Theta} - \Theta)^2]\\), that is \\(E[(\Theta - aX - b)^2]\\)
 
 \\[
-    \hat{\Theta_L} = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])   
+    \hat{\Theta_L}  = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])   
 \\]
 
 \\(\rho\\) corelation coefficiency
@@ -1252,7 +1339,7 @@ Minimize \\(E[(\hat{\Theta} - \Theta)^2]\\), that is \\(E[(\Theta - aX - b)^2]\\
 - Only means, variances, covariances matter (we do not need to know everything)
 
 \\[
-    E[(\hat{\Theta_L} - \Theta)^2] = (1 - \rho^2)var(\Theta)
+    E[(\hat{\Theta} _L - \Theta)^2] = (1 - \rho^2)var(\Theta)
 \\]
 
 - LLMS with multiple observations
