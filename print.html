@@ -2021,6 +2021,172 @@ var(Y) = E[N]var(X) + (E[X])^2var(N)
 \]</p>
 <h2><a class="header" href="#unit-7-bayesian-inferences" id="unit-7-bayesian-inferences">Unit 7 Bayesian inferences</a></h2>
 <h3><a class="header" href="#71-introduction-to-bayesian-inference" id="71-introduction-to-bayesian-inference">7.1 Introduction to Bayesian inference</a></h3>
+<h4><a class="header" href="#711-basic-concepts" id="711-basic-concepts">7.1.1 Basic concepts</a></h4>
+<ol>
+<li>
+<p>Model building versus inferring unobserved variables</p>
+<p>\[X = aS + W\]</p>
+<p>S: signal; W: noise; a: medium (image a black box where S goes through and output X with W as noise)</p>
+<ul>
+<li>
+<p>Model building: known signal S, observe X -&gt; infer a</p>
+</li>
+<li>
+<p>Variable estimation: known a, observe X -&gt; infer S</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Hypothesis testing vs. estimation</p>
+<ul>
+<li>
+<p>Hypothesis testing</p>
+<ul>
+<li>
+<p>unknown takes one of few possible values</p>
+</li>
+<li>
+<p>aim at small probability of incorrect decision</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Estimation</p>
+<ul>
+<li>
+<p>numerical unknown(s)</p>
+</li>
+<li>
+<p>aim at an estimate that is &quot;close&quot; to the true but unknown value</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4><a class="header" href="#712-the-bayescian-inference-framework" id="712-the-bayescian-inference-framework">7.1.2 The Bayescian inference framework</a></h4>
+<ul>
+<li>
+<p>Unknown \(\Theta\) - treated as a random variable <strong>prior distribution: \(p_{\Theta}\) or \(f_{\Theta}\)</strong></p>
+</li>
+<li>
+<p>Observation \(X\) - observation model \(p_{X|\Theta}\) or \(f_{X|\Theta}\)</p>
+</li>
+<li>
+<p>Use appropriate version of the Bayes rule to find \(p_{X|\Theta}(\cdot | X = x)\) or \(f_{X|\Theta} (\cdot| X = x)\)</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/124636223-9617e900-de88-11eb-90fa-6c5b17f9f000.png" alt="image" /></p>
+<ul>
+<li>
+<p>The output of Bayesian inference - <strong>posterior distribution</strong></p>
+<ul>
+<li>
+<p><strong>Maximum a posterior probability (MAP)</strong>:</p>
+<p>\(p_{\Theta|X}(\theta^*|x) = \max\limits_{\theta} p_{\Theta|X}(\theta|x)\)</p>
+<p>\(f_{\Theta|X}(\theta^*|x) = \max\limits_{\theta} f_{\Theta|X}(\theta|x)\)</p>
+</li>
+<li>
+<p><strong>Conditional expectation: \(E[\Theta|X = x]\)</strong> <strong>Least Mean Square (LMS)</strong></p>
+</li>
+<li>
+<p>estimate: \(\hat{\theta} = g(x)\) (number)</p>
+</li>
+<li>
+<p>estimator: \(\hat{\Theta} = g(X)\) (random variable)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#713-four-cases" id="713-four-cases">7.1.3 Four cases</a></h4>
+<ol>
+<li>
+<p><strong>Discrete \(\Theta\), discrete X</strong></p>
+<ul>
+<li>values of \(\Theta\): alternative hypotheses</li>
+</ul>
+<p>\[
+p_{\Theta|X}(\theta|x) = \frac{p_{\Theta}(\theta)p_{X|\Theta}(x|\theta)}{p_X(x)}<br />
+\]</p>
+<p>\[
+p_X(x) = \sum\limits_{\theta'}p_{\Theta}(\theta')p_{X|\Theta}(x|\theta')
+\]</p>
+<ul>
+<li>conditional prob of error: <strong>Smallest under the MAP rule</strong></li>
+</ul>
+<pre><code> \\[
+     P(\hat{\theta} \neq \Theta|X = x)
+ \\] 
+</code></pre>
+<ul>
+<li>overal probability of error: </li>
+</ul>
+<pre><code> \\[
+     P(\hat{\Theta} \neq \Theta) = \sum\limits_{x} P(\hat{\Theta} \neq \Theta|X = x)p_X(x) = \sum\limits_{\theta}P(\hat{\Theta} \neq \Theta|\Theta = \theta)p_{\Theta}(\theta)
+ \\] 
+</code></pre>
+</li>
+<li>
+<p><strong>Discrete \(\Theta\), Continuous X</strong></p>
+<p>\[
+p_{\Theta|X}(\theta|x) = \frac{p_{\Theta}(\theta)f_{X|\Theta}(x|\theta)}{f_X(x)}<br />
+\]</p>
+<p>\[
+f_X(x) = \sum\limits_{\theta'}p_{\Theta}(\theta')f_{x|\Theta}(x|\theta')
+\]</p>
+<ul>
+<li>
+<p>the same equation for conditional prob. of error</p>
+</li>
+<li>
+<p>overall probability of error</p>
+<p>\[
+P(\hat{\Theta} \neq \Theta) = \int\limits_{x} P(\hat{\Theta} \neq \Theta|X = x)f_X(x)dx = \sum\limits_{\theta}P(\hat{\Theta} \neq \Theta|\Theta = \theta)p_{\Theta}(\theta)
+\] </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Continuous \(\Theta\), Discrete X</strong></p>
+<p>\[
+f_{\Theta|X}(\theta|x) = \frac{p_{\Theta}(\theta)p_{X|\Theta}(x|\theta)}{p_X(x)}<br />
+\]</p>
+<p>\[
+p_X(x) = \int\limits_{\theta'}f_{\Theta}(\theta')p_{x|\Theta}(x|\theta')d\theta'
+\]</p>
+<ul>
+<li>Inferring the unknown bias of a coin and <strong>the Beta distribution</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Continuous \(\Theta\), Continuous X</strong></p>
+<p>\[
+f_{\Theta|X}(\theta|x) = \frac{f_{\Theta}(\theta)p_{X|\Theta}(x|\theta)}{p_X(x)}<br />
+\]</p>
+<p>\[
+f_X(x) = \int\limits_{\theta'}f_{\Theta}(\theta')p_{x|\Theta}(x|\theta')d\theta'
+\]</p>
+<ul>
+<li>
+<p>Linear normal models: estimation of a noisy singal</p>
+</li>
+<li>
+<p>Estimating the parameter of a uniform </p>
+<p>\(X\): uniform \([0, \Theta]\)</p>
+<p>\(\Theta\): uniform \([0, 1]\)</p>
+</li>
+<li>
+<p>Performance evaluation of an estimator \(\hat{\Theta}\)</p>
+<p>\(E[(\hat{\Theta} - \Theta)^2|X = x]\)</p>
+<p>\(E[(\hat{\Theta} - \Theta)^2]\)</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Useful equation: </p>
+<p>\[
+\int_0^1 \theta^\alpha(1-\theta)^\beta d\theta = \frac{\alpha!\beta!}{(\alpha + \beta + 1)!}<br />
+\]</p>
 <h3><a class="header" href="#72-linear-models-with-normal-noise" id="72-linear-models-with-normal-noise">7.2 Linear models with normal noise</a></h3>
 <h3><a class="header" href="#73-least-mean-squares-lms-estimation" id="73-least-mean-squares-lms-estimation">7.3 Least mean squares (LMS) estimation</a></h3>
 <h3><a class="header" href="#74-linear-least-mean-squares-llms-estimation" id="74-linear-least-mean-squares-llms-estimation">7.4 Linear least mean squares (LLMS) estimation</a></h3>
