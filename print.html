@@ -2188,21 +2188,141 @@ f_X(x) = \int\limits_{\theta'}f_{\Theta}(\theta')p_{x|\Theta}(x|\theta')d\theta'
 \int_0^1 \theta^\alpha(1-\theta)^\beta d\theta = \frac{\alpha!\beta!}{(\alpha + \beta + 1)!}<br />
 \]</p>
 <h3><a class="header" href="#72-linear-models-with-normal-noise" id="72-linear-models-with-normal-noise">7.2 Linear models with normal noise</a></h3>
+<h4><a class="header" href="#721-recognizing-normal-pdfs" id="721-recognizing-normal-pdfs">7.2.1 Recognizing normal PDFs</a></h4>
+<ul>
+<li>
+<p>Normal distribution: \(X \sim N(\mu, \sigma^2)\) </p>
+<p>\(f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/2\sigma^2}\)</p>
+</li>
+<li>
+<p>\(f_X(x) = c e^{-(\alpha x^2 + \beta x + \gamma)}\), \(\alpha &gt; 0\) Normal with mean \(-\beta/2\alpha\) and variance \(-1/2\alpha\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#722-estimating-a-normal-random-variable-in-the-presence-of-additive-normal-noise" id="722-estimating-a-normal-random-variable-in-the-presence-of-additive-normal-noise">7.2.2 Estimating a normal random variable in the presence of additive normal noise</a></h4>
+<p>\(X = \Theta + W\), \(\Theta, W,N :(0,1), independent\)</p>
+<ul>
+<li>
+<p>\( \hat{\theta} _{MAP} = \hat{\theta} _{LMS} = E[\Theta|X = x] = x/2\)</p>
+</li>
+<li>
+<p>even with general means and variances:</p>
+<ul>
+<li>
+<p>posterior is normal</p>
+</li>
+<li>
+<p>LMS and MAP estimators conincide</p>
+</li>
+<li>
+<p>these estimators are &quot;linear&quot; of the form \(\hat{\Theta} = aX + b\)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#723-the-case-of-multiple-observations" id="723-the-case-of-multiple-observations">7.2.3 The case of multiple observations</a></h4>
+<p>\(X_i = \Theta + W_1\), \(\Theta \sim N(x_0, \sigma_0^2)\), \(W_i \sim N(x_i, \sigma_i^2), \Theta, W_i\) indepedent</p>
+<ul>
+<li>
+<p>\(\hat{\theta} _{MAP} = \hat{\theta} _{LMS} = E[\Theta|X = x] = \frac{\sum\limits _{i=0}^n\frac{x_i}{\sigma_i^2}}{\sum\limits _{i=0}^n\frac{1}{\sigma_i^2}}\)</p>
+</li>
+<li>
+<p>Key conclusions</p>
+<ul>
+<li>
+<p>posterior is normal</p>
+</li>
+<li>
+<p>LMS and  MAP estimates coincide</p>
+</li>
+<li>
+<p>these estimates are &quot;linear&quot; of the form \(\hat{\theta} = a_0 + a_1x_1 + \dots + a_nx_n\)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Interpretations</p>
+<ul>
+<li>
+<p>estimate \(\hat{\theta}\): weighted average of \(x_0\) (prior mean) and \(x_i\) (observations)</p>
+</li>
+<li>
+<p>weights determined by variances</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#724-the-mean-square-error" id="724-the-mean-square-error">7.2.4 The mean square error</a></h4>
+<ul>
+<li>
+<p>Performance measures</p>
+<ul>
+<li>
+<p>\(E[(\Theta - \hat{\Theta})^2|X = x] = E[(\Theta - \hat{\theta})^2|X = x] = var(\Theta|X = x) = \frac{1}{\sum\limits _{i=0}^n \frac{1}{\sigma_i^2}}\)</p>
+</li>
+<li>
+<p>\(E[(\Theta - \hat{\Theta})^2] = \int E[(\Theta - \hat{\Theta})^2|X = x] f_X(x) dx = \frac{1}{\sum\limits _{i=0}^n \frac{1}{\sigma_i^2}}\)</p>
+</li>
+</ul>
+</li>
+</ul>
 <h3><a class="header" href="#73-least-mean-squares-lms-estimation" id="73-least-mean-squares-lms-estimation">7.3 Least mean squares (LMS) estimation</a></h3>
+<h4><a class="header" href="#731-in-the-absence-of-observations" id="731-in-the-absence-of-observations">7.3.1 In the absence of observations</a></h4>
+<ul>
+<li>
+<p>Least Mean Square formulation: minimize <strong>Mean Squared Error (MSE)</strong> \(E[(\Theta - \hat{\theta})^2]: \hat{\theta} = E[\Theta]\)</p>
+</li>
+<li>
+<p>\(E[(\Theta - E[\Theta])^2]:var(\Theta)\)</p>
+</li>
+</ul>
+<h4><a class="header" href="#732-lms-estimation-of-theta-based-on-x" id="732-lms-estimation-of-theta-based-on-x">7.3.2 LMS estimation of \(\Theta\) based on X</a></h4>
+<ul>
+<li>Minimize <strong>conditional mean square error</strong>: \(E[(\Theta - \hat{\theta})^2|X = x]: \hat{\theta} = E[\Theta|X = x]\)</li>
+</ul>
+<h4><a class="header" href="#733-lms-performance-evaluation" id="733-lms-performance-evaluation">7.3.3 LMS performance evaluation</a></h4>
+<ul>
+<li>
+<p>LMS estimate: \(\hat{\theta} = E[\Theta|X=x]\)</p>
+</li>
+<li>
+<p>Estimator: \(\hat{\Theta} = E[\Theta|X]\)</p>
+</li>
+<li>
+<p>Expected performance, once we have a measurement: </p>
+<p>\(MSE = E[(\Theta - E[\Theta|X=x])^2|X=x] = var(\Theta|X=x)\)</p>
+</li>
+<li>
+<p>Expected perfornamce of the design:</p>
+<p>\(MSE = E[(\Theta - E[\Theta|X])^2] = E[var(\Theta|X)] = \int var(\Theta|X=x) \cdot f_X(x) dx\) <em>Average of conditional variance</em></p>
+</li>
+</ul>
+<h4><a class="header" href="#734-properties-of-the-estimation-error-in-lms-estimation" id="734-properties-of-the-estimation-error-in-lms-estimation">7.3.4 Properties of the estimation error in LMS estimation</a></h4>
+<p>Given Estimator: \(\hat{\Theta} = E[\Theta|X]\) and Error: \(\tilde{\Theta} = \hat{\Theta} - \Theta\)</p>
+<ul>
+<li>
+<p>\(E[\tilde{\Theta|X=x}] = 0\)</p>
+</li>
+<li>
+<p>\(cov(\tilde{\Theta},\hat{\Theta}) = 0\)</p>
+</li>
+<li>
+<p>\(var(\Theta) = var(\hat{\Theta}) + var({\tilde{\Theta}})\)</p>
+</li>
+</ul>
 <h3><a class="header" href="#74-linear-least-mean-squares-llms-estimation" id="74-linear-least-mean-squares-llms-estimation">7.4 Linear least mean squares (LLMS) estimation</a></h3>
 <h4><a class="header" href="#741-llms-formulation" id="741-llms-formulation">7.4.1 LLMS formulation</a></h4>
 <p>\(\hat{\Theta} = aX + b\), minimize \(E[(\hat{\Theta} - \Theta)^2]\)</p>
 <h4><a class="header" href="#742-llms-solution" id="742-llms-solution">7.4.2 LLMS solution</a></h4>
 <p>Minimize \(E[(\hat{\Theta} - \Theta)^2]\), that is \(E[(\Theta - aX - b)^2]\)</p>
 <p>\[
-\hat{\Theta_L} = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])<br />
+\hat{\Theta_L}  = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])<br />
 \]</p>
 <p>\(\rho\) corelation coefficiency</p>
 <ul>
 <li>Only means, variances, covariances matter (we do not need to know everything)</li>
 </ul>
 <p>\[
-E[(\hat{\Theta_L} - \Theta)^2] = (1 - \rho^2)var(\Theta)
+E[(\hat{\Theta} _L - \Theta)^2] = (1 - \rho^2)var(\Theta)
 \]</p>
 <ul>
 <li>LLMS with multiple observations</li>
