@@ -1090,6 +1090,145 @@ Based on the Law of total variance: \\(var(Y) = E[var(Y|N)] + var(E[Y|N])\\):
 
 ### 7.1 Introduction to Bayesian inference
 
+#### 7.1.1 Basic concepts
+
+1. Model building versus inferring unobserved variables
+
+    \\[X = aS + W\\]
+
+    S: signal; W: noise; a: medium (image a black box where S goes through and output X with W as noise)
+
+    - Model building: known signal S, observe X -> infer a
+
+    - Variable estimation: known a, observe X -> infer S
+
+2. Hypothesis testing vs. estimation
+
+    - Hypothesis testing
+
+        * unknown takes one of few possible values
+
+        * aim at small probability of incorrect decision
+
+    - Estimation
+
+        * numerical unknown(s)
+
+        * aim at an estimate that is "close" to the true but unknown value
+
+#### 7.1.2 The Bayescian inference framework
+
+* Unknown \\(\Theta\\) - treated as a random variable **prior distribution: \\(p_{\Theta}\\) or \\(f_{\Theta}\\)**
+
+* Observation \\(X\\) - observation model \\(p_{X|\Theta}\\) or \\(f_{X|\Theta}\\)
+
+* Use appropriate version of the Bayes rule to find \\(p_{X|\Theta}(\cdot | X = x)\\) or \\(f_{X|\Theta} (\cdot| X = x)\\)
+
+![image](https://user-images.githubusercontent.com/41487483/124636223-9617e900-de88-11eb-90fa-6c5b17f9f000.png)
+
+* The output of Bayesian inference - **posterior distribution**
+
+    - **Maximum a posterior probability (MAP)**:
+
+        \\(p_{\Theta|X}(\theta^*|x) = \max\limits_{\theta} p_{\Theta|X}(\theta|x)\\)
+
+        \\(f_{\Theta|X}(\theta^*|x) = \max\limits_{\theta} f_{\Theta|X}(\theta|x)\\)
+    
+    - **Conditional expectation: \\(E[\Theta|X = x]\\)** **Least Mean Square (LMS)**
+
+    - estimate: \\(\hat{\theta} = g(x)\\) (number)
+
+    - estimator: \\(\hat{\Theta} = g(X)\\) (random variable)
+
+#### 7.1.3 Four cases
+
+1. **Discrete \\(\Theta\\), discrete X**
+
+    * values of \\(\Theta\\): alternative hypotheses
+
+    \\[
+        p_{\Theta|X}(\theta|x) = \frac{p_{\Theta}(\theta)p_{X|\Theta}(x|\theta)}{p_X(x)}    
+    \\]
+
+    \\[
+        p_X(x) = \sum\limits_{\theta'}p_{\Theta}(\theta')p_{X|\Theta}(x|\theta')
+    \\]
+
+    * conditional prob of error: **Smallest under the MAP rule**
+    
+        \\[
+            P(\hat{\theta} \neq \Theta|X = x)
+        \\] 
+
+    * overal probability of error: 
+    
+        \\[
+            P(\hat{\Theta} \neq \Theta) = \sum\limits_{x} P(\hat{\Theta} \neq \Theta|X = x)p_X(x) = \sum\limits_{\theta}P(\hat{\Theta} \neq \Theta|\Theta = \theta)p_{\Theta}(\theta)
+        \\] 
+
+
+2. **Discrete \\(\Theta\\), Continuous X**
+
+    \\[
+        p_{\Theta|X}(\theta|x) = \frac{p_{\Theta}(\theta)f_{X|\Theta}(x|\theta)}{f_X(x)}    
+    \\]
+
+    \\[
+        f_X(x) = \sum\limits_{\theta'}p_{\Theta}(\theta')f_{x|\Theta}(x|\theta')
+    \\]
+
+    - the same equation for conditional prob. of error
+
+    - overall probability of error
+
+        \\[
+            P(\hat{\Theta} \neq \Theta) = \int\limits_{x} P(\hat{\Theta} \neq \Theta|X = x)f_X(x)dx = \sum\limits_{\theta}P(\hat{\Theta} \neq \Theta|\Theta = \theta)p_{\Theta}(\theta)
+        \\] 
+
+3. **Continuous \\(\Theta\\), Discrete X**
+
+    \\[
+        f_{\Theta|X}(\theta|x) = \frac{p_{\Theta}(\theta)p_{X|\Theta}(x|\theta)}{p_X(x)}    
+    \\]
+
+    \\[
+        p_X(x) = \int\limits_{\theta'}f_{\Theta}(\theta')p_{x|\Theta}(x|\theta')d\theta'
+    \\]
+
+    - Inferring the unknown bias of a coin and **the Beta distribution**
+
+
+4. **Continuous \\(\Theta\\), Continuous X**
+
+    \\[
+        f_{\Theta|X}(\theta|x) = \frac{f_{\Theta}(\theta)p_{X|\Theta}(x|\theta)}{p_X(x)}    
+    \\]
+
+    \\[
+        f_X(x) = \int\limits_{\theta'}f_{\Theta}(\theta')p_{x|\Theta}(x|\theta')d\theta'
+    \\]
+
+    - Linear normal models: estimation of a noisy singal
+
+    - Estimating the parameter of a uniform 
+
+        \\(X\\): uniform \\([0, \Theta]\\)
+
+        \\(\Theta\\): uniform \\([0, 1]\\)
+
+    - Performance evaluation of an estimator \\(\hat{\Theta}\\)
+
+        \\(E[(\hat{\Theta} - \Theta)^2|X = x]\\)
+
+        \\(E[(\hat{\Theta} - \Theta)^2]\\)
+
+
+Useful equation: 
+
+\\[
+    \int_0^1 \theta^\alpha(1-\theta)^\beta d\theta = \frac{\alpha!\beta!}{(\alpha + \beta + 1)!}    
+\\]
+
 ### 7.2 Linear models with normal noise
 
 ### 7.3 Least mean squares (LMS) estimation
