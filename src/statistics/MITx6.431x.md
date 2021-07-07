@@ -1300,13 +1300,19 @@ Useful equation:
 
 * Estimator: \\(\hat{\Theta} = E[\Theta|X]\\)
 
-* Expected performance, once we have a measurement: 
+* Expected performance, once we have a measurement - **Conditional mean square error**
 
     \\(MSE = E[(\Theta - E[\Theta|X=x])^2|X=x] = var(\Theta|X=x)\\)
 
 * Expected perfornamce of the design:
 
     \\(MSE = E[(\Theta - E[\Theta|X])^2] = E[var(\Theta|X)] = \int var(\Theta|X=x) \cdot f_X(x) dx\\) *Average of conditional variance*
+
+* A good example
+
+    ![image](https://user-images.githubusercontent.com/41487483/124714295-e1baa900-df01-11eb-8618-b411d877495e.png)
+
+    ![image](https://user-images.githubusercontent.com/41487483/124714412-04e55880-df02-11eb-915d-996236e5958e.png)
 
 #### 7.3.4 Properties of the estimation error in LMS estimation
 
@@ -1321,25 +1327,46 @@ Given Estimator: \\(\hat{\Theta} = E[\Theta|X]\\) and Error: \\(\tilde{\Theta} =
 
 ### 7.4 Linear least mean squares (LLMS) estimation
 
+*Motivation: Conditional expectation \\(E[\Theta|X]\\) maybe hard to compute/implement*
+
 #### 7.4.1 LLMS formulation
 
-\\(\hat{\Theta} = aX + b\\), minimize \\(E[(\hat{\Theta} - \Theta)^2]\\)
-
+Consider estimators of \\(\Theta\\) of the form \\(\hat{\Theta} = aX + b\\), minimize \\(E[(\hat{\Theta} - \Theta)^2] \implies E[(\hat{\Theta} - aX - b)^2] \\) 
 
 #### 7.4.2 LLMS solution
+
+![image](https://user-images.githubusercontent.com/41487483/124715231-0cf1c800-df03-11eb-9cf0-ec04d3cf70d4.png)
 
 Minimize \\(E[(\hat{\Theta} - \Theta)^2]\\), that is \\(E[(\Theta - aX - b)^2]\\)
 
 \\[
-    \hat{\Theta_L}  = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])   
+    \hat{\Theta}_L  = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma _\Theta}{\sigma_X}(X - E[X])   
 \\]
 
 \\(\rho\\) corelation coefficiency
 
+**Remarks on the solution and on the error variance**
+
 - Only means, variances, covariances matter (we do not need to know everything)
 
-\\[
-    E[(\hat{\Theta} _L - \Theta)^2] = (1 - \rho^2)var(\Theta)
-\\]
+    \\(E[(\hat{\Theta}_L - \Theta)^2] = (1 - \rho^2)var(\Theta)\\)
 
-- LLMS with multiple observations
+#### 7.4.3 LLMS with multiple observations
+
+- Consider the form \\(\hat{\Theta} = a_1X_1 + \dots + a_nX_n + b\\)
+
+- Minimize \\(E[(a_1X_1 + \dots + a_nX_n + b - \Theta)^2]\\)
+
+- Solve linear system in \\(b\\) and \\(a_i\\)
+
+- if \\(E[\Theta|X]\\) is linear in X, then \\(\hat{\Theta} _{LMS} = \hat{\Theta} _{LLMS}\\)
+
+- suppose general distributions with same mean, variances
+
+    - \\(\hat{\theta} _{MAP} = \hat{\theta} _{LMS} = E[\Theta|X = x] = \frac{\sum\limits _{i=0}^n\frac{x_i}{\sigma_i^2}}{\sum\limits _{i=0}^n\frac{1}{\sigma_i^2}}\\)
+
+    - \\(\hat{\Theta} _{LMS} = E[\Theta|X] = \frac{\frac{x_0}{\sigma _0^2} + \sum\limits _{i=i}^n\frac{X_i}{\sigma_i^2}}{\sum\limits _{i=0}^n\frac{1}{\sigma_i^2}} = \hat{\Theta} _{LLMS}\\)
+
+### 7.5 Bayesian inference summary
+
+![image](https://user-images.githubusercontent.com/41487483/124724545-5eeb1b80-df0c-11eb-964b-82371cd4799c.png)
