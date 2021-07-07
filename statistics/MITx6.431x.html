@@ -1541,12 +1541,17 @@ f_X(x) = \int\limits_{\theta'}f_{\Theta}(\theta')p_{x|\Theta}(x|\theta')d\theta'
 <p>Estimator: \(\hat{\Theta} = E[\Theta|X]\)</p>
 </li>
 <li>
-<p>Expected performance, once we have a measurement: </p>
+<p>Expected performance, once we have a measurement - <strong>Conditional mean square error</strong></p>
 <p>\(MSE = E[(\Theta - E[\Theta|X=x])^2|X=x] = var(\Theta|X=x)\)</p>
 </li>
 <li>
 <p>Expected perfornamce of the design:</p>
 <p>\(MSE = E[(\Theta - E[\Theta|X])^2] = E[var(\Theta|X)] = \int var(\Theta|X=x) \cdot f_X(x) dx\) <em>Average of conditional variance</em></p>
+</li>
+<li>
+<p>A good example</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/124714295-e1baa900-df01-11eb-8618-b411d877495e.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/124714412-04e55880-df02-11eb-915d-996236e5958e.png" alt="image" /></p>
 </li>
 </ul>
 <h4><a class="header" href="#734-properties-of-the-estimation-error-in-lms-estimation" id="734-properties-of-the-estimation-error-in-lms-estimation">7.3.4 Properties of the estimation error in LMS estimation</a></h4>
@@ -1563,23 +1568,51 @@ f_X(x) = \int\limits_{\theta'}f_{\Theta}(\theta')p_{x|\Theta}(x|\theta')d\theta'
 </li>
 </ul>
 <h3><a class="header" href="#74-linear-least-mean-squares-llms-estimation" id="74-linear-least-mean-squares-llms-estimation">7.4 Linear least mean squares (LLMS) estimation</a></h3>
+<p><em>Motivation: Conditional expectation \(E[\Theta|X]\) maybe hard to compute/implement</em></p>
 <h4><a class="header" href="#741-llms-formulation" id="741-llms-formulation">7.4.1 LLMS formulation</a></h4>
-<p>\(\hat{\Theta} = aX + b\), minimize \(E[(\hat{\Theta} - \Theta)^2]\)</p>
+<p>Consider estimators of \(\Theta\) of the form \(\hat{\Theta} = aX + b\), minimize \(E[(\hat{\Theta} - \Theta)^2] \implies E[(\hat{\Theta} - aX - b)^2] \) </p>
 <h4><a class="header" href="#742-llms-solution" id="742-llms-solution">7.4.2 LLMS solution</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/124715231-0cf1c800-df03-11eb-9cf0-ec04d3cf70d4.png" alt="image" /></p>
 <p>Minimize \(E[(\hat{\Theta} - \Theta)^2]\), that is \(E[(\Theta - aX - b)^2]\)</p>
 <p>\[
-\hat{\Theta_L}  = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma_\Theta}{\sigma_X}(X - E[X])<br />
+\hat{\Theta}_L  = E[\Theta] + \frac{Cov(\Theta,X)}{var(X)}(X - E[X]) = E[\Theta] + \rho \frac{\sigma _\Theta}{\sigma_X}(X - E[X])<br />
 \]</p>
 <p>\(\rho\) corelation coefficiency</p>
+<p><strong>Remarks on the solution and on the error variance</strong></p>
 <ul>
-<li>Only means, variances, covariances matter (we do not need to know everything)</li>
+<li>
+<p>Only means, variances, covariances matter (we do not need to know everything)</p>
+<p>\(E[(\hat{\Theta}_L - \Theta)^2] = (1 - \rho^2)var(\Theta)\)</p>
+</li>
 </ul>
-<p>\[
-E[(\hat{\Theta} _L - \Theta)^2] = (1 - \rho^2)var(\Theta)
-\]</p>
+<h4><a class="header" href="#743-llms-with-multiple-observations" id="743-llms-with-multiple-observations">7.4.3 LLMS with multiple observations</a></h4>
 <ul>
-<li>LLMS with multiple observations</li>
+<li>
+<p>Consider the form \(\hat{\Theta} = a_1X_1 + \dots + a_nX_n + b\)</p>
+</li>
+<li>
+<p>Minimize \(E[(a_1X_1 + \dots + a_nX_n + b - \Theta)^2]\)</p>
+</li>
+<li>
+<p>Solve linear system in \(b\) and \(a_i\)</p>
+</li>
+<li>
+<p>if \(E[\Theta|X]\) is linear in X, then \(\hat{\Theta} _{LMS} = \hat{\Theta} _{LLMS}\)</p>
+</li>
+<li>
+<p>suppose general distributions with same mean, variances</p>
+<ul>
+<li>
+<p>\(\hat{\theta} _{MAP} = \hat{\theta} _{LMS} = E[\Theta|X = x] = \frac{\sum\limits _{i=0}^n\frac{x_i}{\sigma_i^2}}{\sum\limits _{i=0}^n\frac{1}{\sigma_i^2}}\)</p>
+</li>
+<li>
+<p>\(\hat{\Theta} _{LMS} = E[\Theta|X] = \frac{\frac{x_0}{\sigma _0^2} + \sum\limits _{i=i}^n\frac{X_i}{\sigma_i^2}}{\sum\limits _{i=0}^n\frac{1}{\sigma_i^2}} = \hat{\Theta} _{LLMS}\)</p>
+</li>
 </ul>
+</li>
+</ul>
+<h3><a class="header" href="#75-bayesian-inference-summary" id="75-bayesian-inference-summary">7.5 Bayesian inference summary</a></h3>
+<p><img src="https://user-images.githubusercontent.com/41487483/124724545-5eeb1b80-df0c-11eb-964b-82371cd4799c.png" alt="image" /></p>
 
                     </main>
 
