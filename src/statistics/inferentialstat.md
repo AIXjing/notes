@@ -7,40 +7,44 @@
 
 ### 1.1 Sampling Variability and CLT
 
+#### 1.1.1 Sample distribution and sampling distribution
 
-Sample distribution
+- Sample distribution: sample mean and sample variability (standard deviation)
 
-Sampling distribution
+- Sampling distribution
 
-population mean (\\(\mu \\)) and population standard deviation (\\(\sigma \\))
+    population mean (\\(\mu \\)) and population standard deviation (\\(\sigma\\))
 
-\\[
-    \mu = \frac{x_1 + x_2 + ... + x_N}{N}
- \\]
+    \\[
+        \mu = \frac{x_1 + x_2 + ... + x_N}{N}
+    \\]
 
- \\[
-    \sigma = \sqrt{\frac{\sum\limits_{i=1}^{N}(x_i - \bar{x})^2}{N}}
- \\]
+    \\[
+        \sigma = \sqrt{\frac{\sum\limits_{i=1}^{N}(x_i - \bar{x})^2}{N}}
+    \\]
 
- For sampling distribution, 
+    *Most of time, population standard deviation \\(\sigma\\) is not known. Thus, \\(\sigma\\) is usually replaced by sampling standard deviation s*
 
- * **mean**(\\(\bar{x}) \approx \mu \\) 
+    * **mean**(\\(\bar{x}) \approx \mu \\) 
 
- * **standard error:**  SD(\\(\bar{x}) \\)) < \\(\sigma \\)
+    * **standard error:**  (\\SE = \frac{\sigma}{\sqrt{n}}\\) < \\(\sigma\\)
 
  [The link to check up the shape of population distribution](https://gallery.shinyapps.io/CLT_mean/)
 
+#### 1.1.2 Central Limit Theorem (CLT)
 
-**Central Limit Theorem (CLT):** The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard deviation equal to the population standard deviation divided by square root of the sample size.
+**The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard error equal to the population standard deviation divided by square root of the sample size.**
 
 \\[
     \bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}) 
 \\]
 
-N refers to the shape of distribution, meaning normal distribution.
+*\\(N\\) refers to the shape of distribution, meaning normal distribution.*
 
-\\(\sigma\\) is usually unknown, so s is used to replace \\(\sigma\\)
+*\\(\sigma\\) is usually unknown, so s is used to replace \\(s\\) - sampling standard deviation*
 
+
+#### 1.1.3 Other important concepts and rules
 
 * **standard deviation (\\(\sigma\\)) vs. standard error (SE)**
 
@@ -53,11 +57,13 @@ N refers to the shape of distribution, meaning normal distribution.
 
 * To reduce skewness, either increase sample size (observations) or number of samples
 
-* **Sampling distribution will be nearly normal only (the condition of CLT)if**
+* **Sampling distribution will be nearly normal only if (the condition of CLT)**
 
-    - the sample size is sufficiently large (n ≥ 30 or larger if the data are considerably skewed) or the population is known to have a normal distribution
+    - the sample size is sufficiently large (n ≥ 30 or even larger if the data are considerably skewed) or the population is known to have a normal distribution
 
     - the observations in the sample are independent: random sample/assignment and n < 10% of population if sampling without replacement
+
+</br>
 
 ### 1.2 Confidential Intervals
 
