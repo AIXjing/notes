@@ -2,6 +2,7 @@
 
 [Here is the course link!](https://www.coursera.org/learn/inferential-statistics-intro/home/welcome)
 
+[Summary of leaning objectives for each section](https://www.notion.so/Inferential-Statistics-5dd1ac55e304409898a5877aadff7ecc)
 
 ## 1 CLT and Sampling
 
@@ -27,7 +28,7 @@
 
     * **mean**(\\(\bar{x}) \approx \mu \\) 
 
-    * **standard error:**  (\\SE = \frac{\sigma}{\sqrt{n}}\\) < \\(\sigma\\)
+    * **standard error:**  \\(SE = \frac{\sigma}{\sqrt{n}}\\) < \\(\sigma\\)
 
  [The link to check up the shape of population distribution](https://gallery.shinyapps.io/CLT_mean/)
 
@@ -114,9 +115,6 @@
     - 95% fall within 2 SE of the mean
 
     - 99% fall within 3 SE of the mean
-
-
-
 
 
 #### 1.2.3 Accuracy vs. Precision
@@ -252,13 +250,15 @@ plt.hist(samp_mean, 20, range=[5000,15000])
 plt.show()
 ```
 
-## 2 Another introduction to Inderence
+</br>
+
+## 2 Hypothesis testing and significance
 
 ### 2.1 Hypothesis testing (for a mean)
 
-- null hypothesis - \\(H_0\\) 
+- Null hypothesis - \\(H_0\\) 
 
-- alternative hypothesis - \\(H_A\\)
+- Alternative hypothesis - \\(H_A\\)
 
 ![image](https://user-images.githubusercontent.com/41487483/119312937-3e744400-bc73-11eb-9396-704d391112eb.png)
 
@@ -266,9 +266,9 @@ plt.show()
 
 * **p-value** - P(observed or more extreme outcome | \\(H_0\\) true)
 
-    In above case, \\(P(\bar{x} > 3.2 | H_0 : \mu = 3) \\)
-
-    \\(n = 50, \bar{x} = 3.2, s = 1.74, SE = 0.246\\)
+    Given \\(n = 50, \bar{x} = 3.2, s = 1.74, SE = 0.246\\) 
+    
+    We are looking for \\(P(\bar{x} > 3.2 | H_0 : \mu = 3) \\)
 
     Since we believe that null hypothesis is true, \\(\bar{x} \sim N(\mu = 3, SE = 0.246)\\) based on the CLT.
 
@@ -278,9 +278,9 @@ plt.show()
 
 **Decision based on the p-value**
 
-    - p-value < the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \\(H_0\\)
+- p-value < the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \\(H_0\\)
 
-    - p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true. - Do no reject \\(H_0\\)
+- p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true. - Do no reject \\(H_0\\)
 
 
 **two-sided(tailed) tests**
