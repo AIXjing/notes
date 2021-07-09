@@ -168,6 +168,7 @@
                     <main>
                         <h1><a class="header" href="#inferential-statistics" id="inferential-statistics">Inferential Statistics</a></h1>
 <p><a href="https://www.coursera.org/learn/inferential-statistics-intro/home/welcome">Here is the course link!</a></p>
+<p><a href="https://www.notion.so/Inferential-Statistics-5dd1ac55e304409898a5877aadff7ecc">Summary of leaning objectives for each section</a></p>
 <h2><a class="header" href="#1-clt-and-sampling" id="1-clt-and-sampling">1 CLT and Sampling</a></h2>
 <h3><a class="header" href="#11-sampling-variability-and-clt" id="11-sampling-variability-and-clt">1.1 Sampling Variability and CLT</a></h3>
 <h4><a class="header" href="#111-sample-distribution-and-sampling-distribution" id="111-sample-distribution-and-sampling-distribution">1.1.1 Sample distribution and sampling distribution</a></h4>
@@ -190,7 +191,7 @@
 <p><strong>mean</strong>(\(\bar{x}) \approx \mu \) </p>
 </li>
 <li>
-<p><strong>standard error:</strong>  (\SE = \frac{\sigma}{\sqrt{n}}\) &lt; \(\sigma\)</p>
+<p><strong>standard error:</strong>  \(SE = \frac{\sigma}{\sqrt{n}}\) &lt; \(\sigma\)</p>
 </li>
 </ul>
 </li>
@@ -399,14 +400,15 @@ print(x_bar_samp_se)
 plt.hist(samp_mean, 20, range=[5000,15000])
 plt.show()
 </code></pre>
-<h2><a class="header" href="#2-another-introduction-to-inderence" id="2-another-introduction-to-inderence">2 Another introduction to Inderence</a></h2>
+</br>
+<h2><a class="header" href="#2-hypothesis-testing-and-significance" id="2-hypothesis-testing-and-significance">2 Hypothesis testing and significance</a></h2>
 <h3><a class="header" href="#21-hypothesis-testing-for-a-mean" id="21-hypothesis-testing-for-a-mean">2.1 Hypothesis testing (for a mean)</a></h3>
 <ul>
 <li>
-<p>null hypothesis - \(H_0\) </p>
+<p>Null hypothesis - \(H_0\) </p>
 </li>
 <li>
-<p>alternative hypothesis - \(H_A\)</p>
+<p>Alternative hypothesis - \(H_A\)</p>
 </li>
 </ul>
 <p><img src="https://user-images.githubusercontent.com/41487483/119312937-3e744400-bc73-11eb-9396-704d391112eb.png" alt="image" /></p>
@@ -414,18 +416,22 @@ plt.show()
 <ul>
 <li>
 <p><strong>p-value</strong> - P(observed or more extreme outcome | \(H_0\) true)</p>
-<p>In above case, \(P(\bar{x} &gt; 3.2 | H_0 : \mu = 3) \)</p>
-<p>\(n = 50, \bar{x} = 3.2, s = 1.74, SE = 0.246\)</p>
+<p>Given \(n = 50, \bar{x} = 3.2, s = 1.74, SE = 0.246\) </p>
+<p>We are looking for \(P(\bar{x} &gt; 3.2 | H_0 : \mu = 3) \)</p>
 <p>Since we believe that null hypothesis is true, \(\bar{x} \sim N(\mu = 3, SE = 0.246)\) based on the CLT.</p>
 <p><em>test statistics</em>: z-score = (3.2-3)/0.246 = 0.81, which is used to calculate the p-value (the probability of observing data at least favorable to the alternative hypothesis as our current data set, if the null hypothesis was true)</p>
 <p>p-value = P(z &gt; 0.81) = 0.209</p>
 </li>
 </ul>
 <p><strong>Decision based on the p-value</strong></p>
-<pre><code>- p-value &lt; the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \\(H_0\\)
-
-- p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true. - Do no reject \\(H_0\\)
-</code></pre>
+<ul>
+<li>
+<p>p-value &lt; the <strong>significant level</strong>, \(\alpha\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \(H_0\)</p>
+</li>
+<li>
+<p>p-value ≥ \(\alpha\): it is likely to occur even if the null hypothesis were true. - Do no reject \(H_0\)</p>
+</li>
+</ul>
 <p><strong>two-sided(tailed) tests</strong></p>
 <p>In the same case, \(P(\bar{x} &gt; 3.2 \text{  or  } \bar{x} &gt; 2.8| H_0 : \mu = 3) \)</p>
 <p>p-value = P(z &gt; 0.81) + P(z &lt; -0.81) = 0.418 - fail to reject \(H_0\).</p>
