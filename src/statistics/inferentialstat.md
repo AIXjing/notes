@@ -2,45 +2,50 @@
 
 [Here is the course link!](https://www.coursera.org/learn/inferential-statistics-intro/home/welcome)
 
+[Summary of leaning objectives for each section](https://www.notion.so/Inferential-Statistics-5dd1ac55e304409898a5877aadff7ecc)
 
 ## 1 CLT and Sampling
 
 ### 1.1 Sampling Variability and CLT
 
+#### 1.1.1 Sample distribution and sampling distribution
 
-Sample distribution
+- Sample distribution: sample mean and sample variability (standard deviation)
 
-Sampling distribution
+- Sampling distribution
 
-population mean (\\(\mu \\)) and population standard deviation (\\(\sigma \\))
+    population mean (\\(\mu \\)) and population standard deviation (\\(\sigma\\))
 
-\\[
-    \mu = \frac{x_1 + x_2 + ... + x_N}{N}
- \\]
+    \\[
+        \mu = \frac{x_1 + x_2 + ... + x_N}{N}
+    \\]
 
- \\[
-    \sigma = \sqrt{\frac{\sum\limits_{i=1}^{N}(x_i - \bar{x})^2}{N}}
- \\]
+    \\[
+        \sigma = \sqrt{\frac{\sum\limits_{i=1}^{N}(x_i - \bar{x})^2}{N}}
+    \\]
 
- For sampling distribution, 
+    *Most of time, population standard deviation \\(\sigma\\) is not known. Thus, \\(\sigma\\) is usually replaced by sampling standard deviation s*
 
- * **mean**(\\(\bar{x}) \approx \mu \\) 
+    * **mean**(\\(\bar{x}) \approx \mu \\) 
 
- * **standard error:**  SD(\\(\bar{x}) \\)) < \\(\sigma \\)
+    * **standard error:**  \\(SE = \frac{\sigma}{\sqrt{n}}\\) < \\(\sigma\\)
 
  [The link to check up the shape of population distribution](https://gallery.shinyapps.io/CLT_mean/)
 
+#### 1.1.2 Central Limit Theorem (CLT)
 
-**Central Limit Theorem (CLT):** The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard deviation equal to the population standard deviation divided by square root of the sample size.
+**The distribution of sample statistics is nearly normal, centered at the population mean, and with a standard error equal to the population standard deviation divided by square root of the sample size.**
 
 \\[
     \bar{x} \sim N(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}) 
 \\]
 
-N refers to the shape of distribution, meaning normal distribution.
+*\\(N\\) refers to the shape of distribution, meaning normal distribution.*
 
-\\(\sigma\\) is usually unknown, so s is used to replace \\(\sigma\\)
+*\\(\sigma\\) is usually unknown, so s is used to replace \\(s\\) - sampling standard deviation*
 
+
+#### 1.1.3 Other important concepts and rules
 
 * **standard deviation (\\(\sigma\\)) vs. standard error (SE)**
 
@@ -53,11 +58,13 @@ N refers to the shape of distribution, meaning normal distribution.
 
 * To reduce skewness, either increase sample size (observations) or number of samples
 
-* **Sampling distribution will be nearly normal only (the condition of CLT)if**
+* **Sampling distribution will be nearly normal only if (the condition of CLT)**
 
-    - the sample size is sufficiently large (n ≥ 30 or larger if the data are considerably skewed) or the population is known to have a normal distribution
+    - the sample size is sufficiently large (n ≥ 30 or even larger if the data are considerably skewed) or the population is known to have a normal distribution
 
     - the observations in the sample are independent: random sample/assignment and n < 10% of population if sampling without replacement
+
+</br>
 
 ### 1.2 Confidential Intervals
 
@@ -108,9 +115,6 @@ N refers to the shape of distribution, meaning normal distribution.
     - 95% fall within 2 SE of the mean
 
     - 99% fall within 3 SE of the mean
-
-
-
 
 
 #### 1.2.3 Accuracy vs. Precision
@@ -246,13 +250,15 @@ plt.hist(samp_mean, 20, range=[5000,15000])
 plt.show()
 ```
 
-## 2 Another introduction to Inderence
+</br>
+
+## 2 Hypothesis testing and significance
 
 ### 2.1 Hypothesis testing (for a mean)
 
-- null hypothesis - \\(H_0\\) 
+- Null hypothesis - \\(H_0\\) 
 
-- alternative hypothesis - \\(H_A\\)
+- Alternative hypothesis - \\(H_A\\)
 
 ![image](https://user-images.githubusercontent.com/41487483/119312937-3e744400-bc73-11eb-9396-704d391112eb.png)
 
@@ -260,9 +266,9 @@ plt.show()
 
 * **p-value** - P(observed or more extreme outcome | \\(H_0\\) true)
 
-    In above case, \\(P(\bar{x} > 3.2 | H_0 : \mu = 3) \\)
-
-    \\(n = 50, \bar{x} = 3.2, s = 1.74, SE = 0.246\\)
+    Given \\(n = 50, \bar{x} = 3.2, s = 1.74, SE = 0.246\\) 
+    
+    We are looking for \\(P(\bar{x} > 3.2 | H_0 : \mu = 3) \\)
 
     Since we believe that null hypothesis is true, \\(\bar{x} \sim N(\mu = 3, SE = 0.246)\\) based on the CLT.
 
@@ -272,9 +278,9 @@ plt.show()
 
 **Decision based on the p-value**
 
-    - p-value < the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \\(H_0\\)
+- p-value < the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \\(H_0\\)
 
-    - p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true. - Do no reject \\(H_0\\)
+- p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true. - Do no reject \\(H_0\\)
 
 
 **two-sided(tailed) tests**
