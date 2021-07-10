@@ -2642,7 +2642,89 @@ plt.show()
 <p>In the same case, \(P(\bar{x} &gt; 3.2 \text{  or  } \bar{x} &gt; 2.8| H_0 : \mu = 3) \)</p>
 <p>p-value = P(z &gt; 0.81) + P(z &lt; -0.81) = 0.418 - fail to reject \(H_0\).</p>
 <p><img src="https://user-images.githubusercontent.com/41487483/119316226-ff47f200-bc76-11eb-944a-1c63ee237ebd.png" alt="image" /></p>
-<p>others</p>
+<h3><a class="header" href="#22-significance" id="22-significance">2.2 Significance</a></h3>
+<h4><a class="header" href="#221-inference-for-other-estimators" id="221-inference-for-other-estimators">2.2.1 Inference for other estimators</a></h4>
+<ul>
+<li>
+<p>point estimates: </p>
+<p><em>\(\hat{\theta}\): \(\hat{\theta}_{LMS}\) or (\(\hat{\theta} _{MAP}\)) the concept might be different from MIT statistics course</em></p>
+<ol>
+<li>
+<p>sample mean</p>
+</li>
+<li>
+<p>difference between sample means</p>
+</li>
+<li>
+<p>sample proportion \(\hat{p}\)</p>
+</li>
+<li>
+<p>difference between two proportions</p>
+</li>
+</ol>
+</li>
+<li>
+<p>two requirements:</p>
+<ul>
+<li>
+<p>nearly normal sampling distribution</p>
+</li>
+<li>
+<p>unbiased estimator assumption: <strong>point estimates</strong> are unbiased, i.e., the sampling distribution of the estimate is centered at the true population parameter it estimates.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#22-decision-errors" id="22-decision-errors">2.2 Decision errors</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/125154284-93074c00-e159-11eb-940d-bbec5059b97d.png" alt="image" /></p>
+<p><strong>Decrease significance level (\(\alpha\)) decrease Type I error rate</strong></p>
+<p>\(P(\text{Type I error}|H_0 \text{ true}) = \alpha\)</p>
+<ul>
+<li>
+<p><strong>Choosing \(\alpha\)</strong></p>
+<ul>
+<li>
+<p>if Type I error is dangerous or costly, choose a small significance level (e.g. 0.01)</p>
+</li>
+<li>
+<p>if Type II error is dangerous or costly, choose a high significance level (e.g. 0.10)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/125154728-c054f980-e15b-11eb-962c-f200d24dedd0.png" alt="image" /></p>
+<p>\(\beta\) depends on the <strong>effect size \(\delta\)</strong> - difference between point estimate and null value.</p>
+<h4><a class="header" href="#223-significance-level-vs-confidence-level" id="223-significance-level-vs-confidence-level">2.2.3 Significance level vs. confidence level</a></h4>
+<ul>
+<li>
+<p>complement each other depending on one-sided or two -sided tests</p>
+<ul>
+<li>
+<p>two-sided tests: Significance level = confidence level </p>
+<p>CL = 1 - alpha</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/125154861-791b3880-e15c-11eb-98d8-55756cf27eaa.png" alt="image" /></p>
+<ul>
+<li>
+<p>one-sided tests: Significance level ≠ confidence level</p>
+<p>CL = 1 - 2 x alpha</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/125154873-8cc69f00-e15c-11eb-9701-9d1498add575.png" alt="image" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#224-statistical-vs-practical-significance" id="224-statistical-vs-practical-significance">2.2.4 Statistical vs. practical significance</a></h4>
+<ul>
+<li>
+<p>practical significance </p>
+<p>Real difference between point estimator and null value are easier to detect with larger samples (effect size)</p>
+</li>
+<li>
+<p>statistical significance </p>
+<p>very large samples will result in statistical significance even for tiny differences between sample mean and the null value (effect size), even when the difference is not practically significant. </p>
+</li>
+</ul>
 <h1><a class="header" href="#statistics-with-python" id="statistics-with-python">Statistics with Python</a></h1>
 <h2><a class="header" href="#1-introduction-to-probability-and-statistics" id="1-introduction-to-probability-and-statistics">1 Introduction to Probability and Statistics</a></h2>
 <h3><a class="header" href="#11-probability-theory" id="11-probability-theory">1.1 Probability Theory</a></h3>
