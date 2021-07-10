@@ -285,4 +285,71 @@ p-value = P(z > 0.81) + P(z < -0.81) = 0.418 - fail to reject \\(H_0\\).
 
 ![image](https://user-images.githubusercontent.com/41487483/119316226-ff47f200-bc76-11eb-944a-1c63ee237ebd.png)
 
-others
+
+### 2.2 Significance
+
+#### 2.2.1 Inference for other estimators
+
+* point estimates: 
+
+    *\\(\hat{\theta}\\): \\(\hat{\theta}_{LMS}\\) or (\\(\hat{\theta} _{MAP}\\)) the concept might be different from MIT statistics course*
+
+    1. sample mean
+
+    2. difference between sample means
+
+    3. sample proportion \\(\hat{p}\\)
+
+    4. difference between two proportions
+
+* two requirements:  
+
+    - nearly normal sampling distribution
+
+    - unbiased estimator assumption: **point estimates** are unbiased, i.e., the sampling distribution of the estimate is centered at the true population parameter it estimates.
+
+#### 2.2 Decision errors
+
+![image](https://user-images.githubusercontent.com/41487483/125154284-93074c00-e159-11eb-940d-bbec5059b97d.png)
+
+**Decrease significance level (\\(\alpha\\)) decrease Type I error rate**
+
+\\(P(\text{Type I error}|H_0 \text{ true}) = \alpha\\)
+
+* **Choosing \\(\alpha\\)**
+
+    - if Type I error is dangerous or costly, choose a small significance level (e.g. 0.01)
+
+    - if Type II error is dangerous or costly, choose a high significance level (e.g. 0.10)
+
+![image](https://user-images.githubusercontent.com/41487483/125154728-c054f980-e15b-11eb-962c-f200d24dedd0.png)
+
+\\(\beta\\) depends on the **effect size \\(\delta\\)** - difference between point estimate and null value.
+    
+#### 2.2.3 Significance level vs. confidence level
+
+* complement each other depending on one-sided or two -sided tests
+
+    - two-sided tests: Significance level = confidence level 
+        
+        CL = 1 - alpha
+    
+    ![image](https://user-images.githubusercontent.com/41487483/125154861-791b3880-e15c-11eb-98d8-55756cf27eaa.png)
+
+    - one-sided tests: Significance level ≠ confidence level
+
+        CL = 1 - 2 x alpha
+
+        ![image](https://user-images.githubusercontent.com/41487483/125154873-8cc69f00-e15c-11eb-9701-9d1498add575.png)
+
+#### 2.2.4 Statistical vs. practical significance
+
+* practical significance 
+
+    Real difference between point estimator and null value are easier to detect with larger samples (effect size)
+
+* statistical significance 
+
+    very large samples will result in statistical significance even for tiny differences between sample mean and the null value (effect size), even when the difference is not practically significant. 
+
+
