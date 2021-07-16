@@ -1370,3 +1370,221 @@ Minimize \\(E[(\hat{\Theta} - \Theta)^2]\\), that is \\(E[(\Theta - aX - b)^2]\\
 ### 7.5 Bayesian inference summary
 
 ![image](https://user-images.githubusercontent.com/41487483/124724545-5eeb1b80-df0c-11eb-964b-82371cd4799c.png)
+
+</br>
+
+
+## Unit 8 Limit theorems and clasic statistics
+
+### 8.1 Inequalities, comvergence, and the Weak Law of Large Numbers
+
+#### 8.1.1 Markov and Chebyshev inequality
+
+1. **Markov inequality**
+
+    "If \\(X \geq 0\\) and \\(E[X]\\) is small, then X is unlikely to be very large"
+
+    \\[
+        P(X \geq a) \leq \frac{E[X]}{a} \text{, for all }  a > 0 \text{ and }  X \geq 0
+    \\]
+
+2. **Chebyshev inequality**
+
+    "If the variance is small, then X is unlikely to be too far from the mean"
+
+    \\[
+        P(|X - \mu| \geq c) \leq \frac{\sigma^2}{c^2} 
+        \text{, for all }  c > 0 \text{ and }  X \text{ is a random variable with mean } \mu \text{ and variance } \sigma^2
+    \\]
+
+#### 8.1.2 The Weak Law of Large Numbers (WLLN)
+
+\\(X_1, X_2, \dots\\) i.i.d.: infinite mean \\(\mu\\) and variance \\(\sigma^2\\)
+
+\\[
+    \text{Sample mean: } M_n = \frac{X_1 + \dots + X_n}{n}
+\\]
+
+- \\(E[M_n] = \mu\\)
+
+- \\(Var(M_n) = \frac{\sigma^2}{n}\\)
+
+- **WLLN:** for \\(\varepsilon > 0\\),
+
+    \\[
+        P(|M_n - \mu|) \geq \varepsilon = P \left( \left| \frac{X_1 + \dots + X_n}{n} - \mu\right| \geq \varepsilon \right) \to 0 \text{, as n} \to \infty
+    \\]
+
+- Interpreting the WLLN 
+
+    - **Sample mean** \\(M_n\\) is unlikely to be far off from **true mean** \\(\mu\\)
+
+    - **Sample mean** \\(M_n\\) is the **emperical frequency** of even \\(A\\), with \\(p = P(A)\\)
+
+#### 8.1.3 Convergence in Probability
+
+Sequence of random variables \\(Y_n\\), not necessarily independent
+
+**Definition**: A sequence <a style="color:red;">\\(Y_n\\)</a> **converges in probability** to a certain number <a style="color:red;">a</a> if:
+
+\\[
+    \lim_\limits{n \to \infty} P(|Y_n - a| \geq \varepsilon) = 0   
+\\]
+
+*Almost all of the PMF/PDF of \\(Y_n\\) eventually gets concentrated (arbitrarily) close to a*
+
+* Some properties - suppose that \\(X_n \to a, Y_n \to b\\)
+
+    1. if *g* is continuous, then \\(g(X_n) \to g(a)\\)
+
+    2. \\(X_n + Y_n \to a + b\\)
+
+    3. \\(E[X_n]\\) <b>need not converge to a</b>
+
+
+</br>
+
+### 8.2 The Central Limit Theorem (CLT)
+
+![image](https://user-images.githubusercontent.com/41487483/125804339-0461c83e-e397-488a-81ff-bfc51017512b.png)
+
+#### 8.2.2 What exactly does the CLT say?
+
+1. <strong>Theory</strong>
+
+    \\(Z_n = \frac{S_n - n\mu}{\sqrt{n}\sigma}\\) and \\(Z \sim N(0,1)\\)
+
+    - CDF of Z<sub>n</sub> converges to normal **CDF**
+
+    - results for convergence of PDFs or PMFs (with more assumptions)
+
+    - results without assuming that X<sub>i</sub> are identically distributed
+
+    - results under "weak dependence"
+
+    **In short, CLT applies to a sequence of random variables that do not need to be i.i.d.** 
+
+2. <strong>Practice</strong>
+
+    - The practiec of normal approximations:
+
+        * treat Z<sub>n</sub> as if it were normal
+
+        * treat S<sub>n</sub> as if normal: \\(N(n\mu, n\sigma^2)\\) as \\(S_n = \sqrt{n}\sigma Z_n + n\mu\\)
+
+    - Can we use the CLT when n is "moderate"? 
+
+        * usually, yes
+
+        * symmetry and unimodality help
+
+
+</br>
+
+### 8.3 An introduction to classical statistics
+
+#### 8.3.1 Overview 
+
+- Inference using the Bayes rule:
+
+    unknown \\(\Theta\\) and observation \\(X\\) are both random variables: Find \\(p_{\Theta|X}\\)
+
+- Classical statistics: unknown **constant** \\(\theta\\)
+
+    - Problem types in classical statistics
+
+        * Hypothesis testing: \\(H_0: \theta = 1/2 \text{ vs. } H_1: \theta = 3/4\\)
+
+        * Composite hypotheses: \\(H_0: \theta = 1/2 \text{ vs. } H_1: \theta \neq 1/2\\)
+
+        * Estimation: design an estimator \\(\hat{\Theta}\\), to keep estimation error \\((\hat{\Theta} - \theta)\\) small.
+
+#### 8.3.2 The sample mean and some terminology
+
+- Estimating a mean
+
+    * \\(X_1, \dots, X_n\\): i.i.d, mean \\(\theta\\), variance \\(\sigma^2\\)
+
+    * **Sample mean** \\(= \hat{\Theta}_n = M_n = \frac{X_1 + \dots + X_n}{n}\\) 
+
+- Properties and terminology
+
+    * \\(E[\hat{\Theta}_n] = \theta\\)  <a style="color:red;">(unbiased)</a> for all \\(\theta\\)
+
+    * WLLN: \\(E[\hat{\Theta}_n] \to \theta\\)  <a style="color:red;">(consistency)</a> for all \\(\theta\\)
+
+    * Mean square error <a style="color:red;">(MSE)</a>: \\(E[(\hat{\Theta}_n - \theta)^2] = var(\hat{\Theta}_n) = \frac{\sigma^2}{n}\\)
+
+#### 8.3.3 On the mean square error of an estimator
+
+\\[
+    E[(\hat{\Theta} - \theta)^2] = var(\hat{\Theta} - \theta) + (E[\hat{\Theta} - \theta])^2 = var(\hat{\Theta}) + (bias)^2   
+\\]
+
+- Sample mean estimator (\\(\hat{\Theta}_n = M_n\\)): \\(MSE = \frac{\sigma^2}{n} + 0\\)
+
+- Zero estimator (\\(\hat{\Theta} = 0\\)): \\(MSE = 0 + \theta^2\\)
+
+- \\(\sqrt{var(\hat{\Theta})}\\) is the <a style="color:red"> standard error </a>. 
+
+    *Standard Error refers to sampling distribution, whereas standard deviation refers to sample distribution*
+
+#### 8.3.4 Confidence intervals (CIs)
+
+An \\(1 - \alpha\\) confidence interval is an interval \\([\hat{\Theta}^-, \hat{\Theta}^+]\\), for all \\(\theta\\)
+
+\\[
+    P(\hat{\Theta}^- \leq \theta \leq \hat{\Theta}^+)    
+\\]
+
+* **CI for the estimation of the mean**
+
+    * \\(X_1, \dots, X_n\\): i.i.d, mean \\(\theta\\), variance \\(\sigma^2\\)
+
+    * **Sample mean** \\(= \hat{\Theta}_n = M_n = \frac{X_1 + \dots + X_n}{n}\\) 
+
+    * 95% CI: \\(\Phi(1.96) = 0.975 = 1 - 0.025\\)
+
+        \\[
+            P \left( \frac{|\hat{\Theta}_n - \theta|}{\sigma/\sqrt{n}}\right) \leq 1.96 \approx 0.95 \text{ (CLT) } \implies P \left(\hat{\Theta}_n - \frac{1.96\sigma}{\sqrt{n}} \leq \theta \leq \hat{\Theta}_n + \frac{1.96\sigma}{\sqrt{n}}\right)
+        \\]
+
+* **CI for the mean when \\(\sigma\\) is unknown**
+
+    1. use upper bound on \\(\sigma\\)
+
+        - for \\(X_i\\) Bernoulli: \\(\sigma \leq 1/2\\)
+
+    2. use ad hoc estimate of \\(\sigma\\)
+
+        - for \\(X_i\\) Bernoulli: \\(\sigma = \sqrt{\hat{\Theta}_n(1 - \hat{\Theta}_n)}\\)
+
+    3. use sample mean estimate of the variance
+
+        \\(\sigma^2 = E[(X_i - \theta)^2] \implies \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \hat{\Theta}_n)^2 \to \sigma^2\\)
+
+<hr>
+
+- Two approximations involved here:
+
+    - CLT: approximately normal
+
+    - using estimate of \\(\sigma\\)
+
+- correction for second approximation <a style="color:red">(t-tables)</a> used when *n* is small.
+
+<hr>
+
+#### 8.3.5 Other natural estimators
+
+![image](https://user-images.githubusercontent.com/41487483/125932005-aaf38a3c-d0e4-41e8-9be0-7fd8c9896573.png)
+
+#### 8.3.6 Maximum Likelihood (ML) estimation
+
+* Pick <a style="color:red">\\(\theta\\)</a> that "makes data most likely"
+
+    \\[
+        \hat{\theta}_ {ML} = arg \max\limits_{\theta} p_X(x;\theta)    
+    \\]
+
+    <i>compare to maximum a posterior probability Bayesian posterior \\(p_{\Theta|X}(\theta^*|x) = \max\limits_{\theta}p_{\Theta|X}(\theta|x)\\)</i>
