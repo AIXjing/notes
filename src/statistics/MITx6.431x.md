@@ -1588,3 +1588,193 @@ An \\(1 - \alpha\\) confidence interval is an interval \\([\hat{\Theta}^-, \hat{
     \\]
 
     <i>compare to maximum a posterior probability Bayesian posterior \\(p_{\Theta|X}(\theta^*|x) = \max\limits_{\theta}p_{\Theta|X}(\theta|x)\\)</i>
+
+## Unit 9 The Bernoulli and Poisson process
+
+### 9.1 The Bernoulli process 
+
+#### 9.1.1 Definition
+
+* A sequence of independent Bernoulli tirals, \\(X_i\\)
+
+* At each trial, i:
+
+    \\(P(X_i = 1) = P(\text{success at the ith trial}) = p\\)
+
+    \\(P(X_i = 0) = P(\text{failure at the ith trial}) = 1 - p\\)
+
+* Properties
+
+    - \\(E[X_i] = p\\)
+
+    - \\(var(X_i) = p*(1-p)\\)
+
+* Key assumption
+
+    - Independence
+
+    - Time-homogeneity
+
+#### 9.1.2 Stochastic processes
+
+* A sequence of random variables \\(X_1, X_2, \dots\\)
+
+* Sample space: \\(\Omega = \text{a set of infinite sequence of 0's and 1's}\\) 
+
+#### 9.1.3. Number of successes/arrivals S in n time slots (Binomial distribution)
+
+- \\(S = X_1 + X_2 + \dots + X_n\\)
+
+- \\(P(S=k) = \binom{n}{k}p^k(1-p)^{n-k}\\), k = 0, 1, 2 ....
+
+- \\(E[S] = np\\)
+
+- \\(var(S) = np(1-p)\\)
+
+#### 9.1.4 Time until the first success/arrival (Geometric distribution)
+
+- \\(T_i = min \\\{i: X_i=1 \\\}\\)
+
+- \\(P(T_1 = k) = (1-p)^(k-1)p\\), k = 1,2,...
+
+- \\(E[T_1] = \frac{1}{p}\\)
+
+- \\(var(T_1) = \frac{1-p}{p^2}\\)
+
+#### 9.1.5 Independence, memorylessness, and fresh-start properties
+
+* Fresh-start after time n (slots), after time T1
+
+* Fresh-start after a random time N
+
+    - N = time of 3rd sucess
+
+    - N = first time that 3 successes in a row have been observed
+
+* The process \\(X_{N+1}, X_{N+2}\\), ... is 
+
+    - A Bernoulli process
+
+    - independent of N, \\(X_1, X_2, \dots, X_N\\)
+
+    *as long as N is determined "casually"*
+
+#### 9.1.6 Time of the kth success/arrival
+
+* \\(Y_k\\) = time of kth arrival
+
+* \\(T_k\\) = kth inter-arrival time = \\(Y_k - Y_{k-1} \text{, } k \geq 2 \\)
+
+* \\(Y_k = T_1 + \dots + T_k\\)
+
+    - The process starts fresh after time T1
+
+    - T2 is independent of T1: Geometric(p)
+
+    - \\(E[Y_k] = \frac{k}{p}\\)
+
+    - \\(var(Y_k) = \frac{k(1-p)}{p^2}\\)
+
+    - PMF: \\(p_{Y_k}(t) = \binom{t-1}{k-1}p^k(1-p)^{t-k} \text{, } t = k, k +1, ..\\).
+
+#### 9.1.7 Merging of independent Bernoulli processes
+
+* \\(X_i\\): Bernoulli(p)
+
+* \\(Y_i\\): Bernoulli(q)
+
+* Merged process: \\(Z_i: g(X_i, Y_i)\\) Bernoulli(p + q - pq)
+
+#### 9.1.7 Splitting of a Bernoulli process
+
+![image](https://user-images.githubusercontent.com/41487483/126913885-cf7863e9-8053-4a4c-90d4-c6afc0585538.png)
+
+#### 9.1.8 Poisson approximation to binomial 
+
+* Interesting regime: large n, small p, <a style='color:red'> moderate λ = np</a>
+
+* Number of arrivals S in n slots: \\(p_S(k) \to \frac{\lambda^k}{k!}e^{-\lambda}\\) (For fixed k = 0, 1...)
+
+</br>
+
+### 9.2 The Poison process
+
+### 9.2.1 Definition 
+
+Poisson process is similar to Bernoulli process, but in a continuous time interval.
+
+* Numbers of arrivals in disjoint time intervals are independent
+ 
+    \\(P(k, \tau)\\) = Prob. of *k* arrivals in interval of duration \\(\tau\\)
+
+* Small interval probabilities - For VERY small \\(\delta\\):
+
+    \\[
+        P(k, \delta) = \begin{cases} 1-\lambda\delta + O(\delta^2) & \quad \text{if } k = 0 \\\\
+        \lambda\delta + O(\delta^2)  & \quad \text{if } k=1 \\\\
+        0 + O(\delta^2) & \quad \text{if } k>1 \end{cases}
+    \\]
+
+    \\[
+        P(k, \delta) \approx \begin{cases} 1-\lambda\delta & \quad \text{if } k = 0 \\\\
+        \lambda\delta & \quad \text{if } k=1 \\\\
+        0 & \quad \text{if } k>1 \end{cases}
+    \\]
+
+    **<a style='color:red'>λ: "Arrival rates" </a>**
+
+### 9.2.2 The Poisson PMF for the number of arrivals
+
+* \\(N_{\tau}:\text{ arrivals in }[0, \tau]\\) 
+
+* \\(N_\tau \approx Binomial(n,p)\\), \\(n = \frac{\tau}{\delta}\\), \\(p = \lambda\delta + O(\delta^2)\\)
+
+* \\[
+    P(k, \tau) = P(N_\tau =k) = \frac{(\lambda\tau)^ke^{-\lambda\tau}}{k!}, \text{k = 0, 1, 2,...}
+\\]
+
+* \\(E[N_\tau] \approx np \approx \lambda\tau\\)
+
+* \\(var(N_\tau) \approx np(1-p) \approx \lambda\tau\\)
+
+### 9.2.3 The time \\(T_1\\) until the first arrival
+
+Find the CDF: \\(P(T_1 \leq t) = 1 - P(T_1 > t) = 1 - P(0,t) = 1 - e^{-\lambda t}\\)
+
+\\[
+    f_{T_1}(t) = \lambda e^{-\lambda t} \text{, for } t \geq 0    
+\\]
+
+**<a style='color:red'>Exponential(λ) </a>**
+
+### 9.2.4 The time \\(Y_k\\) of the kth arrival
+
+Two ways to derive: 
+
+- Through CDF: \\(P(Y_k \leq y) = \sum\limits_{n=k}^{\infty}P(n, y)\\)
+
+- More intuitive argument
+
+    \\[
+        f_{Y_k}(y)\delta \approx P(y \leq Y_k \leq y + \delta) \approx P(k-1, y)\lambda\delta
+    \\]
+
+**<a style='color:red'>Erlang distribution</a>**
+
+\\[
+    f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y} }{(k-1)!} \text{, } y \geq 0  
+\\]
+
+### 9.2.5 Memorylessness and the fresh-start property
+
+* If we start watching at time *t*, we see Poisson process, independent of the history until time *t*. Then, time until next arrival follows exp(λ)
+
+* Time between first and second arrival, \\(T_2 = Y_2 - Y_1\\) follows exp(λ)
+
+* Similar for all \\(T_k = Y_k - Y_{k-1} \text{, } k \geq 2\\)
+
+* \\(Y_k = T_1 + \dots + T_k\\) is sum of i.i.d. exponentials
+
+    - \\(E[Y_k] = \frac{k}{\lambda}\\)
+
+    - \\var(Y_k) = \frac{k}{\lambda^2}
