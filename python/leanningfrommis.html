@@ -207,6 +207,43 @@ a2.sum(axis=1)
 <ol>
 <li>´x = x + 1´ is qual to ´x += 1´</li>
 </ol>
+<h2><a class="header" href="#virtualenv---virtual-environment-manager" id="virtualenv---virtual-environment-manager">Virtualenv - virtual environment manager</a></h2>
+<p><code>venv</code> for Python 3 or <code>virtualen</code> for Python 2</p>
+<p><a href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">Installing packages using pip and virtual environments</a></p>
+<p><a href="https://docs.python.org/3/library/venv.html#module-venv">Installing venv</a></p>
+<h3><a class="header" href="#this-is-how-i-did-for-my-energy-data-project" id="this-is-how-i-did-for-my-energy-data-project">This is how I did for my &quot;Energy-data&quot; project:</a></h3>
+<p>Copy the following code into &quot;init_py.sh&quot; file</p>
+<pre><code>#!/bin/bash
+set -e
+
+PYTHON_ENV_NAME=venv
+
+pip3 install virtualenv
+
+# or 'sudo pip3 install virtualenv'
+
+virtualenv -p python3 $PYTHON_ENV_NAME
+
+echo &quot;source $(pwd)/$PYTHON_ENV_NAME/bin/activate&quot; &gt; .env
+
+source $(pwd)/$PYTHON_ENV_NAME/bin/activate # activate the local python environment
+
+pip3 install jupyter
+pip3 install matplotlib
+pip3 install pandas
+pip3 install scipy
+pip3 install seaborn
+pip3 install graphviz
+pip3 install scikit-learn
+
+echo -e &quot;\n&quot;
+echo &quot;Please run \&quot;$ source $PYTHON_ENV_NAME/bin/activate\&quot; to switch to the python environment.&quot;
+echo &quot;Use \&quot;$ deactivate\&quot; anytime to deactivate the local python environment if you want to switch back to your default python.&quot;
+echo &quot;Or install autoenv as described on project readme file to make your life much easier.&quot;
+</code></pre>
+<h3><a class="header" href="#other-easy-ways-to-do" id="other-easy-ways-to-do">Other easy ways to do</a></h3>
+<p><a href="https://www.youtube.com/watch?v=N5vscPTWKOk">Video source from Corey Schafer</a></p>
+<p><a href="https://www.pythonforbeginners.com/basics/how-to-use-python-virtualenv">Text insruction</a></p>
 
                     </main>
 
