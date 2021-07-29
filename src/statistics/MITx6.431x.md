@@ -1699,7 +1699,7 @@ An \\(1 - \alpha\\) confidence interval is an interval \\([\hat{\Theta}^-, \hat{
 
 ### 9.2 The Poison process
 
-### 9.2.1 Definition 
+#### 9.2.1 Definition 
 
 Poisson process is similar to Bernoulli process, but in a continuous time interval.
 
@@ -1723,7 +1723,7 @@ Poisson process is similar to Bernoulli process, but in a continuous time interv
 
     **<a style='color:red'>λ: "Arrival rates" </a>**
 
-### 9.2.2 The Poisson PMF for the number of arrivals
+#### 9.2.2 The Poisson PMF for the number of arrivals
 
 * \\(N_{\tau}:\text{ arrivals in }[0, \tau]\\) 
 
@@ -1737,7 +1737,7 @@ Poisson process is similar to Bernoulli process, but in a continuous time interv
 
 * \\(var(N_\tau) \approx np(1-p) \approx \lambda\tau\\)
 
-### 9.2.3 The time \\(T_1\\) until the first arrival
+#### 9.2.3 The time \\(T_1\\) until the first arrival
 
 Find the CDF: \\(P(T_1 \leq t) = 1 - P(T_1 > t) = 1 - P(0,t) = 1 - e^{-\lambda t}\\)
 
@@ -1747,7 +1747,7 @@ Find the CDF: \\(P(T_1 \leq t) = 1 - P(T_1 > t) = 1 - P(0,t) = 1 - e^{-\lambda t
 
 **<a style='color:red'>Exponential(λ) </a>**
 
-### 9.2.4 The time \\(Y_k\\) of the kth arrival
+#### 9.2.4 The time \\(Y_k\\) of the kth arrival
 
 Two ways to derive: 
 
@@ -1765,7 +1765,7 @@ Two ways to derive:
     f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y} }{(k-1)!} \text{, } y \geq 0  
 \\]
 
-### 9.2.5 Memorylessness and the fresh-start property
+#### 9.2.5 Memorylessness and the fresh-start property
 
 * If we start watching at time *t*, we see Poisson process, independent of the history until time *t*. Then, time until next arrival follows exp(λ)
 
@@ -1777,4 +1777,141 @@ Two ways to derive:
 
     - \\(E[Y_k] = \frac{k}{\lambda}\\)
 
-    - \\var(Y_k) = \frac{k}{\lambda^2}
+    - \\(var(Y_k) = \frac{k}{\lambda^2}\\)
+
+#### 9.2.6 Bernoulli/Poisson relation
+
+![image](https://user-images.githubusercontent.com/41487483/126948921-e39258a2-2396-4efb-8e13-4dbf605356f4.png)
+
+|               | Poisson       | Bernoulli     |
+| ------------- |:-------------:|:-------------:|
+| Times of Arrival | Continuous | Discrete |
+| Arrival Rate | λ per unit time | p per trial |
+| PMF of # of arrivals | \\[P(k,\tau) = \frac{(\lambda\tau)^ke^{-\lambda\tau}}{k!} \\\\E[N_\tau] \approx \lambda\tau \\\\ var(N_\tau) \approx \lambda\tau\\] | \\[P_S(k) = \binom{n}{k}p^k(1-p)^{(n-k)} \\\\ \to \frac{\lambda^k}{k!}e^{-\lambda} \\\\ E[S] = np \\\\ var(S) = np(1-p) \\] |
+| Interarrival Time Distr.| \\[f_{T1}(t) = \lambda e^{-\lambda t}\\] Exponential </br> \\[E[T_1] = 1/\lambda \\\\ var(T_1) = 1/\lambda^2\\] | \\[P_{T1} = (1-p)^{n-1}p\\] Geometric </br> \\[E[T_1] = 1/p \\\\ var(T_1) = \frac{1-p}{p^2}\\]|
+| Time to k-th arrival | \\[f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y}}{(k-1)!}\\] Erlang </br> \\[E[Y_k] = k/\lambda \\\\ var(Y_k) = k/\lambda^2\\]| \\[p_{Y_k}(t) = \binom{t-1}{k-1}p^k(1-p)^{t-k}\\] Pascal |
+
+</br>
+
+### 9.3 More on the Poisson process
+
+#### 9.3.1 The sum of independent Poisson random variables
+
+\\[
+    P(k, \tau) = \frac{(\lambda\tau)^k e^{-\lambda\tau}}{k!}
+\\]
+
+We call it a Poisson random variable with parameters \\(\lambda\tau\\)
+
+<a style='color:red'>The sum of independent Poisson random variables, with means/parameters \\(\mu\\) and \\(\nu\\) is Poisson with mean/parameter \\(\mu + \nu\\)</a>
+
+#### 9.3.2 Merging independent Poisson processes
+
+|               | 0 </br> \\(1 - \lambda_1\delta\\) | 1 </br> \\(\lambda_1\delta\\)| ≥ 2 </br> \\(O(\delta^2)\\)| 
+|:--------------:|:-------------:|:-------------:|:--------------:|
+| **0** \\(1 - \lambda_2\delta\\) | \\((1-\lambda_1\delta)(1-\lambda_2\delta)\\) | \\(\lambda_1\delta(1-\lambda_2\delta)\\) | - |
+| **1** \\(\lambda_2\delta\\) | \\(\lambda_2\delta(1-\lambda_1\delta)\\) | \\(\lambda_1\lambda_2\delta^2\\) | - |
+| **≥ 2** \\(O(\delta^2)\\)| - | - | - |
+
+* 0 Arrivals \\(\approx 1 - (\lambda_1 + \lambda_2)\delta\\)
+
+* 1 Arrivals \\(\approx (\lambda_1 + \lambda_2)\delta\\)
+
+* ≥ 2 Arrivals \\(O(\delta^2)\\)
+
+<a style='color:red'>Merging independent Poisson(λ1) and Poisson(λ1) result in Poisson(λ1 + λ2))</a>
+
+#### 9.3.3 The time the first(last) light bulb burns out - min{X,Y,Z} and max{X,Y,Z} problem
+
+Three lightbulbs have independent lifetimes X, Y, Z exponential(λ)
+
+1. The expected time until first lightbulb burnout:
+
+    * X, Y, Z: first arrivals in independent Poisson processes
+
+    * Merged process: Poisson(3λ)
+
+    * min{X, Y, Z}: 1st arrival in merged process \\(\to E[min] = 1/3\lambda\\)
+
+2. The expected time until the last lightbulb burnout:
+
+    * Merged process in different intervals
+
+    \\[
+        E[max] = \frac{1}{3\lambda} + \frac{1}{2\lambda} + \frac{1}{\lambda}
+    \\]
+
+#### 9.3.4 Splitting of a Poisson process
+
+Split arrivals into two streams using independent coin flips of a coin with bias *q*
+
+*Assume that coin flips are independent from the original Poisson process*
+
+* <a style='color:red'>Resulting streams are Poisson with rate \\(\lambda q, \lambda (1-q)\\)</a>
+
+* The splitted Poisson processes are <a style='color:red'>independent!</a>
+
+#### 9.3.5 'Random incidence' in the Poisson process
+
+1. Analysis
+
+    ![image](https://user-images.githubusercontent.com/41487483/126982230-c8be5322-3130-43d5-8909-c9df592315a1.png)
+
+2. Random incidence "Paradox" is not special to the Poisson process
+
+    * Example: interarrival times, i.i.d., equally likely to be 5 or 10 mins. Then expected value of <a style='color:red'>k-th interarrival time </a> = 7.5
+
+    * Show up at a <a style='color:red'>"random time"</a> 
+
+        - P(arrival duaring a 5-minute interarrival interval) = 1/3
+
+        - Expected length of interarrival interval during which you arrive ≈ 8.3
+
+    * <a style='color:red'>Sampling method matters</a> - *Different sampling methods can give different results*
+
+        - Average family size? (3 families with one person, 1 family with 6 persons)
+
+            - look at a random family: 3/4x1 + 1/4x6
+
+            - looat at a random persons's family: 3/9x1 + 6/9x6
+
+        - Average bus occupancy?
+
+        - Average class size?
+
+### 9.4 Additional theoretical background
+
+#### 9.4.1 Poisson versus normal approximation to the binomial
+
+We have seen that a binomial random variable with parameters *n* and *p* can be approximated by a normal random variable (central limit theorem) but also by a Poisson random variable. Are these two facts contradictory? Fortunately not; the two approximations apply to different regimes:
+
+1. if we fix *p* and let \\(n \to \infty), we are in the setting where the **central limit theorem** applies.
+
+2. If we let \\(n \to \infty), \\(p \to 0), while keeping the product *np* fixed, the Poisson approximation applies.
+
+3. If *p* is very small but *np* is very large, then two approximations agree.
+
+#### 9.4.2 Sums of a binomial and a Poisson-distributed number of Bernoulli r.v.'s
+
+Let \\(X_1,X_2,...\\) be independent Bernoulli random variables with parameter *p*, and *N* be a random variable that takes integer values and is independent of \\(X_i, i = 1,2, \dots\\) Let \\(Y=X_1+X_2+ \dots +X_N\\) for positive values of *N*, and let \\(Y =0\\)  when \\(N=0\\).
+
+- If *N* is binomial with parameters *m* and *q*, then *Y* is binomial with parameters *m* and *pq*.
+
+    ![image](https://user-images.githubusercontent.com/41487483/127369301-0884ba53-e79c-4cd9-8545-368f7ef5c03f.png)
+
+- If *N* is poisson with parameters \\(\lambda\\), then *Y* is Poisson with parameter \\(\lambda\\).
+
+    ![image](https://user-images.githubusercontent.com/41487483/127369385-7d06f2f1-2866-4949-b342-933fe8bfe6d2.png)
+
+
+#### 9.4.3 Sums of a geometrically-distributed number of geometric and exponential r.v.'s
+
+Let *N* be a geometric random variable with parameter *q*, and let \\(X_1, X_2, \dots\\) be random variables that are independent and independent of *N*. Let \\(Y=X_1+\dots+X_N\\).
+
+- If \\(X_i\\) is geometric with parameter *p*, then *Y* is geometric with parameter *pq*
+
+    ![image](https://user-images.githubusercontent.com/41487483/127370021-c2299c8b-8107-4826-b1df-048ec9bdde81.png)
+
+- If \\(X_i\\) is exponential with parameter \\(\lambda\\), then *Y* is exponential with parameter \\(\lambda q\\)
+
+    ![image](https://user-images.githubusercontent.com/41487483/127370100-fc323f23-7d82-4b50-aa98-2fc0bb17c31c.png)
