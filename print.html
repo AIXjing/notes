@@ -2827,7 +2827,7 @@ P \left( \frac{|\hat{\Theta}_n - \theta|}{\sigma/\sqrt{n}}\right) \leq 1.96 \app
 </ul>
 </br>
 <h3><a class="header" href="#92-the-poison-process" id="92-the-poison-process">9.2 The Poison process</a></h3>
-<h3><a class="header" href="#921-definition" id="921-definition">9.2.1 Definition</a></h3>
+<h4><a class="header" href="#921-definition" id="921-definition">9.2.1 Definition</a></h4>
 <p>Poisson process is similar to Bernoulli process, but in a continuous time interval.</p>
 <ul>
 <li>Numbers of arrivals in disjoint time intervals are independent</li>
@@ -2850,7 +2850,7 @@ P(k, \delta) \approx \begin{cases} 1-\lambda\delta &amp; \quad \text{if } k = 0 
 <p><strong><a style='color:red'>λ: &quot;Arrival rates&quot; </a></strong></p>
 </li>
 </ul>
-<h3><a class="header" href="#922-the-poisson-pmf-for-the-number-of-arrivals" id="922-the-poisson-pmf-for-the-number-of-arrivals">9.2.2 The Poisson PMF for the number of arrivals</a></h3>
+<h4><a class="header" href="#922-the-poisson-pmf-for-the-number-of-arrivals" id="922-the-poisson-pmf-for-the-number-of-arrivals">9.2.2 The Poisson PMF for the number of arrivals</a></h4>
 <ul>
 <li>
 <p>\(N_{\tau}:\text{ arrivals in }[0, \tau]\) </p>
@@ -2870,13 +2870,13 @@ P(k, \tau) = P(N_\tau =k) = \frac{(\lambda\tau)^ke^{-\lambda\tau}}{k!}, \text{k 
 <p>\(var(N_\tau) \approx np(1-p) \approx \lambda\tau\)</p>
 </li>
 </ul>
-<h3><a class="header" href="#923-the-time-t_1-until-the-first-arrival" id="923-the-time-t_1-until-the-first-arrival">9.2.3 The time \(T_1\) until the first arrival</a></h3>
+<h4><a class="header" href="#923-the-time-t_1-until-the-first-arrival" id="923-the-time-t_1-until-the-first-arrival">9.2.3 The time \(T_1\) until the first arrival</a></h4>
 <p>Find the CDF: \(P(T_1 \leq t) = 1 - P(T_1 &gt; t) = 1 - P(0,t) = 1 - e^{-\lambda t}\)</p>
 <p>\[
 f_{T_1}(t) = \lambda e^{-\lambda t} \text{, for } t \geq 0<br />
 \]</p>
 <p><strong><a style='color:red'>Exponential(λ) </a></strong></p>
-<h3><a class="header" href="#924-the-time-y_k-of-the-kth-arrival" id="924-the-time-y_k-of-the-kth-arrival">9.2.4 The time \(Y_k\) of the kth arrival</a></h3>
+<h4><a class="header" href="#924-the-time-y_k-of-the-kth-arrival" id="924-the-time-y_k-of-the-kth-arrival">9.2.4 The time \(Y_k\) of the kth arrival</a></h4>
 <p>Two ways to derive: </p>
 <ul>
 <li>
@@ -2893,7 +2893,7 @@ f_{Y_k}(y)\delta \approx P(y \leq Y_k \leq y + \delta) \approx P(k-1, y)\lambda\
 <p>\[
 f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y} }{(k-1)!} \text{, } y \geq 0<br />
 \]</p>
-<h3><a class="header" href="#925-memorylessness-and-the-fresh-start-property" id="925-memorylessness-and-the-fresh-start-property">9.2.5 Memorylessness and the fresh-start property</a></h3>
+<h4><a class="header" href="#925-memorylessness-and-the-fresh-start-property" id="925-memorylessness-and-the-fresh-start-property">9.2.5 Memorylessness and the fresh-start property</a></h4>
 <ul>
 <li>
 <p>If we start watching at time <em>t</em>, we see Poisson process, independent of the history until time <em>t</em>. Then, time until next arrival follows exp(λ)</p>
@@ -2911,9 +2911,168 @@ f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y} }{(k-1)!} \text{, } y \geq 0
 <p>\(E[Y_k] = \frac{k}{\lambda}\)</p>
 </li>
 <li>
-<p>\var(Y_k) = \frac{k}{\lambda^2}</p>
+<p>\(var(Y_k) = \frac{k}{\lambda^2}\)</p>
 </li>
 </ul>
+</li>
+</ul>
+<h4><a class="header" href="#926-bernoullipoisson-relation" id="926-bernoullipoisson-relation">9.2.6 Bernoulli/Poisson relation</a></h4>
+<p><img src="https://user-images.githubusercontent.com/41487483/126948921-e39258a2-2396-4efb-8e13-4dbf605356f4.png" alt="image" /></p>
+<table><thead><tr><th></th><th align="center">Poisson</th><th align="center">Bernoulli</th></tr></thead><tbody>
+<tr><td>Times of Arrival</td><td align="center">Continuous</td><td align="center">Discrete</td></tr>
+<tr><td>Arrival Rate</td><td align="center">λ per unit time</td><td align="center">p per trial</td></tr>
+<tr><td>PMF of # of arrivals</td><td align="center">\[P(k,\tau) = \frac{(\lambda\tau)^ke^{-\lambda\tau}}{k!} \\E[N_\tau] \approx \lambda\tau \\ var(N_\tau) \approx \lambda\tau\]</td><td align="center">\[P_S(k) = \binom{n}{k}p^k(1-p)^{(n-k)} \\ \to \frac{\lambda^k}{k!}e^{-\lambda} \\ E[S] = np \\ var(S) = np(1-p) \]</td></tr>
+<tr><td>Interarrival Time Distr.</td><td align="center">\[f_{T1}(t) = \lambda e^{-\lambda t}\] Exponential </br> \[E[T_1] = 1/\lambda \\ var(T_1) = 1/\lambda^2\]</td><td align="center">\[P_{T1} = (1-p)^{n-1}p\] Geometric </br> \[E[T_1] = 1/p \\ var(T_1) = \frac{1-p}{p^2}\]</td></tr>
+<tr><td>Time to k-th arrival</td><td align="center">\[f_{Y_k}(y) = \frac{\lambda^k y^{k-1} e^{-\lambda y}}{(k-1)!}\] Erlang </br> \[E[Y_k] = k/\lambda \\ var(Y_k) = k/\lambda^2\]</td><td align="center">\[p_{Y_k}(t) = \binom{t-1}{k-1}p^k(1-p)^{t-k}\] Pascal</td></tr>
+</tbody></table>
+</br>
+<h3><a class="header" href="#93-more-on-the-poisson-process" id="93-more-on-the-poisson-process">9.3 More on the Poisson process</a></h3>
+<h4><a class="header" href="#931-the-sum-of-independent-poisson-random-variables" id="931-the-sum-of-independent-poisson-random-variables">9.3.1 The sum of independent Poisson random variables</a></h4>
+<p>\[
+P(k, \tau) = \frac{(\lambda\tau)^k e^{-\lambda\tau}}{k!}
+\]</p>
+<p>We call it a Poisson random variable with parameters \(\lambda\tau\)</p>
+<p><a style='color:red'>The sum of independent Poisson random variables, with means/parameters \(\mu\) and \(\nu\) is Poisson with mean/parameter \(\mu + \nu\)</a></p>
+<h4><a class="header" href="#932-merging-independent-poisson-processes" id="932-merging-independent-poisson-processes">9.3.2 Merging independent Poisson processes</a></h4>
+<table><thead><tr><th align="center"></th><th align="center">0 </br> \(1 - \lambda_1\delta\)</th><th align="center">1 </br> \(\lambda_1\delta\)</th><th align="center">≥ 2 </br> \(O(\delta^2)\)</th></tr></thead><tbody>
+<tr><td align="center"><strong>0</strong> \(1 - \lambda_2\delta\)</td><td align="center">\((1-\lambda_1\delta)(1-\lambda_2\delta)\)</td><td align="center">\(\lambda_1\delta(1-\lambda_2\delta)\)</td><td align="center">-</td></tr>
+<tr><td align="center"><strong>1</strong> \(\lambda_2\delta\)</td><td align="center">\(\lambda_2\delta(1-\lambda_1\delta)\)</td><td align="center">\(\lambda_1\lambda_2\delta^2\)</td><td align="center">-</td></tr>
+<tr><td align="center"><strong>≥ 2</strong> \(O(\delta^2)\)</td><td align="center">-</td><td align="center">-</td><td align="center">-</td></tr>
+</tbody></table>
+<ul>
+<li>
+<p>0 Arrivals \(\approx 1 - (\lambda_1 + \lambda_2)\delta\)</p>
+</li>
+<li>
+<p>1 Arrivals \(\approx (\lambda_1 + \lambda_2)\delta\)</p>
+</li>
+<li>
+<p>≥ 2 Arrivals \(O(\delta^2)\)</p>
+</li>
+</ul>
+<p><a style='color:red'>Merging independent Poisson(λ1) and Poisson(λ1) result in Poisson(λ1 + λ2))</a></p>
+<h4><a class="header" href="#933-the-time-the-firstlast-light-bulb-burns-out---minxyz-and-maxxyz-problem" id="933-the-time-the-firstlast-light-bulb-burns-out---minxyz-and-maxxyz-problem">9.3.3 The time the first(last) light bulb burns out - min{X,Y,Z} and max{X,Y,Z} problem</a></h4>
+<p>Three lightbulbs have independent lifetimes X, Y, Z exponential(λ)</p>
+<ol>
+<li>
+<p>The expected time until first lightbulb burnout:</p>
+<ul>
+<li>
+<p>X, Y, Z: first arrivals in independent Poisson processes</p>
+</li>
+<li>
+<p>Merged process: Poisson(3λ)</p>
+</li>
+<li>
+<p>min{X, Y, Z}: 1st arrival in merged process \(\to E[min] = 1/3\lambda\)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The expected time until the last lightbulb burnout:</p>
+<ul>
+<li>Merged process in different intervals</li>
+</ul>
+<p>\[
+E[max] = \frac{1}{3\lambda} + \frac{1}{2\lambda} + \frac{1}{\lambda}
+\]</p>
+</li>
+</ol>
+<h4><a class="header" href="#934-splitting-of-a-poisson-process" id="934-splitting-of-a-poisson-process">9.3.4 Splitting of a Poisson process</a></h4>
+<p>Split arrivals into two streams using independent coin flips of a coin with bias <em>q</em></p>
+<p><em>Assume that coin flips are independent from the original Poisson process</em></p>
+<ul>
+<li>
+<p><a style='color:red'>Resulting streams are Poisson with rate \(\lambda q, \lambda (1-q)\)</a></p>
+</li>
+<li>
+<p>The splitted Poisson processes are <a style='color:red'>independent!</a></p>
+</li>
+</ul>
+<h4><a class="header" href="#935-random-incidence-in-the-poisson-process" id="935-random-incidence-in-the-poisson-process">9.3.5 'Random incidence' in the Poisson process</a></h4>
+<ol>
+<li>
+<p>Analysis</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/126982230-c8be5322-3130-43d5-8909-c9df592315a1.png" alt="image" /></p>
+</li>
+<li>
+<p>Random incidence &quot;Paradox&quot; is not special to the Poisson process</p>
+<ul>
+<li>
+<p>Example: interarrival times, i.i.d., equally likely to be 5 or 10 mins. Then expected value of <a style='color:red'>k-th interarrival time </a> = 7.5</p>
+</li>
+<li>
+<p>Show up at a <a style='color:red'>&quot;random time&quot;</a> </p>
+<ul>
+<li>
+<p>P(arrival duaring a 5-minute interarrival interval) = 1/3</p>
+</li>
+<li>
+<p>Expected length of interarrival interval during which you arrive ≈ 8.3</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a style='color:red'>Sampling method matters</a> - <em>Different sampling methods can give different results</em></p>
+<ul>
+<li>
+<p>Average family size? (3 families with one person, 1 family with 6 persons)</p>
+<ul>
+<li>
+<p>look at a random family: 3/4x1 + 1/4x6</p>
+</li>
+<li>
+<p>looat at a random persons's family: 3/9x1 + 6/9x6</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Average bus occupancy?</p>
+</li>
+<li>
+<p>Average class size?</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3><a class="header" href="#94-additional-theoretical-background" id="94-additional-theoretical-background">9.4 Additional theoretical background</a></h3>
+<h4><a class="header" href="#941-poisson-versus-normal-approximation-to-the-binomial" id="941-poisson-versus-normal-approximation-to-the-binomial">9.4.1 Poisson versus normal approximation to the binomial</a></h4>
+<p>We have seen that a binomial random variable with parameters <em>n</em> and <em>p</em> can be approximated by a normal random variable (central limit theorem) but also by a Poisson random variable. Are these two facts contradictory? Fortunately not; the two approximations apply to different regimes:</p>
+<ol>
+<li>
+<p>if we fix <em>p</em> and let \(n \to \infty), we are in the setting where the <strong>central limit theorem</strong> applies.</p>
+</li>
+<li>
+<p>If we let \(n \to \infty), \(p \to 0), while keeping the product <em>np</em> fixed, the Poisson approximation applies.</p>
+</li>
+<li>
+<p>If <em>p</em> is very small but <em>np</em> is very large, then two approximations agree.</p>
+</li>
+</ol>
+<h4><a class="header" href="#942-sums-of-a-binomial-and-a-poisson-distributed-number-of-bernoulli-rvs" id="942-sums-of-a-binomial-and-a-poisson-distributed-number-of-bernoulli-rvs">9.4.2 Sums of a binomial and a Poisson-distributed number of Bernoulli r.v.'s</a></h4>
+<p>Let \(X_1,X_2,...\) be independent Bernoulli random variables with parameter <em>p</em>, and <em>N</em> be a random variable that takes integer values and is independent of \(X_i, i = 1,2, \dots\) Let \(Y=X_1+X_2+ \dots +X_N\) for positive values of <em>N</em>, and let \(Y =0\)  when \(N=0\).</p>
+<ul>
+<li>
+<p>If <em>N</em> is binomial with parameters <em>m</em> and <em>q</em>, then <em>Y</em> is binomial with parameters <em>m</em> and <em>pq</em>.</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/127369301-0884ba53-e79c-4cd9-8545-368f7ef5c03f.png" alt="image" /></p>
+</li>
+<li>
+<p>If <em>N</em> is poisson with parameters \(\lambda\), then <em>Y</em> is Poisson with parameter \(\lambda\).</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/127369385-7d06f2f1-2866-4949-b342-933fe8bfe6d2.png" alt="image" /></p>
+</li>
+</ul>
+<h4><a class="header" href="#943-sums-of-a-geometrically-distributed-number-of-geometric-and-exponential-rvs" id="943-sums-of-a-geometrically-distributed-number-of-geometric-and-exponential-rvs">9.4.3 Sums of a geometrically-distributed number of geometric and exponential r.v.'s</a></h4>
+<p>Let <em>N</em> be a geometric random variable with parameter <em>q</em>, and let \(X_1, X_2, \dots\) be random variables that are independent and independent of <em>N</em>. Let \(Y=X_1+\dots+X_N\).</p>
+<ul>
+<li>
+<p>If \(X_i\) is geometric with parameter <em>p</em>, then <em>Y</em> is geometric with parameter <em>pq</em></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/127370021-c2299c8b-8107-4826-b1df-048ec9bdde81.png" alt="image" /></p>
+</li>
+<li>
+<p>If \(X_i\) is exponential with parameter \(\lambda\), then <em>Y</em> is exponential with parameter \(\lambda q\)</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/127370100-fc323f23-7d82-4b50-aa98-2fc0bb17c31c.png" alt="image" /></p>
 </li>
 </ul>
 <h1><a class="header" href="#improve-your-statistical-inferences" id="improve-your-statistical-inferences">Improve your statistical inferences</a></h1>
