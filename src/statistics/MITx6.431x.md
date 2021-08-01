@@ -1885,9 +1885,9 @@ Split arrivals into two streams using independent coin flips of a coin with bias
 
 We have seen that a binomial random variable with parameters *n* and *p* can be approximated by a normal random variable (central limit theorem) but also by a Poisson random variable. Are these two facts contradictory? Fortunately not; the two approximations apply to different regimes:
 
-1. if we fix *p* and let \\(n \to \infty), we are in the setting where the **central limit theorem** applies.
+1. if we fix *p* and let \\(n \to \infty)\\), we are in the setting where the **central limit theorem** applies.
 
-2. If we let \\(n \to \infty), \\(p \to 0), while keeping the product *np* fixed, the Poisson approximation applies.
+2. If we let \\(n \to \infty)\\), \\(p \to 0)\\), while keeping the product *np* fixed, the Poisson approximation applies.
 
 3. If *p* is very small but *np* is very large, then two approximations agree.
 

@@ -278,16 +278,15 @@ plt.show()
 
 **Decision based on the p-value**
 
-- p-value < the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true. - Reject \\(H_0\\)
+- p-value < the **significant level**, \\(\alpha\\) (usually 5%): it is unlikely to observe the data if the null hypothesis is true: <a style="color:red">Reject \\(H_0\\)</a>
 
-- p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true. - Do no reject \\(H_0\\)
-
+- p-value ≥ \\(\alpha\\): it is likely to occur even if the null hypothesis were true: <a style="color:red"> Do no reject \\(H_0\\)</a>
 
 **two-sided(tailed) tests**
 
 In the same case, \\(P(\bar{x} > 3.2 \text{  or  } \bar{x} > 2.8| H_0 : \mu = 3) \\)
 
-p-value = P(z > 0.81) + P(z < -0.81) = 0.418 - fail to reject \\(H_0\\).
+p-value = \\(P(z > 0.81) + P(z < -0.81) = 0.418 \\) --- fail to reject \\(H_0\\).
 
 ![image](https://user-images.githubusercontent.com/41487483/119316226-ff47f200-bc76-11eb-944a-1c63ee237ebd.png)
 
@@ -336,9 +335,7 @@ p-value = P(z > 0.81) + P(z < -0.81) = 0.418 - fail to reject \\(H_0\\).
 
 * complement each other depending on one-sided or two -sided tests
 
-    - two-sided tests: Significance level = confidence level 
-        
-        CL = 1 - alpha
+    - two-sided tests: Significance level = 1 - confidence level 
     
     ![image](https://user-images.githubusercontent.com/41487483/125154861-791b3880-e15c-11eb-98d8-55756cf27eaa.png)
 
@@ -358,4 +355,126 @@ p-value = P(z > 0.81) + P(z < -0.81) = 0.418 - fail to reject \\(H_0\\).
 
     very large samples will result in statistical significance even for tiny differences between sample mean and the null value (effect size), even when the difference is not practically significant. 
 
+## 3 Inference for Comparing Means
 
+### 3.1 t-distribution and comparing two means
+
+#### 3.1.1 t-distribution
+
+What purpose does a large sample serve?
+
+As long as observations are independent, and the population distribution is not extremely skewed, a large sample would ensure that
+
+- the sampling distribution of the mean is nearly normal.
+
+- the estimate of the standard error is reliable: \\(\frac{s}{\sqrt{n}}\\)
+
+**t-distribution**
+
+- when **σ** unknown(almost always), use the t-distribution to address the uncertainty of the standard error estimate
+
+- bell shaped but thicker tails than the normal
+
+    * observations more likely to fall beyond 2 SDs from the mean
+
+    * extra thick tails helpful for mitigating the effect of a less reliable estimate for the standard error of the sampling distribution
+
+- always centered as 0
+
+- only has one parameter **degress of freedom(df)** to determine the thickness of tails: higher df, less thick the tail
+
+    *the normal distribution has two parameters: mean and SD*
+
+- for inference on a mean where **σ** unknown, the calculation is the same way as normal distribution 
+
+    \\[
+        T = \frac{\text{obs - null}}{SE}
+    \\] 
+
+    - find p-value (one or two tail area, based on \\(H_A\\))
+
+#### 3.1.2 Inference for a mean
+
+<a style="color:red">estimating the mean = point estimate ± margin of error </a>
+
+\\[
+    \bar{x} \pm t_{df}^*SE_{\bar{x}} 
+    \\\\ SE_{\bar{x}} = \frac{s}{\sqrt{n}} 
+\\]
+
+**degrees of freedome for t statistic for inference on one sample mean**
+
+\\[
+    df = n - 1    
+\\]
+
+
+#### 3.1.3 Inference for comparing two independent means
+
+estimating the mean = point estimate ± margin of error
+
+\\[
+    (\bar{x_1} - \bar{x_2}) \pm t_{df}^*SE_{(\bar{x_1} - \bar{x_2})} 
+\\]
+
+- SE of difference between two independent means
+
+    \\[
+        SE_{(\bar{x_1} - \bar{x_2} )}= \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+    \\]
+
+- DF for t statistics for inference on difference of two means
+
+    \\[
+        df = min(n_1 - n_2)
+    \\]
+
+* Conditions for inference for comparing two independent means
+
+    1. independence: 
+    
+        - within groups: 
+    
+            - random sample/assignment
+
+            - if samping without replacement, n < 10% of population
+
+        - between groups: not paired
+
+    2. Sample size/skew: the more skew in the population distributions, the higher the sample size needed.
+
+#### 3.1.4 Inference for comparing two paried means
+
+When two sets of observations have a special correspondence(not independent), they are said to be **paired**.
+
+Two analyze paired data, it is often useful to look at the difference in outcomes of each pair of observations.
+
+- Parameter of interest: \\(\mu_{diff}\\) - average difference between the reading and writing scores of **all** high school students
+
+- Point estimate: \\(\bar{x}_{diff}\\) - average difference between the reading and writing scores of **sampled** high school students
+
+- \\(SE = \frac{s_{diff}}{n}\\)
+
+**Summary**
+
+- paired data (2 var.) \\(\to\\) differences (1 var.)
+
+- most often: \\(H_0:\mu_{diff} = 0\\)
+
+- same individuals: pre-post studies, repeated measures, etc.
+
+- different but dependent individuals: tiwns, partners, etc.
+
+#### 3.1.5 Power
+
+![image](https://user-images.githubusercontent.com/41487483/127775746-38903dad-60bf-4393-b8dc-360b78157370.png)
+
+**Power** of a test is the probability of correctly rejecting H0, and the probability is \\(1-\Beta\\)
+
+- Practical problem 1: calculate power for a range of sample sizes and choose target power
+
+![image](https://user-images.githubusercontent.com/41487483/127775861-e1c96076-91d9-42a3-9431-9d482ee92888.png)
+
+- Practical problem 2: calculate required sample size for a desired level of power 
+
+![image](https://user-images.githubusercontent.com/41487483/127775861-e1c96076-91d9-42a3-9431-9d482ee92888.png)

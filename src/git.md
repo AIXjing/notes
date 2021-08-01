@@ -2,7 +2,7 @@
 
 ## Case 1
 
-A project has already been created in local folder
+[A project has already been created in local folder](https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line) 
 
 1. Create a new repo on github
 
