@@ -426,7 +426,7 @@ estimating the mean = point estimate ± margin of error
 - DF for t statistics for inference on difference of two means
 
     \\[
-        df = min(n_1 - n_2)
+        df = min(n_1-1, n_2-1)
     \\]
 
 * Conditions for inference for comparing two independent means
@@ -469,12 +469,172 @@ Two analyze paired data, it is often useful to look at the difference in outcome
 
 ![image](https://user-images.githubusercontent.com/41487483/127775746-38903dad-60bf-4393-b8dc-360b78157370.png)
 
-**Power** of a test is the probability of correctly rejecting H0, and the probability is \\(1-\Beta\\)
+**Power** of a test is the probability of correctly rejecting H0, and the probability is \\(1-\beta\\)
 
 - Practical problem 1: calculate power for a range of sample sizes and choose target power
 
-![image](https://user-images.githubusercontent.com/41487483/127775861-e1c96076-91d9-42a3-9431-9d482ee92888.png)
+![image](https://user-images.githubusercontent.com/41487483/128233817-c00b3558-5c95-4a10-9e4a-9bfdc107bc85.png)
 
 - Practical problem 2: calculate required sample size for a desired level of power 
 
 ![image](https://user-images.githubusercontent.com/41487483/127775861-e1c96076-91d9-42a3-9431-9d482ee92888.png)
+
+</br>
+
+### 3.2 ANOVA and Bootstrapping
+
+#### 3.2.1 Comparing more than two means -- F distribution
+
+**ANOVA (analysis of variance) test**
+
+* \\(H_0\\): the mean outcome is the same across all categories
+
+* \\(H_A\\): at least one pair of means are different from each other
+
+| t-test       | ANOVA     |
+|:-------------:|:-------------:|
+| compute a test statistic (a ratio) | Compute a test statistic (a ratio) |
+| \\[t = \frac{(\bar{x_1}-\bar{x_2})-(\mu_1-\mu_2)}{SE_{(\bar{x_1}-\bar{x_2})}}\\]| \\[F = \frac{\text{variability bet. groups}}{\text{variability within groups}}\\]     |
+
+- In order to be able to reject \\(H_0\\), we need a small p-value, which requires a large F statistic.
+
+- Obtaining a large F statistic requires that the variability between sample means is greater than the variability within the samples.  
+
+#### 3.2.2 ANOVA
+
+- variability partitioning 
+
+    <p align="center"><img src="https://user-images.githubusercontent.com/41487483/128079731-462101ec-5e23-4543-8760-e50cf28639ff.png"  width="500" height="180"></p>
+
+- ANOVA Output
+
+    <b><div style="text-align: center"> ANOVA Output table</div></b>
+
+    <p align="center">
+    <img src="https://user-images.githubusercontent.com/41487483/128228631-b9e3b806-e2cb-48bf-b005-725ecdb55434.png" width="600" height="150">
+    </p>
+
+    * The first row is about between group variability (<u>Group row</u>) and the second the row is the within group variability (<u>Error row</u>)
+
+    * Sum square error
+    
+        - Total: sum of squares total (SST) measures the total variability in the response variable. The caculation is very similar to that of variance except for no dividing by the sample size.
+
+            \\[
+                SST = \sum\limits_{i=1}^n (y_i-\bar{y})^2    
+            \\]
+
+            \\(y_i\\): value of the response variable for each observation
+
+            \\(\bar{y}\\): grand mean of the response variable
+
+        - Group: sum of squares groups (SSG) measures the variability between groups. <u>Explained variability</u>: squared deviation of group means from overall mean, weighted by sample size. 
+
+            \\[
+                SSG = \sum\limits_{j=1}^k n_j(\bar{y_j}-\bar{y})^2    
+            \\]
+
+            \\(n_j\\): number of observations in group *j*
+
+            \\(y_j\\): mean of the response variable for group *j*
+
+            \\(\bar{y}\\): grand mean of the response variable
+
+        - Error: sum of squares error (SSE) measures the variability within groups. <u>Unexplained variability</u>: unexplained by the group variable due to other reasons
+
+            \\[
+                SSE = SST - SSG  
+            \\]
+
+    * DF: degree of freedom
+
+    * Mean square error: average variability between and within groups, calculated as the total variability (sum of squares) scaled by the associated degrees of freedom.
+
+        - group: MSG = SSG/DF<sub>G</sub>
+
+        - error: MSE = SSE/DF<sub>E</sub>
+
+    * F statistics: ratio of the average between group and within group variabilities
+
+        \\[
+            F = \frac{MSG}{MSE}    
+        \\]
+
+    * Calculate p-value according to F statistics, and remember F always positive we only calculate one-tail.
+
+        - if p-value is small (less than \\(\alpha\\)): reject H0
+
+            The data provide convincing evidence that at least one pair of population means are different from each other (but we cannot tell which one)
+
+        - if p-value is large (larger than \\(\alpha\\)): fail to reject H0
+
+            The data do not provide convincing evidence that at least one pair of population means are different from each other; the observed difference in sample means are attributable to sampling variability (or chance)
+
+#### 3.2.3 ANOVA conditions 
+
+1. Independence: between groups and within groups
+
+2. Approximate normality: distributions should be nearly normal within each group
+
+3. constant variance: groups should have roughly equal variability 
+
+    *side-by-side boxplot is helpful to check constant variance condition*
+
+#### 3.2.4 Multiple comparisons
+
+- **Bonferroni correction**: adjust \\(\alpha\\) by the number of comparison being considered K
+
+    \\[
+        K = \frac{k(k-1)}{2} \\\\
+        \alpha^* = \alpha/K   
+    \\]
+
+- Pairwise comparisons:
+
+    * constant variance \\(to\\) use consistent standard error and degrees of freedom for all tests
+
+    * compare p-values from each test to the modified significance level
+
+    * Standard error for multiple pairwise comparisons:
+
+        \\[
+            SE = \sqrt{\frac{MSE}{n_1}+\frac{MSE}{n_2}}
+        \\]
+
+        compared to t test between two independent groups \\(SE = \sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}\\)
+
+    * Degrees of freedom for multiple pairwise comparisons: df = df<sub>E</sub>
+
+        compared to t test: df = min(n<sub>1</sub> - 1, n<sub>2</sub> - 1)
+
+#### 3.2.5 Bootstrapping
+
+- **Bootstrapping scheme:**
+
+    1. take a bootstrap sample - a random sample taken with replacement from the original sample, of the same size as the original sample
+
+    2. calculate bootstrap statistic - mean, median, proportion, etc. computed on the bootstrap samples.
+
+    3. repeat steps 1 and 2 many times to create a bootstrap distribution - a distribution of bootstrap statistics.
+
+- calculate confidence interval:
+
+    1. percentile method
+
+    2. standard error method
+
+- limitations
+
+    * not as rigid conditions as CLT based methods
+
+    * if bootstrap distribution is extremely skewed or sparse, the bootstrap interval might be unreliable
+
+    * A representative sample is still needed - if the sample is biased, the estimates resulting from this sample will also be bias.
+
+**Bootstrap vs. sampling distribution**
+
+    - sampling distribution: created using sampling with replacement from the <u>population</u>
+
+    - Bootstrap distribution: created using sampling with replacement from the <u>sample</u>
+
+    - Both are distributions of sample statistics
