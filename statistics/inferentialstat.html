@@ -587,7 +587,7 @@ SE_{(\bar{x_1} - \bar{x_2} )}= \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 <li>
 <p>DF for t statistics for inference on difference of two means</p>
 <p>\[
-df = min(n_1 - n_2)
+df = min(n_1-1, n_2-1)
 \]</p>
 </li>
 </ul>
@@ -641,15 +641,217 @@ df = min(n_1 - n_2)
 </ul>
 <h4><a class="header" href="#315-power" id="315-power">3.1.5 Power</a></h4>
 <p><img src="https://user-images.githubusercontent.com/41487483/127775746-38903dad-60bf-4393-b8dc-360b78157370.png" alt="image" /></p>
-<p><strong>Power</strong> of a test is the probability of correctly rejecting H0, and the probability is \(1-\Beta\)</p>
+<p><strong>Power</strong> of a test is the probability of correctly rejecting H0, and the probability is \(1-\beta\)</p>
 <ul>
 <li>Practical problem 1: calculate power for a range of sample sizes and choose target power</li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/41487483/127775861-e1c96076-91d9-42a3-9431-9d482ee92888.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/128233817-c00b3558-5c95-4a10-9e4a-9bfdc107bc85.png" alt="image" /></p>
 <ul>
 <li>Practical problem 2: calculate required sample size for a desired level of power </li>
 </ul>
 <p><img src="https://user-images.githubusercontent.com/41487483/127775861-e1c96076-91d9-42a3-9431-9d482ee92888.png" alt="image" /></p>
+</br>
+<h3><a class="header" href="#32-anova-and-bootstrapping" id="32-anova-and-bootstrapping">3.2 ANOVA and Bootstrapping</a></h3>
+<h4><a class="header" href="#321-comparing-more-than-two-means----f-distribution" id="321-comparing-more-than-two-means----f-distribution">3.2.1 Comparing more than two means -- F distribution</a></h4>
+<p><strong>ANOVA (analysis of variance) test</strong></p>
+<ul>
+<li>
+<p>\(H_0\): the mean outcome is the same across all categories</p>
+</li>
+<li>
+<p>\(H_A\): at least one pair of means are different from each other</p>
+</li>
+</ul>
+<table><thead><tr><th align="center">t-test</th><th align="center">ANOVA</th></tr></thead><tbody>
+<tr><td align="center">compute a test statistic (a ratio)</td><td align="center">Compute a test statistic (a ratio)</td></tr>
+<tr><td align="center">\[t = \frac{(\bar{x_1}-\bar{x_2})-(\mu_1-\mu_2)}{SE_{(\bar{x_1}-\bar{x_2})}}\]</td><td align="center">\[F = \frac{\text{variability bet. groups}}{\text{variability within groups}}\]</td></tr>
+</tbody></table>
+<ul>
+<li>
+<p>In order to be able to reject \(H_0\), we need a small p-value, which requires a large F statistic.</p>
+</li>
+<li>
+<p>Obtaining a large F statistic requires that the variability between sample means is greater than the variability within the samples.</p>
+</li>
+</ul>
+<h4><a class="header" href="#322-anova" id="322-anova">3.2.2 ANOVA</a></h4>
+<ul>
+<li>
+<p>variability partitioning </p>
+<p align="center"><img src="https://user-images.githubusercontent.com/41487483/128079731-462101ec-5e23-4543-8760-e50cf28639ff.png"  width="500" height="180"></p>
+</li>
+<li>
+<p>ANOVA Output</p>
+<p><b><div style="text-align: center"> ANOVA Output table</div></b></p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/41487483/128228631-b9e3b806-e2cb-48bf-b005-725ecdb55434.png" width="600" height="150">
+  </p>
+<ul>
+<li>
+<p>The first row is about between group variability (<u>Group row</u>) and the second the row is the within group variability (<u>Error row</u>)</p>
+</li>
+<li>
+<p>Sum square error</p>
+</li>
+</ul>
+<pre><code>  - Total: sum of squares total (SST) measures the total variability in the response variable. The caculation is very similar to that of variance except for no dividing by the sample size.
+
+      \\[
+          SST = \sum\limits_{i=1}^n (y_i-\bar{y})^2    
+      \\]
+
+      \\(y_i\\): value of the response variable for each observation
+
+      \\(\bar{y}\\): grand mean of the response variable
+
+  - Group: sum of squares groups (SSG) measures the variability between groups. &lt;u&gt;Explained variability&lt;/u&gt;: squared deviation of group means from overall mean, weighted by sample size. 
+
+      \\[
+          SSG = \sum\limits_{j=1}^k n_j(\bar{y_j}-\bar{y})^2    
+      \\]
+
+      \\(n_j\\): number of observations in group *j*
+
+      \\(y_j\\): mean of the response variable for group *j*
+
+      \\(\bar{y}\\): grand mean of the response variable
+
+  - Error: sum of squares error (SSE) measures the variability within groups. &lt;u&gt;Unexplained variability&lt;/u&gt;: unexplained by the group variable due to other reasons
+
+      \\[
+          SSE = SST - SSG  
+      \\]
+</code></pre>
+<ul>
+<li>
+<p>DF: degree of freedom</p>
+</li>
+<li>
+<p>Mean square error: average variability between and within groups, calculated as the total variability (sum of squares) scaled by the associated degrees of freedom.</p>
+<ul>
+<li>
+<p>group: MSG = SSG/DF<sub>G</sub></p>
+</li>
+<li>
+<p>error: MSE = SSE/DF<sub>E</sub></p>
+</li>
+</ul>
+</li>
+<li>
+<p>F statistics: ratio of the average between group and within group variabilities</p>
+<p>\[
+F = \frac{MSG}{MSE}<br />
+\]</p>
+</li>
+<li>
+<p>Calculate p-value according to F statistics, and remember F always positive we only calculate one-tail.</p>
+<ul>
+<li>
+<p>if p-value is small (less than \(\alpha\)): reject H0</p>
+<p>The data provide convincing evidence that at least one pair of population means are different from each other (but we cannot tell which one)</p>
+</li>
+<li>
+<p>if p-value is large (larger than \(\alpha\)): fail to reject H0</p>
+<p>The data do not provide convincing evidence that at least one pair of population means are different from each other; the observed difference in sample means are attributable to sampling variability (or chance)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#323-anova-conditions" id="323-anova-conditions">3.2.3 ANOVA conditions</a></h4>
+<ol>
+<li>
+<p>Independence: between groups and within groups</p>
+</li>
+<li>
+<p>Approximate normality: distributions should be nearly normal within each group</p>
+</li>
+<li>
+<p>constant variance: groups should have roughly equal variability </p>
+<p><em>side-by-side boxplot is helpful to check constant variance condition</em></p>
+</li>
+</ol>
+<h4><a class="header" href="#324-multiple-comparisons" id="324-multiple-comparisons">3.2.4 Multiple comparisons</a></h4>
+<ul>
+<li>
+<p><strong>Bonferroni correction</strong>: adjust \(\alpha\) by the number of comparison being considered K</p>
+<p>\[
+K = \frac{k(k-1)}{2} \\
+\alpha^* = \alpha/K<br />
+\]</p>
+</li>
+<li>
+<p>Pairwise comparisons:</p>
+<ul>
+<li>
+<p>constant variance \(to\) use consistent standard error and degrees of freedom for all tests</p>
+</li>
+<li>
+<p>compare p-values from each test to the modified significance level</p>
+</li>
+<li>
+<p>Standard error for multiple pairwise comparisons:</p>
+<p>\[
+SE = \sqrt{\frac{MSE}{n_1}+\frac{MSE}{n_2}}
+\]</p>
+<p>compared to t test between two independent groups \(SE = \sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}\)</p>
+</li>
+<li>
+<p>Degrees of freedom for multiple pairwise comparisons: df = df<sub>E</sub></p>
+<p>compared to t test: df = min(n<sub>1</sub> - 1, n<sub>2</sub> - 1)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#325-bootstrapping" id="325-bootstrapping">3.2.5 Bootstrapping</a></h4>
+<ul>
+<li>
+<p><strong>Bootstrapping scheme:</strong></p>
+<ol>
+<li>
+<p>take a bootstrap sample - a random sample taken with replacement from the original sample, of the same size as the original sample</p>
+</li>
+<li>
+<p>calculate bootstrap statistic - mean, median, proportion, etc. computed on the bootstrap samples.</p>
+</li>
+<li>
+<p>repeat steps 1 and 2 many times to create a bootstrap distribution - a distribution of bootstrap statistics.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>calculate confidence interval:</p>
+<ol>
+<li>
+<p>percentile method</p>
+</li>
+<li>
+<p>standard error method</p>
+</li>
+</ol>
+</li>
+<li>
+<p>limitations</p>
+<ul>
+<li>
+<p>not as rigid conditions as CLT based methods</p>
+</li>
+<li>
+<p>if bootstrap distribution is extremely skewed or sparse, the bootstrap interval might be unreliable</p>
+</li>
+<li>
+<p>A representative sample is still needed - if the sample is biased, the estimates resulting from this sample will also be bias.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Bootstrap vs. sampling distribution</strong></p>
+<pre><code>- sampling distribution: created using sampling with replacement from the &lt;u&gt;population&lt;/u&gt;
+
+- Bootstrap distribution: created using sampling with replacement from the &lt;u&gt;sample&lt;/u&gt;
+
+- Both are distributions of sample statistics</code></pre>
 
                     </main>
 
