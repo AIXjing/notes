@@ -847,11 +847,160 @@ SE = \sqrt{\frac{MSE}{n_1}+\frac{MSE}{n_2}}
 </li>
 </ul>
 <p><strong>Bootstrap vs. sampling distribution</strong></p>
-<pre><code>- sampling distribution: created using sampling with replacement from the &lt;u&gt;population&lt;/u&gt;
-
-- Bootstrap distribution: created using sampling with replacement from the &lt;u&gt;sample&lt;/u&gt;
-
-- Both are distributions of sample statistics</code></pre>
+<ul>
+<li>
+<p>sampling distribution: created using sampling with replacement from the <u>population</u></p>
+</li>
+<li>
+<p>Bootstrap distribution: created using sampling with replacement from the <u>sample</u></p>
+</li>
+<li>
+<p>Both are distributions of sample statistics</p>
+</li>
+</ul>
+</br>
+<h2><a class="header" href="#4" id="4">4</a></h2>
+<p><strong>Categorical variables</strong> oppose to <em>numerical variables</em></p>
+<ul>
+<li>
+<p>one categorical variable: </p>
+<ul>
+<li>
+<p>two levels: success-failure</p>
+</li>
+<li>
+<p>more than two levels</p>
+</li>
+</ul>
+</li>
+<li>
+<p>two categorical variables: </p>
+<ul>
+<li>
+<p>two levels: success-failure</p>
+</li>
+<li>
+<p>more than two levels</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#41-inference-for-proportions" id="41-inference-for-proportions">4.1 Inference for proportions</a></h3>
+<h4><a class="header" href="#411-sampling-variability-and-clt-for-proportions" id="411-sampling-variability-and-clt-for-proportions">4.1.1 Sampling Variability and CLT for Proportions</a></h4>
+<p>For numerical variables, sample statistic from sampling distribution is <u>mean</u></p>
+<p>For categorial variables, sample statistic from sampling distribution is <b>proportion</b></p>
+<p><strong>CLT for proportions</strong>: The distribution of sample proportion is nearly normal, centered at the population proportion, and with a standard error inversely proportional to the sample size.</p>
+<p>\[
+\hat{p} \sim N \left( mean=p, SE=\sqrt{\frac{p(1-p)}{n}}\right)
+\]</p>
+<ul>
+<li>
+<p>Conditions for the CLT</p>
+<ul>
+<li>
+<p>Independence</p>
+</li>
+<li>
+<p>Sample size/skew: there should be at least 10 successes and 10 failures in the sample: np ≥ 10 and n(1-p) ≥ 10.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>What if the success-failure condition is not met:</p>
+<ul>
+<li>
+<p>the center of the sampling distribution will still be around the true population proportion</p>
+</li>
+<li>
+<p>the spread of the sampling distribution can still be approximated using the same formula for the standard error</p>
+</li>
+<li>
+<p>the shape of the distribution will depend on whether true population proportion is close to 0 (righ skew) or to 1 (left skew).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#412-confidence-interval-for-a-proportion" id="412-confidence-interval-for-a-proportion">4.1.2 Confidence interval for a proportion</a></h4>
+<ul>
+<li>
+<p>parameter of interest: \(p\)</p>
+</li>
+<li>
+<p>point estimate: \(\hat{p}\) sample proportion</p>
+</li>
+<li>
+<p>estimating a proportion: point estimate ± margin of error</p>
+<p>\[
+\hat{p} = z^* SE_{\hat{p}}<br />
+\]</p>
+<ul>
+<li>
+<p>SE for  a proportion for calculating a confidence interval: </p>
+<p>\[
+SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} 
+\]</p>
+</li>
+<li>
+<p>calculating the required sample size for desired ME</p>
+<ul>
+<li>
+<p>use \(\hat{p}\) from previous study</p>
+</li>
+<li>
+<p>if no previous study, use \(\hat{p} = 0.05\) as it gives the most conservative estimate - highest possible sample size</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#413-hypothesis-testing-for-a-proportion" id="413-hypothesis-testing-for-a-proportion">4.1.3 Hypothesis testing for a proportion</a></h4>
+<ol>
+<li>
+<p>set the hypothesis</p>
+</li>
+<li>
+<p>calculate the point estimate \(\hat{p}\)</p>
+</li>
+<li>
+<p>Check conditions</p>
+</li>
+<li>
+<p>Draw sampling distribution, shade p-value, calculate test statistic.</p>
+</li>
+<li>
+<p>Make a decision based on the research context.</p>
+</li>
+</ol>
+<p><em>Null hypothesis always contains a &quot;=&quot; sign.</em></p>
+<h4><a class="header" href="#414-estimating-the-difference-between-two-proportions" id="414-estimating-the-difference-between-two-proportions">4.1.4 Estimating the Difference Between Two Proportions</a></h4>
+<ul>
+<li>
+<p>Estimating the difference between two proportions:</p>
+<p>\[
+(\hat{p_1} - \hat{p_2}) \pm z^* SE_{(\hat{p_1} - \hat{p_2})} \\
+SE = \sqrt{\frac{\hat{p_1}(1-\hat{p_1})}{n_1} + \frac{\hat{p_2}(1-\hat{p_2})}{n_2}}<br />
+\]</p>
+</li>
+<li>
+<p>conditions for inference for comparing two independent proportions</p>
+<ol>
+<li>
+<p>Independent: within groups and between groups</p>
+</li>
+<li>
+<p>Sample size/kew: each sample should meet the success-failure condition</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4><a class="header" href="#415-hypothesis-test-for-comparing-two-proportions" id="415-hypothesis-test-for-comparing-two-proportions">4.1.5 Hypothesis Test for Comparing Two Proportions</a></h4>
+<p><strong>pooled proportion</strong> \(H_0: p_1 = p_2 = \) pooled proportion</p>
+<p>\[
+\hat{p}_{pool} = \frac{\text{total successes}}{\text{total n}}<br />
+\]</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/128409785-f2615fab-55af-4fa7-b9b4-c4e4f1b0e64b.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/41487483/128409969-9afd3ef0-f2e1-4ff9-8e15-906ea24cf9e1.png" alt="image" /></p>
 
                     </main>
 
