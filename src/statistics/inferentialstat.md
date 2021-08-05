@@ -633,8 +633,119 @@ Two analyze paired data, it is often useful to look at the difference in outcome
 
 **Bootstrap vs. sampling distribution**
 
-    - sampling distribution: created using sampling with replacement from the <u>population</u>
+- sampling distribution: created using sampling with replacement from the <u>population</u>
 
-    - Bootstrap distribution: created using sampling with replacement from the <u>sample</u>
+- Bootstrap distribution: created using sampling with replacement from the <u>sample</u>
 
-    - Both are distributions of sample statistics
+- Both are distributions of sample statistics
+
+</br>
+
+## 4 
+
+**Categorical variables** oppose to *numerical variables*
+
+- one categorical variable: 
+
+    * two levels: success-failure
+
+    * more than two levels
+
+- two categorical variables: 
+
+    * two levels: success-failure
+
+    * more than two levels
+
+### 4.1 Inference for proportions
+
+#### 4.1.1 Sampling Variability and CLT for Proportions
+
+For numerical variables, sample statistic from sampling distribution is <u>mean</u>
+
+For categorial variables, sample statistic from sampling distribution is <b>proportion</b>
+
+**CLT for proportions**: The distribution of sample proportion is nearly normal, centered at the population proportion, and with a standard error inversely proportional to the sample size.
+
+\\[
+    \hat{p} \sim N \left( mean=p, SE=\sqrt{\frac{p(1-p)}{n}}\right)
+\\]
+
+* Conditions for the CLT
+
+    - Independence
+
+    - Sample size/skew: there should be at least 10 successes and 10 failures in the sample: np ≥ 10 and n(1-p) ≥ 10.
+
+* What if the success-failure condition is not met:
+
+    - the center of the sampling distribution will still be around the true population proportion
+
+    - the spread of the sampling distribution can still be approximated using the same formula for the standard error
+
+    - the shape of the distribution will depend on whether true population proportion is close to 0 (righ skew) or to 1 (left skew).
+
+#### 4.1.2 Confidence interval for a proportion
+
+* parameter of interest: \\(p\\)
+
+* point estimate: \\(\hat{p}\\) sample proportion
+
+* estimating a proportion: point estimate ± margin of error
+
+    \\[
+        \hat{p} = z^* SE_{\hat{p}}    
+    \\]
+
+    * SE for  a proportion for calculating a confidence interval: 
+
+        \\[
+            SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} 
+        \\]
+
+    * calculating the required sample size for desired ME
+
+        - use \\(\hat{p}\\) from previous study
+
+        - if no previous study, use \\(\hat{p} = 0.05\\) as it gives the most conservative estimate - highest possible sample size
+
+#### 4.1.3 Hypothesis testing for a proportion
+
+1. set the hypothesis
+
+2. calculate the point estimate \\(\hat{p}\\)
+
+3. Check conditions
+
+4. Draw sampling distribution, shade p-value, calculate test statistic.
+
+5. Make a decision based on the research context.
+
+*Null hypothesis always contains a "=" sign.*
+
+#### 4.1.4 Estimating the Difference Between Two Proportions
+
+* Estimating the difference between two proportions:
+
+    \\[
+        (\hat{p_1} - \hat{p_2}) \pm z^* SE_{(\hat{p_1} - \hat{p_2})} \\\\
+        SE = \sqrt{\frac{\hat{p_1}(1-\hat{p_1})}{n_1} + \frac{\hat{p_2}(1-\hat{p_2})}{n_2}}   
+    \\]
+
+* conditions for inference for comparing two independent proportions
+
+    1. Independent: within groups and between groups
+
+    2. Sample size/kew: each sample should meet the success-failure condition
+
+#### 4.1.5 Hypothesis Test for Comparing Two Proportions
+
+**pooled proportion** \\(H_0: p_1 = p_2 = \\) pooled proportion
+
+\\[
+    \hat{p}_{pool} = \frac{\text{total successes}}{\text{total n}}    
+\\]
+
+![image](https://user-images.githubusercontent.com/41487483/128409785-f2615fab-55af-4fa7-b9b4-c4e4f1b0e64b.png)
+
+![image](https://user-images.githubusercontent.com/41487483/128409969-9afd3ef0-f2e1-4ff9-8e15-906ea24cf9e1.png)
