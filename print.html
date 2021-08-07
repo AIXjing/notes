@@ -3780,7 +3780,7 @@ SE = \sqrt{\frac{MSE}{n_1}+\frac{MSE}{n_2}}
 </li>
 </ul>
 </br>
-<h2><a class="header" href="#4" id="4">4</a></h2>
+<h2><a class="header" href="#4-inference-for-proportion" id="4-inference-for-proportion">4 Inference for Proportion</a></h2>
 <p><strong>Categorical variables</strong> oppose to <em>numerical variables</em></p>
 <ul>
 <li>
@@ -3895,12 +3895,13 @@ SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
 </ol>
 <p><em>Null hypothesis always contains a &quot;=&quot; sign.</em></p>
 <h4><a class="header" href="#414-estimating-the-difference-between-two-proportions" id="414-estimating-the-difference-between-two-proportions">4.1.4 Estimating the Difference Between Two Proportions</a></h4>
+<p><em>calculating a confidence interval for the difference between the two population proportions that are unknown using data from our sample</em></p>
 <ul>
 <li>
 <p>Estimating the difference between two proportions:</p>
 <p>\[
-(\hat{p_1} - \hat{p_2}) \pm z^* SE_{(\hat{p_1} - \hat{p_2})} \\
-SE = \sqrt{\frac{\hat{p_1}(1-\hat{p_1})}{n_1} + \frac{\hat{p_2}(1-\hat{p_2})}{n_2}}<br />
+(\hat{p}_1 - \hat{p} _2) \pm z^* SE _{(\hat{p}_1 - \hat{p}_2)} \\
+SE = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}<br />
 \]</p>
 </li>
 <li>
@@ -3922,6 +3923,120 @@ SE = \sqrt{\frac{\hat{p_1}(1-\hat{p_1})}{n_1} + \frac{\hat{p_2}(1-\hat{p_2})}{n_
 \]</p>
 <p><img src="https://user-images.githubusercontent.com/41487483/128409785-f2615fab-55af-4fa7-b9b4-c4e4f1b0e64b.png" alt="image" /></p>
 <p><img src="https://user-images.githubusercontent.com/41487483/128409969-9afd3ef0-f2e1-4ff9-8e15-906ea24cf9e1.png" alt="image" /></p>
+<h4><a class="header" href="#42-simulation-based-inference-for-proportions-and-chi-square-testommg" id="42-simulation-based-inference-for-proportions-and-chi-square-testommg">4.2 Simulation based inference for proportions and chi-square testommg</a></h4>
+<h4><a class="header" href="#421-small-sample-proportion" id="421-small-sample-proportion">4.2.1 Small sample proportion</a></h4>
+<p>which does not meet success-failure condition</p>
+<ul>
+<li>
+<p>inference via simulation</p>
+</li>
+<li>
+<p>setting up a simulation assuming H0 true</p>
+<ul>
+<li>
+<p>the ultimate goal of a hypothesis test is a p-value</p>
+</li>
+<li>
+<p>devise a simulation scheme that assumes the null hypothesis is true</p>
+</li>
+<li>
+<p><u>repeat the simulation many times and record relevant sample statistic</u> <em>CLT?</em></p>
+</li>
+<li>
+<p>calculate p-value as the proportion of simulations that yield a result favorable to the alternative hypothesis</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/41487483/128587428-e8e5f4f8-6368-47b5-a79d-82ec357ae12e.png" alt="image" /></p>
+</li>
+</ul>
+<h4><a class="header" href="#422-comparing-two-small-sample-proportions" id="422-comparing-two-small-sample-proportions">4.2.2 Comparing Two Small sample proportions</a></h4>
+<img src="https://user-images.githubusercontent.com/41487483/128587776-777b7026-908e-48cb-832b-7d3247cccde4.png" width="300" height="300">
+<p>For comparing two proportions with hypothesis test, the <strong>pooled proportion</strong> should be used.</p>
+<img src="https://user-images.githubusercontent.com/41487483/128587831-1fe22540-94c5-4fc0-89a9-b3cff4d4e8dc.png" width="250" height="250">
+<p><img src="https://user-images.githubusercontent.com/41487483/128587856-fe835c70-4c71-4014-955d-f51abcbb8865.png" alt="image" /></p>
+<h4><a class="header" href="#423-chi-square-gof-test" id="423-chi-square-gof-test">4.2.3 Chi-Square GOF test</a></h4>
+<p>Deals with data with one category with more than two levels to a hypothesis distribution</p>
+<div style="color:blue">goodness of fit</div> test is to evaluate how well the observed data fit the expected distribution
+<ul>
+<li>
+<p>Conditions for the Chi-Sqaure test:</p>
+<ul>
+<li>
+<p>Independence</p>
+<ul>
+<li>
+<p>random sample/assignment</p>
+</li>
+<li>
+<p>if sampling without replacement, n &lt; 10% of population</p>
+</li>
+<li>
+<p>each case only contributes to one cell in the table</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sample size: each particular scenarior (i.e., cell) must have at least 5 expected cases.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Anatomy of a test statistic</p>
+<p>General form of a test statistic </p>
+<p>\[
+\frac{\text{point estimate - null value}}{\text{SE of point estimate}}<br />
+\]</p>
+<ol>
+<li>
+<p>identifying the difference between a point estimate and an expected value if the null hypothesis were true</p>
+</li>
+<li>
+<p>standardizing that difference using the standard error of the point estimate</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Chi-Square \(\chi\)) statistic</strong>: dealing with counts and investigating how far the observed counts are from the expected counts</p>
+<p>\[
+\chi^2 = \sum\limits_{i=1}^{k}\frac{(O-E)^2}{E}<br />
+\]</p>
+<p>O: observed</p>
+<p>E: expected</p>
+<p>k: number of cells</p>
+</li>
+<li>
+<p><strong>Chi-Square \(\chi\)) distribution</strong>: has just one parameter</p>
+<ul>
+<li>degrees of freedom (df): influence the shape, center and spread</li>
+</ul>
+<img src="https://user-images.githubusercontent.com/41487483/128588353-db8fc2ef-87ce-4caf-a55b-129b29c9a318.png" width="450" height="300">
+</li>
+<li>
+<p>p-value</p>
+<ul>
+<li>
+<p>p-value for a chi-square test is defined as the tail area above the calculated test statistic</p>
+</li>
+<li>
+<p>the test statistic is always <strong>positive</strong>, and a higher test statistic means a higher deviation from the null hypothesis</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><a class="header" href="#424-chi-square-independence-test" id="424-chi-square-independence-test">4.2.4 Chi-Square independence test</a></h4>
+<p>Deals with two categorial variables at least one with &gt; 2 levels</p>
+<p><strong>Chi-square independence test</strong> is to evaluate the relationship between two categorical variables</p>
+<p>\[
+\chi^2 = \sum\limits_{i=1}^{k}\frac{(O-E)^2}{E}<br />
+\]</p>
+<ul>
+<li>
+<p><strong>df = (#rows - 1)x(#columns - 1)</strong></p>
+</li>
+<li>
+<p>the same conditions as chi-square GOF test</p>
+</li>
+</ul>
 <h1><a class="header" href="#statistics-with-python" id="statistics-with-python">Statistics with Python</a></h1>
 <h2><a class="header" href="#1-introduction-to-probability-and-statistics" id="1-introduction-to-probability-and-statistics">1 Introduction to Probability and Statistics</a></h2>
 <h3><a class="header" href="#11-probability-theory" id="11-probability-theory">1.1 Probability Theory</a></h3>
