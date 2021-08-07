@@ -641,7 +641,7 @@ Two analyze paired data, it is often useful to look at the difference in outcome
 
 </br>
 
-## 4 
+## 4 Inference for Proportion
 
 **Categorical variables** oppose to *numerical variables*
 
@@ -725,11 +725,13 @@ For categorial variables, sample statistic from sampling distribution is <b>prop
 
 #### 4.1.4 Estimating the Difference Between Two Proportions
 
+*calculating a confidence interval for the difference between the two population proportions that are unknown using data from our sample*
+
 * Estimating the difference between two proportions:
 
     \\[
-        (\hat{p_1} - \hat{p_2}) \pm z^* SE_{(\hat{p_1} - \hat{p_2})} \\\\
-        SE = \sqrt{\frac{\hat{p_1}(1-\hat{p_1})}{n_1} + \frac{\hat{p_2}(1-\hat{p_2})}{n_2}}   
+        (\hat{p}_1 - \hat{p} _2) \pm z^* SE _{(\hat{p}_1 - \hat{p}_2)} \\\\
+        SE = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}   
     \\]
 
 * conditions for inference for comparing two independent proportions
@@ -749,3 +751,104 @@ For categorial variables, sample statistic from sampling distribution is <b>prop
 ![image](https://user-images.githubusercontent.com/41487483/128409785-f2615fab-55af-4fa7-b9b4-c4e4f1b0e64b.png)
 
 ![image](https://user-images.githubusercontent.com/41487483/128409969-9afd3ef0-f2e1-4ff9-8e15-906ea24cf9e1.png)
+
+
+#### 4.2 Simulation based inference for proportions and chi-square testommg
+
+#### 4.2.1 Small sample proportion
+
+which does not meet success-failure condition
+
+* inference via simulation
+
+* setting up a simulation assuming H0 true
+
+    - the ultimate goal of a hypothesis test is a p-value
+
+    - devise a simulation scheme that assumes the null hypothesis is true
+
+    - <u>repeat the simulation many times and record relevant sample statistic</u> *CLT?*
+
+    - calculate p-value as the proportion of simulations that yield a result favorable to the alternative hypothesis
+
+    ![image](https://user-images.githubusercontent.com/41487483/128587428-e8e5f4f8-6368-47b5-a79d-82ec357ae12e.png)
+
+#### 4.2.2 Comparing Two Small sample proportions
+
+<img src="https://user-images.githubusercontent.com/41487483/128587776-777b7026-908e-48cb-832b-7d3247cccde4.png" width="300" height="300">
+
+For comparing two proportions with hypothesis test, the **pooled proportion** should be used.
+
+<img src="https://user-images.githubusercontent.com/41487483/128587831-1fe22540-94c5-4fc0-89a9-b3cff4d4e8dc.png" width="250" height="250">
+
+![image](https://user-images.githubusercontent.com/41487483/128587856-fe835c70-4c71-4014-955d-f51abcbb8865.png)
+
+#### 4.2.3 Chi-Square GOF test
+
+Deals with data with one category with more than two levels to a hypothesis distribution
+
+<div style="color:blue">goodness of fit</div> test is to evaluate how well the observed data fit the expected distribution
+
+- Conditions for the Chi-Sqaure test:
+
+    * Independence
+
+        - random sample/assignment
+
+        - if sampling without replacement, n < 10% of population
+
+        - each case only contributes to one cell in the table
+
+    * Sample size: each particular scenarior (i.e., cell) must have at least 5 expected cases.
+
+
+- Anatomy of a test statistic
+
+    General form of a test statistic 
+
+    \\[
+        \frac{\text{point estimate - null value}}{\text{SE of point estimate}}    
+    \\]
+
+    1. identifying the difference between a point estimate and an expected value if the null hypothesis were true
+
+    2. standardizing that difference using the standard error of the point estimate
+
+- **Chi-Square \\(\chi\\)) statistic**: dealing with counts and investigating how far the observed counts are from the expected counts
+
+    \\[
+        \chi^2 = \sum\limits_{i=1}^{k}\frac{(O-E)^2}{E}    
+    \\]
+
+    O: observed
+
+    E: expected
+
+    k: number of cells
+
+- **Chi-Square \\(\chi\\)) distribution**: has just one parameter
+
+    - degrees of freedom (df): influence the shape, center and spread
+
+    <img src="https://user-images.githubusercontent.com/41487483/128588353-db8fc2ef-87ce-4caf-a55b-129b29c9a318.png" width="450" height="300">
+
+- p-value
+
+    - p-value for a chi-square test is defined as the tail area above the calculated test statistic
+
+    - the test statistic is always **positive**, and a higher test statistic means a higher deviation from the null hypothesis
+
+#### 4.2.4 Chi-Square independence test
+
+Deals with two categorial variables at least one with > 2 levels
+
+**Chi-square independence test** is to evaluate the relationship between two categorical variables
+
+\\[
+    \chi^2 = \sum\limits_{i=1}^{k}\frac{(O-E)^2}{E}  
+\\]
+
+- **df = (#rows - 1)x(#columns - 1)**   
+
+- the same conditions as chi-square GOF test
+
