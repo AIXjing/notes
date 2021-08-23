@@ -47,6 +47,9 @@ a2.sum(axis=1)
 
 1. ´x = x + 1´ is qual to ´x += 1´
 
+
+</br>
+
 ## Virtualenv - virtual environment manager
 
 `venv` for Python 3 or `virtualen` for Python 2

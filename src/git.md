@@ -80,7 +80,7 @@
 
     `git commit --amend` -overwrite previous commit. only for local commit, not for public commit
 
-    `tough filename` - create files
+    `touch filename` - create files
 
 8. Rollbacks
 
@@ -115,3 +115,12 @@ When branch was changed, the working directory also changed.
 `git log --graph --oneline`
 
 `git merge -abort` - stop merging and back to previous status
+
+
+## Case 2 Return to previous commit 
+
+- `git lg` to check out the history and find out which version I want to return back (commit_ID)
+
+- `git reset commit_ID` Be causious of using `git reset -hard commit_ID`
+
+- Then add, commit, push. If leaving a new commit message after `git reset` operation, it will combine the last few commits that you do not want into a single commint.
