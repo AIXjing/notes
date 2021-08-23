@@ -235,7 +235,7 @@
 <li>
 <p>Amend commit</p>
 <p><code>git commit --amend</code> -overwrite previous commit. only for local commit, not for public commit</p>
-<p><code>tough filename</code> - create files</p>
+<p><code>touch filename</code> - create files</p>
 </li>
 <li>
 <p>Rollbacks</p>
@@ -257,6 +257,18 @@
 <p><strong>merge conflict</strong></p>
 <p><code>git log --graph --oneline</code></p>
 <p><code>git merge -abort</code> - stop merging and back to previous status</p>
+<h2><a class="header" href="#case-2-return-to-previous-commit" id="case-2-return-to-previous-commit">Case 2 Return to previous commit</a></h2>
+<ul>
+<li>
+<p><code>git lg</code> to check out the history and find out which version I want to return back (commit_ID)</p>
+</li>
+<li>
+<p><code>git reset commit_ID</code> Be causious of using <code>git reset -hard commit_ID</code></p>
+</li>
+<li>
+<p>Then add, commit, push. If leaving a new commit message after <code>git reset</code> operation, it will combine the last few commits that you do not want into a single commint.</p>
+</li>
+</ul>
 <h1><a class="header" href="#visit-with-the-client--setup-overview" id="visit-with-the-client--setup-overview">Visit with the Client &amp; Setup Overview</a></h1>
 <p><a href="https://balsamiq.com">layout design page</a>
 <a href="https://wwww.google.com/fonts">Google fonts</a></p>
@@ -912,6 +924,7 @@ a2.sum(axis=1)
 <ol>
 <li>´x = x + 1´ is qual to ´x += 1´</li>
 </ol>
+</br>
 <h2><a class="header" href="#virtualenv---virtual-environment-manager" id="virtualenv---virtual-environment-manager">Virtualenv - virtual environment manager</a></h2>
 <p><code>venv</code> for Python 3 or <code>virtualen</code> for Python 2</p>
 <p><a href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">Installing packages using pip and virtual environments</a></p>
