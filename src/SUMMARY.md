@@ -24,7 +24,7 @@
     - [Inferential Statistics](./statistics/inferentialstat.md)
     - [Statistics with Python](./statistics/python.md)
     - [Common problems](./statistics/problems.md)
-    - [Inferential Statistics with Python ](./statistics/infe_stats_python.md)
+    - [Inferential Statistics with Python ](./statistics/Infe_stats_python.md)
 
 
 - [Data Viz](./dataviztools/dataviztools.md)
