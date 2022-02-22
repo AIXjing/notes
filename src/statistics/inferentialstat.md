@@ -434,7 +434,7 @@ estimating the mean = point estimate ± margin of error
     1. independence: 
     
         - within groups: 
-    
+
             - random sample/assignment
 
             - if samping without replacement, n < 10% of population
@@ -814,7 +814,7 @@ Deals with data with one category with more than two levels to a hypothesis dist
 
     2. standardizing that difference using the standard error of the point estimate
 
-- **Chi-Square \\(\chi\\)) statistic**: dealing with counts and investigating how far the observed counts are from the expected counts
+- **Chi-Square \\(\chi\\) statistic**: dealing with counts and investigating how far the observed counts are from the expected counts
 
     \\[
         \chi^2 = \sum\limits_{i=1}^{k}\frac{(O-E)^2}{E}    
@@ -826,7 +826,7 @@ Deals with data with one category with more than two levels to a hypothesis dist
 
     k: number of cells
 
-- **Chi-Square \\(\chi\\)) distribution**: has just one parameter
+- **Chi-Square \\(\chi\\) distribution**: has just one parameter
 
     - degrees of freedom (df): influence the shape, center and spread
 
@@ -852,3 +852,56 @@ Deals with two categorial variables at least one with > 2 levels
 
 - the same conditions as chi-square GOF test
 
+### 4.3 Assumption consistency
+
+**One Population Proportion**
+
+1. Sample can be considered a simple random sample
+
+    - Large enough sample size ()
+
+        - Confidence Interval: At least 10 of each outcome ()
+
+        - Hypothesis Test: At least 10 of each outcome ()
+
+2. **Two Population Proportions**
+
+    - Samples can be considered two simple random samples
+
+    - Samples can be considered independent of one another
+
+        - Large enough sample sizes ()
+
+        - Confidence Interval: At least 10 of each outcome ()
+
+        - Hypothesis Test: At least 10 of each outcome () - Where (the common population proportion estimate)
+
+3. **One Population Mean**
+
+    - Sample can be considered a simple random sample
+
+    - Sample comes from a normally distributed population
+
+        - This assumption is less critical with a large enough sample size (application of the C.L.T.)
+
+3. **One Population Mean Difference**
+
+    - Sample of differences can be considered a simple random sample
+
+    - Sample of differences comes from a normally distributed population of differences
+
+        - This assumption is less critical with a large enough sample size (application of the C.L.T.)
+
+4. **Two Population Means**
+
+    - Samples can be considered a simple random samples
+
+    - Samples can be considered independent of one another
+
+    - Samples each come from normally distributed populations
+
+        - This assumption is less critical with a large enough sample size (application of the C.L.T.)
+
+            - Populations have equal variances – pooled procedure used
+
+            -  If this assumption cannot be made, unpooled procedure used
