@@ -14,7 +14,7 @@ You can add these files after your project has been pushed to GitHub.
 
 3. Initialize the local directory as a Git repository.
 
-    ```
+    ```shell
    git init -b main
    ```
 
@@ -22,7 +22,7 @@ You can add these files after your project has been pushed to GitHub.
 4. Add the files in your new local repository. 
 This stages them for the first commit.
 
-    ```
+    ```shell
    git add .
    ```
    
@@ -32,7 +32,7 @@ This stages them for the first commit.
 
 5. In Terminal, add the URL for the remote repository where your local repository will be pushed.
    
-   ```
+   ```shell
    $ git remote add origin  <REMOTE_URL> 
    # Sets the new remote
    $ git remote -v
@@ -41,7 +41,7 @@ This stages them for the first commit.
 
 6. Push the changes in your local repository to GitHub.com.
 
-   ```
+   ```shell
    git push origin main
    ```
    
@@ -66,7 +66,7 @@ This stages them for the first commit.
 
 3. Add a remote for the 'official' repo
    
-   ```
+   ```shell
    git remote add upstream <url>
    ```
 
@@ -90,7 +90,7 @@ This stages them for the first commit.
 
      - Rebase your development branch to avoid conflict when new commits have been made to the upstream main branch. 
      
-        ```
+        ```shell
         git checkout my-branch
         git rebase my-main
         ```
@@ -114,7 +114,7 @@ Git is a visual control system (VCS), which can save code, configrations, histor
 
 2. Add new project and repo
 
-   ```
+   ```shell
    $ mkdir project
    $ cd project
    
@@ -125,7 +125,7 @@ Git is a visual control system (VCS), which can save code, configrations, histor
 
 3. Stage changes and commit
 
-   ```
+   ```shell
    $ git status
    $ git add .
    $ git commit -m "comments"
@@ -137,7 +137,7 @@ Git is a visual control system (VCS), which can save code, configrations, histor
  
 4. Show changes in commit
 
-   ```
+   ```shell
    # to show change logs
    $ git log
    
@@ -157,7 +157,7 @@ Git is a visual control system (VCS), which can save code, configrations, histor
  
 5. Remove or rename the file in the repo
 
-   ```
+   ```shell
    # remove files from repo, stop the file from being tracked by git
    $ git rm FILENAME
    
@@ -189,7 +189,7 @@ Git is a visual control system (VCS), which can save code, configrations, histor
 
 8. Rollbacks
    
-   ```
+   ```shell
    $ git revert HEAD // HEAD is regarded as a point to a snapshot
    $ git revert commit_id
    
@@ -201,7 +201,7 @@ Git is a visual control system (VCS), which can save code, configrations, histor
 
 *default branch - main (or master in old github)*
 
-```
+```shell
 # check up the current branch 
 $ git branch
 

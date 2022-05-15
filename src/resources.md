@@ -1,4 +1,4 @@
-# Chapter 1
+# Resources
 
 
 #### [This is a link for markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
