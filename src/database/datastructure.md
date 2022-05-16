@@ -96,6 +96,8 @@ There are two ways to traverse all nodes in a tree: Depth-First Traversal (DFT, 
 
 #### Depth-First Traversal (DFT) 
 
+Usually implemented by stack if using iteration.
+
 1. **Preorder**: visit node, go left, go right
 
     An illustration of the reorder traversal using stack data structure is shown below. 
@@ -217,15 +219,15 @@ There are two ways to traverse all nodes in a tree: Depth-First Traversal (DFT, 
 
 3. **Postorder**: go left, go right, visit node
 
-An illustration of the inorder traversal using stack data structure is shown below.
+    An illustration of the postorder traversal using stack data structure is shown below.
 
-![image](https://user-images.githubusercontent.com/41487483/168475837-92118345-18c3-4759-8482-1787020abfcb.png)
+    ![image](https://user-images.githubusercontent.com/41487483/168475837-92118345-18c3-4759-8482-1787020abfcb.png)
 
-An example code for implementation of postorder traversal shows as follows
+    An example code for implementation of postorder traversal shows as follows
 
-```java
-// method 1: Normal iteration
-public List<Integer> postorderTraversalStack(TreeNode root) {
+    ```java
+    // method 1: Normal iteration
+    public List<Integer> postorderTraversalStack(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         LinkedList<Integer> li = new LinkedList<>();
         TreeNode node = root;
@@ -257,8 +259,8 @@ public List<Integer> postorderTraversalStack(TreeNode root) {
     }
 
 
-// method 2: reverse preorder traversal
-public static List<Integer> postorderTraversalStackRev(TreeNode<Integer> root) {
+    // method 2: reverse preorder traversal
+    public static List<Integer> postorderTraversalStackRev(TreeNode<Integer> root) {
         Stack<TreeNode<Integer>> stack = new Stack<>();
         LinkedList<Integer> li = new LinkedList<>();
         TreeNode<Integer> node = root;
@@ -277,31 +279,98 @@ public static List<Integer> postorderTraversalStackRev(TreeNode<Integer> root) {
         }
         return li;
     }
-```
+    ```
 
-Recursion method:
+    Recursion method:
 
-```java
+    ```java
     public static List<Integer> postorderTraversalRec(TreeNode<Integer> root) {
         List<Integer> li = new ArrayList<>();
         helperRecursion(root, li);
         return li;
     }
-    
+
     private static void helperRecursion(TreeNode<Integer> root, List<Integer> li) {
         if (root == null) return;
         helperRecursion(root.left, li);
         helperRecursion(root.right, li);
         li.add(root.val);
     }
-```
+    ```
 
 #### Breadth-First Traversal (BFT)
 
-1. Levelorder traversal - Deque/Queue
+1. Levelorder traversal: usually uses *Queue* to implement.
 
+    The following example returns a list of node values via BFT using iteractive method.
 
-### Time complexity for Tree data structure
+    ```java
+    public static List<Integer> levelOrderStack(TreeNode<Integer> root) {
+        List<Integer> li = new ArrayList<>();
+        if (root == null) return li;
+        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        TreeNode<Integer> node = root;
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            node = queue.poll();
+            li.add(node.val);
+            if (node.left != null) queue.add(node.left);
+            if (node.right != null) queue.add(node.right);
+        }
+        return li;
+    }
+    ```
+
+    Here is another example to re the node values level by level by store the node values in list and append each list to a list of lists. The main difference from the above example is that we add an extra variable `level` to track which level of the node is.
+
+    ```java
+    public static List<List<Integer>> levelOrderLists(TreeNode<Integer> root) {
+        List<List<Integer>> results = new ArrayList<>();
+        // a queue to place each node traversed
+        Queue<TreeNode<Integer>> queue = new LinkedList<>(); 
+        if (root == null) return results;
+        TreeNode<Integer> node = root;
+        // add a variable to track level
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            List<Integer> li = new ArrayList<>();
+            int level = queue.size();
+            // add the value of the nodes in certain level to the corresponding list
+            for (int i = 0; i < level; i++) {
+                node = queue.remove();
+                li.add(node.val);
+                // if the node has child nodes, then add the child node to the queue and increase the level
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            results.add(li);
+        }
+        return results;
+    }
+    ```
+
+    The above implementation can also be achieved by recursive approach.
+
+    ```java
+    public static List<List<Integer>> levelOrderListsRec(TreeNode<Integer> root) {
+        List<List<Integer>> results = new ArrayList<>();
+        helperListsRec(root, results, 0);
+        return results;
+    }
+
+    private static void helperListsRec(TreeNode<Integer> root, List<List<Integer>> results, int level) {
+        if (root == null) return;
+        if (results.size() == level) {
+            results.add(new ArrayList<>());
+        }
+        results.get(level).add(root.val);
+        helperListsRec(root.left, results, level + 1);
+        helperListsRec(root.right, results, level + 1);
+    }
+    ```
+
+### Time complexity for different data structure
+![image](https://user-images.githubusercontent.com/41487483/168652255-bd722a31-5823-4708-9c41-622244bb1870.png) [^4]
 
 ### Other application case for Tree data structure
 
@@ -316,4 +385,6 @@ reference
 [^2]: https://techvidvan.com/tutorials/java-abstract-data-type/#:~:text=What%20is%20an%20Abstract%20Data,of%20operations%20on%20that%20type.
 
 [^3]: Michael T. Goodrich. Data Structures and Algorithms in Java. 4th Edition. P264
+
+[^4]: https://java-questions.com/ds-time-complexity.html
 

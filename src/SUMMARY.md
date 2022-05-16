@@ -3,6 +3,9 @@
 - [Resources](./resources.md)
 - [Git](./git.md)
 
+- [Java](./java.md)
+    - [Java fundamentals](./java/fundamentals.md)
+
 - [Database](./database.md)
     - [Data Structure](./database/datastructure.md)
 
