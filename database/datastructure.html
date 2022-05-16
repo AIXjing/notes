@@ -1,0 +1,570 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data Structure - Note</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../resources.html"><strong aria-hidden="true">1.</strong> Resources</a></li><li class="chapter-item expanded "><a href="../git.html"><strong aria-hidden="true">2.</strong> Git</a></li><li class="chapter-item expanded "><a href="../java.html"><strong aria-hidden="true">3.</strong> Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../java/fundamentals.html"><strong aria-hidden="true">3.1.</strong> Java fundamentals</a></li></ol></li><li class="chapter-item expanded "><a href="../database.html"><strong aria-hidden="true">4.</strong> Database</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../database/datastructure.html" class="active"><strong aria-hidden="true">4.1.</strong> Data Structure</a></li></ol></li><li class="chapter-item expanded "><a href="../frontend/frontend.html"><strong aria-hidden="true">5.</strong> Frontend</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../frontend/vue3.html"><strong aria-hidden="true">5.1.</strong> Vue3 note</a></li><li class="chapter-item expanded "><a href="../frontend/css.html"><strong aria-hidden="true">5.2.</strong> CSS</a></li></ol></li><li class="chapter-item expanded "><a href="../python/python.html"><strong aria-hidden="true">6.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../python/Coursera-Michigan.html"><strong aria-hidden="true">6.1.</strong> Python-coursera-Michigan (incompleted)</a></li><li class="chapter-item expanded "><a href="../python/leanningfrommis.html"><strong aria-hidden="true">6.2.</strong> Learning in a hard way</a></li></ol></li><li class="chapter-item expanded "><a href="../statistics/statistics.html"><strong aria-hidden="true">7.</strong> Statistics rewind</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../statistics/MITx6.431x.html"><strong aria-hidden="true">7.1.</strong> Probability - The Science of Uncertainty and Data</a></li><li class="chapter-item expanded "><a href="../statistics/inferentialstat.html"><strong aria-hidden="true">7.2.</strong> Inferential Statistics</a></li><li class="chapter-item expanded "><a href="../statistics/python.html"><strong aria-hidden="true">7.3.</strong> Statistics with Python</a></li><li class="chapter-item expanded "><a href="../statistics/problems.html"><strong aria-hidden="true">7.4.</strong> Common problems</a></li><li class="chapter-item expanded "><a href="../statistics/Infe_stats_python.html"><strong aria-hidden="true">7.5.</strong> Inferential Statistics with Python </a></li></ol></li><li class="chapter-item expanded "><a href="../dataviztools/dataviztools.html"><strong aria-hidden="true">8.</strong> Data Viz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dataviztools/projects.html"><strong aria-hidden="true">8.1.</strong> Dataviz Projects</a></li></ol></li><li class="chapter-item expanded "><a href="../english/english.html"><strong aria-hidden="true">9.</strong> English</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../english/speaking.html"><strong aria-hidden="true">9.1.</strong> Speaking English</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Note</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#data-structure" id="data-structure">Data Structure</a></h1>
+<p>This document outlines the fundamental data structure in Java. The most commonly used data structures in Java include ArrayList, HashMap, Queue, Stack, and BST (Binary Search Tree). These data structures are clearly different but have some relationship. The following scheme exhibits the relationship of these data structures. Notice that some are Interface and some are Class.</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/168429778-c38852fa-cacc-4cbd-881e-2d88bbddbff7.png" alt="image" /></p>
+<h2><a class="header" href="#abstract-data-types-adt-vs-interface" id="abstract-data-types-adt-vs-interface">Abstract Data Types (ADT) vs. interface</a></h2>
+<p>An abstract data type is a <em>self-contained</em>, <em>user-defined</em> type that bundles data with a set of related operations <sup class="footnote-reference"><a href="#1">1</a></sup>. ADT can be classified as <em>built-in</em> and <em>user-defined</em> or as <em>mutable</em> or <em>immutable</em> <sup class="footnote-reference"><a href="#2">2</a></sup>. For example, the <em>List</em> interface is a Java built-in ADT, which defines a data structure with set of methods to operate on but without providing detailed implementation. </p>
+<p>My own understanding of ADT is that it is a general concept, and interfaces in Java is in-built ADT for convenience for users.</p>
+<p>Implementing an ADT in Java involves two steps. The first step is the definition of a Java <em>Application Programming Interface</em> (API), for <em>interface</em> for short, which describes the names of the methods that the ADT supoorts and how they are to be declared and used. Secondly, we need to define exceptions for any error conditions that can arise during operations <sup class="footnote-reference"><a href="#3">3</a></sup>. Java libraty provides various ADTs such as <em>List</em>, <em>Stack</em>, <em>Queue</em>, <em>Set</em>, <em>Map</em> as inbuilt interfaces that we implement using various data structures.</p>
+<img src=https://user-images.githubusercontent.com/41487483/168462488-a6b24806-2a74-4476-abd5-465cccee9d00.png width="400"/>
+<h2><a class="header" href="#collecction" id="collecction">Collecction</a></h2>
+<p>Java Collection interface provides a architecture to store and manipulate a group of objects. The <code>java.util</code> package contains all the classes and interfaces for the Collection framework. The Collection interface is implemented by all the classes in the framework, and it only declares the method that each collection will have. </p>
+<p><img src="https://user-images.githubusercontent.com/41487483/168433099-4efe6e91-ba08-4957-a5c8-e98756ced5fd.png" alt="image" /></p>
+<h2><a class="header" href="#list" id="list">List</a></h2>
+<p>List interface extends Collection interface, which stores a list type data structure in which we can store an ordered collection of objects, and can have duplicate values. List interface is implemented by the classes <strong>ArrayList</strong>, <strong>LinkedList</strong>, <strong>Vector</strong> and <strong>Stack</strong>.</p>
+<h3><a class="header" href="#a-hrefhttpsdocsoraclecomjavase7docsapijavautilarraylisthtmlarraylista" id="a-hrefhttpsdocsoraclecomjavase7docsapijavautilarraylisthtmlarraylista"><a href="https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a></a></h3>
+<p>uses a resieable array to store objects, built on top of array. The <code>size</code>, <code>isEmpty</code>, <code>get</code>, <code>set</code> and <code>iterator</code> operations run in constant time, while the <code>add</code> operation runs in <em>amortized</em> constant time. Other operations roughly run in linear time, and the constant factor is low compared to <em>LinkedList</em>.</p>
+<img src=https://user-images.githubusercontent.com/41487483/168442319-87af7a76-7856-434b-9e69-02705ec23cf0.png width="400"/>
+<h3><a class="header" href="#a-hrefhttpsdocsoraclecomenjavajavase11docsapijavabasejavautillinkedlisthtmllinkedlista" id="a-hrefhttpsdocsoraclecomenjavajavase11docsapijavabasejavautillinkedlisthtmllinkedlista"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html">LinkedList</a></a></h3>
+<p>a linear data structure that consists of nodes holding a data field and a reference to another node. It is a doubly-linked list implementing both <em>List</em> and <em>Deque</em> interface. Some commonly used methods and their corresponding run time complexity are listed below:</p>
+<ul>
+<li>
+<p><code>.add()</code>: add element to the end of the list and run time is constant O(1).</p>
+</li>
+<li>
+<p><code>.get()</code>: get a specific element by traversing nodes one by one, and the worst run time is O(n).</p>
+</li>
+<li>
+<p><code>.remove(element)</code>: remove an element with runtime O(n).</p>
+</li>
+</ul>
+<p>In general, except for <code>add</code>, other <em>LInkedList</em> operations run in linear time.</p>
+<p>LinkedList implementing <em>Deque</em> interface, which is extended <em>Queue</em> interface, can retrive the first element and remove it from the list, i.e., <code>linkedList.poll()</code> and <code>linkedList.pop()</code>. Also, this linkedlist can also add an element to the head like a stack, i.e., <code>linkedList.push(e)</code>. </p>
+<h3><a class="header" href="#a-hrefhttpsdocsoraclecomjavase7docsapijavautilstackhtmlstacka" id="a-hrefhttpsdocsoraclecomjavase7docsapijavautilstackhtmlstacka"><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">Stack</a></a></h3>
+<p>a generic, linear data structure that represents a Last-In-First-Out(LIFO) collection of objects. It allows to <code>push</code>/<code>pop</code> element in a constant time. Stack is a direct class of <strong>Vector</strong>, which is a <em>synchronized</em> implementation. A more complete and consistent set of LIFO stack operations is provided by the <em>Deque</em> interface, which can be implemeneted by <em>ArrayDeque</em>, e.g., <code>Deque&lt;Integer&gt; stack = new ArrayDeque&lt;Integer&gt;()</code>. </p>
+<p>Stack is also an ADT, and it can be implemented using Array, ArrayDeque and a Generic LinkedList.</p>
+<h2><a class="header" href="#a-hrefhttpsdocsoraclecomjavase8docsapijavautilqueuehtmlqueuea" id="a-hrefhttpsdocsoraclecomjavase8docsapijavautilqueuehtmlqueuea"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html">Queue</a></a></h2>
+<p>a interface following First-In-First-Our (FIFO) principle typically. Except for <em>priority queue</em>, it order elements according to a supplied comparator or the element's natural ordering. Regardless of ordering, <code>.remove()</code> or <code>.poll()</code>operations will remove an element from the <em>head</em> of the queue (so called <code>dequeue</code>), and new element will be inserted at the <em>tail</em> of the queue (<code>enqueue</code>).</p>
+<h2><a class="header" href="#a-hrefhttpsdocsoraclecomenjavajavase12docsapijavabasejavautildequehtmldequea" id="a-hrefhttpsdocsoraclecomenjavajavase12docsapijavabasejavautildequehtmldequea"><a href="https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Deque.html">Deque</a></a></h2>
+<p>a linear collection (interface) that supports element insertion and removal at both ends, for example, <code>addFirst()</code> and <code>addLast()</code>. The <code>Deque</code> interface extends <code>Queue</code>. </p>
+<ul>
+<li>
+<p>When <code>Deque</code> is used as a <em>queue</em>, the collection follows FIFO manner, in which The <code>addLast()</code> operation is equivalent to <code>add()</code> in <em>queue</em> method.</p>
+</li>
+<li>
+<p><code>Deque</code> can also be used as LIFO stacks, in which insertion and remove will be operated at the beginning of the deque. The <code>pop</code> and <code>push</code> operations will be equivalent to <code>removeFirst</code> and <code>addFirst</code>, respectively, in deque.</p>
+</li>
+</ul>
+<p>Unlike the <em>List</em> interface, the <em>Deque</em> interface does not provide support for indexed access to element.</p>
+<h2><a class="header" href="#tree" id="tree">Tree</a></h2>
+<h3><a class="header" href="#tree-structure-and-composition" id="tree-structure-and-composition">Tree structure and composition</a></h3>
+<h4><a class="header" href="#tree-data-structure" id="tree-data-structure">Tree data structure</a></h4>
+<p>All the above mentioned data structures are linear, whereas <em>Tree</em> is a non-linear data structure. Tree is composed of a set of nodes, and each node store data of any types and a node pointing to its child nodes. The components and parameters of a tree is depicted below. </p>
+<img src=https://user-images.githubusercontent.com/41487483/168463259-dd431267-5e86-41d6-ba7d-e72bef1d3fdc.png width="400"/>
+<p>Types of trees: Binary Tree, Binary Search Tree (BST), Red-Black Tree (RBT), 2-3 Tree, 2-3-4 Tree and so on.</p>
+<h4><a class="header" href="#applications-with-tree" id="applications-with-tree">Applications with Tree</a></h4>
+<ol>
+<li>
+<p>Storing hierarchy information, such file systems</p>
+</li>
+<li>
+<p>Searching: Tree is more efficienct for searching than <em>LinkedList</em></p>
+</li>
+<li>
+<p>Inheritance: Trees are used for inheritance, XML parser, machine learning, and DNS, amongst many other things.</p>
+</li>
+<li>
+<p>Indexing: Advanced types of trees, like B-Trees and B+ Trees, can be used for indexing a database.</p>
+</li>
+</ol>
+<p>and more ... </p>
+<h3><a class="header" href="#treversal" id="treversal">Treversal</a></h3>
+<p>There are two ways to traverse all nodes in a tree: Depth-First Traversal (DFT, 深度优先游历) and Breadth-First Traversal (BFT， 深度优先游历).</p>
+<h4><a class="header" href="#depth-first-traversal-dft" id="depth-first-traversal-dft">Depth-First Traversal (DFT)</a></h4>
+<p>Usually implemented by stack if using iteration.</p>
+<ol>
+<li>
+<p><strong>Preorder</strong>: visit node, go left, go right</p>
+<p>An illustration of the reorder traversal using stack data structure is shown below. </p>
+<p><img src="https://user-images.githubusercontent.com/41487483/168464660-e73fc945-65d5-41a7-9e25-e758b87b2eb7.png" alt="image" /></p>
+<p>The corresponding codes are:</p>
+<pre><code class="language-java">public static ArrayList&lt;Integer&gt; preOrderTraversalStack(TreeNode&lt;Integer&gt; root) {
+    // create a new ArrayList to store values
+    ArrayList&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+    if (root == null) return li;
+    // as it is DFT, uses stack
+    Stack&lt;TreeNode&lt;Integer&gt;&gt; stack = new Stack&lt;&gt;();
+    stack.push(root);
+    while (!stack.isEmpty()) {
+        TreeNode&lt;Integer&gt; node = stack.pop();
+        // add node value to the list before push child nodes to the stack
+        li.add(node.val);
+        // due to FILO manner, push right child node in order to get the left child node
+        if (node.right != null) stack.push(node.right);
+        if (node.left != null) stack.push(node.left);
+    }
+    return li;
+}
+</code></pre>
+<p>A more general method using Stack and Iteration:</p>
+<pre><code class="language-java">public static List&lt;Integer&gt; preorderTraversalIter2(TreeNode&lt;Integer&gt; root) {
+    List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+    Stack&lt;TreeNode&lt;Integer&gt;&gt; stack = new Stack&lt;&gt;();
+    TreeNode&lt;Integer&gt; node = root;
+    while (node != null || !stack.empty()) {
+        if (node != null) {
+            stack.push(node);
+            // add to the list once traverse on it
+            list.add(node.val);
+            node = node.left;
+        } else {
+            node = stack.pop();
+            node = node.right;
+        }
+    }
+    return list;
+}
+</code></pre>
+<p>Using recursion to implement preorder traversal:</p>
+<pre><code class="language-java">public static ArrayList&lt;Integer&gt; preOrderTraversalRec(TreeNode&lt;Integer&gt; root) {
+    // create a new ArrayList to store values
+    ArrayList&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+    if (root == null) return li;
+    helperRecursion(root, li);
+    return li;
+}
+
+private static void helperRecursion(TreeNode&lt;Integer&gt; root, ArrayList&lt;Integer&gt; li) {
+    if (root == null) return;
+    // Step 1: add node value to the list
+    li.add(root.val);
+    // Step 2: go left
+    helperRecursion(root.left, li);
+    // Step 3: go right
+    helperRecursion(root.right, li);
+}
+</code></pre>
+</li>
+<li>
+<p><strong>Inorder</strong>: go left, visit node, go right</p>
+<p>An illustration of the inorder traversal using stack data structure is shown below. </p>
+<p><img src="https://user-images.githubusercontent.com/41487483/168472395-90d9643b-9bb0-4b77-a603-d62d37bb7dee.png" alt="image" /></p>
+<p>The corresponding implementation using stack is as follows: </p>
+<pre><code class="language-java">public static List&lt;Integer&gt; inorderTraversalStack(TreeNode&lt;Integer&gt; root) {
+    List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+    Stack&lt;TreeNode&lt;Integer&gt;&gt; stack = new Stack&lt;&gt;();
+    TreeNode&lt;Integer&gt; currNode = root;
+    while(currNode!=null || !stack.empty()){
+        // traverse along the left edge to the bottom
+        if (currNode != null) {
+            stack.push(currNode);
+            currNode = currNode.left;
+        } else {
+            // pop each node from the stack and add value to the list
+            currNode = stack.pop();
+            list.add(currNode.val);
+            // push the right child node if exists
+            currNode = currNode.right;
+        }
+    }
+    return list;
+}
+</code></pre>
+<p>Recursion method:</p>
+<pre><code class="language-java">public static ArrayList&lt;Integer&gt; inOrderTraversalRec(TreeNode&lt;Integer&gt; root) {
+    ArrayList&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+    helperRecusion(root, li);
+    return li;
+}
+
+private static void helperRecusion(TreeNode&lt;Integer&gt; root, ArrayList&lt;Integer&gt; li) {
+    if (root == null) return;
+    helperRecusion(root.left, li);
+    li.add(root.val);
+    helperRecusion(root.right, li);
+}
+</code></pre>
+</li>
+<li>
+<p><strong>Postorder</strong>: go left, go right, visit node</p>
+<p>An illustration of the postorder traversal using stack data structure is shown below.</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/168475837-92118345-18c3-4759-8482-1787020abfcb.png" alt="image" /></p>
+<p>An example code for implementation of postorder traversal shows as follows</p>
+<pre><code class="language-java">// method 1: Normal iteration
+public List&lt;Integer&gt; postorderTraversalStack(TreeNode root) {
+    Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+    LinkedList&lt;Integer&gt; li = new LinkedList&lt;&gt;();
+    TreeNode node = root;
+    while (node != null || !stack.isEmpty()) {
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
+        }
+        // unlike inorder traversal, here we only &quot;peek&quot; the node in the stack 
+        // as we need to check if it has right child node
+        node = stack.peek();
+        // if it has, then traverse to the right child node
+        if (node.right != null) {
+            node = node.right;
+        } else {
+            // if it does not have, add this node value to the list
+            node = stack.pop();
+            li.add(node.val);
+            // check if this node is a right child node
+            // if it is, pop out the node and add the value to the list
+            while (!stack.isEmpty() &amp;&amp; node == stack.peek().right) {
+                node = stack.pop();
+                li.add(node.val);
+            }
+            node = null;
+        }
+    }
+    return li;
+}
+
+
+// method 2: reverse preorder traversal
+public static List&lt;Integer&gt; postorderTraversalStackRev(TreeNode&lt;Integer&gt; root) {
+    Stack&lt;TreeNode&lt;Integer&gt;&gt; stack = new Stack&lt;&gt;();
+    LinkedList&lt;Integer&gt; li = new LinkedList&lt;&gt;();
+    TreeNode&lt;Integer&gt; node = root;
+    while(node != null || !stack.isEmpty()) {
+        if (node != null) {
+            stack.push(node);
+            // to reverse preorder traversal,
+            // add the value of each node traversed to the head of the list
+            li.addFirst(node.val);
+            // until the right side bottom
+            node = node.right;
+        } else {
+            node = stack.pop();
+            node = node.left;
+        }
+    }
+    return li;
+}
+</code></pre>
+<p>Recursion method:</p>
+<pre><code class="language-java">public static List&lt;Integer&gt; postorderTraversalRec(TreeNode&lt;Integer&gt; root) {
+    List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+    helperRecursion(root, li);
+    return li;
+}
+
+private static void helperRecursion(TreeNode&lt;Integer&gt; root, List&lt;Integer&gt; li) {
+    if (root == null) return;
+    helperRecursion(root.left, li);
+    helperRecursion(root.right, li);
+    li.add(root.val);
+}
+</code></pre>
+</li>
+</ol>
+<h4><a class="header" href="#breadth-first-traversal-bft" id="breadth-first-traversal-bft">Breadth-First Traversal (BFT)</a></h4>
+<ol>
+<li>
+<p>Levelorder traversal: usually uses <em>Queue</em> to implement.</p>
+<p>The following example returns a list of node values via BFT using iteractive method.</p>
+<pre><code class="language-java">public static List&lt;Integer&gt; levelOrderStack(TreeNode&lt;Integer&gt; root) {
+    List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+    if (root == null) return li;
+    Queue&lt;TreeNode&lt;Integer&gt;&gt; queue = new LinkedList&lt;&gt;();
+    TreeNode&lt;Integer&gt; node = root;
+    queue.add(node);
+    while (!queue.isEmpty()) {
+        node = queue.poll();
+        li.add(node.val);
+        if (node.left != null) queue.add(node.left);
+        if (node.right != null) queue.add(node.right);
+    }
+    return li;
+}
+</code></pre>
+<p>Here is another example to re the node values level by level by store the node values in list and append each list to a list of lists. The main difference from the above example is that we add an extra variable <code>level</code> to track which level of the node is.</p>
+<pre><code class="language-java">public static List&lt;List&lt;Integer&gt;&gt; levelOrderLists(TreeNode&lt;Integer&gt; root) {
+    List&lt;List&lt;Integer&gt;&gt; results = new ArrayList&lt;&gt;();
+    // a queue to place each node traversed
+    Queue&lt;TreeNode&lt;Integer&gt;&gt; queue = new LinkedList&lt;&gt;(); 
+    if (root == null) return results;
+    TreeNode&lt;Integer&gt; node = root;
+    // add a variable to track level
+    queue.add(node);
+    while (!queue.isEmpty()) {
+        List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+        int level = queue.size();
+        // add the value of the nodes in certain level to the corresponding list
+        for (int i = 0; i &lt; level; i++) {
+            node = queue.remove();
+            li.add(node.val);
+            // if the node has child nodes, then add the child node to the queue and increase the level
+            if (node.left != null) queue.add(node.left);
+            if (node.right != null) queue.add(node.right);
+        }
+        results.add(li);
+    }
+    return results;
+}
+</code></pre>
+<p>The above implementation can also be achieved by recursive approach.</p>
+<pre><code class="language-java">public static List&lt;List&lt;Integer&gt;&gt; levelOrderListsRec(TreeNode&lt;Integer&gt; root) {
+    List&lt;List&lt;Integer&gt;&gt; results = new ArrayList&lt;&gt;();
+    helperListsRec(root, results, 0);
+    return results;
+}
+
+private static void helperListsRec(TreeNode&lt;Integer&gt; root, List&lt;List&lt;Integer&gt;&gt; results, int level) {
+    if (root == null) return;
+    if (results.size() == level) {
+        results.add(new ArrayList&lt;&gt;());
+    }
+    results.get(level).add(root.val);
+    helperListsRec(root.left, results, level + 1);
+    helperListsRec(root.right, results, level + 1);
+}
+</code></pre>
+</li>
+</ol>
+<h3><a class="header" href="#time-complexity-for-different-data-structure" id="time-complexity-for-different-data-structure">Time complexity for different data structure</a></h3>
+<p><img src="https://user-images.githubusercontent.com/41487483/168652255-bd722a31-5823-4708-9c41-622244bb1870.png" alt="image" /> <sup class="footnote-reference"><a href="#4">4</a></sup></p>
+<h3><a class="header" href="#other-application-case-for-tree-data-structure" id="other-application-case-for-tree-data-structure">Other application case for Tree data structure</a></h3>
+<h3><a class="header" href="#binary-search-tree" id="binary-search-tree">Binary Search Tree</a></h3>
+<hr />
+<p>reference</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>https://stackoverflow.com/a/23653021/15814147.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>https://techvidvan.com/tutorials/java-abstract-data-type/#:~:text=What%20is%20an%20Abstract%20Data,of%20operations%20on%20that%20type.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Michael T. Goodrich. Data Structures and Algorithms in Java. 4th Edition. P264</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>https://java-questions.com/ds-time-complexity.html</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../database.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../frontend/frontend.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../database.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../frontend/frontend.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
