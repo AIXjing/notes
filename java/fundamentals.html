@@ -168,6 +168,7 @@
                     <main>
                         <h1><a class="header" href="#java-fundamentals" id="java-fundamentals">Java fundamentals</a></h1>
 <h2><a class="header" href="#exceptions" id="exceptions">Exceptions</a></h2>
+<p>In Java, an exception is an event that disrupts the normal flow of the program <sup class="footnote-reference"><a href="#1">1</a></sup>. </p>
 <p>Many methods in Java to read and write files require that exceptions are handled. There are two main approaches: <em>lbyl (look at before you leap)</em> and <em>eafp (easy to ask for forgiveness than permission)</em>. </p>
 <ol>
 <li>
@@ -192,8 +193,57 @@
 </code></pre>
 </li>
 </ol>
-<p>In Java, <em>Exception</em> and <em>Runtime Exception</em> are classes defined in <em>java.lang</em>. Other exceptions are subclasses of these two exceptions. For example, in the above snippet, <code>ArithmetricException e</code> can be replaced by <code>Exception e</code> since <em>ArithmetricException</em> is a subclass of the <em>Exception</em> class. </p>
+<h3><a class="header" href="#checked-exception-vs-unchecked-exception" id="checked-exception-vs-unchecked-exception">Checked Exception vs. Unchecked Exception</a></h3>
+<p>The <em>Exception Handling in Java</em> is one of the powerful mechanism to handle the runtime errors so that the normal flow of the application can be maintained. The Exception class family in Java is depicted below:</p>
+<p><img src="https://user-images.githubusercontent.com/41487483/169143928-35f36c13-4a82-424d-84e3-dd8d2ac3780f.png" alt="image" /></p>
+<p>There are basically three types of exceptions: <em>Checked Exception</em>, <em>Unchecked Exception</em>, and <em>Error</em>. Sometimes, Error can be considered as Unchecked Exception. </p>
+<ul>
+<li>
+<p><strong>Checked Exceptions</strong>: All the subclasses of Exception class except for RuntimeException and its subclasses are checked exceptions. That is, if there is an checked exception in the code, the program won't be compiled if no exception handling.</p>
+<pre><code class="language-java">public class CheckedVsUnchecked {
+    public static void main (String[] args) {
+        readFile(&quot;myFile.txt&quot;);
+    }
+
+    private static void readFile (String fileName) {
+        // will throw a FileNotFoundException, that is checked exception
+        FileReader file = new FileReader(fileName);
+    }
+}
+</code></pre>
+<p>The above code would not compile because fileName may not exist, which will throw a <em>FileNotFoundException</em> (unchecked expcetion). To handle unchecked exception, we can use either <em>try-catch</em> method or <code>throws</code> exception in the function signature <sup class="footnote-reference"><a href="#2">2</a></sup>. The difference between <code>throw</code> within a method and <code>throws</code> in a method signature can be found in this <a href="https://www.javatpoint.com/difference-between-throw-and-throws-in-java">article</a>.</p>
+<pre><code class="language-java">public class CheckedVsUnchecked {
+    // it is important to throw an exception in main method as well
+    // in order to catch the exception thrown by readFile method
+    public static void main (String[] args) throws FileNotFoundException {
+        readFile(&quot;myFile.txt&quot;);
+    }
+
+    private static void readFile (String fileName) throws FileNotFoundException {
+        FileReader file = new FileReader(fileName);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p><strong>Unchekced Exception</strong>: The RuntimeException subclass of the Exception class and all its subclasses are unchecked exception. Runtime will not check this type of exception and the program will be compile but may fail. For example,</p>
+<pre><code class="language-java">public class CheckedVsUnchecked {
+    public static void main (String[] args) {
+        String name = null;
+        printLength(name);  // will throw NullPointerException even compiled.
+    }
+
+    private static void printLength (String myString) {
+        System.out.println(myString.length());
+    }
+}
+</code></pre>
+</li>
+</ul>
+<p>In this case, it is better to use try-catch method to handle this exception. </p>
+<h3><a class="header" href="#call-stack" id="call-stack">Call stack</a></h3>
 <p>When throwing an expcetion, Java automatically prints a <u>stack trace</u>, which is showing the <u>call stack</u>. Each <u>thread</u> of execution has its own call stack, and the thread is shown in the first line of the stack call.</p>
+<h3><a class="header" href="#try-catch-finally" id="try-catch-finally">try-catch(-finally)</a></h3>
 <p>A common way to handle exception is to throw a new exception with some information to indicate where might go wrong. For example,</p>
 <pre><code class="language-java">private static int divide() {
     int x, y;
@@ -212,12 +262,65 @@
 <pre><code class="language-java">private static void main (String[] args) {
     try {
         int result = divide();
-    } catch (ArithmetricException | NoSuchElementException e) {
+    } catch (ArithmetricException | NoSuchElementException e) {  // it is not logical symbol or
         System.out.println(e.toString);
         System.out.println(&quot;Unable to excute, the computer shutting down&quot;);
     }
 }
 </code></pre>
+<p>When Java code throws an exception, the runtime looks up the stack for a method that has a handler (like <code>catch</code>) that can process it. If it finds one, it passes the exception to it. If it doesn't, the program exists. </p>
+<p>No matter whether an exception occur in try-block or not, <code>finally</code> will ALWAYS be excuted. For example,</p>
+<pre><code class="language-java">// Java program to demonstrate control flow of try-catch-finally clause
+// when exception occur in try block but not handled in catch block
+class GFG {
+    public static void main (String[] args) {  
+        // array of size 4.
+        int[] arr = new int[4];
+         
+        try {
+            int i = arr[4];
+            // this statement will never execute
+            // as exception is raised by above statement
+            System.out.println(&quot;Inside try block&quot;);
+        }
+        // not a appropriate handler so the following statement will also not execute
+        catch(NullPointerException ex) {
+            System.out.println(&quot;Exception has been caught&quot;);
+        }
+         
+        finally { // will execute
+            System.out.println(&quot;finally block executed&quot;);
+        } 
+        // rest program will not execute
+        System.out.println(&quot;Outside try-catch-finally clause&quot;);
+    }
+}
+</code></pre>
+<p>However, if <code>NullPointerException</code> was replaced by <code>ArrayIndexOutOfBoundsException</code>, the correct exception, the statement in the <code>catch</code> will execute.</p>
+<p>Even if there is a <code>return</code> in <code>try</code> block, the <code>finally</code> statement will also be excuted.</p>
+<pre><code class="language-java">private static int printAnumber () {
+    try {
+        return 3;
+    } 
+    catch (Exception e) {
+        return 4;
+    }
+    finally {
+        return 5;
+    }
+    // output: 5, becauase the finally statement will override the above statement.
+}
+</code></pre>
+<h2><a class="header" href="#read-and-write-file" id="read-and-write-file">Read and Write File</a></h2>
+<p>If we want to make object persist, we need to write object into a file. See an example as below. Remember to close the file after writing. Failing to close streams can really cause problems such as <em>resouce link leak</em> and <em>lcoked file</em>.</p>
+<hr />
+<p>reference</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>https://www.javatpoint.com/exception-handling-in-java</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>https://www.youtube.com/watch?v=bCPClyGsVhc</p>
+</div>
 
                     </main>
 
