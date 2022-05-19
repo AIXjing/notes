@@ -476,9 +476,9 @@ $ git merge another_branch
     }
 }
 </code></pre>
+<p>In this case, it is better to use try-catch method to handle this exception. </p>
 </li>
 </ul>
-<p>In this case, it is better to use try-catch method to handle this exception. </p>
 <h3><a class="header" href="#call-stack" id="call-stack">Call stack</a></h3>
 <p>When throwing an expcetion, Java automatically prints a <u>stack trace</u>, which is showing the <u>call stack</u>. Each <u>thread</u> of execution has its own call stack, and the thread is shown in the first line of the stack call.</p>
 <h3><a class="header" href="#try-catch-finally" id="try-catch-finally">try-catch(-finally)</a></h3>
@@ -551,6 +551,67 @@ class GFG {
 </code></pre>
 <h2><a class="header" href="#read-and-write-file" id="read-and-write-file">Read and Write File</a></h2>
 <p>If we want to make object persist, we need to write object into a file. See an example as below. Remember to close the file after writing. Failing to close streams can really cause problems such as <em>resouce link leak</em> and <em>lcoked file</em>.</p>
+<h2><a class="header" href="#java-thread" id="java-thread">Java Thread</a></h2>
+<h3><a class="header" href="#what-is-thread" id="what-is-thread">What is thread?</a></h3>
+<blockquote>
+<p>In <em>Computer Science</em>, a <em>thread</em> of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler (a part of operating system). 线程是操作系统能够进行运算调度的最小单位。In most of cases, a thread is a component of a process. The multiple threads of a given process may be executed concurrently (via multithreading capabilities), sharing resources such as memory, while different processes do not share these resources <sup class="footnote-reference"><a href="#3">3</a></sup>. Below is an illustration of relationship between program, process, thread, scheduling, etc.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/41487483/169391153-e0849cf3-2922-4efa-8da5-3a1958a012d6.png" alt="image" /></p>
+<p>The following image shows two threads running on one process. </p>
+<p><img src="https://user-images.githubusercontent.com/41487483/169391837-d4b6ea52-419d-4148-8721-54260db9ba16.png" alt="image" /></p>
+<p>In Java, a <em>thread</em> is a thread of excution in a program, i.e., the direction or path that is taken while a program is being excuted. The <em>thread</em> class extends <em>Object</em> and implements <em>Runnable</em> <sup class="footnote-reference"><a href="#4">4</a></sup>. A thread enables multiple operations to take place within a single method. Each thread in the program often has its own program counter, stack, and local variables.</p>
+<h3><a class="header" href="#creating-a-thread" id="creating-a-thread">Creating a Thread</a></h3>
+<p>There are two ways to create a new thread of execution. One is to declare a class to be a subclass of Thread. This subclass should <strong>override</strong> the <code>run</code> method of class Thread. An instance of the subclass can then be allocated and started. </p>
+<p>To execute a thread, we need to call the <code>start()</code> function instead of <code>run</code>. The purpose of <code>start()</code> is to create a seperate call stack for the thread. See an example below:</p>
+<pre><code class="language-java">class ThreadTest extends Thread {
+    @Override
+    public void run(){
+        try {
+            System.out.println(&quot;Thread &quot; 
+                            + Thread.currentThread().getId()
+                            + &quot; is running&quot; )
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    public static void main (String[] args) {
+        for (int i = 0; i &lt; 8; i ++) {
+            ThreadTest test = new ThreadTest();
+            test.run();
+        }
+    }
+}
+</code></pre>
+<pre><code>output:
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+</code></pre>
+<p>Here only Thread 1 is running because of calling <code>run()</code> method directly, and the same call stack is used for all new thread. But if we change <code>test.run()</code> to <code>test.start()</code>, then we will have an output like <code>Thread 10 is running</code>, in which the number is randomly allocated. <sup class="footnote-reference"><a href="#5">5</a></sup></p>
+<pre><code class="language-java">public class MultiThreads extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 5; i++) {
+            System.out.println(i);
+        }
+        
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<h4><a class="header" href="#extending-thread-class" id="extending-thread-class">Extending Thread Class</a></h4>
 <hr />
 <p>reference</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
@@ -558,6 +619,15 @@ class GFG {
 </div>
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>https://www.youtube.com/watch?v=bCPClyGsVhc</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>https://en.wikipedia.org/wiki/Thread_(computing)</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<p>https://www.geeksforgeeks.org/start-function-multithreading-java/</p>
 </div>
 <h1><a class="header" href="#database" id="database">Database</a></h1>
 <h1><a class="header" href="#data-structure" id="data-structure">Data Structure</a></h1>
