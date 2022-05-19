@@ -86,7 +86,7 @@ There are basically three types of exceptions: *Checked Exception*, *Unchecked E
     }
     ```
 
-In this case, it is better to use try-catch method to handle this exception. 
+    In this case, it is better to use try-catch method to handle this exception. 
 
 ### Call stack
 
@@ -180,9 +180,95 @@ private static int printAnumber () {
 If we want to make object persist, we need to write object into a file. See an example as below. Remember to close the file after writing. Failing to close streams can really cause problems such as *resouce link leak* and *lcoked file*.
 
 
+## Java Thread
+
+### What is thread?
+
+> In *Computer Science*, a *thread* of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler (a part of operating system). 线程是操作系统能够进行运算调度的最小单位。In most of cases, a thread is a component of a process. The multiple threads of a given process may be executed concurrently (via multithreading capabilities), sharing resources such as memory, while different processes do not share these resources [^3]. Below is an illustration of relationship between program, process, thread, scheduling, etc.
+
+![image](https://user-images.githubusercontent.com/41487483/169391153-e0849cf3-2922-4efa-8da5-3a1958a012d6.png)
+
+The following image shows two threads running on one process. 
+
+![image](https://user-images.githubusercontent.com/41487483/169391837-d4b6ea52-419d-4148-8721-54260db9ba16.png)
+
+In Java, a *thread* is a thread of excution in a program, i.e., the direction or path that is taken while a program is being excuted. The *thread* class extends *Object* and implements *Runnable* [^4]. A thread enables multiple operations to take place within a single method. Each thread in the program often has its own program counter, stack, and local variables.
+
+### Creating a Thread 
+
+There are two ways to create a new thread of execution. One is to declare a class to be a subclass of Thread. This subclass should **override** the `run` method of class Thread. An instance of the subclass can then be allocated and started. 
+
+To execute a thread, we need to call the `start()` function instead of `run`. The purpose of `start()` is to create a seperate call stack for the thread. See an example below:
+
+```java
+class ThreadTest extends Thread {
+    @Override
+    public void run(){
+        try {
+            System.out.println("Thread " 
+                            + Thread.currentThread().getId()
+                            + " is running" )
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    public static void main (String[] args) {
+        for (int i = 0; i < 8; i ++) {
+            ThreadTest test = new ThreadTest();
+            test.run();
+        }
+    }
+}
+```
+
+```
+output:
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+Thread 1 is running
+```
+
+Here only Thread 1 is running because of calling `run()` method directly, and the same call stack is used for all new thread. But if we change `test.run()` to `test.start()`, then we will have an output like `Thread 10 is running`, in which the number is randomly allocated. [^5]
+
+
+```java
+public class MultiThreads extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+        }
+        
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+#### Extending Thread Class
+
+
+
 -------
 reference
 
 [^1]: https://www.javatpoint.com/exception-handling-in-java
 
 [^2]: https://www.youtube.com/watch?v=bCPClyGsVhc
+
+[^3]: https://en.wikipedia.org/wiki/Thread_(computing)
+
+[^4]: https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html
+
+[^5]: https://www.geeksforgeeks.org/start-function-multithreading-java/
